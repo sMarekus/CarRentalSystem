@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\apurv\\OneDrive\\Desktop\\Semester 3\\SEP3\\CarRentalSystem\\cCarRentalSystem\\Domain\\Domain.csproj": {}
+    "C:\\Users\\tomim\\Documents\\GitHub\\CarRentalSystem\\cCarRentalSystem\\Domain\\Domain.csproj": {}
   },
   "projects": {
-    "C:\\Users\\apurv\\OneDrive\\Desktop\\Semester 3\\SEP3\\CarRentalSystem\\cCarRentalSystem\\Domain\\Domain.csproj": {
+    "C:\\Users\\tomim\\Documents\\GitHub\\CarRentalSystem\\cCarRentalSystem\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\apurv\\OneDrive\\Desktop\\Semester 3\\SEP3\\CarRentalSystem\\cCarRentalSystem\\Domain\\Domain.csproj",
+        "projectUniqueName": "C:\\Users\\tomim\\Documents\\GitHub\\CarRentalSystem\\cCarRentalSystem\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "C:\\Users\\apurv\\OneDrive\\Desktop\\Semester 3\\SEP3\\CarRentalSystem\\cCarRentalSystem\\Domain\\Domain.csproj",
-        "packagesPath": "C:\\Users\\apurv\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\apurv\\OneDrive\\Desktop\\Semester 3\\SEP3\\CarRentalSystem\\cCarRentalSystem\\Domain\\obj\\",
+        "projectPath": "C:\\Users\\tomim\\Documents\\GitHub\\CarRentalSystem\\cCarRentalSystem\\Domain\\Domain.csproj",
+        "packagesPath": "C:\\Users\\tomim\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\tomim\\Documents\\GitHub\\CarRentalSystem\\cCarRentalSystem\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\apurv\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\tomim\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
