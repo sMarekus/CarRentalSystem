@@ -21,9 +21,9 @@ main {
     align-items: center;
 }
 
-    .top-row ::deep a, .top-row .btn-link {
-        white-space: nowrap;
-        margin-left: 1.5rem;
+    .top-row span {
+        margin-left: 10px;
+        margin-right: 10px;
     }
 
     .top-row a:first-child {
