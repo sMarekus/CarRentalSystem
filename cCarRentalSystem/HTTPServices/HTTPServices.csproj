@@ -7,11 +7,8 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Folder Include="Implementations\" />
-    </ItemGroup>
-
-    <ItemGroup>
       <ProjectReference Include="..\Domain\Domain.csproj" />
     </ItemGroup>
+
 
 </Project>
