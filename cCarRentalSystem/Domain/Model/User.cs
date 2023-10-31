@@ -5,17 +5,17 @@ public class User
     private string FirstName { get; }
     private string LastName { get; }
     private string Email { get; }
-    private string DateOfBirth { get; }
+    private string Password { get; }
     private int CPRNumber { get; }
     private int PhoneNumber { get; }
 
 
-    public User(string firstName, string lastName, string email,string dateOfBirth,int cprNumber,int phoneNumber)
+    public User(string firstName, string lastName, string email,string password,int cprNumber,int phoneNumber)
     {
         FirstName = firstName;
         LastName = lastName;
         Email = email;
-        DateOfBirth = dateOfBirth;
+        Password = password;
         CPRNumber = cprNumber;
         PhoneNumber = phoneNumber;
     }
