@@ -7,11 +7,16 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <Protobuf Include="Protos\greet.proto" GrpcServices="Server"/>
+        <PackageReference Include="Google.Protobuf.Tools" Version="3.25.0" />
+        <PackageReference Include="Grpc.AspNetCore" Version="2.49.0"/>
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Grpc.AspNetCore" Version="2.49.0"/>
+      <ProjectReference Include="..\EfcDataAccess\EfcDataAccess.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="GeneratedFiles\Protos\" />
     </ItemGroup>
 
 </Project>
