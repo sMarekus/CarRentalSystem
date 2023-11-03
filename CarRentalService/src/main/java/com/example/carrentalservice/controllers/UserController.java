@@ -1,42 +1,28 @@
 package com.example.carrentalservice.controllers;
 
 import com.example.carrentalservice.model.User;
+import com.example.carrentalservice.service.IUserService;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.List;
-
-@RestController()
+@RestController
+@CrossOrigin(origins = "http://localhost:8080")
 public class UserController {
+
+    private final IUserService userService;
+    public UserController(IUserService userService) {
+        this.userService = userService;
+
+    }
+
 
     @PostMapping(value = "/users")
     public ResponseEntity<User> createUser(@RequestBody User user) {
         try{
-            System.out.println(user.getFirstName() + " " + user.getLastName());
-            return ResponseEntity.ok(user);
+            return new ResponseEntity<>(userService.createUser(user), HttpStatus.OK);
         } catch (Exception e) {
-            return ResponseEntity.badRequest().build();
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
-
     }
-    @GetMapping(value = "/users")
-    public ResponseEntity<List<User>> getUsers() {
-        try{
-            List<User> users = List.of(new User("John", "Doe")
-                , new User("Jane", "Doe"),
-                        new User("John", "Smith"));
-
-
-            users.forEach(System.out::println);
-            return ResponseEntity.ok(users);
-        } catch (Exception e) {
-            return ResponseEntity.badRequest().build();
-        }
-
-    }
-
 }
