@@ -1,0 +1,17 @@
+C:\Users\marek\School\Semester 3\SEP\CarRentalSystem\CarRentalData\EfcDataAccess\bin\Debug\net7.0\EfcDataAccess.deps.json
+C:\Users\marek\School\Semester 3\SEP\CarRentalSystem\CarRentalData\EfcDataAccess\bin\Debug\net7.0\EfcDataAccess.runtimeconfig.json
+C:\Users\marek\School\Semester 3\SEP\CarRentalSystem\CarRentalData\EfcDataAccess\bin\Debug\net7.0\EfcDataAccess.dll
+C:\Users\marek\School\Semester 3\SEP\CarRentalSystem\CarRentalData\EfcDataAccess\bin\Debug\net7.0\EfcDataAccess.pdb
+C:\Users\marek\School\Semester 3\SEP\CarRentalSystem\CarRentalData\EfcDataAccess\bin\Debug\net7.0\Entity.dll
+C:\Users\marek\School\Semester 3\SEP\CarRentalSystem\CarRentalData\EfcDataAccess\bin\Debug\net7.0\Entity.pdb
+C:\Users\marek\School\Semester 3\SEP\CarRentalSystem\CarRentalData\EfcDataAccess\obj\Debug\net7.0\EfcDataAccess.csproj.AssemblyReference.cache
+C:\Users\marek\School\Semester 3\SEP\CarRentalSystem\CarRentalData\EfcDataAccess\obj\Debug\net7.0\EfcDataAccess.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\marek\School\Semester 3\SEP\CarRentalSystem\CarRentalData\EfcDataAccess\obj\Debug\net7.0\EfcDataAccess.AssemblyInfoInputs.cache
+C:\Users\marek\School\Semester 3\SEP\CarRentalSystem\CarRentalData\EfcDataAccess\obj\Debug\net7.0\EfcDataAccess.AssemblyInfo.cs
+C:\Users\marek\School\Semester 3\SEP\CarRentalSystem\CarRentalData\EfcDataAccess\obj\Debug\net7.0\EfcDataAccess.csproj.CoreCompileInputs.cache
+C:\Users\marek\School\Semester 3\SEP\CarRentalSystem\CarRentalData\EfcDataAccess\obj\Debug\net7.0\EfcDataAccess.csproj.CopyComplete
+C:\Users\marek\School\Semester 3\SEP\CarRentalSystem\CarRentalData\EfcDataAccess\obj\Debug\net7.0\EfcDataAccess.dll
+C:\Users\marek\School\Semester 3\SEP\CarRentalSystem\CarRentalData\EfcDataAccess\obj\Debug\net7.0\refint\EfcDataAccess.dll
+C:\Users\marek\School\Semester 3\SEP\CarRentalSystem\CarRentalData\EfcDataAccess\obj\Debug\net7.0\EfcDataAccess.pdb
+C:\Users\marek\School\Semester 3\SEP\CarRentalSystem\CarRentalData\EfcDataAccess\obj\Debug\net7.0\EfcDataAccess.genruntimeconfig.cache
+C:\Users\marek\School\Semester 3\SEP\CarRentalSystem\CarRentalData\EfcDataAccess\obj\Debug\net7.0\ref\EfcDataAccess.dll
