@@ -1,8 +1,18 @@
 {
   "version": 2,
-  "dgSpecHash": "zVyW+VvQgpZuHtfCFsYaeWeAMiFx8vEczc0PcJQgWyj4C8CnlOwbdkD01RsRIdVjJzheI6ZoGmaUmHH/t6+UdQ==",
+  "dgSpecHash": "lRlh9UHIq1lD0T8xyO3QFWHRaC3TMP8kZKR7TbWb0CSfB5oj+GsXso85WHEbb+jgOtmhcfuyPEqosmBlEP7efA==",
   "success": true,
   "projectFilePath": "C:\\Users\\tomim\\Documents\\GitHub\\CarRentalSystem\\cCarRentalSystem\\Client\\BlazorApp\\BlazorApp.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\tomim\\.nuget\\packages\\microsoft.aspnetcore.authorization\\7.0.13\\microsoft.aspnetcore.authorization.7.0.13.nupkg.sha512",
+    "C:\\Users\\tomim\\.nuget\\packages\\microsoft.aspnetcore.components\\7.0.13\\microsoft.aspnetcore.components.7.0.13.nupkg.sha512",
+    "C:\\Users\\tomim\\.nuget\\packages\\microsoft.aspnetcore.components.analyzers\\7.0.13\\microsoft.aspnetcore.components.analyzers.7.0.13.nupkg.sha512",
+    "C:\\Users\\tomim\\.nuget\\packages\\microsoft.aspnetcore.components.authorization\\7.0.13\\microsoft.aspnetcore.components.authorization.7.0.13.nupkg.sha512",
+    "C:\\Users\\tomim\\.nuget\\packages\\microsoft.aspnetcore.metadata\\7.0.13\\microsoft.aspnetcore.metadata.7.0.13.nupkg.sha512",
+    "C:\\Users\\tomim\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\7.0.0\\microsoft.extensions.dependencyinjection.abstractions.7.0.0.nupkg.sha512",
+    "C:\\Users\\tomim\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\7.0.1\\microsoft.extensions.logging.abstractions.7.0.1.nupkg.sha512",
+    "C:\\Users\\tomim\\.nuget\\packages\\microsoft.extensions.options\\7.0.1\\microsoft.extensions.options.7.0.1.nupkg.sha512",
+    "C:\\Users\\tomim\\.nuget\\packages\\microsoft.extensions.primitives\\7.0.0\\microsoft.extensions.primitives.7.0.0.nupkg.sha512"
+  ],
   "logs": []
 }
