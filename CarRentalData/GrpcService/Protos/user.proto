@@ -12,6 +12,7 @@ message UserProtoObj {
   string password = 4;
   int64 cprNumber = 5;
   int64 phoneNumber = 6;
+  bool isAdmin = 7;
 }
 
 service UserProtoService {
