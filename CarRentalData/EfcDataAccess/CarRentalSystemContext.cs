@@ -9,7 +9,7 @@ public class CarRentalSystemContext : DbContext
     
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        optionsBuilder.UseSqlite("Data Source = ..\\EfcDataAccess\\Todo.db");
+        optionsBuilder.UseSqlite("Data Source = ..\\EfcDataAccess\\User.db");
         optionsBuilder.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);            
     }
     
