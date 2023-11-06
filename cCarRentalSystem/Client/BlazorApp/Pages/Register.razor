@@ -1,0 +1,68 @@
+﻿@page "/Register"
+@using Domain.DTOs
+@using HttpClients.ClientInterfaces
+@using BlazorApp.Services
+@inject IUserService userService;
+@inject IAuthService authService;
+<h3>Register</h3>
+
+<div class="card">
+    <h3>Register</h3>
+    <div class="form-group field">
+        <label>CPR:</label>
+        <input type="text" @bind="cpr" @bind:event="oninput"/>
+        <label>Password:</label>
+        <input type="text" @bind="password" @bind:event="oninput"/>
+        <label>Name:</label>
+        <input type="text" @bind="name" @bind:event="oninput"/>
+        <label>Surname:</label>
+        <input type="text" @bind="surname" @bind:event="oninput"/>
+        <label>Admin?</label>
+        <input type="checkbox" @bind="isAdmin"/>
+        @if (!string.IsNullOrEmpty(resultMsg))
+        {
+            <label style="color: @color">@resultMsg</label>
+        }
+    </div>
+    <div class="button-row">
+        <button @onclick="Create" disabled="@IsRegisterButtonDisabled" class="acceptbtn">Register</button>
+    </div>
+</div>
+
+
+@code {
+    private long cpr;
+    private string password = "";
+    private string name = "";
+    private string surname = "";
+    private bool isAdmin = false;
+    private string resultMsg = "";
+    private string color = "";
+    
+    private bool IsRegisterButtonDisabled => cpr==0 || string.IsNullOrWhiteSpace(password) || string.IsNullOrWhiteSpace(name) || string.IsNullOrWhiteSpace(surname);
+
+    
+    private async Task Create()
+    {
+        resultMsg = "";
+
+        try
+        {
+            await userService.CreateAsync(new UserCreationDto(cpr, name, surname, password, isAdmin));
+            await authService.LoginAsync(cpr, password);
+            cpr = 0;
+            password = "";
+            name = "";
+            surname = "";
+            isAdmin = false;
+            resultMsg = "User successfully created";
+            color = "green";
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            resultMsg = e.Message;
+            color = "red";
+        }
+    }
+}
