@@ -1,0 +1,11 @@
+C:\Users\tomim\Documents\GitHub\CarRentalSystem\cCarRentalSystem\Client\FileData\bin\Debug\net7.0\FileData.deps.json
+C:\Users\tomim\Documents\GitHub\CarRentalSystem\cCarRentalSystem\Client\FileData\bin\Debug\net7.0\FileData.dll
+C:\Users\tomim\Documents\GitHub\CarRentalSystem\cCarRentalSystem\Client\FileData\bin\Debug\net7.0\FileData.pdb
+C:\Users\tomim\Documents\GitHub\CarRentalSystem\cCarRentalSystem\Client\FileData\obj\Debug\net7.0\FileData.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\tomim\Documents\GitHub\CarRentalSystem\cCarRentalSystem\Client\FileData\obj\Debug\net7.0\FileData.AssemblyInfoInputs.cache
+C:\Users\tomim\Documents\GitHub\CarRentalSystem\cCarRentalSystem\Client\FileData\obj\Debug\net7.0\FileData.AssemblyInfo.cs
+C:\Users\tomim\Documents\GitHub\CarRentalSystem\cCarRentalSystem\Client\FileData\obj\Debug\net7.0\FileData.csproj.CoreCompileInputs.cache
+C:\Users\tomim\Documents\GitHub\CarRentalSystem\cCarRentalSystem\Client\FileData\obj\Debug\net7.0\FileData.dll
+C:\Users\tomim\Documents\GitHub\CarRentalSystem\cCarRentalSystem\Client\FileData\obj\Debug\net7.0\refint\FileData.dll
+C:\Users\tomim\Documents\GitHub\CarRentalSystem\cCarRentalSystem\Client\FileData\obj\Debug\net7.0\FileData.pdb
+C:\Users\tomim\Documents\GitHub\CarRentalSystem\cCarRentalSystem\Client\FileData\obj\Debug\net7.0\ref\FileData.dll
