@@ -9,7 +9,12 @@ public class CarRentalSystemContext : DbContext
     
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        optionsBuilder.UseSqlite("Data Source = Todo.db");
+        optionsBuilder.UseSqlite("Data Source = ..\\EfcDataAccess\\Todo.db");
         optionsBuilder.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);            
+    }
+    
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<UserEntity>().HasKey(user => user.Cpr);
     }
 }
