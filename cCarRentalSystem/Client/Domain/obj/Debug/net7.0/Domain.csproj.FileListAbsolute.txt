@@ -10,3 +10,15 @@ C:\Users\tomim\Documents\GitHub\CarRentalSystem\cCarRentalSystem\Client\Domain\o
 C:\Users\tomim\Documents\GitHub\CarRentalSystem\cCarRentalSystem\Client\Domain\obj\Debug\net7.0\refint\Domain.dll
 C:\Users\tomim\Documents\GitHub\CarRentalSystem\cCarRentalSystem\Client\Domain\obj\Debug\net7.0\Domain.pdb
 C:\Users\tomim\Documents\GitHub\CarRentalSystem\cCarRentalSystem\Client\Domain\obj\Debug\net7.0\ref\Domain.dll
+C:\Users\mkuku\Sep3Project\CarRentalSystem\cCarRentalSystem\Client\Domain\bin\Debug\net7.0\Domain.deps.json
+C:\Users\mkuku\Sep3Project\CarRentalSystem\cCarRentalSystem\Client\Domain\bin\Debug\net7.0\Domain.dll
+C:\Users\mkuku\Sep3Project\CarRentalSystem\cCarRentalSystem\Client\Domain\bin\Debug\net7.0\Domain.pdb
+C:\Users\mkuku\Sep3Project\CarRentalSystem\cCarRentalSystem\Client\Domain\obj\Debug\net7.0\Domain.csproj.AssemblyReference.cache
+C:\Users\mkuku\Sep3Project\CarRentalSystem\cCarRentalSystem\Client\Domain\obj\Debug\net7.0\Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\mkuku\Sep3Project\CarRentalSystem\cCarRentalSystem\Client\Domain\obj\Debug\net7.0\Domain.AssemblyInfoInputs.cache
+C:\Users\mkuku\Sep3Project\CarRentalSystem\cCarRentalSystem\Client\Domain\obj\Debug\net7.0\Domain.AssemblyInfo.cs
+C:\Users\mkuku\Sep3Project\CarRentalSystem\cCarRentalSystem\Client\Domain\obj\Debug\net7.0\Domain.csproj.CoreCompileInputs.cache
+C:\Users\mkuku\Sep3Project\CarRentalSystem\cCarRentalSystem\Client\Domain\obj\Debug\net7.0\Domain.dll
+C:\Users\mkuku\Sep3Project\CarRentalSystem\cCarRentalSystem\Client\Domain\obj\Debug\net7.0\refint\Domain.dll
+C:\Users\mkuku\Sep3Project\CarRentalSystem\cCarRentalSystem\Client\Domain\obj\Debug\net7.0\Domain.pdb
+C:\Users\mkuku\Sep3Project\CarRentalSystem\cCarRentalSystem\Client\Domain\obj\Debug\net7.0\ref\Domain.dll
