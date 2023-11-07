@@ -17,6 +17,10 @@
         <input type="text" @bind="name" @bind:event="oninput"/>
         <label>Surname:</label>
         <input type="text" @bind="surname" @bind:event="oninput"/>
+        <label>Email:</label>
+        <input type="text" @bind="email" @bind:event="oninput"/>
+        <label>Phone number:</label>
+        <input type="text" @bind="phonenumber" @bind:event="oninput"/>
         <label>Admin?</label>
         <input type="checkbox" @bind="isAdmin"/>
         @if (!string.IsNullOrEmpty(resultMsg))
@@ -36,6 +40,8 @@
     private string name = "";
     private string surname = "";
     private bool isAdmin = false;
+    private string email = "";
+    private string phonenumber = "";
     private string resultMsg = "";
     private string color = "";
     
@@ -48,12 +54,14 @@
 
         try
         {
-            await userService.CreateAsync(new UserCreationDto(cpr, name, surname, password, isAdmin));
+            await userService.CreateAsync(new UserCreationDto(name, surname, email, password, cpr, phonenumber, isAdmin));
             await authService.LoginAsync(cpr, password);
             cpr = 0;
             password = "";
             name = "";
             surname = "";
+            email = "";
+            phonenumber = "";
             isAdmin = false;
             resultMsg = "User successfully created";
             color = "green";
