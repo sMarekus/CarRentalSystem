@@ -9,14 +9,18 @@
 <div class="card">
     <h3>Register</h3>
     <div class="form-group field">
-        <label>CPR:</label>
-        <input type="text" @bind="cpr" @bind:event="oninput"/>
+        <label>First Name:</label>
+        <input type="text" @bind="firstName" @bind:event="oninput"/>
+        <label>Last Name:</label>
+        <input type="text" @bind="lastName" @bind:event="oninput"/>
+        <label>Email:</label>
+        <input type="text" @bind="email" @bind:event="oninput"/>
         <label>Password:</label>
-        <input type="text" @bind="password" @bind:event="oninput"/>
-        <label>Name:</label>
-        <input type="text" @bind="name" @bind:event="oninput"/>
-        <label>Surname:</label>
-        <input type="text" @bind="surname" @bind:event="oninput"/>
+        <input type="password" @bind="password" @bind:event="oninput"/>
+        <label>Cpr Number:</label>
+        <input type="text" @bind="cprNumber" @bind:event="oninput"/>
+        <label>Password:</label>
+        <input type="text" @bind="phoneNumber" @bind:event="oninput"/>
         <label>Admin?</label>
         <input type="checkbox" @bind="isAdmin"/>
         @if (!string.IsNullOrEmpty(resultMsg))
@@ -31,29 +35,35 @@
 
 
 @code {
-    private long cpr;
+    private string firstName = "";
+    private string lastName = "";
+    private string email = "";
     private string password = "";
-    private string name = "";
-    private string surname = "";
+    private long cprNumber=0;
+    private long phoneNumber=0;
     private bool isAdmin = false;
     private string resultMsg = "";
     private string color = "";
     
-    private bool IsRegisterButtonDisabled => cpr==0 || string.IsNullOrWhiteSpace(password) || string.IsNullOrWhiteSpace(name) || string.IsNullOrWhiteSpace(surname);
+    
+    private bool IsRegisterButtonDisabled => cprNumber==0 || string.IsNullOrWhiteSpace(password) || string.IsNullOrWhiteSpace(firstName) || string.IsNullOrWhiteSpace(lastName);
 
     
     private async Task Create()
     {
         resultMsg = "";
+        color="";
 
         try
         {
-            await userService.CreateAsync(new UserCreationDto(cpr, name, surname, password, isAdmin));
-            await authService.LoginAsync(cpr, password);
-            cpr = 0;
+            await userService.CreateAsync(new UserCreationDto(firstName, lastName, email, password, cprNumber, phoneNumber, isAdmin));
+            await authService.LoginAsync(cprNumber, password);
+            firstName = "";
+            lastName = "";
+            email = "";
             password = "";
-            name = "";
-            surname = "";
+            cprNumber = 0;  
+            phoneNumber= 0;
             isAdmin = false;
             resultMsg = "User successfully created";
             color = "green";
