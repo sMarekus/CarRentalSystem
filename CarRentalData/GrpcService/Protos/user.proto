@@ -2,23 +2,23 @@ syntax = "proto3";
 
 option csharp_namespace = "CarRentalData";
 
-import "google/protobuf/wrappers.proto";
-import "google/protobuf/empty.proto";
-
-message UserProtoObj {
-  string first_name = 1;
-  string last_name = 2;
-  string email = 3;
-  string password = 4;
-  int64 cprNumber = 5;
-  int64 phoneNumber = 6;
-  bool isAdmin = 7;
+message UserProtoObj
+{
+  string firstName=1;
+  string lastName=2;
+  string email=3;
+  string password=4;
+  int64 cprNumber=5;
+  int64 phoneNumber=6;
+  bool isAdmin=7;
 }
 
-service UserProtoService {
+service UserProtoService
+{
   rpc CreateUser(UserProtoObj) returns (UserProtoObj){}
 }
 
-message UserListResponse {
-  repeated UserProtoObj allUsers = 1;
+message UserListResponse
+{
+  repeated UserProtoObj allUsers=1;
 }
