@@ -2,6 +2,8 @@ syntax = "proto3";
 
 option csharp_namespace = "CarRentalData";
 
+package proto;
+
 message UserProtoObj
 {
   string firstName=1;
