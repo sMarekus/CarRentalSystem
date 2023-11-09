@@ -5,7 +5,7 @@ namespace EfcDataAccess;
 
 public class CarRentalSystemContext : DbContext
 {
-    public DbSet<UserEntity?> Users { get; set; }
+    public DbSet<User?> Users { get; set; }
     
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
@@ -15,6 +15,6 @@ public class CarRentalSystemContext : DbContext
     
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<UserEntity>().HasKey(user => user.Cpr);
+        modelBuilder.Entity<User>().HasKey(user => user.Cpr);
     }
 }

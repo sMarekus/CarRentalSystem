@@ -19,9 +19,9 @@ public class UserService : UserProtoService.UserProtoServiceBase
     public override async Task<UserProtoObj> CreateUser(UserProtoObj request, ServerCallContext context)
     {
         try
-        {
-            UserEntity? toAddUser = FromProtoToEntity(request);
-            UserEntity? addedUser = await userDao.CreateUserAsync(toAddUser);
+        {   Console.WriteLine("Service class received request");
+            User? toAddUser = FromProtoToEntity(request);
+            User? addedUser = await userDao.CreateUserAsync(toAddUser);
 
             UserProtoObj userProtoObj = FromEntityToProto(addedUser);
             return userProtoObj;
@@ -33,9 +33,9 @@ public class UserService : UserProtoService.UserProtoServiceBase
         }
     }
 
-    public static UserEntity? FromProtoToEntity(UserProtoObj userProtoObj)
+    public static User? FromProtoToEntity(UserProtoObj userProtoObj)
     {
-        UserEntity? userEntity = new UserEntity()
+        User? userEntity = new User()
         {
             Cpr = userProtoObj.CprNumber,
             FirstName = userProtoObj.FirstName,
@@ -49,7 +49,7 @@ public class UserService : UserProtoService.UserProtoServiceBase
         return userEntity;
     }
     
-    public static UserProtoObj FromEntityToProto(UserEntity? userEntity)
+    public static UserProtoObj FromEntityToProto(User? userEntity)
     {
         UserProtoObj userProtoObj = new UserProtoObj()
         {
