@@ -13,7 +13,7 @@ public class UserService : UserProtoService.UserProtoServiceBase
     
     public UserService(IUserDao userDao)
     {
-        userDao = userDao;
+        this.userDao = userDao;
     }
 
     public override async Task<UserProtoObj> CreateUser(UserProtoObj request, ServerCallContext context)
