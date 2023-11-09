@@ -4,20 +4,25 @@ public class User {
     private String lastName;
     private String email;
     private String password;
-    private int cprNumber;
-    private int phoneNumber;
+    private long cprNumber;
+    private long phoneNumber;
+
+    private boolean isAdmin;
+
+
 
     public User() {
 
     }
 
-    public User(String firstName, String lastName, String email, String password, int cprNumber, int phoneNumber) {
+    public User(String firstName, String lastName, String email, String password, long cprNumber, long phoneNumber,boolean isAdmin) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.password = password;
         this.cprNumber = cprNumber;
         this.phoneNumber = phoneNumber;
+        this.isAdmin = isAdmin;
     }
 
     public String getFirstName() {
@@ -36,12 +41,16 @@ public class User {
         return this.password;
     }
 
-    public int getCprNumber() {
+    public long getCprNumber() {
         return this.cprNumber;
     }
 
-    public int getPhoneNumber() {
+    public long getPhoneNumber() {
         return this.phoneNumber;
+    }
+
+    public boolean getIsAdmin() {
+        return this.isAdmin;
     }
 
     public void setFirstName(String firstName) {
@@ -66,6 +75,10 @@ public class User {
 
     public void setPhoneNumber(int phoneNumber) {
         this.phoneNumber = phoneNumber;
+    }
+
+    public void setIsAdmin(boolean isAdmin) {
+        this.isAdmin = isAdmin;
     }
 
     @Override
