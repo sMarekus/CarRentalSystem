@@ -24,17 +24,15 @@ namespace CarRentalData {
     static UserReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "Cgp1c2VyLnByb3RvGh5nb29nbGUvcHJvdG9idWYvd3JhcHBlcnMucHJvdG8a",
-            "G2dvb2dsZS9wcm90b2J1Zi9lbXB0eS5wcm90byKPAQoMVXNlclByb3RvT2Jq",
-            "EhIKCmZpcnN0X25hbWUYASABKAkSEQoJbGFzdF9uYW1lGAIgASgJEg0KBWVt",
-            "YWlsGAMgASgJEhAKCHBhc3N3b3JkGAQgASgJEhEKCWNwck51bWJlchgFIAEo",
-            "AxITCgtwaG9uZU51bWJlchgGIAEoAxIPCgdpc0FkbWluGAcgASgIIjMKEFVz",
-            "ZXJMaXN0UmVzcG9uc2USHwoIYWxsVXNlcnMYASADKAsyDS5Vc2VyUHJvdG9P",
-            "YmoyQAoQVXNlclByb3RvU2VydmljZRIsCgpDcmVhdGVVc2VyEg0uVXNlclBy",
-            "b3RvT2JqGg0uVXNlclByb3RvT2JqIgBCEKoCDUNhclJlbnRhbERhdGFiBnBy",
-            "b3RvMw=="));
+            "Cgp1c2VyLnByb3RvIo0BCgxVc2VyUHJvdG9PYmoSEQoJZmlyc3ROYW1lGAEg",
+            "ASgJEhAKCGxhc3ROYW1lGAIgASgJEg0KBWVtYWlsGAMgASgJEhAKCHBhc3N3",
+            "b3JkGAQgASgJEhEKCWNwck51bWJlchgFIAEoAxITCgtwaG9uZU51bWJlchgG",
+            "IAEoAxIPCgdpc0FkbWluGAcgASgIIjMKEFVzZXJMaXN0UmVzcG9uc2USHwoI",
+            "YWxsVXNlcnMYASADKAsyDS5Vc2VyUHJvdG9PYmoyQAoQVXNlclByb3RvU2Vy",
+            "dmljZRIsCgpDcmVhdGVVc2VyEg0uVXNlclByb3RvT2JqGg0uVXNlclByb3Rv",
+            "T2JqIgBCEKoCDUNhclJlbnRhbERhdGFiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.WrappersReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.EmptyReflection.Descriptor, },
+          new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::CarRentalData.UserProtoObj), global::CarRentalData.UserProtoObj.Parser, new[]{ "FirstName", "LastName", "Email", "Password", "CprNumber", "PhoneNumber", "IsAdmin" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::CarRentalData.UserListResponse), global::CarRentalData.UserListResponse.Parser, new[]{ "AllUsers" }, null, null, null, null)
@@ -95,7 +93,7 @@ namespace CarRentalData {
       return new UserProtoObj(this);
     }
 
-    /// <summary>Field number for the "first_name" field.</summary>
+    /// <summary>Field number for the "firstName" field.</summary>
     public const int FirstNameFieldNumber = 1;
     private string firstName_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -107,7 +105,7 @@ namespace CarRentalData {
       }
     }
 
-    /// <summary>Field number for the "last_name" field.</summary>
+    /// <summary>Field number for the "lastName" field.</summary>
     public const int LastNameFieldNumber = 2;
     private string lastName_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
