@@ -13,11 +13,12 @@ public class UserDao : IUserDao
         this.context = context;
     }
     
-    public async Task<UserEntity?> CreateUserAsync(UserEntity? userEntity)
+    public async Task<User?> CreateUserAsync(User? userEntity)
     {
         try
         {
-            EntityEntry<UserEntity>? userEntityEntry = await context.Users.AddAsync(userEntity);
+            Console.WriteLine("DAO class received request");
+            EntityEntry<User>? userEntityEntry = await context.Users.AddAsync(userEntity);
             await context.SaveChangesAsync();
             return userEntityEntry.Entity;
         }

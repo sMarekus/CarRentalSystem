@@ -2,7 +2,7 @@
 
 namespace Entity.Model;
 
-public class UserEntity
+public class User
 {
     [Key]
     public long Cpr { get; set; }
