@@ -19,21 +19,21 @@ public final class User {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>string first_name = 1;</code>
+     * <code>string firstName = 1;</code>
      */
     java.lang.String getFirstName();
     /**
-     * <code>string first_name = 1;</code>
+     * <code>string firstName = 1;</code>
      */
     com.google.protobuf.ByteString
         getFirstNameBytes();
 
     /**
-     * <code>string last_name = 2;</code>
+     * <code>string lastName = 2;</code>
      */
     java.lang.String getLastName();
     /**
-     * <code>string last_name = 2;</code>
+     * <code>string lastName = 2;</code>
      */
     com.google.protobuf.ByteString
         getLastNameBytes();
@@ -67,6 +67,11 @@ public final class User {
      * <code>int64 phoneNumber = 6;</code>
      */
     long getPhoneNumber();
+
+    /**
+     * <code>bool isAdmin = 7;</code>
+     */
+    boolean getIsAdmin();
   }
   /**
    * Protobuf type {@code proto.UserProtoObj}
@@ -87,6 +92,7 @@ public final class User {
       password_ = "";
       cprNumber_ = 0L;
       phoneNumber_ = 0L;
+      isAdmin_ = false;
     }
 
     @java.lang.Override
@@ -147,6 +153,11 @@ public final class User {
               phoneNumber_ = input.readInt64();
               break;
             }
+            case 56: {
+
+              isAdmin_ = input.readBool();
+              break;
+            }
             default: {
               if (!parseUnknownFieldProto3(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -179,10 +190,10 @@ public final class User {
               proto.User.UserProtoObj.class, proto.User.UserProtoObj.Builder.class);
     }
 
-    public static final int FIRST_NAME_FIELD_NUMBER = 1;
+    public static final int FIRSTNAME_FIELD_NUMBER = 1;
     private volatile java.lang.Object firstName_;
     /**
-     * <code>string first_name = 1;</code>
+     * <code>string firstName = 1;</code>
      */
     public java.lang.String getFirstName() {
       java.lang.Object ref = firstName_;
@@ -197,7 +208,7 @@ public final class User {
       }
     }
     /**
-     * <code>string first_name = 1;</code>
+     * <code>string firstName = 1;</code>
      */
     public com.google.protobuf.ByteString
         getFirstNameBytes() {
@@ -213,10 +224,10 @@ public final class User {
       }
     }
 
-    public static final int LAST_NAME_FIELD_NUMBER = 2;
+    public static final int LASTNAME_FIELD_NUMBER = 2;
     private volatile java.lang.Object lastName_;
     /**
-     * <code>string last_name = 2;</code>
+     * <code>string lastName = 2;</code>
      */
     public java.lang.String getLastName() {
       java.lang.Object ref = lastName_;
@@ -231,7 +242,7 @@ public final class User {
       }
     }
     /**
-     * <code>string last_name = 2;</code>
+     * <code>string lastName = 2;</code>
      */
     public com.google.protobuf.ByteString
         getLastNameBytes() {
@@ -333,6 +344,15 @@ public final class User {
       return phoneNumber_;
     }
 
+    public static final int ISADMIN_FIELD_NUMBER = 7;
+    private boolean isAdmin_;
+    /**
+     * <code>bool isAdmin = 7;</code>
+     */
+    public boolean getIsAdmin() {
+      return isAdmin_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -365,6 +385,9 @@ public final class User {
       if (phoneNumber_ != 0L) {
         output.writeInt64(6, phoneNumber_);
       }
+      if (isAdmin_ != false) {
+        output.writeBool(7, isAdmin_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -394,6 +417,10 @@ public final class User {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(6, phoneNumber_);
       }
+      if (isAdmin_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(7, isAdmin_);
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -422,6 +449,8 @@ public final class User {
           == other.getCprNumber());
       result = result && (getPhoneNumber()
           == other.getPhoneNumber());
+      result = result && (getIsAdmin()
+          == other.getIsAdmin());
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -433,9 +462,9 @@ public final class User {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + FIRST_NAME_FIELD_NUMBER;
+      hash = (37 * hash) + FIRSTNAME_FIELD_NUMBER;
       hash = (53 * hash) + getFirstName().hashCode();
-      hash = (37 * hash) + LAST_NAME_FIELD_NUMBER;
+      hash = (37 * hash) + LASTNAME_FIELD_NUMBER;
       hash = (53 * hash) + getLastName().hashCode();
       hash = (37 * hash) + EMAIL_FIELD_NUMBER;
       hash = (53 * hash) + getEmail().hashCode();
@@ -447,6 +476,9 @@ public final class User {
       hash = (37 * hash) + PHONENUMBER_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getPhoneNumber());
+      hash = (37 * hash) + ISADMIN_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getIsAdmin());
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -592,6 +624,8 @@ public final class User {
 
         phoneNumber_ = 0L;
 
+        isAdmin_ = false;
+
         return this;
       }
 
@@ -624,6 +658,7 @@ public final class User {
         result.password_ = password_;
         result.cprNumber_ = cprNumber_;
         result.phoneNumber_ = phoneNumber_;
+        result.isAdmin_ = isAdmin_;
         onBuilt();
         return result;
       }
@@ -694,6 +729,9 @@ public final class User {
         if (other.getPhoneNumber() != 0L) {
           setPhoneNumber(other.getPhoneNumber());
         }
+        if (other.getIsAdmin() != false) {
+          setIsAdmin(other.getIsAdmin());
+        }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -725,7 +763,7 @@ public final class User {
 
       private java.lang.Object firstName_ = "";
       /**
-       * <code>string first_name = 1;</code>
+       * <code>string firstName = 1;</code>
        */
       public java.lang.String getFirstName() {
         java.lang.Object ref = firstName_;
@@ -740,7 +778,7 @@ public final class User {
         }
       }
       /**
-       * <code>string first_name = 1;</code>
+       * <code>string firstName = 1;</code>
        */
       public com.google.protobuf.ByteString
           getFirstNameBytes() {
@@ -756,7 +794,7 @@ public final class User {
         }
       }
       /**
-       * <code>string first_name = 1;</code>
+       * <code>string firstName = 1;</code>
        */
       public Builder setFirstName(
           java.lang.String value) {
@@ -769,7 +807,7 @@ public final class User {
         return this;
       }
       /**
-       * <code>string first_name = 1;</code>
+       * <code>string firstName = 1;</code>
        */
       public Builder clearFirstName() {
         
@@ -778,7 +816,7 @@ public final class User {
         return this;
       }
       /**
-       * <code>string first_name = 1;</code>
+       * <code>string firstName = 1;</code>
        */
       public Builder setFirstNameBytes(
           com.google.protobuf.ByteString value) {
@@ -794,7 +832,7 @@ public final class User {
 
       private java.lang.Object lastName_ = "";
       /**
-       * <code>string last_name = 2;</code>
+       * <code>string lastName = 2;</code>
        */
       public java.lang.String getLastName() {
         java.lang.Object ref = lastName_;
@@ -809,7 +847,7 @@ public final class User {
         }
       }
       /**
-       * <code>string last_name = 2;</code>
+       * <code>string lastName = 2;</code>
        */
       public com.google.protobuf.ByteString
           getLastNameBytes() {
@@ -825,7 +863,7 @@ public final class User {
         }
       }
       /**
-       * <code>string last_name = 2;</code>
+       * <code>string lastName = 2;</code>
        */
       public Builder setLastName(
           java.lang.String value) {
@@ -838,7 +876,7 @@ public final class User {
         return this;
       }
       /**
-       * <code>string last_name = 2;</code>
+       * <code>string lastName = 2;</code>
        */
       public Builder clearLastName() {
         
@@ -847,7 +885,7 @@ public final class User {
         return this;
       }
       /**
-       * <code>string last_name = 2;</code>
+       * <code>string lastName = 2;</code>
        */
       public Builder setLastNameBytes(
           com.google.protobuf.ByteString value) {
@@ -1047,6 +1085,32 @@ public final class User {
       public Builder clearPhoneNumber() {
         
         phoneNumber_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private boolean isAdmin_ ;
+      /**
+       * <code>bool isAdmin = 7;</code>
+       */
+      public boolean getIsAdmin() {
+        return isAdmin_;
+      }
+      /**
+       * <code>bool isAdmin = 7;</code>
+       */
+      public Builder setIsAdmin(boolean value) {
+        
+        isAdmin_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bool isAdmin = 7;</code>
+       */
+      public Builder clearIsAdmin() {
+        
+        isAdmin_ = false;
         onChanged();
         return this;
       }
@@ -1904,14 +1968,14 @@ public final class User {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\nuser.proto\022\005proto\"~\n\014UserProtoObj\022\022\n\nf" +
-      "irst_name\030\001 \001(\t\022\021\n\tlast_name\030\002 \001(\t\022\r\n\005em" +
-      "ail\030\003 \001(\t\022\020\n\010password\030\004 \001(\t\022\021\n\tcprNumber" +
-      "\030\005 \001(\003\022\023\n\013phoneNumber\030\006 \001(\003\"9\n\020UserListR" +
-      "esponse\022%\n\010allUsers\030\001 \003(\0132\023.proto.UserPr" +
-      "otoObj2L\n\020UserProtoService\0228\n\nCreateUser" +
-      "\022\023.proto.UserProtoObj\032\023.proto.UserProtoO" +
-      "bj\"\000b\006proto3"
+      "\n\nuser.proto\022\005proto\"\215\001\n\014UserProtoObj\022\021\n\t" +
+      "firstName\030\001 \001(\t\022\020\n\010lastName\030\002 \001(\t\022\r\n\005ema" +
+      "il\030\003 \001(\t\022\020\n\010password\030\004 \001(\t\022\021\n\tcprNumber\030" +
+      "\005 \001(\003\022\023\n\013phoneNumber\030\006 \001(\003\022\017\n\007isAdmin\030\007 " +
+      "\001(\010\"9\n\020UserListResponse\022%\n\010allUsers\030\001 \003(" +
+      "\0132\023.proto.UserProtoObj2L\n\020UserProtoServi" +
+      "ce\0228\n\nCreateUser\022\023.proto.UserProtoObj\032\023." +
+      "proto.UserProtoObj\"\000b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -1930,7 +1994,7 @@ public final class User {
     internal_static_proto_UserProtoObj_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_proto_UserProtoObj_descriptor,
-        new java.lang.String[] { "FirstName", "LastName", "Email", "Password", "CprNumber", "PhoneNumber", });
+        new java.lang.String[] { "FirstName", "LastName", "Email", "Password", "CprNumber", "PhoneNumber", "IsAdmin", });
     internal_static_proto_UserListResponse_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_proto_UserListResponse_fieldAccessorTable = new

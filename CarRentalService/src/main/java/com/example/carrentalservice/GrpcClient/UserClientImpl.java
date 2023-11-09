@@ -21,6 +21,7 @@ public class UserClientImpl implements IUserClient
     @Override
     public User createUser(User user) {
         try {
+            System.out.println("Creating user");
             proto.User.UserProtoObj userProtoObj = fromEntityToProtoObj(user);
             proto.User.UserProtoObj protoObjFromServer = getUserStub().createUser(userProtoObj);
             return fromProtoObjToEntity(protoObjFromServer);
@@ -36,7 +37,8 @@ public class UserClientImpl implements IUserClient
                 .setEmail(userEntity.getEmail())
                 .setPassword(userEntity.getPassword())
                 .setCprNumber(userEntity.getCprNumber())
-                .setPhoneNumber(userEntity.getPhoneNumber());
+                .setPhoneNumber(userEntity.getPhoneNumber())
+                .setIsAdmin(userEntity.getIsAdmin());
         return builder.build();
     }
 
@@ -49,6 +51,7 @@ public class UserClientImpl implements IUserClient
         userEntity.setPassword(userProtoObj.getPassword());
         userEntity.setCprNumber((int) userProtoObj.getCprNumber());
         userEntity.setPhoneNumber((int)userProtoObj.getPhoneNumber());
+        userEntity.setIsAdmin(userProtoObj.getIsAdmin());
         return userEntity;
     }
 }
