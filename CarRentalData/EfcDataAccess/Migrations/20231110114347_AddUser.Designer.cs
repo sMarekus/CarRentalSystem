@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EfcDataAccess.Migrations
 {
     [DbContext(typeof(CarRentalSystemContext))]
-    [Migration("20231103075857_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20231110114347_AddUser")]
+    partial class AddUser
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -19,9 +19,9 @@ namespace EfcDataAccess.Migrations
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "7.0.13");
 
-            modelBuilder.Entity("Entity.Model.UserEntity", b =>
+            modelBuilder.Entity("Entity.Model.User", b =>
                 {
-                    b.Property<long>("Cpr")
+                    b.Property<long>("CprNumber")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
@@ -47,7 +47,7 @@ namespace EfcDataAccess.Migrations
                     b.Property<long>("PhoneNumber")
                         .HasColumnType("INTEGER");
 
-                    b.HasKey("Cpr");
+                    b.HasKey("CprNumber");
 
                     b.ToTable("Users");
                 });

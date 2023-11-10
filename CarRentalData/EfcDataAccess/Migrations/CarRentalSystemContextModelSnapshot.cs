@@ -18,7 +18,7 @@ namespace EfcDataAccess.Migrations
 
             modelBuilder.Entity("Entity.Model.User", b =>
                 {
-                    b.Property<long>("Cpr")
+                    b.Property<long>("CprNumber")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
@@ -44,7 +44,7 @@ namespace EfcDataAccess.Migrations
                     b.Property<long>("PhoneNumber")
                         .HasColumnType("INTEGER");
 
-                    b.HasKey("Cpr");
+                    b.HasKey("CprNumber");
 
                     b.ToTable("Users");
                 });

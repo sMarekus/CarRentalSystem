@@ -5,7 +5,7 @@
 namespace EfcDataAccess.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialCreate : Migration
+    public partial class AddUser : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -14,7 +14,7 @@ namespace EfcDataAccess.Migrations
                 name: "Users",
                 columns: table => new
                 {
-                    Cpr = table.Column<long>(type: "INTEGER", nullable: false)
+                    CprNumber = table.Column<long>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     FirstName = table.Column<string>(type: "TEXT", nullable: false),
                     LastName = table.Column<string>(type: "TEXT", nullable: false),
@@ -25,7 +25,7 @@ namespace EfcDataAccess.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Users", x => x.Cpr);
+                    table.PrimaryKey("PK_Users", x => x.CprNumber);
                 });
         }
 
