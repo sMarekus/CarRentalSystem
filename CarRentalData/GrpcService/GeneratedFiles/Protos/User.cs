@@ -24,13 +24,14 @@ namespace CarRentalData {
     static UserReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "Cgp1c2VyLnByb3RvIo0BCgxVc2VyUHJvdG9PYmoSEQoJZmlyc3ROYW1lGAEg",
-            "ASgJEhAKCGxhc3ROYW1lGAIgASgJEg0KBWVtYWlsGAMgASgJEhAKCHBhc3N3",
-            "b3JkGAQgASgJEhEKCWNwck51bWJlchgFIAEoAxITCgtwaG9uZU51bWJlchgG",
-            "IAEoAxIPCgdpc0FkbWluGAcgASgIIjMKEFVzZXJMaXN0UmVzcG9uc2USHwoI",
-            "YWxsVXNlcnMYASADKAsyDS5Vc2VyUHJvdG9PYmoyQAoQVXNlclByb3RvU2Vy",
-            "dmljZRIsCgpDcmVhdGVVc2VyEg0uVXNlclByb3RvT2JqGg0uVXNlclByb3Rv",
-            "T2JqIgBCEKoCDUNhclJlbnRhbERhdGFiBnByb3RvMw=="));
+            "Cgp1c2VyLnByb3RvEgVwcm90byKNAQoMVXNlclByb3RvT2JqEhEKCWZpcnN0",
+            "TmFtZRgBIAEoCRIQCghsYXN0TmFtZRgCIAEoCRINCgVlbWFpbBgDIAEoCRIQ",
+            "CghwYXNzd29yZBgEIAEoCRIRCgljcHJOdW1iZXIYBSABKAMSEwoLcGhvbmVO",
+            "dW1iZXIYBiABKAMSDwoHaXNBZG1pbhgHIAEoCCI5ChBVc2VyTGlzdFJlc3Bv",
+            "bnNlEiUKCGFsbFVzZXJzGAEgAygLMhMucHJvdG8uVXNlclByb3RvT2JqMkwK",
+            "EFVzZXJQcm90b1NlcnZpY2USOAoKQ3JlYXRlVXNlchITLnByb3RvLlVzZXJQ",
+            "cm90b09iahoTLnByb3RvLlVzZXJQcm90b09iaiIAQhCqAg1DYXJSZW50YWxE",
+            "YXRhYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
