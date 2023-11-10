@@ -20,19 +20,17 @@ public class UserService : IUserService
     {
         HttpResponseMessage response = await client.PostAsJsonAsync("/users", userToCreate);
         string result = await response.Content.ReadAsStringAsync();
-        
         if(!response.IsSuccessStatusCode)
         {
             var statusCode = response.StatusCode;
             Console.WriteLine($"Status Code: {statusCode}");
             throw new Exception(result);
         }
-
         User user = JsonSerializer.Deserialize<User>(result, new JsonSerializerOptions
         {
             PropertyNameCaseInsensitive = true
         })!;
-
+        Console.WriteLine("5");
         return user;
     }
 

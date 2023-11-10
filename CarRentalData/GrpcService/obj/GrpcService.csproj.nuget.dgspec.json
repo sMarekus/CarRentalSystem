@@ -1,35 +1,33 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\marek\\School\\Semester 3\\SEP\\CarRentalSystem\\CarRentalData\\GrpcService\\GrpcService.csproj": {}
+    "C:\\Users\\tomim\\Documents\\GitHub\\CarRentalSystem\\CarRentalData\\GrpcService\\GrpcService.csproj": {}
   },
   "projects": {
-    "C:\\Users\\marek\\School\\Semester 3\\SEP\\CarRentalSystem\\CarRentalData\\EfcDataAccess\\EfcDataAccess.csproj": {
+    "C:\\Users\\tomim\\Documents\\GitHub\\CarRentalSystem\\CarRentalData\\EfcDataAccess\\EfcDataAccess.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\marek\\School\\Semester 3\\SEP\\CarRentalSystem\\CarRentalData\\EfcDataAccess\\EfcDataAccess.csproj",
+        "projectUniqueName": "C:\\Users\\tomim\\Documents\\GitHub\\CarRentalSystem\\CarRentalData\\EfcDataAccess\\EfcDataAccess.csproj",
         "projectName": "EfcDataAccess",
-        "projectPath": "C:\\Users\\marek\\School\\Semester 3\\SEP\\CarRentalSystem\\CarRentalData\\EfcDataAccess\\EfcDataAccess.csproj",
-        "packagesPath": "C:\\Users\\marek\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\marek\\School\\Semester 3\\SEP\\CarRentalSystem\\CarRentalData\\EfcDataAccess\\obj\\",
+        "projectPath": "C:\\Users\\tomim\\Documents\\GitHub\\CarRentalSystem\\CarRentalData\\EfcDataAccess\\EfcDataAccess.csproj",
+        "packagesPath": "C:\\Users\\tomim\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\tomim\\Documents\\GitHub\\CarRentalSystem\\CarRentalData\\EfcDataAccess\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\marek\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\tomim\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\marek\\School\\Semester 3\\SEP\\CarRentalSystem\\CarRentalData\\Entity\\Entity.csproj": {
-                "projectPath": "C:\\Users\\marek\\School\\Semester 3\\SEP\\CarRentalSystem\\CarRentalData\\Entity\\Entity.csproj"
+              "C:\\Users\\tomim\\Documents\\GitHub\\CarRentalSystem\\CarRentalData\\Entity\\Entity.csproj": {
+                "projectPath": "C:\\Users\\tomim\\Documents\\GitHub\\CarRentalSystem\\CarRentalData\\Entity\\Entity.csproj"
               }
             }
           }
@@ -75,28 +73,26 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\marek\\School\\Semester 3\\SEP\\CarRentalSystem\\CarRentalData\\Entity\\Entity.csproj": {
+    "C:\\Users\\tomim\\Documents\\GitHub\\CarRentalSystem\\CarRentalData\\Entity\\Entity.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\marek\\School\\Semester 3\\SEP\\CarRentalSystem\\CarRentalData\\Entity\\Entity.csproj",
+        "projectUniqueName": "C:\\Users\\tomim\\Documents\\GitHub\\CarRentalSystem\\CarRentalData\\Entity\\Entity.csproj",
         "projectName": "Entity",
-        "projectPath": "C:\\Users\\marek\\School\\Semester 3\\SEP\\CarRentalSystem\\CarRentalData\\Entity\\Entity.csproj",
-        "packagesPath": "C:\\Users\\marek\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\marek\\School\\Semester 3\\SEP\\CarRentalSystem\\CarRentalData\\Entity\\obj\\",
+        "projectPath": "C:\\Users\\tomim\\Documents\\GitHub\\CarRentalSystem\\CarRentalData\\Entity\\Entity.csproj",
+        "packagesPath": "C:\\Users\\tomim\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\tomim\\Documents\\GitHub\\CarRentalSystem\\CarRentalData\\Entity\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\marek\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\tomim\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -130,36 +126,34 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\marek\\School\\Semester 3\\SEP\\CarRentalSystem\\CarRentalData\\GrpcService\\GrpcService.csproj": {
+    "C:\\Users\\tomim\\Documents\\GitHub\\CarRentalSystem\\CarRentalData\\GrpcService\\GrpcService.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\marek\\School\\Semester 3\\SEP\\CarRentalSystem\\CarRentalData\\GrpcService\\GrpcService.csproj",
+        "projectUniqueName": "C:\\Users\\tomim\\Documents\\GitHub\\CarRentalSystem\\CarRentalData\\GrpcService\\GrpcService.csproj",
         "projectName": "GrpcService",
-        "projectPath": "C:\\Users\\marek\\School\\Semester 3\\SEP\\CarRentalSystem\\CarRentalData\\GrpcService\\GrpcService.csproj",
-        "packagesPath": "C:\\Users\\marek\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\marek\\School\\Semester 3\\SEP\\CarRentalSystem\\CarRentalData\\GrpcService\\obj\\",
+        "projectPath": "C:\\Users\\tomim\\Documents\\GitHub\\CarRentalSystem\\CarRentalData\\GrpcService\\GrpcService.csproj",
+        "packagesPath": "C:\\Users\\tomim\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\tomim\\Documents\\GitHub\\CarRentalSystem\\CarRentalData\\GrpcService\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\marek\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\tomim\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\marek\\School\\Semester 3\\SEP\\CarRentalSystem\\CarRentalData\\EfcDataAccess\\EfcDataAccess.csproj": {
-                "projectPath": "C:\\Users\\marek\\School\\Semester 3\\SEP\\CarRentalSystem\\CarRentalData\\EfcDataAccess\\EfcDataAccess.csproj"
+              "C:\\Users\\tomim\\Documents\\GitHub\\CarRentalSystem\\CarRentalData\\EfcDataAccess\\EfcDataAccess.csproj": {
+                "projectPath": "C:\\Users\\tomim\\Documents\\GitHub\\CarRentalSystem\\CarRentalData\\EfcDataAccess\\EfcDataAccess.csproj"
               }
             }
           }
@@ -202,7 +196,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }
