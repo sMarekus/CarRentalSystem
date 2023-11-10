@@ -9,12 +9,12 @@ public class CarRentalSystemContext : DbContext
     
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        optionsBuilder.UseSqlite("Data Source = ../EfcDataAccess/User.db");
+        optionsBuilder.UseSqlite("Data Source = ../EfcDataAccess/CarRentalDatabase.db");
         optionsBuilder.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);            
     }
     
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<User>().HasKey(user => user.Cpr);
+        modelBuilder.Entity<User>().HasKey(user => user.CprNumber);
     }
 }

@@ -37,7 +37,7 @@ public class UserService : UserProtoService.UserProtoServiceBase
     {
         User? userEntity = new User()
         {
-            Cpr = userProtoObj.CprNumber,
+            CprNumber = userProtoObj.CprNumber,
             FirstName = userProtoObj.FirstName,
             LastName = userProtoObj.LastName,
             Email = userProtoObj.Email,
@@ -53,7 +53,7 @@ public class UserService : UserProtoService.UserProtoServiceBase
     {
         UserProtoObj userProtoObj = new UserProtoObj()
         {
-            CprNumber = userEntity.Cpr,
+            CprNumber = userEntity.CprNumber,
             FirstName = userEntity.FirstName,
             LastName = userEntity.LastName,
             Email = userEntity.Email,
