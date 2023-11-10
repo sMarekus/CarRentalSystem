@@ -7,81 +7,29 @@
 <h3>Register</h3>
 
 <div class="card">
-<div class="container">
-    <div class="row d-flex justify-content-center">
-        <div class="col-md-6">
-            <div class="form-group field">
-                <label>First Name:</label>
-                <input id="inputFirstName" type="text" class="form-control" @bind="firstName" @bind:event="oninput"/>
-            </div>
-        </div>
+    <h3>Register</h3>
+    <div class="form-group field">
+        <label>First Name:</label>
+        <input type="text" @bind="firstName" @bind:event="oninput"/>
+        <label>Last Name:</label>
+        <input type="text" @bind="lastName" @bind:event="oninput"/>
+        <label>Email:</label>
+        <input type="text" @bind="email" @bind:event="oninput"/>
+        <label>Password:</label>
+        <input type="password" @bind="password" @bind:event="oninput"/>
+        <label>Cpr Number:</label>
+        <input type="text" @bind="cprNumber" @bind:event="oninput"/>
+        <label>Password:</label>
+        <input type="text" @bind="phoneNumber" @bind:event="oninput"/>
+        <label>Admin?</label>
+        <input type="checkbox" @bind="isAdmin"/>
+        @if (!string.IsNullOrEmpty(resultMsg))
+        {
+            <label style="color: @color">@resultMsg</label>
+        }
     </div>
-    
-    <div class="row d-flex justify-content-center">
-        <div class="col-md-6">
-            <div class="form-group field">
-                <label>Last Name:</label>
-                <input id="inputLastName" type="text" class="form-control" @bind="lastName" @bind:event="oninput"/>
-            </div>
-        </div>
-    </div>
-    
-    <div class="row d-flex justify-content-center">
-        <div class="col-md-6">
-            <div class="form-group field">
-                <label>Email:</label>
-                <input id="inputEmail" type="text" class="form-control" @bind="email" @bind:event="oninput"/>
-            </div>
-        </div>
-    </div>
-    
-    <div class="row d-flex justify-content-center">
-        <div class="col-md-6">
-            <div class="form-group field">
-                <label>Password:</label>
-                <input id="inputPassword" type="password" class="form-control" @bind="password" @bind:event="oninput"/>
-            </div>
-        </div>
-    </div>
-    
-    <div class="row d-flex justify-content-center">
-        <div class="col-md-6">
-            <div class="form-group field">
-                <label>CPR Number:</label>
-                <input id="inputCprNumber" type="text" class="form-control" @bind="cprNumber" @bind:event="oninput"/>
-            </div>
-        </div>
-    </div>
-    
-    <div class="row d-flex justify-content-center">
-        <div class="col-md-6">
-            <div class="form-group field">
-                <label>Phone Number:</label>
-                <input id="inputPhoneNumber" type="text" class="form-control" @bind="phoneNumber" @bind:event="oninput"/>
-            </div>
-        </div>
-    </div>
-    
-    <div class="row d-flex justify-content-center">
-        <div class="col-md-6">
-            <div class="form-group field">
-                <label>Admin?</label>
-                <input id="inputAdmin" type="checkbox" class="form-check-input" @bind="isAdmin"/>
-            </div>
-        </div>
-    </div>
-    
-    <div class="row d-flex justify-content-center">
-            <div class="col-md-6">
-                @if (!string.IsNullOrEmpty(resultMsg))
-                    {
-                        <label style="color: @color">@resultMsg</label>
-                    }
-                <div class="button-row">
-                    <button @onclick="Create" disabled="@IsRegisterButtonDisabled" class="acceptbtn">Register</button>
-                </div>
-            </div>
-        </div>
+    <div class="button-row">
+        <button @onclick="Create" disabled="@IsRegisterButtonDisabled" class="acceptbtn">Register</button>
     </div>
 </div>
 
@@ -91,9 +39,9 @@
     private string lastName = "";
     private string email = "";
     private string password = "";
-    private long cprNumber;
-    private long phoneNumber;
-    private bool isAdmin;
+    private long cprNumber=0;
+    private long phoneNumber=0;
+    private bool isAdmin = false;
     private string resultMsg = "";
     private string color = "";
     
