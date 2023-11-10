@@ -8,10 +8,10 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:8080")
-public class UserController {
+public class UsersController {
 
     private final IUserService userService;
-    public UserController(IUserService userService) {
+    public UsersController(IUserService userService) {
         this.userService = userService;
 
     }

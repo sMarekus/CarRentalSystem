@@ -10,7 +10,7 @@ using grpc = global::Grpc.Core;
 namespace CarRentalData {
   public static partial class UserProtoService
   {
-    static readonly string __ServiceName = "UserProtoService";
+    static readonly string __ServiceName = "proto.UserProtoService";
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static void __Helper_SerializeMessage(global::Google.Protobuf.IMessage message, grpc::SerializationContext context)
@@ -46,15 +46,15 @@ namespace CarRentalData {
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Marshaller<global::CarRentalData.UserProtoObj> __Marshaller_UserProtoObj = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::CarRentalData.UserProtoObj.Parser));
+    static readonly grpc::Marshaller<global::CarRentalData.UserProtoObj> __Marshaller_proto_UserProtoObj = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::CarRentalData.UserProtoObj.Parser));
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Method<global::CarRentalData.UserProtoObj, global::CarRentalData.UserProtoObj> __Method_CreateUser = new grpc::Method<global::CarRentalData.UserProtoObj, global::CarRentalData.UserProtoObj>(
         grpc::MethodType.Unary,
         __ServiceName,
         "CreateUser",
-        __Marshaller_UserProtoObj,
-        __Marshaller_UserProtoObj);
+        __Marshaller_proto_UserProtoObj,
+        __Marshaller_proto_UserProtoObj);
 
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
