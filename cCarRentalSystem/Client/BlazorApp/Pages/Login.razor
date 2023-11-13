@@ -1,6 +1,75 @@
 ﻿@page "/Login"
-<h3>Login</h3>
+@using HttpClients.ClientInterfaces
+@using BlazorApp.Services
+@inject IAuthService authService;
+@inject NavigationManager navManager;
+
+
+<div class="row d-flex justify-content-center">
+    <div class="col-md-6">
+        <h3 id="header">Login</h3>
+    </div>
+</div>
+
+<div class="container">
+    <div class="card">
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-6">
+                <div class="form-group field">
+                    <label>CPR:</label>
+                    <input id="inputCpr" type="text" class="form-control" @bind="cprNumber" @bind:event="oninput"/>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-6">
+                <div class="form-group field">
+                    <label>Password:</label>
+                    <input id="inputPassword" type="password" class="form-control" @bind="password" @bind:event="oninput"/>
+                </div>
+            </div>
+        </div>
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-6">
+                @if (!string.IsNullOrEmpty(resultMsg))
+                    {
+                        <label style="color: @color">@resultMsg</label>
+                    }
+                <div class="button-row">
+                    <button @onclick="LoginAsync" disabled="@IsLoginButtonDisabled" class="acceptbtn">Login</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 @code {
+    private long cprNumber;
+    private string password = "";
+    private string resultMsg = "";
+    private string color = "";
     
+    private bool IsLoginButtonDisabled => cprNumber == 0 || password.Equals("");
+
+    private async Task LoginAsync()
+    {
+        try
+        {
+            await authService.LoginAsync(cprNumber, password);
+            cprNumber = 0;
+            password = "";
+            resultMsg = "Logged in successfully.";
+            color = "green";
+            navManager.NavigateTo("/");
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            resultMsg = e.Message;
+            color = "red";
+        }
+        
+    }
 }

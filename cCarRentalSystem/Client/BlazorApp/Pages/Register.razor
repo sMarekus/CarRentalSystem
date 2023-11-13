@@ -4,6 +4,7 @@
 @using BlazorApp.Services
 @inject IUserService userService;
 @inject IAuthService authService;
+@inject NavigationManager navManager;
 
 <div class="row d-flex justify-content-center">
     <div class="col-md-6">
@@ -67,7 +68,7 @@
         </div>
     </div>
     
-    <div class="row -flex justify-content-center">
+    <div class="row d-flex justify-content-center">
         <div class="col-md-6">
             <div class="form-group field">
                 <label>Admin?</label>
@@ -96,9 +97,9 @@
     private string lastName = "";
     private string email = "";
     private string password = "";
-    private long cprNumber=0;
-    private long phoneNumber=0;
-    private bool isAdmin = false;
+    private long cprNumber;
+    private long phoneNumber;
+    private bool isAdmin;
     private string resultMsg = "";
     private string color = "";
     
@@ -124,6 +125,7 @@
             isAdmin = false;
             resultMsg = "User successfully created";
             color = "green";
+            navManager.NavigateTo("/");
         }
         catch (Exception e)
         {
