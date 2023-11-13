@@ -33,6 +33,21 @@ public class UserService : UserProtoService.UserProtoServiceBase
         }
     }
 
+    public override async Task<UserProtoObj> FetchUserByCpr(Int64Value request, ServerCallContext context)
+    {
+        try
+        {
+            User? userByCpr = await userDao.FetchUserByCprAsync(request.Value);
+            UserProtoObj protoObj = FromEntityToProto(userByCpr);
+            return protoObj;
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw new RpcException(new Status(StatusCode.NotFound, e.Message));
+        }
+    }
+
     public static User? FromProtoToEntity(UserProtoObj userProtoObj)
     {
         User? userEntity = new User()

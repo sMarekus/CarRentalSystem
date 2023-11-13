@@ -3,6 +3,7 @@ syntax = "proto3";
 option csharp_namespace = "CarRentalData";
 
 package proto;
+import "google/protobuf/wrappers.proto";
 
 message UserProtoObj
 {
@@ -18,6 +19,7 @@ message UserProtoObj
 service UserProtoService
 {
   rpc CreateUser(UserProtoObj) returns (UserProtoObj){}
+  rpc FetchUserByCpr(google.protobuf.Int64Value) returns (UserProtoObj){}
 }
 
 message UserListResponse

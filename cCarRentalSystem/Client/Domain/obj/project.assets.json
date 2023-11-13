@@ -304,19 +304,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\marek\\.nuget\\packages\\": {}
+    "C:\\Users\\mkuku\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\marek\\School\\Semester 3\\SEP\\CarRentalSystem\\cCarRentalSystem\\Client\\Domain\\Domain.csproj",
+      "projectUniqueName": "C:\\Users\\mkuku\\Sep3Project\\CarRentalSystem\\cCarRentalSystem\\Client\\Domain\\Domain.csproj",
       "projectName": "Domain",
-      "projectPath": "C:\\Users\\marek\\School\\Semester 3\\SEP\\CarRentalSystem\\cCarRentalSystem\\Client\\Domain\\Domain.csproj",
-      "packagesPath": "C:\\Users\\marek\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\marek\\School\\Semester 3\\SEP\\CarRentalSystem\\cCarRentalSystem\\Client\\Domain\\obj\\",
+      "projectPath": "C:\\Users\\mkuku\\Sep3Project\\CarRentalSystem\\cCarRentalSystem\\Client\\Domain\\Domain.csproj",
+      "packagesPath": "C:\\Users\\mkuku\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\mkuku\\Sep3Project\\CarRentalSystem\\cCarRentalSystem\\Client\\Domain\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\marek\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\mkuku\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -363,7 +363,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
       }
     }
   }
