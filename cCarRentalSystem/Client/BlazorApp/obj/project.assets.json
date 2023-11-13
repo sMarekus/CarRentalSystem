@@ -427,19 +427,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\apurv\\.nuget\\packages\\": {}
+    "C:\\Users\\tomim\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\apurv\\OneDrive\\Desktop\\CarRentalSEP\\cCarRentalSystem\\Client\\BlazorApp\\BlazorApp.csproj",
+      "projectUniqueName": "C:\\Users\\tomim\\Documents\\GitHub\\CarRentalSystem\\cCarRentalSystem\\Client\\BlazorApp\\BlazorApp.csproj",
       "projectName": "BlazorApp",
-      "projectPath": "C:\\Users\\apurv\\OneDrive\\Desktop\\CarRentalSEP\\cCarRentalSystem\\Client\\BlazorApp\\BlazorApp.csproj",
-      "packagesPath": "C:\\Users\\apurv\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\apurv\\OneDrive\\Desktop\\CarRentalSEP\\cCarRentalSystem\\Client\\BlazorApp\\obj\\",
+      "projectPath": "C:\\Users\\tomim\\Documents\\GitHub\\CarRentalSystem\\cCarRentalSystem\\Client\\BlazorApp\\BlazorApp.csproj",
+      "packagesPath": "C:\\Users\\tomim\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\tomim\\Documents\\GitHub\\CarRentalSystem\\cCarRentalSystem\\Client\\BlazorApp\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\apurv\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\tomim\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net7.0"
@@ -451,8 +451,8 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "C:\\Users\\apurv\\OneDrive\\Desktop\\CarRentalSEP\\cCarRentalSystem\\Client\\HttpClients\\HttpClients.csproj": {
-              "projectPath": "C:\\Users\\apurv\\OneDrive\\Desktop\\CarRentalSEP\\cCarRentalSystem\\Client\\HttpClients\\HttpClients.csproj"
+            "C:\\Users\\tomim\\Documents\\GitHub\\CarRentalSystem\\cCarRentalSystem\\Client\\HttpClients\\HttpClients.csproj": {
+              "projectPath": "C:\\Users\\tomim\\Documents\\GitHub\\CarRentalSystem\\cCarRentalSystem\\Client\\HttpClients\\HttpClients.csproj"
             }
           }
         }
