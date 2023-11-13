@@ -24,16 +24,18 @@ namespace CarRentalData {
     static UserReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "Cgp1c2VyLnByb3RvEgVwcm90byKNAQoMVXNlclByb3RvT2JqEhEKCWZpcnN0",
-            "TmFtZRgBIAEoCRIQCghsYXN0TmFtZRgCIAEoCRINCgVlbWFpbBgDIAEoCRIQ",
-            "CghwYXNzd29yZBgEIAEoCRIRCgljcHJOdW1iZXIYBSABKAMSEwoLcGhvbmVO",
-            "dW1iZXIYBiABKAMSDwoHaXNBZG1pbhgHIAEoCCI5ChBVc2VyTGlzdFJlc3Bv",
-            "bnNlEiUKCGFsbFVzZXJzGAEgAygLMhMucHJvdG8uVXNlclByb3RvT2JqMkwK",
-            "EFVzZXJQcm90b1NlcnZpY2USOAoKQ3JlYXRlVXNlchITLnByb3RvLlVzZXJQ",
-            "cm90b09iahoTLnByb3RvLlVzZXJQcm90b09iaiIAQhCqAg1DYXJSZW50YWxE",
-            "YXRhYgZwcm90bzM="));
+            "Cgp1c2VyLnByb3RvEgVwcm90bxoeZ29vZ2xlL3Byb3RvYnVmL3dyYXBwZXJz",
+            "LnByb3RvIo0BCgxVc2VyUHJvdG9PYmoSEQoJZmlyc3ROYW1lGAEgASgJEhAK",
+            "CGxhc3ROYW1lGAIgASgJEg0KBWVtYWlsGAMgASgJEhAKCHBhc3N3b3JkGAQg",
+            "ASgJEhEKCWNwck51bWJlchgFIAEoAxITCgtwaG9uZU51bWJlchgGIAEoAxIP",
+            "Cgdpc0FkbWluGAcgASgIIjkKEFVzZXJMaXN0UmVzcG9uc2USJQoIYWxsVXNl",
+            "cnMYASADKAsyEy5wcm90by5Vc2VyUHJvdG9PYmoykgEKEFVzZXJQcm90b1Nl",
+            "cnZpY2USOAoKQ3JlYXRlVXNlchITLnByb3RvLlVzZXJQcm90b09iahoTLnBy",
+            "b3RvLlVzZXJQcm90b09iaiIAEkQKDkZldGNoVXNlckJ5Q3ByEhsuZ29vZ2xl",
+            "LnByb3RvYnVmLkludDY0VmFsdWUaEy5wcm90by5Vc2VyUHJvdG9PYmoiAEIQ",
+            "qgINQ2FyUmVudGFsRGF0YWIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { },
+          new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.WrappersReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::CarRentalData.UserProtoObj), global::CarRentalData.UserProtoObj.Parser, new[]{ "FirstName", "LastName", "Email", "Password", "CprNumber", "PhoneNumber", "IsAdmin" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::CarRentalData.UserListResponse), global::CarRentalData.UserListResponse.Parser, new[]{ "AllUsers" }, null, null, null, null)

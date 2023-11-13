@@ -1,5 +1,6 @@
 ﻿using EfcDataAccess.DaoInterfaces;
 using Entity.Model;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 
 namespace EfcDataAccess.DAOs;
@@ -26,5 +27,17 @@ public class UserDao : IUserDao
         {
             throw new Exception(e.Message);
         }
+    }
+    
+    public async Task<User?> FetchUserByCprAsync(long cpr)
+    {
+        User? user = await context.Users.AsNoTracking().FirstOrDefaultAsync(u => u.CprNumber == cpr);
+
+        if (user == null)
+        {
+            throw new Exception("User not found");
+        }
+        
+        return user;
     }
 }
