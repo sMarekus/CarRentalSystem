@@ -1,9 +1,14 @@
 package com.example.carrentalservice.GrpcClient;
 
 import com.example.carrentalservice.model.User;
+import com.google.protobuf.Empty;
+import com.google.protobuf.Int64Value;
 import io.grpc.ManagedChannel;
 import org.springframework.stereotype.Service;
 import proto.UserProtoServiceGrpc;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class UserClientImpl implements IUserClient
@@ -25,6 +30,32 @@ public class UserClientImpl implements IUserClient
             proto.User.UserProtoObj userProtoObj = fromEntityToProtoObj(user);
             proto.User.UserProtoObj protoObjFromServer = getUserStub().createUser(userProtoObj);
             return fromProtoObjToEntity(protoObjFromServer);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public List<User> getUsers() {
+        try {
+            proto.User.UserListResponse allUsers = getUserStub().getAllUsers(Empty.newBuilder().build());
+            List<User> users=new ArrayList<>();
+            for (proto.User.UserProtoObj userProtoObj : allUsers.getAllUsersList()) {
+                User user=(fromProtoObjToEntity(userProtoObj));
+                users.add(user);
+            }
+            return users;
+        }
+        catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public User getUserByCprNumber(long cprNumber) {
+        try {
+            proto.User.UserProtoObj userProtoObj = getUserStub().fetchUserByCpr(Int64Value.of(cprNumber));
+            return fromProtoObjToEntity(userProtoObj);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
