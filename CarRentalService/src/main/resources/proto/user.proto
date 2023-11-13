@@ -1,6 +1,8 @@
 syntax="proto3";
 
 package proto;
+import "google/protobuf/wrappers.proto";
+import "google/protobuf/empty.proto";
 message UserProtoObj
 {
   string firstName=1;
@@ -15,6 +17,8 @@ message UserProtoObj
 service UserProtoService
 {
   rpc CreateUser(UserProtoObj) returns (UserProtoObj){}
+  rpc GetAllUsers(google.protobuf.Empty) returns (UserListResponse){}
+  rpc FetchUserByCpr(google.protobuf.Int64Value) returns (UserProtoObj){}
 }
 
 message UserListResponse

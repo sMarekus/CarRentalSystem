@@ -5,6 +5,8 @@ import com.example.carrentalservice.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class UserServiceImplementation implements IUserService
 {
@@ -21,6 +23,26 @@ public class UserServiceImplementation implements IUserService
             return client.createUser(user);
         } catch (Exception e) {
             throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public List<User> getUsers() {
+        try {
+            List<User> users = client.getUsers();
+            return users;
+        } catch (Exception e) {
+            throw new RuntimeException(e.getMessage());
+        }
+    }
+    @Override
+    public User getUserByCprNumber(long cprNumber) {
+        try{
+            User user = client.getUserByCprNumber(cprNumber);
+            return user;
+        }
+        catch (Exception e){
+            throw new RuntimeException(e.getMessage());
         }
     }
 }
