@@ -1,0 +1,57 @@
+﻿@page "/CarDetails/{carId:int}"
+@using Domain.Models
+@using HttpClients.ClientInterfaces
+@inject ICarService carService;
+
+<div class="row d-flex justify-content-center">
+    <div class="col-6-md">
+        <h3 id="header">CarDetails</h3>
+    </div>
+</div>
+
+@if (car != null)
+{
+    <div class="post">
+        <h3>@car.Model</h3>
+        <h4><i>@car.Brand</i></h4>
+        <p>@car.Description</p>
+        <p>Color: @car.Color</p>
+        <p>Gearbox: @car.Gearbox</p>
+        <p>Status: @car.Status</p>
+        <p>Body type: @car.BodyType</p>
+        <p>Fuel type: @car.FuelType</p>
+        <p>Horsepower: @car.HorsePower</p>
+        <p>Price per day: @car.PricePerDay</p>
+    </div>
+}
+else
+{
+    <p>Car not found.</p>
+}
+
+
+@code {
+    [Parameter]
+    public int carId { get; set; }
+
+    private Car car;
+    private string msg = "";
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            car = await carService.GetCarById(carId);
+
+            if (car == null)
+            {
+                msg = "Car not found.";
+            }
+        }
+        catch (Exception e)
+        {
+            msg = "There was a problem fetching the selected car.";
+            Console.WriteLine(e);
+        }
+    }
+}

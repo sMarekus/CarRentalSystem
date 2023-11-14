@@ -42,7 +42,9 @@
 }
 
 .button-row{
-    margin-top: 15px;
+    margin-top: 20px;
+    justify-content: center;
+    text-align: center;
 }
 
 #inputPhoneNumber:focus{
