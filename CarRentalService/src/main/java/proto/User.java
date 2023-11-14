@@ -1968,14 +1968,19 @@ public final class User {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\nuser.proto\022\005proto\"\215\001\n\014UserProtoObj\022\021\n\t" +
-      "firstName\030\001 \001(\t\022\020\n\010lastName\030\002 \001(\t\022\r\n\005ema" +
-      "il\030\003 \001(\t\022\020\n\010password\030\004 \001(\t\022\021\n\tcprNumber\030" +
-      "\005 \001(\003\022\023\n\013phoneNumber\030\006 \001(\003\022\017\n\007isAdmin\030\007 " +
-      "\001(\010\"9\n\020UserListResponse\022%\n\010allUsers\030\001 \003(" +
-      "\0132\023.proto.UserProtoObj2L\n\020UserProtoServi" +
-      "ce\0228\n\nCreateUser\022\023.proto.UserProtoObj\032\023." +
-      "proto.UserProtoObj\"\000b\006proto3"
+      "\n\nuser.proto\022\005proto\032\036google/protobuf/wra" +
+      "ppers.proto\032\033google/protobuf/empty.proto" +
+      "\"\215\001\n\014UserProtoObj\022\021\n\tfirstName\030\001 \001(\t\022\020\n\010" +
+      "lastName\030\002 \001(\t\022\r\n\005email\030\003 \001(\t\022\020\n\010passwor" +
+      "d\030\004 \001(\t\022\021\n\tcprNumber\030\005 \001(\003\022\023\n\013phoneNumbe" +
+      "r\030\006 \001(\003\022\017\n\007isAdmin\030\007 \001(\010\"9\n\020UserListResp" +
+      "onse\022%\n\010allUsers\030\001 \003(\0132\023.proto.UserProto" +
+      "Obj2\324\001\n\020UserProtoService\0228\n\nCreateUser\022\023" +
+      ".proto.UserProtoObj\032\023.proto.UserProtoObj" +
+      "\"\000\022@\n\013GetAllUsers\022\026.google.protobuf.Empt" +
+      "y\032\027.proto.UserListResponse\"\000\022D\n\016FetchUse" +
+      "rByCpr\022\033.google.protobuf.Int64Value\032\023.pr" +
+      "oto.UserProtoObj\"\000b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -1988,6 +1993,8 @@ public final class User {
     com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
+          com.google.protobuf.WrappersProto.getDescriptor(),
+          com.google.protobuf.EmptyProto.getDescriptor(),
         }, assigner);
     internal_static_proto_UserProtoObj_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -2001,6 +2008,8 @@ public final class User {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_proto_UserListResponse_descriptor,
         new java.lang.String[] { "AllUsers", });
+    com.google.protobuf.WrappersProto.getDescriptor();
+    com.google.protobuf.EmptyProto.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)
