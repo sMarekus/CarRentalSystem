@@ -28,6 +28,13 @@ public class UserDao : IUserDao
             throw new Exception(e.Message);
         }
     }
+
+    public async Task<ICollection<User?>> FetchUsersAsync()
+    {
+        if (!context.Users.Any()) throw new Exception("No users found");
+        ICollection<User?> users = await context.Users.AsNoTracking().ToListAsync();
+        return users;
+    }
     
     public async Task<User?> FetchUserByCprAsync(long cpr)
     {
