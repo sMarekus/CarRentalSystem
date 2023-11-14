@@ -1,24 +1,21 @@
 package com.example.carrentalservice.Jwt;
-import com.example.carrentalservice.model.User;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
-import jdk.jshell.spi.ExecutionControl;
-import org.apache.el.lang.FunctionMapperImpl;
-import org.springframework.boot.autoconfigure.security.oauth2.resource.OAuth2ResourceServerProperties;
-import org.springframework.web.client.HttpServerErrorException;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.stereotype.Service;
 
 import java.security.Key;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.function.Function;
 
+@Service
 public class JwtService {
 
     private static final String SECRET_KEY= "oursecretkeywhichhasmorethan16characters";
 
-    public String extractUsername(String token){
+    public String extractCpr(String token){
         return extractClaim(token, Claims::getSubject);
     }
 
@@ -47,10 +44,10 @@ public class JwtService {
     }
 
 
-    /*public boolean isTokenValid(String token, UserDetails userDetails) {
-        final String username = extractUsername(token);
-        return (username.equals(userDetails.getUsername())) && !isTokenExpired(token);
+    public boolean isTokenValid(String token, UserDetails userDetails) {
+        final String cpr = extractCpr(token);
+        return cpr.equals(userDetails.getUsername()) && !isTokenExpired(token);
     }
 
-     */
+
 }
