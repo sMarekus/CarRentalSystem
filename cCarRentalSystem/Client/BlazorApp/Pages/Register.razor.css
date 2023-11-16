@@ -42,12 +42,11 @@
 }
 
 .button-row{
-    margin-top: 15px;
+    margin-top: 20px;
+    justify-content: center;
+    text-align: center;
 }
 
-.header {
-    color: beige;
-}
 #inputPhoneNumber:focus{
     border: 3px solid dimgrey;
     width: 160px;
