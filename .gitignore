@@ -5,6 +5,9 @@ CarRentalSystem/cCarRentalSystem/HTTPServices/obj
 CarRentalSystem/cCarRentalSystem/HTTPClients/obj
 CarRentalSystem/cCarRentalSystem/Test/obj
 CarRentalSystem/CarRentalFrontend/Blazor/obj
+CarRentalSystem/cCarRentalSystem\Client\BlazorApp\obj\rider.project.model.nuget.info
+CarRentalSystem/cCarRentalSystem\Client\Domain\obj\rider.project.model.nuget.info
+CarRentalSystem\cCarRentalSystem\Client\HttpClients\obj\rider.project.model.nuget.info
 CarRentalData/EfcDataAccess/obj
 CarRentalData/Entity/obj
 CarRentalData/GrpcService/obj
