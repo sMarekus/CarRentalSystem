@@ -1,12 +1,15 @@
 package com.example.carrentalservice.Jwt;
+import com.example.carrentalservice.model.User;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
 import java.security.Key;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.function.Function;
 
@@ -49,5 +52,20 @@ public class JwtService {
         return cpr.equals(userDetails.getUsername()) && !isTokenExpired(token);
     }
 
+    public String generateToken(User userDetails) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.add(Calendar.DATE, 30);
+        Date expirationDate = calendar.getTime();
+
+
+        Claims claims = (Claims) Jwts.claims();
+        claims.put(Claims.SUBJECT, userDetails.getCprNumber());
+        claims.put("cpr", userDetails.getCprNumber());
+
+        return Jwts.builder().setClaims(claims)
+                .setIssuedAt(new Date(System.currentTimeMillis()))
+                .setExpiration(expirationDate)
+                .signWith(getSignInKey(), SignatureAlgorithm.HS256).compact();
+    }
 
 }

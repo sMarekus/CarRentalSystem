@@ -9,5 +9,6 @@ public interface IUserService
     User createUser(User user);
     List<User> getUsers();
     User getUserByCprNumber(long cprNumber);
+
 }
 

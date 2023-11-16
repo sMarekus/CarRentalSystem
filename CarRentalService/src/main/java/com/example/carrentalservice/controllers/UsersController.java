@@ -1,7 +1,10 @@
 package com.example.carrentalservice.controllers;
 
+import com.example.carrentalservice.Jwt.auth.AuthenticationResponse;
+import com.example.carrentalservice.dto.LoginDto;
 import com.example.carrentalservice.model.User;
 import com.example.carrentalservice.service.IUserService;
+import com.example.carrentalservice.service.UserServiceImplementation;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -13,9 +16,11 @@ import java.util.List;
 public class UsersController {
 
     private final IUserService userService;
-    public UsersController(IUserService userService) {
+    private  final UserServiceImplementation service;
+    public UsersController(IUserService userService, UserServiceImplementation service) {
         this.userService = userService;
 
+        this.service = service;
     }
 
 
@@ -46,5 +51,11 @@ public class UsersController {
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
+    }
+
+    @PostMapping("/users/authenticate")
+    public ResponseEntity<AuthenticationResponse> authenticate(
+            @RequestBody LoginDto request) {
+        return ResponseEntity.ok(service.authenticate(request));
     }
 }

@@ -14,9 +14,12 @@
     <name>CarRentalService</name>
     <description>CarRentalService</description>
     <properties>
-        <java.version>17</java.version>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
     <dependencies>
+        <!-- Spring Boot Starter -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
@@ -25,23 +28,38 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+            <version>2.5.5</version>
+        </dependency>
 
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+
+        <!-- Lombok -->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <optional>true</optional>
+            <version>1.18.22</version>
+            <scope>provided</scope>
         </dependency>
+
+        <!-- Spring Boot Starter Test -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+
+        <!-- Protobuf and gRPC -->
         <dependency>
             <groupId>com.google.protobuf</groupId>
             <artifactId>protobuf-java</artifactId>
             <version>3.6.1</version>
         </dependency>
-
         <dependency>
             <groupId>io.grpc</groupId>
             <artifactId>grpc-netty-shaded</artifactId>
@@ -58,7 +76,9 @@
             <artifactId>grpc-stub</artifactId>
             <version>1.46.0</version>
         </dependency>
-        <dependency> <!-- necessary for Java 9+ -->
+
+        <!-- Tomcat Annotations API -->
+        <dependency>
             <groupId>org.apache.tomcat</groupId>
             <artifactId>annotations-api</artifactId>
             <version>6.0.53</version>
@@ -70,47 +90,13 @@
             <version>4.0.1</version> <!-- Use the appropriate version -->
             <scope>provided</scope>
         </dependency>
-            <!-- Lombok -->
-            <dependency>
-                <groupId>org.projectlombok</groupId>
-                <artifactId>lombok</artifactId>
-                <version>1.18.22</version> <!-- Use the latest version -->
-                <scope>provided</scope>
-            </dependency>
-        <dependency>
-            <groupId>org.springframework.security</groupId>
-            <artifactId>spring-security-config</artifactId>
-            <version>5.5.2</version> <!-- Use the appropriate version -->
-        </dependency>
 
-
-        <!-- Spring Framework -->
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-security</artifactId>
-                <version>2.5.5</version> <!-- Use the appropriate version -->
-            </dependency>
-
-            <!-- Spring Security -->
-            <dependency>
-                <groupId>org.springframework.security</groupId>
-                <artifactId>spring-security-core</artifactId>
-                <version>5.5.2</version> <!-- Use the appropriate version -->
-            </dependency>
-
-            <!-- Spring Security Crypto -->
-            <dependency>
-                <groupId>org.springframework.security</groupId>
-                <artifactId>spring-security-crypto</artifactId>
-                <version>5.5.2</version> <!-- Use the appropriate version -->
-            </dependency>
-
+        <!-- JSON Web Token -->
         <dependency>
             <groupId>io.jsonwebtoken</groupId>
             <artifactId>jjwt</artifactId>
             <version>0.12.3</version>
         </dependency>
-
     </dependencies>
 
     <build>
@@ -128,11 +114,9 @@
                         </goals>
                         <configuration>
                             <includeMavenTypes>direct</includeMavenTypes>
-
                             <inputDirectories>
                                 <include>src/main/resources</include>
                             </inputDirectories>
-
                             <outputTargets>
                                 <outputTarget>
                                     <type>java</type>
