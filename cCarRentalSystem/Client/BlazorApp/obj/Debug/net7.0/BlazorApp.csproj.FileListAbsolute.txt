@@ -174,3 +174,7 @@ C:\Users\mkuku\Sep3Project\CarRentalSystem\cCarRentalSystem\Client\BlazorApp\obj
 C:\Users\mkuku\Sep3Project\CarRentalSystem\cCarRentalSystem\Client\BlazorApp\obj\Debug\net7.0\BlazorApp.pdb
 C:\Users\mkuku\Sep3Project\CarRentalSystem\cCarRentalSystem\Client\BlazorApp\obj\Debug\net7.0\BlazorApp.genruntimeconfig.cache
 C:\Users\mkuku\Sep3Project\CarRentalSystem\cCarRentalSystem\Client\BlazorApp\obj\Debug\net7.0\ref\BlazorApp.dll
+C:\Users\mkuku\Sep3Project\CarRentalSystem\cCarRentalSystem\Client\BlazorApp\obj\Debug\net7.0\scopedcss\Pages\CarDetails.razor.rz.scp.css
+C:\Users\mkuku\Sep3Project\CarRentalSystem\cCarRentalSystem\Client\BlazorApp\obj\Debug\net7.0\scopedcss\Pages\GetUser.razor.rz.scp.css
+C:\Users\mkuku\Sep3Project\CarRentalSystem\cCarRentalSystem\Client\BlazorApp\obj\Debug\net7.0\scopedcss\Pages\Login.razor.rz.scp.css
+C:\Users\mkuku\Sep3Project\CarRentalSystem\cCarRentalSystem\Client\BlazorApp\obj\Debug\net7.0\scopedcss\Pages\ViewCars.razor.rz.scp.css
