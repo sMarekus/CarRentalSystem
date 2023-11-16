@@ -19,7 +19,7 @@ builder.Services.AddServerSideBlazor();
 builder.Services.AddScoped(
     sp => 
         new HttpClient { 
-            BaseAddress = new Uri("http://localhost:8080")
+            BaseAddress = new Uri("https://localhost:8080")
         }
 );
 builder.Services.AddScoped<ICarService, CarService>();
