@@ -48,6 +48,10 @@ namespace CarRentalData {
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Marshaller<global::CarRentalData.UserProtoObj> __Marshaller_proto_UserProtoObj = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::CarRentalData.UserProtoObj.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::Google.Protobuf.WellKnownTypes.Empty> __Marshaller_google_protobuf_Empty = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Google.Protobuf.WellKnownTypes.Empty.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::CarRentalData.UserListResponse> __Marshaller_proto_UserListResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::CarRentalData.UserListResponse.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Marshaller<global::Google.Protobuf.WellKnownTypes.Int64Value> __Marshaller_google_protobuf_Int64Value = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Google.Protobuf.WellKnownTypes.Int64Value.Parser));
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
@@ -57,6 +61,14 @@ namespace CarRentalData {
         "CreateUser",
         __Marshaller_proto_UserProtoObj,
         __Marshaller_proto_UserProtoObj);
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::Google.Protobuf.WellKnownTypes.Empty, global::CarRentalData.UserListResponse> __Method_GetAllUsers = new grpc::Method<global::Google.Protobuf.WellKnownTypes.Empty, global::CarRentalData.UserListResponse>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "GetAllUsers",
+        __Marshaller_google_protobuf_Empty,
+        __Marshaller_proto_UserListResponse);
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Method<global::Google.Protobuf.WellKnownTypes.Int64Value, global::CarRentalData.UserProtoObj> __Method_FetchUserByCpr = new grpc::Method<global::Google.Protobuf.WellKnownTypes.Int64Value, global::CarRentalData.UserProtoObj>(
@@ -78,6 +90,12 @@ namespace CarRentalData {
     {
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public virtual global::System.Threading.Tasks.Task<global::CarRentalData.UserProtoObj> CreateUser(global::CarRentalData.UserProtoObj request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::System.Threading.Tasks.Task<global::CarRentalData.UserListResponse> GetAllUsers(global::Google.Protobuf.WellKnownTypes.Empty request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -138,6 +156,26 @@ namespace CarRentalData {
         return CallInvoker.AsyncUnaryCall(__Method_CreateUser, null, options, request);
       }
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::CarRentalData.UserListResponse GetAllUsers(global::Google.Protobuf.WellKnownTypes.Empty request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return GetAllUsers(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::CarRentalData.UserListResponse GetAllUsers(global::Google.Protobuf.WellKnownTypes.Empty request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_GetAllUsers, null, options, request);
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::CarRentalData.UserListResponse> GetAllUsersAsync(global::Google.Protobuf.WellKnownTypes.Empty request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return GetAllUsersAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::CarRentalData.UserListResponse> GetAllUsersAsync(global::Google.Protobuf.WellKnownTypes.Empty request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_GetAllUsers, null, options, request);
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public virtual global::CarRentalData.UserProtoObj FetchUserByCpr(global::Google.Protobuf.WellKnownTypes.Int64Value request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return FetchUserByCpr(request, new grpc::CallOptions(headers, deadline, cancellationToken));
@@ -172,6 +210,7 @@ namespace CarRentalData {
     {
       return grpc::ServerServiceDefinition.CreateBuilder()
           .AddMethod(__Method_CreateUser, serviceImpl.CreateUser)
+          .AddMethod(__Method_GetAllUsers, serviceImpl.GetAllUsers)
           .AddMethod(__Method_FetchUserByCpr, serviceImpl.FetchUserByCpr).Build();
     }
 
@@ -183,6 +222,7 @@ namespace CarRentalData {
     public static void BindService(grpc::ServiceBinderBase serviceBinder, UserProtoServiceBase serviceImpl)
     {
       serviceBinder.AddMethod(__Method_CreateUser, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::CarRentalData.UserProtoObj, global::CarRentalData.UserProtoObj>(serviceImpl.CreateUser));
+      serviceBinder.AddMethod(__Method_GetAllUsers, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Google.Protobuf.WellKnownTypes.Empty, global::CarRentalData.UserListResponse>(serviceImpl.GetAllUsers));
       serviceBinder.AddMethod(__Method_FetchUserByCpr, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Google.Protobuf.WellKnownTypes.Int64Value, global::CarRentalData.UserProtoObj>(serviceImpl.FetchUserByCpr));
     }
 

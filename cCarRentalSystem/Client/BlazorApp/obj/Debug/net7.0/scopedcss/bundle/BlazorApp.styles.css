@@ -1,8 +1,21 @@
-/* _content/BlazorApp/Pages/Register.razor.rz.scp.css */
-.card[b-x3lxt1hyuu] {
+/* _content/BlazorApp/Pages/CarDetails.razor.rz.scp.css */
+#header[b-lql16p6pfj]{
+    text-align: center;
+}
+/* _content/BlazorApp/Pages/GetUser.razor.rz.scp.css */
+.user-card[b-n1sgfil5f0] {
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    display: inline-block;
+    margin: 25px;
+    padding: 15px;
+    border-radius: 10px;
+}
+/* _content/BlazorApp/Pages/Login.razor.rz.scp.css */
+.card[b-c956fem5qt]{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     transition: 0.3s;
-    width: 250px;
+    max-width: 400px;
+    width: 80%;
     padding: 25px;
     text-align: center;
     margin: auto;
@@ -10,11 +23,45 @@
     border-radius: 15px;
 }
 
-.field[b-x3lxt1hyuu] {
-    margin-top: 20px;
+#inputPassword:focus[b-c956fem5qt]{
+    border: 3px solid dimgrey;
+    width: 160px;
+    outline: none;
 }
 
-.acceptbtn[b-x3lxt1hyuu] {
+.field[b-c956fem5qt]{
+    margin-top: 20px;
+    text-align: center;
+    justify-content: center;
+}
+
+#inputCpr:focus[b-c956fem5qt]{
+    border: 3px solid dimgrey;
+    width: 160px;
+    outline: none;
+}
+
+#inputPassword[b-c956fem5qt]{
+    padding: 12px 20px;
+    transition: width 1s ease-in-out 250ms;
+    resize: vertical;
+    min-height: 50px;
+    width: 50px;
+}
+
+#inputCpr[b-c956fem5qt]{
+    padding: 12px 20px;
+    transition: width 1s ease-in-out 250ms;
+    resize: vertical;
+    min-height: 50px;
+    width: 50px;
+}
+
+#header[b-c956fem5qt]{
+    text-align: center;
+}
+
+.acceptbtn[b-c956fem5qt]{
     background-color:lightgreen;
     border-radius: 5px;
     padding: 5px;
@@ -22,12 +69,147 @@
     padding-right: 10px;
 }
 
-.button-row[b-x3lxt1hyuu]{
+.button-row[b-c956fem5qt]{
     margin-top: 15px;
 }
+/* _content/BlazorApp/Pages/Register.razor.rz.scp.css */
+.card[b-x3lxt1hyuu]{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    max-width: 400px;
+    width: 80%;
+    padding: 25px;
+    text-align: center;
+    margin: auto;
+    margin-top: 50px;
+    border-radius: 15px;
+}
 
-.header[b-x3lxt1hyuu] {
-    color: beige;
+#inputPassword:focus[b-x3lxt1hyuu]{
+    border: 3px solid dimgrey;
+    width: 160px;
+    outline: none;
+}
+
+.field[b-x3lxt1hyuu]{
+    margin-top: 20px;
+    text-align: center;
+    justify-content: center;
+}
+
+#inputCprNumber:focus[b-x3lxt1hyuu]{
+    border: 3px solid dimgrey;
+    width: 160px;
+    outline: none;
+}
+
+.acceptbtn[b-x3lxt1hyuu]{
+    background-color:lightgreen;
+    border-radius: 5px;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+#inputEmail:focus[b-x3lxt1hyuu]{
+    border: 3px solid dimgrey;
+    width: 160px;
+    outline: none;
+}
+
+.button-row[b-x3lxt1hyuu]{
+    margin-top: 20px;
+    justify-content: center;
+    text-align: center;
+}
+
+#inputPhoneNumber:focus[b-x3lxt1hyuu]{
+    border: 3px solid dimgrey;
+    width: 160px;
+    outline: none;
+}
+
+#inputFirstName:focus[b-x3lxt1hyuu]{
+    border: 3px solid dimgrey;
+    width: 160px;
+    outline: none;
+}
+
+#inputLastName:focus[b-x3lxt1hyuu]{
+    border: 3px solid dimgrey;
+    width: 160px;
+    outline: none;
+}
+
+#inputPassword:focus[b-x3lxt1hyuu]{
+    border: 3px solid dimgrey;
+    width: 160px;
+    outline: none;
+}
+
+#inputFirstName[b-x3lxt1hyuu]{
+    padding: 12px 20px;
+    transition: width 1s ease-in-out 250ms;
+    resize: vertical;
+    min-height: 50px;
+    width: 50px;
+}
+
+#inputLastName[b-x3lxt1hyuu]{
+    padding: 12px 20px;
+    transition: width 1s ease-in-out 250ms;
+    resize: vertical;
+    min-height: 50px;
+    width: 50px;
+}
+
+#inputEmail[b-x3lxt1hyuu]{
+    padding: 12px 20px;
+    transition: width 1s ease-in-out 250ms;
+    resize: vertical;
+    min-height: 50px;
+    width: 50px;
+}
+
+#inputPassword[b-x3lxt1hyuu]{
+    padding: 12px 20px;
+    transition: width 1s ease-in-out 250ms;
+    resize: vertical;
+    min-height: 50px;
+    width: 50px;
+}
+
+#inputCprNumber[b-x3lxt1hyuu]{
+    padding: 12px 20px;
+    transition: width 1s ease-in-out 250ms;
+    resize: vertical;
+    min-height: 50px;
+    width: 50px;
+}
+
+#inputPhoneNumber[b-x3lxt1hyuu]{
+    padding: 12px 20px;
+    transition: width 1s ease-in-out 250ms;
+    resize: vertical;
+    min-height: 50px;
+    width: 50px;
+}
+
+#header[b-x3lxt1hyuu]{
+    text-align: center;
+}
+
+
+/* _content/BlazorApp/Pages/ViewCars.razor.rz.scp.css */
+#header[b-4ws64lblw9]{
+    text-align: center;
+}
+
+.card[b-4ws64lblw9]{
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    display: inline-block;
+    margin: 25px;
+    padding: 15px;
+    border-radius: 10px;
 }
 /* _content/BlazorApp/Shared/MainLayout.razor.rz.scp.css */
 .page[b-3dsd3z3yec] {

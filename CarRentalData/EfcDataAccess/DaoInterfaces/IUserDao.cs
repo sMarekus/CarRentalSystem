@@ -6,4 +6,5 @@ public interface IUserDao
 {
     Task<User?> CreateUserAsync(User? userEntity);
     Task<User?> FetchUserByCprAsync(long cpr);
+    Task<ICollection<User?>> FetchUsersAsync();
 }
