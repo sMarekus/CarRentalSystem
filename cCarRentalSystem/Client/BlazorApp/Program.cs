@@ -47,5 +47,6 @@ app.UseRouting();
 
 app.MapBlazorHub();
 app.MapFallbackToPage("/_Host");
+app.UseAuthentication(); //Use authentication 
 
 app.Run();

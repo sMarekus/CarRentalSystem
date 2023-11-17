@@ -25,17 +25,19 @@ namespace CarRentalData {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "Cgp1c2VyLnByb3RvEgVwcm90bxoeZ29vZ2xlL3Byb3RvYnVmL3dyYXBwZXJz",
-            "LnByb3RvIo0BCgxVc2VyUHJvdG9PYmoSEQoJZmlyc3ROYW1lGAEgASgJEhAK",
-            "CGxhc3ROYW1lGAIgASgJEg0KBWVtYWlsGAMgASgJEhAKCHBhc3N3b3JkGAQg",
-            "ASgJEhEKCWNwck51bWJlchgFIAEoAxITCgtwaG9uZU51bWJlchgGIAEoAxIP",
-            "Cgdpc0FkbWluGAcgASgIIjkKEFVzZXJMaXN0UmVzcG9uc2USJQoIYWxsVXNl",
-            "cnMYASADKAsyEy5wcm90by5Vc2VyUHJvdG9PYmoykgEKEFVzZXJQcm90b1Nl",
-            "cnZpY2USOAoKQ3JlYXRlVXNlchITLnByb3RvLlVzZXJQcm90b09iahoTLnBy",
-            "b3RvLlVzZXJQcm90b09iaiIAEkQKDkZldGNoVXNlckJ5Q3ByEhsuZ29vZ2xl",
-            "LnByb3RvYnVmLkludDY0VmFsdWUaEy5wcm90by5Vc2VyUHJvdG9PYmoiAEIQ",
-            "qgINQ2FyUmVudGFsRGF0YWIGcHJvdG8z"));
+            "LnByb3RvGhtnb29nbGUvcHJvdG9idWYvZW1wdHkucHJvdG8ijQEKDFVzZXJQ",
+            "cm90b09iahIRCglmaXJzdE5hbWUYASABKAkSEAoIbGFzdE5hbWUYAiABKAkS",
+            "DQoFZW1haWwYAyABKAkSEAoIcGFzc3dvcmQYBCABKAkSEQoJY3ByTnVtYmVy",
+            "GAUgASgDEhMKC3Bob25lTnVtYmVyGAYgASgDEg8KB2lzQWRtaW4YByABKAgi",
+            "OQoQVXNlckxpc3RSZXNwb25zZRIlCghhbGxVc2VycxgBIAMoCzITLnByb3Rv",
+            "LlVzZXJQcm90b09iajLUAQoQVXNlclByb3RvU2VydmljZRI4CgpDcmVhdGVV",
+            "c2VyEhMucHJvdG8uVXNlclByb3RvT2JqGhMucHJvdG8uVXNlclByb3RvT2Jq",
+            "IgASQAoLR2V0QWxsVXNlcnMSFi5nb29nbGUucHJvdG9idWYuRW1wdHkaFy5w",
+            "cm90by5Vc2VyTGlzdFJlc3BvbnNlIgASRAoORmV0Y2hVc2VyQnlDcHISGy5n",
+            "b29nbGUucHJvdG9idWYuSW50NjRWYWx1ZRoTLnByb3RvLlVzZXJQcm90b09i",
+            "aiIAQhCqAg1DYXJSZW50YWxEYXRhYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.WrappersReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.WrappersReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.EmptyReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::CarRentalData.UserProtoObj), global::CarRentalData.UserProtoObj.Parser, new[]{ "FirstName", "LastName", "Email", "Password", "CprNumber", "PhoneNumber", "IsAdmin" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::CarRentalData.UserListResponse), global::CarRentalData.UserListResponse.Parser, new[]{ "AllUsers" }, null, null, null, null)

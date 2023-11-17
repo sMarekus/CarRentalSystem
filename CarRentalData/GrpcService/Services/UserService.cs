@@ -48,6 +48,31 @@ public class UserService : UserProtoService.UserProtoServiceBase
         }
     }
 
+    public override async Task<UserListResponse> GetAllUsers(Empty request, ServerCallContext context)
+    {
+        try
+        {
+            ICollection<User?> allUsers = await userDao.FetchUsersAsync();
+            RepeatedField<UserProtoObj> userProtoObjs = new RepeatedField<UserProtoObj>();
+
+            foreach (User? user in allUsers)
+            {
+                UserProtoObj protoObj = FromEntityToProto(user);
+                userProtoObjs.Add(protoObj);
+            }
+
+            return new UserListResponse()
+            {
+                AllUsers = { userProtoObjs }
+            };
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw new RpcException(new Status(StatusCode.NotFound, e.Message));
+        }
+    }
+
     public static User? FromProtoToEntity(UserProtoObj userProtoObj)
     {
         User? userEntity = new User()
