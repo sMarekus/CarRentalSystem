@@ -1,0 +1,157 @@
+﻿.card{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    max-width: 400px;
+    width: 80%;
+    padding: 25px;
+    text-align: center;
+    margin: auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    border-radius: 15px;
+}
+
+.field{
+    margin-top: 20px;
+    text-align: center;
+    justify-content: center;
+}
+
+.acceptbtn{
+    background-color:lightgreen;
+    border-radius: 5px;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: 20px;
+}
+
+#inputBrand:focus{
+    border: 3px solid dimgrey;
+    width: 160px;
+    outline: none;
+}
+
+#inputBrand{
+    padding: 12px 20px;
+    transition: width 1s ease-in-out 250ms;
+    resize: vertical;
+    min-height: 50px;
+    width: 50px;
+}
+
+#inputModel:focus{
+    border: 3px solid dimgrey;
+    width: 160px;
+    outline: none;
+}
+
+#inputModel{
+    padding: 12px 20px;
+    transition: width 1s ease-in-out 250ms;
+    resize: vertical;
+    min-height: 50px;
+    width: 50px;
+}
+
+#inputBodyType:focus{
+    border: 3px solid dimgrey;
+    width: 160px;
+    outline: none;
+}
+
+#inputBodyType{
+    padding: 12px 20px;
+    transition: width 1s ease-in-out 250ms;
+    resize: vertical;
+    min-height: 50px;
+    width: 50px;
+}
+
+#inputGearbox:focus{
+    border: 3px solid dimgrey;
+    width: 160px;
+    outline: none;
+}
+
+#inputGearbox{
+    padding: 12px 20px;
+    transition: width 1s ease-in-out 250ms;
+    resize: vertical;
+    min-height: 50px;
+    width: 50px;
+}
+
+#inputColor:focus{
+    border: 3px solid dimgrey;
+    width: 160px;
+    outline: none;
+}
+
+#inputColor{
+    padding: 12px 20px;
+    transition: width 1s ease-in-out 250ms;
+    resize: vertical;
+    min-height: 50px;
+    width: 50px;
+}
+
+#inputHP:focus{
+    border: 3px solid dimgrey;
+    width: 160px;
+    outline: none;
+}
+
+#inputHP{
+    padding: 12px 20px;
+    transition: width 1s ease-in-out 250ms;
+    resize: vertical;
+    min-height: 50px;
+    width: 50px;
+}
+
+#inputPrice:focus{
+    border: 3px solid dimgrey;
+    width: 160px;
+    outline: none;
+}
+
+#inputPrice{
+    padding: 12px 20px;
+    transition: width 1s ease-in-out 250ms;
+    resize: vertical;
+    min-height: 50px;
+    width: 50px;
+}
+
+#inputDescription:focus{
+    border: 3px solid dimgrey;
+    width: 160px;
+    outline: none;
+}
+
+#inputDescription{
+    padding: 12px 20px;
+    transition: width 1s ease-in-out 250ms;
+    resize: vertical;
+    min-height: 50px;
+    width: 50px;
+}
+
+#inputFuelType:focus{
+    border: 3px solid dimgrey;
+    width: 160px;
+    outline: none;
+}
+
+#inputFuelType{
+    padding: 12px 20px;
+    transition: width 1s ease-in-out 250ms;
+    resize: vertical;
+    min-height: 50px;
+    width: 50px;
+}
+
+#header{
+    text-align: center;
+}
