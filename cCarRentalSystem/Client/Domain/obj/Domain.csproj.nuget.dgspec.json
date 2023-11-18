@@ -1,27 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\mkuku\\Sep3Project\\CarRentalSystem\\cCarRentalSystem\\Client\\Domain\\Domain.csproj": {}
+    "C:\\Users\\tomim\\Documents\\GitHub\\CarRentalSystem\\cCarRentalSystem\\Client\\Domain\\Domain.csproj": {}
   },
   "projects": {
-    "C:\\Users\\mkuku\\Sep3Project\\CarRentalSystem\\cCarRentalSystem\\Client\\Domain\\Domain.csproj": {
+    "C:\\Users\\tomim\\Documents\\GitHub\\CarRentalSystem\\cCarRentalSystem\\Client\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mkuku\\Sep3Project\\CarRentalSystem\\cCarRentalSystem\\Client\\Domain\\Domain.csproj",
+        "projectUniqueName": "C:\\Users\\tomim\\Documents\\GitHub\\CarRentalSystem\\cCarRentalSystem\\Client\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "C:\\Users\\mkuku\\Sep3Project\\CarRentalSystem\\cCarRentalSystem\\Client\\Domain\\Domain.csproj",
-        "packagesPath": "C:\\Users\\mkuku\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mkuku\\Sep3Project\\CarRentalSystem\\cCarRentalSystem\\Client\\Domain\\obj\\",
+        "projectPath": "C:\\Users\\tomim\\Documents\\GitHub\\CarRentalSystem\\cCarRentalSystem\\Client\\Domain\\Domain.csproj",
+        "packagesPath": "C:\\Users\\tomim\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\tomim\\Documents\\GitHub\\CarRentalSystem\\cCarRentalSystem\\Client\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\mkuku\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\tomim\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -61,7 +59,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }
