@@ -15,6 +15,6 @@ public class CarRentalSystemContext : DbContext
     
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<User>().HasKey(user => user.CprNumber);
+        modelBuilder.Entity<User>().HasKey(user => user.Username);
     }
 }

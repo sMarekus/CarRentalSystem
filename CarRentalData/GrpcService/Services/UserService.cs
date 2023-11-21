@@ -33,12 +33,12 @@ public class UserService : UserProtoService.UserProtoServiceBase
         }
     }
 
-    public override async Task<UserProtoObj> FetchUserByCpr(Int64Value request, ServerCallContext context)
+    public override async Task<UserProtoObj> FetchUserByUsername(StringValue request, ServerCallContext context)
     {
         try
         {
-            User? userByCpr = await userDao.FetchUserByCprAsync(request.Value);
-            UserProtoObj protoObj = FromEntityToProto(userByCpr);
+            User? userByUsername = await userDao.FetchUserByUsernameAsync(request.Value);
+            UserProtoObj protoObj = FromEntityToProto(userByUsername);
             return protoObj;
         }
         catch (Exception e)
@@ -77,7 +77,7 @@ public class UserService : UserProtoService.UserProtoServiceBase
     {
         User? userEntity = new User()
         {
-            CprNumber = userProtoObj.CprNumber,
+            Username = userProtoObj.Username,
             FirstName = userProtoObj.FirstName,
             LastName = userProtoObj.LastName,
             Email = userProtoObj.Email,
@@ -93,7 +93,7 @@ public class UserService : UserProtoService.UserProtoServiceBase
     {
         UserProtoObj userProtoObj = new UserProtoObj()
         {
-            CprNumber = userEntity.CprNumber,
+            Username = userEntity.Username,
             FirstName = userEntity.FirstName,
             LastName = userEntity.LastName,
             Email = userEntity.Email,
