@@ -15,9 +15,9 @@ public class JwtAuthService : IAuthService
 
     public Action<ClaimsPrincipal> OnAuthStateChanged { get; set; } = null!;
 
-    public async Task LoginAsync(long cpr, string password)
+    public async Task LoginAsync(string username, string password)
     {
-        UserLoginDto userLoginDto = new UserLoginDto(cpr, password);
+        UserLoginDto userLoginDto = new UserLoginDto(username, password);
 
         string userAsJson = JsonSerializer.Serialize(userLoginDto);
         StringContent content = new(userAsJson, Encoding.UTF8, "application/json");

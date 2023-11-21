@@ -18,7 +18,7 @@ public class JwtService {
 
     private static final String SECRET_KEY= "oursecretkeywhichhasmorethan16characters";
 
-    public String extractCpr(String token){
+    public String extractUsername(String token){
         return extractClaim(token, Claims::getSubject);
     }
 
@@ -28,7 +28,6 @@ public class JwtService {
         return claimReslover.apply(claims);
     }
 
-    //public String generateToken(User )
 
     private Claims extractAllClaims(String token) {
         return Jwts.parser().setSigningKey(getSignInKey()).build().parseClaimsJws(token).getBody();
@@ -48,7 +47,7 @@ public class JwtService {
 
 
     public boolean isTokenValid(String token, UserDetails userDetails) {
-        final String cpr = extractCpr(token);
+        final String cpr = extractUsername(token);
         return cpr.equals(userDetails.getUsername()) && !isTokenExpired(token);
     }
 
@@ -59,8 +58,8 @@ public class JwtService {
 
 
         Claims claims = (Claims) Jwts.claims();
-        claims.put(Claims.SUBJECT, userDetails.getCprNumber());
-        claims.put("cpr", userDetails.getCprNumber());
+        claims.put(Claims.SUBJECT, userDetails.getUsername());
+        claims.put("username", userDetails.getUsername());
 
         return Jwts.builder().setClaims(claims)
                 .setIssuedAt(new Date(System.currentTimeMillis()))

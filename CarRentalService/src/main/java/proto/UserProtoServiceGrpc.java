@@ -91,36 +91,36 @@ public final class UserProtoServiceGrpc {
      return getGetAllUsersMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<com.google.protobuf.Int64Value,
-      proto.User.UserProtoObj> getFetchUserByCprMethod;
+  private static volatile io.grpc.MethodDescriptor<com.google.protobuf.StringValue,
+      proto.User.UserProtoObj> getFetchUserByUsernameMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "FetchUserByCpr",
-      requestType = com.google.protobuf.Int64Value.class,
+      fullMethodName = SERVICE_NAME + '/' + "FetchUserByUsername",
+      requestType = com.google.protobuf.StringValue.class,
       responseType = proto.User.UserProtoObj.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<com.google.protobuf.Int64Value,
-      proto.User.UserProtoObj> getFetchUserByCprMethod() {
-    io.grpc.MethodDescriptor<com.google.protobuf.Int64Value, proto.User.UserProtoObj> getFetchUserByCprMethod;
-    if ((getFetchUserByCprMethod = UserProtoServiceGrpc.getFetchUserByCprMethod) == null) {
+  public static io.grpc.MethodDescriptor<com.google.protobuf.StringValue,
+      proto.User.UserProtoObj> getFetchUserByUsernameMethod() {
+    io.grpc.MethodDescriptor<com.google.protobuf.StringValue, proto.User.UserProtoObj> getFetchUserByUsernameMethod;
+    if ((getFetchUserByUsernameMethod = UserProtoServiceGrpc.getFetchUserByUsernameMethod) == null) {
       synchronized (UserProtoServiceGrpc.class) {
-        if ((getFetchUserByCprMethod = UserProtoServiceGrpc.getFetchUserByCprMethod) == null) {
-          UserProtoServiceGrpc.getFetchUserByCprMethod = getFetchUserByCprMethod = 
-              io.grpc.MethodDescriptor.<com.google.protobuf.Int64Value, proto.User.UserProtoObj>newBuilder()
+        if ((getFetchUserByUsernameMethod = UserProtoServiceGrpc.getFetchUserByUsernameMethod) == null) {
+          UserProtoServiceGrpc.getFetchUserByUsernameMethod = getFetchUserByUsernameMethod = 
+              io.grpc.MethodDescriptor.<com.google.protobuf.StringValue, proto.User.UserProtoObj>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
-                  "proto.UserProtoService", "FetchUserByCpr"))
+                  "proto.UserProtoService", "FetchUserByUsername"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.google.protobuf.Int64Value.getDefaultInstance()))
+                  com.google.protobuf.StringValue.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   proto.User.UserProtoObj.getDefaultInstance()))
-                  .setSchemaDescriptor(new UserProtoServiceMethodDescriptorSupplier("FetchUserByCpr"))
+                  .setSchemaDescriptor(new UserProtoServiceMethodDescriptorSupplier("FetchUserByUsername"))
                   .build();
           }
         }
      }
-     return getFetchUserByCprMethod;
+     return getFetchUserByUsernameMethod;
   }
 
   /**
@@ -166,9 +166,9 @@ public final class UserProtoServiceGrpc {
 
     /**
      */
-    public void fetchUserByCpr(com.google.protobuf.Int64Value request,
+    public void fetchUserByUsername(com.google.protobuf.StringValue request,
         io.grpc.stub.StreamObserver<proto.User.UserProtoObj> responseObserver) {
-      asyncUnimplementedUnaryCall(getFetchUserByCprMethod(), responseObserver);
+      asyncUnimplementedUnaryCall(getFetchUserByUsernameMethod(), responseObserver);
     }
 
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
@@ -188,12 +188,12 @@ public final class UserProtoServiceGrpc {
                 proto.User.UserListResponse>(
                   this, METHODID_GET_ALL_USERS)))
           .addMethod(
-            getFetchUserByCprMethod(),
+            getFetchUserByUsernameMethod(),
             asyncUnaryCall(
               new MethodHandlers<
-                com.google.protobuf.Int64Value,
+                com.google.protobuf.StringValue,
                 proto.User.UserProtoObj>(
-                  this, METHODID_FETCH_USER_BY_CPR)))
+                  this, METHODID_FETCH_USER_BY_USERNAME)))
           .build();
     }
   }
@@ -234,10 +234,10 @@ public final class UserProtoServiceGrpc {
 
     /**
      */
-    public void fetchUserByCpr(com.google.protobuf.Int64Value request,
+    public void fetchUserByUsername(com.google.protobuf.StringValue request,
         io.grpc.stub.StreamObserver<proto.User.UserProtoObj> responseObserver) {
       asyncUnaryCall(
-          getChannel().newCall(getFetchUserByCprMethod(), getCallOptions()), request, responseObserver);
+          getChannel().newCall(getFetchUserByUsernameMethod(), getCallOptions()), request, responseObserver);
     }
   }
 
@@ -275,9 +275,9 @@ public final class UserProtoServiceGrpc {
 
     /**
      */
-    public proto.User.UserProtoObj fetchUserByCpr(com.google.protobuf.Int64Value request) {
+    public proto.User.UserProtoObj fetchUserByUsername(com.google.protobuf.StringValue request) {
       return blockingUnaryCall(
-          getChannel(), getFetchUserByCprMethod(), getCallOptions(), request);
+          getChannel(), getFetchUserByUsernameMethod(), getCallOptions(), request);
     }
   }
 
@@ -317,16 +317,16 @@ public final class UserProtoServiceGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<proto.User.UserProtoObj> fetchUserByCpr(
-        com.google.protobuf.Int64Value request) {
+    public com.google.common.util.concurrent.ListenableFuture<proto.User.UserProtoObj> fetchUserByUsername(
+        com.google.protobuf.StringValue request) {
       return futureUnaryCall(
-          getChannel().newCall(getFetchUserByCprMethod(), getCallOptions()), request);
+          getChannel().newCall(getFetchUserByUsernameMethod(), getCallOptions()), request);
     }
   }
 
   private static final int METHODID_CREATE_USER = 0;
   private static final int METHODID_GET_ALL_USERS = 1;
-  private static final int METHODID_FETCH_USER_BY_CPR = 2;
+  private static final int METHODID_FETCH_USER_BY_USERNAME = 2;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -353,8 +353,8 @@ public final class UserProtoServiceGrpc {
           serviceImpl.getAllUsers((com.google.protobuf.Empty) request,
               (io.grpc.stub.StreamObserver<proto.User.UserListResponse>) responseObserver);
           break;
-        case METHODID_FETCH_USER_BY_CPR:
-          serviceImpl.fetchUserByCpr((com.google.protobuf.Int64Value) request,
+        case METHODID_FETCH_USER_BY_USERNAME:
+          serviceImpl.fetchUserByUsername((com.google.protobuf.StringValue) request,
               (io.grpc.stub.StreamObserver<proto.User.UserProtoObj>) responseObserver);
           break;
         default:
@@ -420,7 +420,7 @@ public final class UserProtoServiceGrpc {
               .setSchemaDescriptor(new UserProtoServiceFileDescriptorSupplier())
               .addMethod(getCreateUserMethod())
               .addMethod(getGetAllUsersMethod())
-              .addMethod(getFetchUserByCprMethod())
+              .addMethod(getFetchUserByUsernameMethod())
               .build();
         }
       }

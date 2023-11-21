@@ -16,8 +16,8 @@
         <div class="row d-flex justify-content-center">
             <div class="col-md-6">
                 <div class="form-group field">
-                    <label>CPR:</label>
-                    <input id="inputCpr" type="text" class="form-control" @bind="cprNumber" @bind:event="oninput"/>
+                    <label>Username:</label>
+                    <input id="inputCpr" type="text" class="form-control" @bind="userName" @bind:event="oninput"/>
                 </div>
             </div>
         </div>
@@ -46,19 +46,19 @@
 
 
 @code {
-    private long cprNumber;
+    private string userName;
     private string password = "";
     private string resultMsg = "";
     private string color = "";
     
-    private bool IsLoginButtonDisabled => cprNumber == 0 || password.Equals("");
+    private bool IsLoginButtonDisabled => string.IsNullOrWhiteSpace(userName) || string.IsNullOrWhiteSpace(password);
 
     private async Task LoginAsync()
     {
         try
         {
-            await authService.LoginAsync(cprNumber, password);
-            cprNumber = 0;
+            await authService.LoginAsync(userName, password);
+            userName = "";
             password = "";
             resultMsg = "Logged in successfully.";
             color = "green";

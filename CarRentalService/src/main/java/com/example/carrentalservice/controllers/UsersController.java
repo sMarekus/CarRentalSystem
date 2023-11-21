@@ -43,10 +43,10 @@ public class UsersController {
         }
     }
 
-    @GetMapping("/users/{cprNumber}")
-    public ResponseEntity<User> getUserByCprNumber(@PathVariable("cprNumber") long cprNumber) {
+    @GetMapping("/users/{username}")
+    public ResponseEntity<User> getUserByUsername(@PathVariable("username") String username) {
         try {
-            User user = userService.getUserByCprNumber(cprNumber);
+            User user = userService.getUserByUserName(username);
             return new ResponseEntity<>(user, HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);

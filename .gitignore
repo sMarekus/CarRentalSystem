@@ -13,3 +13,14 @@ CarRentalData/Entity/obj
 CarRentalData/GrpcService/obj
 rider.project.model.nuget.info
 .idea/
+cCarRentalSystem/Client/BlazorApp/obj/Debug/net7.0/apphost.exe
+cCarRentalSystem/Client/BlazorApp/obj/Debug/net7.0/apphost.exe
+cCarRentalSystem/Client/BlazorApp/obj/Debug/net7.0/BlazorApp.csproj.AssemblyReference.cache
+cCarRentalSystem/Client/BlazorApp/obj/Debug/net7.0/BlazorApp.GeneratedMSBuildEditorConfig.editorconfig
+cCarRentalSystem/Client/BlazorApp/obj/rider.project.model.nuget.info
+cCarRentalSystem/Client/BlazorApp/obj/rider.project.restore.info
+cCarRentalSystem/Client/Domain/obj/rider.project.model.nuget.info
+cCarRentalSystem/Client/Domain/obj/rider.project.restore.info
+cCarRentalSystem/Client/HttpClients/obj/Debug/net7.0/HttpClients.csproj.AssemblyReference.cache
+cCarRentalSystem/Client/HttpClients/obj/rider.project.model.nuget.info
+cCarRentalSystem/Client/HttpClients/obj/rider.project.restore.info

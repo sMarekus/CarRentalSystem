@@ -4,7 +4,7 @@ public class User {
     private String lastName;
     private String email;
     private String password;
-    private long cprNumber;
+    private String username;
     private long phoneNumber;
 
     private boolean isAdmin;
@@ -15,12 +15,12 @@ public class User {
 
     }
 
-    public User(String firstName, String lastName, String email, String password, long cprNumber, long phoneNumber,boolean isAdmin) {
+    public User(String firstName, String lastName, String email, String password, String username, long phoneNumber,boolean isAdmin) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.password = password;
-        this.cprNumber = cprNumber;
+        this.username = username;
         this.phoneNumber = phoneNumber;
         this.isAdmin = isAdmin;
     }
@@ -41,9 +41,7 @@ public class User {
         return this.password;
     }
 
-    public long getCprNumber() {
-        return this.cprNumber;
-    }
+    public String getUsername() { return this.username; }
 
     public long getPhoneNumber() {
         return this.phoneNumber;
@@ -69,9 +67,7 @@ public class User {
         this.password = password;
     }
 
-    public void setCprNumber(int cprNumber) {
-        this.cprNumber = cprNumber;
-    }
+    public void setUsername(String username) { this.username = username; }
 
     public void setPhoneNumber(int phoneNumber) {
         this.phoneNumber = phoneNumber;
@@ -88,7 +84,7 @@ public class User {
                 ", lastName='" + lastName + '\'' +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
-                ", cprNumber='" + cprNumber + '\'' +
+                ", username='" + username + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
                 '}';
     }
