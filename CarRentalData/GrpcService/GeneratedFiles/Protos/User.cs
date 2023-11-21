@@ -25,21 +25,21 @@ namespace CarRentalData {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "Cgp1c2VyLnByb3RvEgVwcm90bxoeZ29vZ2xlL3Byb3RvYnVmL3dyYXBwZXJz",
-            "LnByb3RvGhtnb29nbGUvcHJvdG9idWYvZW1wdHkucHJvdG8ijQEKDFVzZXJQ",
+            "LnByb3RvGhtnb29nbGUvcHJvdG9idWYvZW1wdHkucHJvdG8ijAEKDFVzZXJQ",
             "cm90b09iahIRCglmaXJzdE5hbWUYASABKAkSEAoIbGFzdE5hbWUYAiABKAkS",
-            "DQoFZW1haWwYAyABKAkSEAoIcGFzc3dvcmQYBCABKAkSEQoJY3ByTnVtYmVy",
-            "GAUgASgDEhMKC3Bob25lTnVtYmVyGAYgASgDEg8KB2lzQWRtaW4YByABKAgi",
-            "OQoQVXNlckxpc3RSZXNwb25zZRIlCghhbGxVc2VycxgBIAMoCzITLnByb3Rv",
-            "LlVzZXJQcm90b09iajLUAQoQVXNlclByb3RvU2VydmljZRI4CgpDcmVhdGVV",
-            "c2VyEhMucHJvdG8uVXNlclByb3RvT2JqGhMucHJvdG8uVXNlclByb3RvT2Jq",
-            "IgASQAoLR2V0QWxsVXNlcnMSFi5nb29nbGUucHJvdG9idWYuRW1wdHkaFy5w",
-            "cm90by5Vc2VyTGlzdFJlc3BvbnNlIgASRAoORmV0Y2hVc2VyQnlDcHISGy5n",
-            "b29nbGUucHJvdG9idWYuSW50NjRWYWx1ZRoTLnByb3RvLlVzZXJQcm90b09i",
-            "aiIAQhCqAg1DYXJSZW50YWxEYXRhYgZwcm90bzM="));
+            "DQoFZW1haWwYAyABKAkSEAoIcGFzc3dvcmQYBCABKAkSEAoIdXNlcm5hbWUY",
+            "BSABKAkSEwoLcGhvbmVOdW1iZXIYBiABKAMSDwoHaXNBZG1pbhgHIAEoCCI5",
+            "ChBVc2VyTGlzdFJlc3BvbnNlEiUKCGFsbFVzZXJzGAEgAygLMhMucHJvdG8u",
+            "VXNlclByb3RvT2JqMtoBChBVc2VyUHJvdG9TZXJ2aWNlEjgKCkNyZWF0ZVVz",
+            "ZXISEy5wcm90by5Vc2VyUHJvdG9PYmoaEy5wcm90by5Vc2VyUHJvdG9PYmoi",
+            "ABJACgtHZXRBbGxVc2VycxIWLmdvb2dsZS5wcm90b2J1Zi5FbXB0eRoXLnBy",
+            "b3RvLlVzZXJMaXN0UmVzcG9uc2UiABJKChNGZXRjaFVzZXJCeVVzZXJuYW1l",
+            "EhwuZ29vZ2xlLnByb3RvYnVmLlN0cmluZ1ZhbHVlGhMucHJvdG8uVXNlclBy",
+            "b3RvT2JqIgBCEKoCDUNhclJlbnRhbERhdGFiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.WrappersReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.EmptyReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::CarRentalData.UserProtoObj), global::CarRentalData.UserProtoObj.Parser, new[]{ "FirstName", "LastName", "Email", "Password", "CprNumber", "PhoneNumber", "IsAdmin" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::CarRentalData.UserProtoObj), global::CarRentalData.UserProtoObj.Parser, new[]{ "FirstName", "LastName", "Email", "Password", "Username", "PhoneNumber", "IsAdmin" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::CarRentalData.UserListResponse), global::CarRentalData.UserListResponse.Parser, new[]{ "AllUsers" }, null, null, null, null)
           }));
     }
@@ -86,7 +86,7 @@ namespace CarRentalData {
       lastName_ = other.lastName_;
       email_ = other.email_;
       password_ = other.password_;
-      cprNumber_ = other.cprNumber_;
+      username_ = other.username_;
       phoneNumber_ = other.phoneNumber_;
       isAdmin_ = other.isAdmin_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
@@ -146,15 +146,15 @@ namespace CarRentalData {
       }
     }
 
-    /// <summary>Field number for the "cprNumber" field.</summary>
-    public const int CprNumberFieldNumber = 5;
-    private long cprNumber_;
+    /// <summary>Field number for the "username" field.</summary>
+    public const int UsernameFieldNumber = 5;
+    private string username_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public long CprNumber {
-      get { return cprNumber_; }
+    public string Username {
+      get { return username_; }
       set {
-        cprNumber_ = value;
+        username_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
     }
 
@@ -201,7 +201,7 @@ namespace CarRentalData {
       if (LastName != other.LastName) return false;
       if (Email != other.Email) return false;
       if (Password != other.Password) return false;
-      if (CprNumber != other.CprNumber) return false;
+      if (Username != other.Username) return false;
       if (PhoneNumber != other.PhoneNumber) return false;
       if (IsAdmin != other.IsAdmin) return false;
       return Equals(_unknownFields, other._unknownFields);
@@ -215,7 +215,7 @@ namespace CarRentalData {
       if (LastName.Length != 0) hash ^= LastName.GetHashCode();
       if (Email.Length != 0) hash ^= Email.GetHashCode();
       if (Password.Length != 0) hash ^= Password.GetHashCode();
-      if (CprNumber != 0L) hash ^= CprNumber.GetHashCode();
+      if (Username.Length != 0) hash ^= Username.GetHashCode();
       if (PhoneNumber != 0L) hash ^= PhoneNumber.GetHashCode();
       if (IsAdmin != false) hash ^= IsAdmin.GetHashCode();
       if (_unknownFields != null) {
@@ -252,9 +252,9 @@ namespace CarRentalData {
         output.WriteRawTag(34);
         output.WriteString(Password);
       }
-      if (CprNumber != 0L) {
-        output.WriteRawTag(40);
-        output.WriteInt64(CprNumber);
+      if (Username.Length != 0) {
+        output.WriteRawTag(42);
+        output.WriteString(Username);
       }
       if (PhoneNumber != 0L) {
         output.WriteRawTag(48);
@@ -290,9 +290,9 @@ namespace CarRentalData {
         output.WriteRawTag(34);
         output.WriteString(Password);
       }
-      if (CprNumber != 0L) {
-        output.WriteRawTag(40);
-        output.WriteInt64(CprNumber);
+      if (Username.Length != 0) {
+        output.WriteRawTag(42);
+        output.WriteString(Username);
       }
       if (PhoneNumber != 0L) {
         output.WriteRawTag(48);
@@ -324,8 +324,8 @@ namespace CarRentalData {
       if (Password.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Password);
       }
-      if (CprNumber != 0L) {
-        size += 1 + pb::CodedOutputStream.ComputeInt64Size(CprNumber);
+      if (Username.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Username);
       }
       if (PhoneNumber != 0L) {
         size += 1 + pb::CodedOutputStream.ComputeInt64Size(PhoneNumber);
@@ -357,8 +357,8 @@ namespace CarRentalData {
       if (other.Password.Length != 0) {
         Password = other.Password;
       }
-      if (other.CprNumber != 0L) {
-        CprNumber = other.CprNumber;
+      if (other.Username.Length != 0) {
+        Username = other.Username;
       }
       if (other.PhoneNumber != 0L) {
         PhoneNumber = other.PhoneNumber;
@@ -397,8 +397,8 @@ namespace CarRentalData {
             Password = input.ReadString();
             break;
           }
-          case 40: {
-            CprNumber = input.ReadInt64();
+          case 42: {
+            Username = input.ReadString();
             break;
           }
           case 48: {
@@ -440,8 +440,8 @@ namespace CarRentalData {
             Password = input.ReadString();
             break;
           }
-          case 40: {
-            CprNumber = input.ReadInt64();
+          case 42: {
+            Username = input.ReadString();
             break;
           }
           case 48: {

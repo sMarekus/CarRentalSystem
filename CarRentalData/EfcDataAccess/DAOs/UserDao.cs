@@ -36,13 +36,13 @@ public class UserDao : IUserDao
         return users;
     }
     
-    public async Task<User?> FetchUserByCprAsync(long cpr)
+    public async Task<User?> FetchUserByUsernameAsync(string username)
     {
-        User? user = await context.Users.AsNoTracking().FirstOrDefaultAsync(u => u.CprNumber == cpr);
+        User? user = await context.Users.AsNoTracking().FirstOrDefaultAsync(u => u.Username.ToLower().Equals(username.ToLower()));
 
         if (user == null)
         {
-            throw new Exception("User not found");
+            throw new Exception("Username does not exists");
         }
         
         return user;
