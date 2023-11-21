@@ -8,6 +8,6 @@ public interface IUserClient
 {
     User createUser(User user);
     List<User> getUsers();
-    User getUserByCprNumber(long cprNumber);
+    User getUserByUserName(String userName);
 
 }
