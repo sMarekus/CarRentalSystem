@@ -5,6 +5,6 @@ namespace EfcDataAccess.DaoInterfaces;
 public interface IUserDao
 {
     Task<User?> CreateUserAsync(User? userEntity);
-    Task<User?> FetchUserByCprAsync(long cpr);
+    Task<User?> FetchUserByUsernameAsync(string username);
     Task<ICollection<User?>> FetchUsersAsync();
 }
