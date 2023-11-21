@@ -2,7 +2,7 @@ package com.example.carrentalservice.GrpcClient;
 
 import com.example.carrentalservice.model.User;
 import com.google.protobuf.Empty;
-import com.google.protobuf.Int64Value;
+import com.google.protobuf.StringValue;
 import io.grpc.ManagedChannel;
 import org.springframework.stereotype.Service;
 import proto.UserProtoServiceGrpc;
@@ -52,14 +52,16 @@ public class UserClientImpl implements IUserClient
     }
 
     @Override
-    public User getUserByCprNumber(long cprNumber) {
+    public User getUserByUserName(String userName) {
         try {
-            proto.User.UserProtoObj userProtoObj = getUserStub().fetchUserByCpr(Int64Value.of(cprNumber));
-            return fromProtoObjToEntity(userProtoObj);
+            proto.User.UserProtoObj userProtoObj = getUserStub().fetchUserByUsername(StringValue.of(userName));
+            User user= fromProtoObjToEntity(userProtoObj);
+            return user;
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
     }
+
 
     public static proto.User.UserProtoObj fromEntityToProtoObj(User userEntity) {
         proto.User.UserProtoObj.Builder builder = proto.User.UserProtoObj.newBuilder()
@@ -67,7 +69,7 @@ public class UserClientImpl implements IUserClient
                 .setLastName(userEntity.getLastName())
                 .setEmail(userEntity.getEmail())
                 .setPassword(userEntity.getPassword())
-                .setCprNumber(userEntity.getCprNumber())
+                .setUsername(userEntity.getUsername())
                 .setPhoneNumber(userEntity.getPhoneNumber())
                 .setIsAdmin(userEntity.getIsAdmin());
         return builder.build();
@@ -80,7 +82,7 @@ public class UserClientImpl implements IUserClient
         userEntity.setLastName(userProtoObj.getLastName());
         userEntity.setEmail(userProtoObj.getEmail());
         userEntity.setPassword(userProtoObj.getPassword());
-        userEntity.setCprNumber((int) userProtoObj.getCprNumber());
+        userEntity.setUsername(userProtoObj.getUsername());
         userEntity.setPhoneNumber((int)userProtoObj.getPhoneNumber());
         userEntity.setIsAdmin(userProtoObj.getIsAdmin());
         return userEntity;
