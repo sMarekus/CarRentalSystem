@@ -53,8 +53,8 @@
     <div class="row d-flex justify-content-center">
         <div class="col-md-6">
             <div class="form-group field">
-                <label>CPR Number:</label>
-                <input id="inputCprNumber" type="text" class="form-control" @bind="cprNumber" @bind:event="oninput"/>
+                <label>Username:</label>
+                <input id="inputCprNumber" type="text" class="form-control" @bind="userName" @bind:event="oninput"/>
             </div>
         </div>
     </div>
@@ -97,14 +97,14 @@
     private string lastName = "";
     private string email = "";
     private string password = "";
-    private long cprNumber;
+    private string userName;
     private long phoneNumber;
     private bool isAdmin;
     private string resultMsg = "";
     private string color = "";
     
     
-    private bool IsRegisterButtonDisabled => cprNumber==0 || string.IsNullOrWhiteSpace(password) || string.IsNullOrWhiteSpace(firstName) || string.IsNullOrWhiteSpace(lastName);
+    private bool IsRegisterButtonDisabled => string.IsNullOrWhiteSpace(userName) || string.IsNullOrWhiteSpace(password) || string.IsNullOrWhiteSpace(firstName) || string.IsNullOrWhiteSpace(lastName);
 
     
     private async Task Create()
@@ -114,13 +114,13 @@
 
         try
         {
-            await userService.CreateAsync(new UserCreationDto(firstName, lastName, email, password, cprNumber, phoneNumber, isAdmin));
-            await authService.LoginAsync(cprNumber, password);
+            await userService.CreateAsync(new UserCreationDto(firstName, lastName, email, password, userName, phoneNumber, isAdmin));
+            await authService.LoginAsync(userName, password);
             firstName = "";
             lastName = "";
             email = "";
             password = "";
-            cprNumber = 0;  
+            userName = "";  
             phoneNumber= 0;
             isAdmin = false;
             resultMsg = "User successfully created";
