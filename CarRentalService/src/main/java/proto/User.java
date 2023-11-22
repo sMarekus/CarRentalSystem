@@ -59,9 +59,14 @@ public final class User {
         getPasswordBytes();
 
     /**
-     * <code>int64 cprNumber = 5;</code>
+     * <code>string username = 5;</code>
      */
-    long getCprNumber();
+    java.lang.String getUsername();
+    /**
+     * <code>string username = 5;</code>
+     */
+    com.google.protobuf.ByteString
+        getUsernameBytes();
 
     /**
      * <code>int64 phoneNumber = 6;</code>
@@ -90,7 +95,7 @@ public final class User {
       lastName_ = "";
       email_ = "";
       password_ = "";
-      cprNumber_ = 0L;
+      username_ = "";
       phoneNumber_ = 0L;
       isAdmin_ = false;
     }
@@ -143,9 +148,10 @@ public final class User {
               password_ = s;
               break;
             }
-            case 40: {
+            case 42: {
+              java.lang.String s = input.readStringRequireUtf8();
 
-              cprNumber_ = input.readInt64();
+              username_ = s;
               break;
             }
             case 48: {
@@ -326,13 +332,38 @@ public final class User {
       }
     }
 
-    public static final int CPRNUMBER_FIELD_NUMBER = 5;
-    private long cprNumber_;
+    public static final int USERNAME_FIELD_NUMBER = 5;
+    private volatile java.lang.Object username_;
     /**
-     * <code>int64 cprNumber = 5;</code>
+     * <code>string username = 5;</code>
      */
-    public long getCprNumber() {
-      return cprNumber_;
+    public java.lang.String getUsername() {
+      java.lang.Object ref = username_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        username_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string username = 5;</code>
+     */
+    public com.google.protobuf.ByteString
+        getUsernameBytes() {
+      java.lang.Object ref = username_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        username_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
     }
 
     public static final int PHONENUMBER_FIELD_NUMBER = 6;
@@ -379,8 +410,8 @@ public final class User {
       if (!getPasswordBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 4, password_);
       }
-      if (cprNumber_ != 0L) {
-        output.writeInt64(5, cprNumber_);
+      if (!getUsernameBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, username_);
       }
       if (phoneNumber_ != 0L) {
         output.writeInt64(6, phoneNumber_);
@@ -409,9 +440,8 @@ public final class User {
       if (!getPasswordBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, password_);
       }
-      if (cprNumber_ != 0L) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(5, cprNumber_);
+      if (!getUsernameBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, username_);
       }
       if (phoneNumber_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
@@ -445,8 +475,8 @@ public final class User {
           .equals(other.getEmail());
       result = result && getPassword()
           .equals(other.getPassword());
-      result = result && (getCprNumber()
-          == other.getCprNumber());
+      result = result && getUsername()
+          .equals(other.getUsername());
       result = result && (getPhoneNumber()
           == other.getPhoneNumber());
       result = result && (getIsAdmin()
@@ -470,9 +500,8 @@ public final class User {
       hash = (53 * hash) + getEmail().hashCode();
       hash = (37 * hash) + PASSWORD_FIELD_NUMBER;
       hash = (53 * hash) + getPassword().hashCode();
-      hash = (37 * hash) + CPRNUMBER_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          getCprNumber());
+      hash = (37 * hash) + USERNAME_FIELD_NUMBER;
+      hash = (53 * hash) + getUsername().hashCode();
       hash = (37 * hash) + PHONENUMBER_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getPhoneNumber());
@@ -620,7 +649,7 @@ public final class User {
 
         password_ = "";
 
-        cprNumber_ = 0L;
+        username_ = "";
 
         phoneNumber_ = 0L;
 
@@ -656,7 +685,7 @@ public final class User {
         result.lastName_ = lastName_;
         result.email_ = email_;
         result.password_ = password_;
-        result.cprNumber_ = cprNumber_;
+        result.username_ = username_;
         result.phoneNumber_ = phoneNumber_;
         result.isAdmin_ = isAdmin_;
         onBuilt();
@@ -723,8 +752,9 @@ public final class User {
           password_ = other.password_;
           onChanged();
         }
-        if (other.getCprNumber() != 0L) {
-          setCprNumber(other.getCprNumber());
+        if (!other.getUsername().isEmpty()) {
+          username_ = other.username_;
+          onChanged();
         }
         if (other.getPhoneNumber() != 0L) {
           setPhoneNumber(other.getPhoneNumber());
@@ -1037,28 +1067,71 @@ public final class User {
         return this;
       }
 
-      private long cprNumber_ ;
+      private java.lang.Object username_ = "";
       /**
-       * <code>int64 cprNumber = 5;</code>
+       * <code>string username = 5;</code>
        */
-      public long getCprNumber() {
-        return cprNumber_;
+      public java.lang.String getUsername() {
+        java.lang.Object ref = username_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          username_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
       }
       /**
-       * <code>int64 cprNumber = 5;</code>
+       * <code>string username = 5;</code>
        */
-      public Builder setCprNumber(long value) {
-        
-        cprNumber_ = value;
+      public com.google.protobuf.ByteString
+          getUsernameBytes() {
+        java.lang.Object ref = username_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          username_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string username = 5;</code>
+       */
+      public Builder setUsername(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        username_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int64 cprNumber = 5;</code>
+       * <code>string username = 5;</code>
        */
-      public Builder clearCprNumber() {
+      public Builder clearUsername() {
         
-        cprNumber_ = 0L;
+        username_ = getDefaultInstance().getUsername();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string username = 5;</code>
+       */
+      public Builder setUsernameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        username_ = value;
         onChanged();
         return this;
       }
@@ -1970,17 +2043,17 @@ public final class User {
     java.lang.String[] descriptorData = {
       "\n\nuser.proto\022\005proto\032\036google/protobuf/wra" +
       "ppers.proto\032\033google/protobuf/empty.proto" +
-      "\"\215\001\n\014UserProtoObj\022\021\n\tfirstName\030\001 \001(\t\022\020\n\010" +
+      "\"\214\001\n\014UserProtoObj\022\021\n\tfirstName\030\001 \001(\t\022\020\n\010" +
       "lastName\030\002 \001(\t\022\r\n\005email\030\003 \001(\t\022\020\n\010passwor" +
-      "d\030\004 \001(\t\022\021\n\tcprNumber\030\005 \001(\003\022\023\n\013phoneNumbe" +
-      "r\030\006 \001(\003\022\017\n\007isAdmin\030\007 \001(\010\"9\n\020UserListResp" +
-      "onse\022%\n\010allUsers\030\001 \003(\0132\023.proto.UserProto" +
-      "Obj2\324\001\n\020UserProtoService\0228\n\nCreateUser\022\023" +
-      ".proto.UserProtoObj\032\023.proto.UserProtoObj" +
-      "\"\000\022@\n\013GetAllUsers\022\026.google.protobuf.Empt" +
-      "y\032\027.proto.UserListResponse\"\000\022D\n\016FetchUse" +
-      "rByCpr\022\033.google.protobuf.Int64Value\032\023.pr" +
-      "oto.UserProtoObj\"\000b\006proto3"
+      "d\030\004 \001(\t\022\020\n\010username\030\005 \001(\t\022\023\n\013phoneNumber" +
+      "\030\006 \001(\003\022\017\n\007isAdmin\030\007 \001(\010\"9\n\020UserListRespo" +
+      "nse\022%\n\010allUsers\030\001 \003(\0132\023.proto.UserProtoO" +
+      "bj2\332\001\n\020UserProtoService\0228\n\nCreateUser\022\023." +
+      "proto.UserProtoObj\032\023.proto.UserProtoObj\"" +
+      "\000\022@\n\013GetAllUsers\022\026.google.protobuf.Empty" +
+      "\032\027.proto.UserListResponse\"\000\022J\n\023FetchUser" +
+      "ByUsername\022\034.google.protobuf.StringValue" +
+      "\032\023.proto.UserProtoObj\"\000b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -2001,7 +2074,7 @@ public final class User {
     internal_static_proto_UserProtoObj_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_proto_UserProtoObj_descriptor,
-        new java.lang.String[] { "FirstName", "LastName", "Email", "Password", "CprNumber", "PhoneNumber", "IsAdmin", });
+        new java.lang.String[] { "FirstName", "LastName", "Email", "Password", "Username", "PhoneNumber", "IsAdmin", });
     internal_static_proto_UserListResponse_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_proto_UserListResponse_fieldAccessorTable = new

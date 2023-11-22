@@ -22,7 +22,7 @@ public class ApplicationConfig {
 
     @Bean
     public UserDetailsService userDetailsService() {
-        return cpr -> (UserDetails) client.getUserByCprNumber(Long.parseLong(cpr));   // cpr is the username
+        return username -> (UserDetails) client.getUserByUserName(username);
     }
 
     @Bean

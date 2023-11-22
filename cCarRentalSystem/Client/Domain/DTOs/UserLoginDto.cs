@@ -2,12 +2,12 @@
 
 public class UserLoginDto
 {
-    public long CprNumber { get; init; }
+    public string UserName { get; init; }
     public string Password { get; init; }
 
-    public UserLoginDto(long cpr, string password)
+    public UserLoginDto(string username, string password)
     {
-        CprNumber = cpr;
+        UserName = username;
         Password = password;
     }
 }

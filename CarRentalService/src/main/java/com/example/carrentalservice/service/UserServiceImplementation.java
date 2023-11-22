@@ -44,24 +44,25 @@ public class UserServiceImplementation implements IUserService
             throw new RuntimeException(e.getMessage());
         }
     }
+
     @Override
-    public User getUserByCprNumber(long cprNumber) {
-        try{
-            User user = client.getUserByCprNumber(cprNumber);
+    public User getUserByUserName(String userName) {
+        try {
+            User user = client.getUserByUserName(userName);
             return user;
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             throw new RuntimeException(e.getMessage());
         }
     }
+
     public AuthenticationResponse authenticate(LoginDto request) {
         authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
-                        request.getCpr(),
+                        request.getUsername(),
                         request.getPassword()
                 )
         );
-        var user = client.getUserByCprNumber(request.getCpr());
+        var user = client.getUserByUserName(request.getUsername());
 
         var jwtToken = jwtService.generateToken(user);
         return AuthenticationResponse.builder()
