@@ -2,6 +2,164 @@
 #header[b-lql16p6pfj]{
     text-align: center;
 }
+/* _content/BlazorApp/Pages/CreateCar.razor.rz.scp.css */
+.card[b-s7gnac86a7]{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    max-width: 400px;
+    width: 80%;
+    padding: 25px;
+    text-align: center;
+    margin: auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    border-radius: 15px;
+}
+
+.field[b-s7gnac86a7]{
+    margin-top: 20px;
+    text-align: center;
+    justify-content: center;
+}
+
+.acceptbtn[b-s7gnac86a7]{
+    background-color:lightgreen;
+    border-radius: 5px;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: 20px;
+}
+
+#inputBrand:focus[b-s7gnac86a7]{
+    border: 3px solid dimgrey;
+    width: 160px;
+    outline: none;
+}
+
+#inputBrand[b-s7gnac86a7]{
+    padding: 12px 20px;
+    transition: width 1s ease-in-out 250ms;
+    resize: vertical;
+    min-height: 50px;
+    width: 50px;
+}
+
+#inputModel:focus[b-s7gnac86a7]{
+    border: 3px solid dimgrey;
+    width: 160px;
+    outline: none;
+}
+
+#inputModel[b-s7gnac86a7]{
+    padding: 12px 20px;
+    transition: width 1s ease-in-out 250ms;
+    resize: vertical;
+    min-height: 50px;
+    width: 50px;
+}
+
+#inputBodyType:focus[b-s7gnac86a7]{
+    border: 3px solid dimgrey;
+    width: 160px;
+    outline: none;
+}
+
+#inputBodyType[b-s7gnac86a7]{
+    padding: 12px 20px;
+    transition: width 1s ease-in-out 250ms;
+    resize: vertical;
+    min-height: 50px;
+    width: 50px;
+}
+
+#inputGearbox:focus[b-s7gnac86a7]{
+    border: 3px solid dimgrey;
+    width: 160px;
+    outline: none;
+}
+
+#inputGearbox[b-s7gnac86a7]{
+    padding: 12px 20px;
+    transition: width 1s ease-in-out 250ms;
+    resize: vertical;
+    min-height: 50px;
+    width: 50px;
+}
+
+#inputColor:focus[b-s7gnac86a7]{
+    border: 3px solid dimgrey;
+    width: 160px;
+    outline: none;
+}
+
+#inputColor[b-s7gnac86a7]{
+    padding: 12px 20px;
+    transition: width 1s ease-in-out 250ms;
+    resize: vertical;
+    min-height: 50px;
+    width: 50px;
+}
+
+#inputHP:focus[b-s7gnac86a7]{
+    border: 3px solid dimgrey;
+    width: 160px;
+    outline: none;
+}
+
+#inputHP[b-s7gnac86a7]{
+    padding: 12px 20px;
+    transition: width 1s ease-in-out 250ms;
+    resize: vertical;
+    min-height: 50px;
+    width: 50px;
+}
+
+#inputPrice:focus[b-s7gnac86a7]{
+    border: 3px solid dimgrey;
+    width: 160px;
+    outline: none;
+}
+
+#inputPrice[b-s7gnac86a7]{
+    padding: 12px 20px;
+    transition: width 1s ease-in-out 250ms;
+    resize: vertical;
+    min-height: 50px;
+    width: 50px;
+}
+
+#inputDescription:focus[b-s7gnac86a7]{
+    border: 3px solid dimgrey;
+    width: 160px;
+    outline: none;
+}
+
+#inputDescription[b-s7gnac86a7]{
+    padding: 12px 20px;
+    transition: width 1s ease-in-out 250ms;
+    resize: vertical;
+    min-height: 50px;
+    width: 50px;
+}
+
+#inputFuelType:focus[b-s7gnac86a7]{
+    border: 3px solid dimgrey;
+    width: 160px;
+    outline: none;
+}
+
+#inputFuelType[b-s7gnac86a7]{
+    padding: 12px 20px;
+    transition: width 1s ease-in-out 250ms;
+    resize: vertical;
+    min-height: 50px;
+    width: 50px;
+}
+
+#header[b-s7gnac86a7]{
+    text-align: center;
+}
 /* _content/BlazorApp/Pages/GetUser.razor.rz.scp.css */
 .user-card[b-n1sgfil5f0] {
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);

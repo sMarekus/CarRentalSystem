@@ -1,7 +1,6 @@
 ﻿@page "/Login"
 @using HttpClients.ClientInterfaces
-@using BlazorApp.Services
-@inject IAuthService authService;
+@inject IUserService userService;
 @inject NavigationManager navManager;
 
 
@@ -46,8 +45,8 @@
 
 
 @code {
-    private string userName;
-    private string password = "";
+    private string userName { get; set;}
+    private string password { get; set; }
     private string resultMsg = "";
     private string color = "";
     
@@ -57,7 +56,7 @@
     {
         try
         {
-            await authService.LoginAsync(userName, password);
+            await userService.ValidateUser(userName, password);
             userName = "";
             password = "";
             resultMsg = "Logged in successfully.";
