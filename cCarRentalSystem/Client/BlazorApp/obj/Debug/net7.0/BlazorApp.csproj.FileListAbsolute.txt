@@ -178,3 +178,15 @@ C:\Users\mkuku\Sep3Project\CarRentalSystem\cCarRentalSystem\Client\BlazorApp\obj
 C:\Users\mkuku\Sep3Project\CarRentalSystem\cCarRentalSystem\Client\BlazorApp\obj\Debug\net7.0\scopedcss\Pages\GetUser.razor.rz.scp.css
 C:\Users\mkuku\Sep3Project\CarRentalSystem\cCarRentalSystem\Client\BlazorApp\obj\Debug\net7.0\scopedcss\Pages\Login.razor.rz.scp.css
 C:\Users\mkuku\Sep3Project\CarRentalSystem\cCarRentalSystem\Client\BlazorApp\obj\Debug\net7.0\scopedcss\Pages\ViewCars.razor.rz.scp.css
+C:\Users\apurv\OneDrive\Desktop\CarRentalSEP\cCarRentalSystem\Client\BlazorApp\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\apurv\OneDrive\Desktop\CarRentalSEP\cCarRentalSystem\Client\BlazorApp\bin\Debug\net7.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\apurv\OneDrive\Desktop\CarRentalSEP\cCarRentalSystem\Client\BlazorApp\bin\Debug\net7.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\apurv\OneDrive\Desktop\CarRentalSEP\cCarRentalSystem\Client\BlazorApp\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\apurv\OneDrive\Desktop\CarRentalSEP\cCarRentalSystem\Client\BlazorApp\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\apurv\OneDrive\Desktop\CarRentalSEP\cCarRentalSystem\Client\BlazorApp\bin\Debug\net7.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\apurv\OneDrive\Desktop\CarRentalSEP\cCarRentalSystem\Client\BlazorApp\bin\Debug\net7.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\apurv\OneDrive\Desktop\CarRentalSEP\cCarRentalSystem\Client\BlazorApp\obj\Debug\net7.0\scopedcss\Pages\CarDetails.razor.rz.scp.css
+C:\Users\apurv\OneDrive\Desktop\CarRentalSEP\cCarRentalSystem\Client\BlazorApp\obj\Debug\net7.0\scopedcss\Pages\CreateCar.razor.rz.scp.css
+C:\Users\apurv\OneDrive\Desktop\CarRentalSEP\cCarRentalSystem\Client\BlazorApp\obj\Debug\net7.0\scopedcss\Pages\GetUser.razor.rz.scp.css
+C:\Users\apurv\OneDrive\Desktop\CarRentalSEP\cCarRentalSystem\Client\BlazorApp\obj\Debug\net7.0\scopedcss\Pages\Login.razor.rz.scp.css
+C:\Users\apurv\OneDrive\Desktop\CarRentalSEP\cCarRentalSystem\Client\BlazorApp\obj\Debug\net7.0\scopedcss\Pages\ViewCars.razor.rz.scp.css
