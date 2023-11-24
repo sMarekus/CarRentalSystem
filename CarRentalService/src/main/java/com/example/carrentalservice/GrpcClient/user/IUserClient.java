@@ -1,4 +1,4 @@
-package com.example.carrentalservice.GrpcClient;
+package com.example.carrentalservice.GrpcClient.user;
 
 import com.example.carrentalservice.model.User;
 

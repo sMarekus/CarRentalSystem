@@ -1,6 +1,6 @@
-package com.example.carrentalservice.service;
+package com.example.carrentalservice.service.user;
 
-import com.example.carrentalservice.GrpcClient.IUserClient;
+import com.example.carrentalservice.GrpcClient.user.IUserClient;
 import com.example.carrentalservice.Jwt.JwtService;
 import com.example.carrentalservice.Jwt.auth.AuthenticationResponse;
 import com.example.carrentalservice.dto.LoginDto;

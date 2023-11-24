@@ -1,6 +1,6 @@
 package com.example.carrentalservice.Jwt;
 
-import com.example.carrentalservice.GrpcClient.IUserClient;
+import com.example.carrentalservice.GrpcClient.user.IUserClient;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
