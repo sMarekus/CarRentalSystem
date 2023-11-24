@@ -96,7 +96,7 @@ public class UserService : IUserService
     {
         UserLoginDto loginDto = new UserLoginDto
         {
-            UserName = username,
+            Username = username,
             Password = password
         };
 
@@ -116,11 +116,10 @@ public class UserService : IUserService
         Jwt = authenticationResponse.token;
         ClaimsPrincipal principal = CreateClaimsPrincipal();
         OnAuthStateChanged.Invoke(principal);
-
         return authenticationResponse;
     }
 
-    public ClaimsPrincipal CreateClaimsPrincipal()
+    private ClaimsPrincipal CreateClaimsPrincipal()
     {
         if (string.IsNullOrEmpty(Jwt))
         {
@@ -133,7 +132,6 @@ public class UserService : IUserService
 
         ClaimsPrincipal principal = new(identity);
         return principal;
-
     }
 
     public Task<ClaimsPrincipal> GetAuthAsync()
