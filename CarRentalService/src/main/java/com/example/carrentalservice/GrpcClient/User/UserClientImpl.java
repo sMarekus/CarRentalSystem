@@ -72,7 +72,7 @@ public class UserClientImpl implements IUserClient
                 .setPassword(userEntity.getPassword())
                 .setUsername(userEntity.getUsername())
                 .setPhoneNumber(userEntity.getPhoneNumber())
-                .setIsAdmin(userEntity.getIsAdmin());
+                .setIsAdmin(userEntity.isAdmin());
         return builder.build();
     }
 
@@ -83,9 +83,9 @@ public class UserClientImpl implements IUserClient
         userEntity.setLastName(userProtoObj.getLastName());
         userEntity.setEmail(userProtoObj.getEmail());
         userEntity.setPassword(userProtoObj.getPassword());
-        userEntity.setUsername(userProtoObj.getUsername());
+        userEntity.setUserName(userProtoObj.getUsername());
         userEntity.setPhoneNumber((int)userProtoObj.getPhoneNumber());
-        userEntity.setIsAdmin(userProtoObj.getIsAdmin());
+        userEntity.setAdmin(userProtoObj.getIsAdmin());
         return userEntity;
     }
 }

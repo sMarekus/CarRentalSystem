@@ -21,7 +21,6 @@ import static org.springframework.security.config.Customizer.withDefaults;
 @RequiredArgsConstructor
 public class SecurityConfiguration {
     private final JwtAuthenticationFilter jwtAuthFilter;
-    private final AuthenticationProvider authenticationProvider;
 
     /**
      * Configures the security filter chain for handling HTTP security configurations.
@@ -33,12 +32,13 @@ public class SecurityConfiguration {
 
      @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        return http.cors(withDefaults())
-                .csrf(AbstractHttpConfigurer::disable)
-                .authorizeHttpRequests((authorize) -> authorize
-                        .requestMatchers("/", "/users/authenticate").permitAll().anyRequest().hasAuthority("municipalityWorker")).
-                sessionManagement((session) -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-                .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class)
-                .build();
+         return http.cors(withDefaults())
+                 .csrf(AbstractHttpConfigurer::disable)
+                 .authorizeHttpRequests(authorize -> authorize
+                         .requestMatchers("/", "/users/authenticate").permitAll()
+                         .anyRequest().authenticated())
+                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+                 .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class)
+                 .build();
     }
 }

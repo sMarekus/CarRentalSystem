@@ -8,22 +8,30 @@ import com.example.carrentalservice.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class UserServiceImplementation implements IUserService
-{
+public class UserServiceImplementation implements IUserService {
     private final IUserClient client;
     private final AuthenticationManager authenticationManager;
     private final JwtService jwtService;
+    private final PasswordEncoder passwordEncoder;
+
 
     @Autowired
-    public UserServiceImplementation(IUserClient client, AuthenticationManager authenticationManager, JwtService jwtService) {
+    public UserServiceImplementation(IUserClient client, AuthenticationManager authenticationManager, JwtService jwtService, PasswordEncoder passwordEncoder) {
         this.client = client;
         this.authenticationManager = authenticationManager;
         this.jwtService = jwtService;
+        this.passwordEncoder = passwordEncoder;
+
+        //User user = new User("motey","lal","motalal1@gmail.com","khai","iammotey1",122456,false);
+        //user.setPassword(this.passwordEncoder.encode(user.getPassword()));
+        //client.createUser(user);
+
     }
 
     @Override
@@ -65,6 +73,7 @@ public class UserServiceImplementation implements IUserService
         var user = client.getUserByUserName(request.getUsername());
 
         var jwtToken = jwtService.generateToken(user);
+        System.out.println("jwt");
         return AuthenticationResponse.builder()
                 .token(jwtToken)
                 .build();
