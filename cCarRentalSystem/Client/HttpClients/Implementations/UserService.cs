@@ -23,6 +23,7 @@ public class UserService : IUserService
     
     public async Task<User> CreateAsync(UserCreationDto userToCreate)
     {
+        Console.WriteLine($"{userToCreate.UserName}, {userToCreate.Password}, {userToCreate.FirstName}, {userToCreate.LastName}, {userToCreate.Email}, {userToCreate.PhoneNumber}, {userToCreate.IsAdmin}");
         HttpResponseMessage response = await client.PostAsJsonAsync("/users", userToCreate);
         Console.WriteLine("Response received");
         string result = await response.Content.ReadAsStringAsync();
