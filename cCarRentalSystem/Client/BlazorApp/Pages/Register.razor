@@ -1,9 +1,7 @@
 ﻿@page "/Register"
 @using Domain.DTOs
 @using HttpClients.ClientInterfaces
-@using BlazorApp.Services
 @inject IUserService userService;
-@inject IAuthService authService;
 @inject NavigationManager navManager;
 
 <div class="row d-flex justify-content-center">
@@ -115,7 +113,6 @@
         try
         {
             await userService.CreateAsync(new UserCreationDto(firstName, lastName, email, password, userName, phoneNumber, isAdmin));
-            await authService.LoginAsync(userName, password);
             firstName = "";
             lastName = "";
             email = "";
