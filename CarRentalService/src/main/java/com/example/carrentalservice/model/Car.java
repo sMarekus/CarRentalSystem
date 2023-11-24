@@ -1,5 +1,7 @@
 package com.example.carrentalservice.model;
+
 import com.example.carrentalservice.model.Enums.CarStatus;
+
 public class Car
 {
     private int id;
@@ -27,6 +29,7 @@ public class Car
         this.status = status;
     }
     public Car() {
+        CarStatus status = CarStatus.AVAILABLE;
     }
     public int getId() {
         return id;
