@@ -1,5 +1,6 @@
-package com.example.carrentalservice.GrpcClient;
+package com.example.carrentalservice.GrpcClient.User;
 
+import com.example.carrentalservice.GrpcClient.ManagedChannelProvider;
 import com.example.carrentalservice.model.User;
 import com.google.protobuf.Empty;
 import com.google.protobuf.StringValue;

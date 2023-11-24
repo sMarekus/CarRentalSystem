@@ -1,10 +1,10 @@
-package com.example.carrentalservice.controllers;
+package com.example.carrentalservice.controllers.User;
 
 import com.example.carrentalservice.Jwt.auth.AuthenticationResponse;
 import com.example.carrentalservice.dto.LoginDto;
 import com.example.carrentalservice.model.User;
-import com.example.carrentalservice.service.IUserService;
-import com.example.carrentalservice.service.UserServiceImplementation;
+import com.example.carrentalservice.service.User.IUserService;
+import com.example.carrentalservice.service.User.UserServiceImplementation;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
