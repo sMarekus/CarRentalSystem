@@ -19,7 +19,8 @@ public class UserService : UserProtoService.UserProtoServiceBase
     public override async Task<UserProtoObj> CreateUser(UserProtoObj request, ServerCallContext context)
     {
         try
-        {   Console.WriteLine("Service class received request");
+        {   
+            Console.WriteLine("Service class received request");
             User? toAddUser = FromProtoToEntity(request);
             User? addedUser = await userDao.CreateUserAsync(toAddUser);
 
