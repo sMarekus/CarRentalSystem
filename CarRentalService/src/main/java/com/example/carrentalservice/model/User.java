@@ -1,91 +1,132 @@
 package com.example.carrentalservice.model;
-public class User {
-    private String firstName;
-    private String lastName;
-    private String email;
-    private String password;
-    private String username;
-    private long phoneNumber;
 
-    private boolean isAdmin;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
+import java.util.Collection;
+
+public class User implements UserDetails {
+    private String FirstName;
+    private String LastName;
+    private String Email;
+    private String Password;
+    private String UserName;
+    private long PhoneNumber;
+    private boolean IsAdmin;
 
 
     public User() {
 
     }
 
-    public User(String firstName, String lastName, String email, String password, String username, long phoneNumber,boolean isAdmin) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-        this.password = password;
-        this.username = username;
-        this.phoneNumber = phoneNumber;
-        this.isAdmin = isAdmin;
+    public User(String firstName, String lastName, String email, String password, String userName, long phoneNumber, boolean isAdmin) {
+        FirstName = firstName;
+        LastName = lastName;
+        Email = email;
+        Password = password;
+        UserName = userName;
+        PhoneNumber = phoneNumber;
+        IsAdmin = isAdmin;
     }
 
+
     public String getFirstName() {
-        return this.firstName;
+        return FirstName;
     }
 
     public String getLastName() {
-        return this.lastName;
+        return LastName;
     }
 
     public String getEmail() {
-        return this.email;
+        return Email;
     }
 
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return null;
+    }
+
+    @Override
     public String getPassword() {
-        return this.password;
+        return Password;
     }
 
-    public String getUsername() { return this.username; }
-
-    public long getPhoneNumber() {
-        return this.phoneNumber;
+    @Override
+    public String getUsername() {
+        return null;
     }
 
-    public boolean getIsAdmin() {
-        return this.isAdmin;
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
     }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
+    }
+
+    public String getUserName() {
+        return UserName;
+    }
+
+    public void setUserName(String userName) {
+        UserName = userName;
+    }
+
+    public void setPhoneNumber(long phoneNumber) {
+        PhoneNumber = phoneNumber;
+    }
+
+    public boolean isAdmin() {
+        return IsAdmin;
+    }
+
+    public void setAdmin(boolean admin) {
+        IsAdmin = admin;
+    }
+
 
     public void setFirstName(String firstName) {
-        this.firstName = firstName;
+        FirstName = firstName;
     }
 
     public void setLastName(String lastName) {
-        this.lastName = lastName;
+        LastName = lastName;
     }
 
     public void setEmail(String email) {
-        this.email = email;
+        Email = email;
     }
 
     public void setPassword(String password) {
-        this.password = password;
+        Password = password;
     }
 
-    public void setUsername(String username) { this.username = username; }
-
-    public void setPhoneNumber(int phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
-
-    public void setIsAdmin(boolean isAdmin) {
-        this.isAdmin = isAdmin;
+    public long getPhoneNumber() {
+        return PhoneNumber;
     }
 
     @Override
     public String toString() {
         return "User{" +
-                "firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", email='" + email + '\'' +
-                ", password='" + password + '\'' +
-                ", username='" + username + '\'' +
-                ", phoneNumber='" + phoneNumber + '\'' +
+                "firstName='" + FirstName + '\'' +
+                ", lastName='" + LastName + '\'' +
+                ", email='" + Email + '\'' +
+                ", password='" + Password + '\'' +
+                ", username='" + UserName + '\'' +
+                ", phoneNumber='" + PhoneNumber + '\'' +
                 '}';
     }
 }

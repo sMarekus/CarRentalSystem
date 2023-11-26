@@ -1,27 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\marek\\School\\Semester 3\\SEP\\CarRentalSystem\\cCarRentalSystem\\Client\\HttpClients\\HttpClients.csproj": {}
+    "C:\\Users\\apurv\\OneDrive\\Desktop\\CarRentalSEP\\cCarRentalSystem\\Client\\HttpClients\\HttpClients.csproj": {}
   },
   "projects": {
-    "C:\\Users\\marek\\School\\Semester 3\\SEP\\CarRentalSystem\\cCarRentalSystem\\Client\\Domain\\Domain.csproj": {
+    "C:\\Users\\apurv\\OneDrive\\Desktop\\CarRentalSEP\\cCarRentalSystem\\Client\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\marek\\School\\Semester 3\\SEP\\CarRentalSystem\\cCarRentalSystem\\Client\\Domain\\Domain.csproj",
+        "projectUniqueName": "C:\\Users\\apurv\\OneDrive\\Desktop\\CarRentalSEP\\cCarRentalSystem\\Client\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "C:\\Users\\marek\\School\\Semester 3\\SEP\\CarRentalSystem\\cCarRentalSystem\\Client\\Domain\\Domain.csproj",
-        "packagesPath": "C:\\Users\\marek\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\marek\\School\\Semester 3\\SEP\\CarRentalSystem\\cCarRentalSystem\\Client\\Domain\\obj\\",
+        "projectPath": "C:\\Users\\apurv\\OneDrive\\Desktop\\CarRentalSEP\\cCarRentalSystem\\Client\\Domain\\Domain.csproj",
+        "packagesPath": "C:\\Users\\apurv\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\apurv\\OneDrive\\Desktop\\CarRentalSEP\\cCarRentalSystem\\Client\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\marek\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\apurv\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -61,36 +59,34 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\marek\\School\\Semester 3\\SEP\\CarRentalSystem\\cCarRentalSystem\\Client\\HttpClients\\HttpClients.csproj": {
+    "C:\\Users\\apurv\\OneDrive\\Desktop\\CarRentalSEP\\cCarRentalSystem\\Client\\HttpClients\\HttpClients.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\marek\\School\\Semester 3\\SEP\\CarRentalSystem\\cCarRentalSystem\\Client\\HttpClients\\HttpClients.csproj",
+        "projectUniqueName": "C:\\Users\\apurv\\OneDrive\\Desktop\\CarRentalSEP\\cCarRentalSystem\\Client\\HttpClients\\HttpClients.csproj",
         "projectName": "HttpClients",
-        "projectPath": "C:\\Users\\marek\\School\\Semester 3\\SEP\\CarRentalSystem\\cCarRentalSystem\\Client\\HttpClients\\HttpClients.csproj",
-        "packagesPath": "C:\\Users\\marek\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\marek\\School\\Semester 3\\SEP\\CarRentalSystem\\cCarRentalSystem\\Client\\HttpClients\\obj\\",
+        "projectPath": "C:\\Users\\apurv\\OneDrive\\Desktop\\CarRentalSEP\\cCarRentalSystem\\Client\\HttpClients\\HttpClients.csproj",
+        "packagesPath": "C:\\Users\\apurv\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\apurv\\OneDrive\\Desktop\\CarRentalSEP\\cCarRentalSystem\\Client\\HttpClients\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\marek\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\apurv\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\marek\\School\\Semester 3\\SEP\\CarRentalSystem\\cCarRentalSystem\\Client\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Users\\marek\\School\\Semester 3\\SEP\\CarRentalSystem\\cCarRentalSystem\\Client\\Domain\\Domain.csproj"
+              "C:\\Users\\apurv\\OneDrive\\Desktop\\CarRentalSEP\\cCarRentalSystem\\Client\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\apurv\\OneDrive\\Desktop\\CarRentalSEP\\cCarRentalSystem\\Client\\Domain\\Domain.csproj"
               }
             }
           }
@@ -120,7 +116,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }
