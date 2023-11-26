@@ -5,13 +5,13 @@ import "google/protobuf/wrappers.proto";
 import "google/protobuf/empty.proto";
 message UserProtoObj
 {
-  string firstName=1;
-  string lastName=2;
-  string email=3;
-  string password=4;
-  string username=5;
-  int64 phoneNumber=6;
-  bool isAdmin=7;
+  string FirstName=1;
+  string LastName=2;
+  string Email=3;
+  string Password=4;
+  string Username=5;
+  int64 PhoneNumber=6;
+  bool IsAdmin=7;
 }
 
 service UserProtoService
