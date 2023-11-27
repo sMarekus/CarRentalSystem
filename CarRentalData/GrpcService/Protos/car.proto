@@ -14,17 +14,17 @@ enum CarStatus {
 
 message CarProtoObj
 {
-  int32 id = 1;
-  string brand = 2;
-  string model = 3;
-  string bodyType = 4;
-  int32 horsePower = 5;
-  string fuelType = 6;
-  string gearbox = 7;
-  string color = 8;
-  string description = 9;
-  int32 pricePerDay = 10;
-  CarStatus status = 11;
+  int32 Id = 1;
+  string Brand = 2;
+  string Model = 3;
+  string BodyType = 4;
+  int32 HorsePower = 5;
+  string FuelType = 6;
+  string Gearbox = 7;
+  string Color = 8;
+  string Description = 9;
+  int32 PricePerDay = 10;
+  CarStatus Status = 11;
 }
 
 service CarProtoService

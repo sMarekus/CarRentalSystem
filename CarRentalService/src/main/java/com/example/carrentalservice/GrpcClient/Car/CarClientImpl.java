@@ -20,8 +20,8 @@ public class CarClientImpl implements ICarClient {
 
     @Override
     public Car createCar(Car car) {
+        System.out.println("Creating car in CarClientImpl.java: " + car.toString());
         try {
-            System.out.println("Creating car");
             proto.Car.CarProtoObj carProtoObj = fromEntityToProtoObj(car);
             proto.Car.CarProtoObj protoObjFromServer = getCarStub().createCar(carProtoObj);
             return fromProtoObjToEntity(protoObjFromServer);
