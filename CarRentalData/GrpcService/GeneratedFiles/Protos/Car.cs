@@ -26,11 +26,11 @@ namespace CarRentalData {
           string.Concat(
             "CgljYXIucHJvdG8SBXByb3RvGh5nb29nbGUvcHJvdG9idWYvd3JhcHBlcnMu",
             "cHJvdG8aG2dvb2dsZS9wcm90b2J1Zi9lbXB0eS5wcm90byLbAQoLQ2FyUHJv",
-            "dG9PYmoSCgoCaWQYASABKAUSDQoFYnJhbmQYAiABKAkSDQoFbW9kZWwYAyAB",
-            "KAkSEAoIYm9keVR5cGUYBCABKAkSEgoKaG9yc2VQb3dlchgFIAEoBRIQCghm",
-            "dWVsVHlwZRgGIAEoCRIPCgdnZWFyYm94GAcgASgJEg0KBWNvbG9yGAggASgJ",
-            "EhMKC2Rlc2NyaXB0aW9uGAkgASgJEhMKC3ByaWNlUGVyRGF5GAogASgFEiAK",
-            "BnN0YXR1cxgLIAEoDjIQLnByb3RvLkNhclN0YXR1cyo5CglDYXJTdGF0dXMS",
+            "dG9PYmoSCgoCSWQYASABKAUSDQoFQnJhbmQYAiABKAkSDQoFTW9kZWwYAyAB",
+            "KAkSEAoIQm9keVR5cGUYBCABKAkSEgoKSG9yc2VQb3dlchgFIAEoBRIQCghG",
+            "dWVsVHlwZRgGIAEoCRIPCgdHZWFyYm94GAcgASgJEg0KBUNvbG9yGAggASgJ",
+            "EhMKC0Rlc2NyaXB0aW9uGAkgASgJEhMKC1ByaWNlUGVyRGF5GAogASgFEiAK",
+            "BlN0YXR1cxgLIAEoDjIQLnByb3RvLkNhclN0YXR1cyo5CglDYXJTdGF0dXMS",
             "DQoJQVZBSUxBQkxFEAASDAoIUkVTRVJWRUQQARIPCgtVTkFWQUlMQUJMRRAC",
             "MkgKD0NhclByb3RvU2VydmljZRI1CglDcmVhdGVDYXISEi5wcm90by5DYXJQ",
             "cm90b09iahoSLnByb3RvLkNhclByb3RvT2JqIgBCEKoCDUNhclJlbnRhbERh",
@@ -109,7 +109,7 @@ namespace CarRentalData {
       return new CarProtoObj(this);
     }
 
-    /// <summary>Field number for the "id" field.</summary>
+    /// <summary>Field number for the "Id" field.</summary>
     public const int IdFieldNumber = 1;
     private int id_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -121,7 +121,7 @@ namespace CarRentalData {
       }
     }
 
-    /// <summary>Field number for the "brand" field.</summary>
+    /// <summary>Field number for the "Brand" field.</summary>
     public const int BrandFieldNumber = 2;
     private string brand_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -133,7 +133,7 @@ namespace CarRentalData {
       }
     }
 
-    /// <summary>Field number for the "model" field.</summary>
+    /// <summary>Field number for the "Model" field.</summary>
     public const int ModelFieldNumber = 3;
     private string model_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -145,7 +145,7 @@ namespace CarRentalData {
       }
     }
 
-    /// <summary>Field number for the "bodyType" field.</summary>
+    /// <summary>Field number for the "BodyType" field.</summary>
     public const int BodyTypeFieldNumber = 4;
     private string bodyType_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -157,7 +157,7 @@ namespace CarRentalData {
       }
     }
 
-    /// <summary>Field number for the "horsePower" field.</summary>
+    /// <summary>Field number for the "HorsePower" field.</summary>
     public const int HorsePowerFieldNumber = 5;
     private int horsePower_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -169,7 +169,7 @@ namespace CarRentalData {
       }
     }
 
-    /// <summary>Field number for the "fuelType" field.</summary>
+    /// <summary>Field number for the "FuelType" field.</summary>
     public const int FuelTypeFieldNumber = 6;
     private string fuelType_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -181,7 +181,7 @@ namespace CarRentalData {
       }
     }
 
-    /// <summary>Field number for the "gearbox" field.</summary>
+    /// <summary>Field number for the "Gearbox" field.</summary>
     public const int GearboxFieldNumber = 7;
     private string gearbox_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -193,7 +193,7 @@ namespace CarRentalData {
       }
     }
 
-    /// <summary>Field number for the "color" field.</summary>
+    /// <summary>Field number for the "Color" field.</summary>
     public const int ColorFieldNumber = 8;
     private string color_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -205,7 +205,7 @@ namespace CarRentalData {
       }
     }
 
-    /// <summary>Field number for the "description" field.</summary>
+    /// <summary>Field number for the "Description" field.</summary>
     public const int DescriptionFieldNumber = 9;
     private string description_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -217,7 +217,7 @@ namespace CarRentalData {
       }
     }
 
-    /// <summary>Field number for the "pricePerDay" field.</summary>
+    /// <summary>Field number for the "PricePerDay" field.</summary>
     public const int PricePerDayFieldNumber = 10;
     private int pricePerDay_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -229,7 +229,7 @@ namespace CarRentalData {
       }
     }
 
-    /// <summary>Field number for the "status" field.</summary>
+    /// <summary>Field number for the "Status" field.</summary>
     public const int StatusFieldNumber = 11;
     private global::CarRentalData.CarStatus status_ = global::CarRentalData.CarStatus.Available;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
