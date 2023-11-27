@@ -67,6 +67,8 @@ public class JwtService {
         claims.put("phoneNumber", userDetails.getPhoneNumber());
         claims.put("isAdmin", userDetails.isAdmin());
 
+        System.out.println(claims);
+
         return Jwts.builder().setClaims(claims)
                 .setIssuedAt(new Date(System.currentTimeMillis()))
                 .setExpiration(expirationDate)
