@@ -162,4 +162,12 @@ public class UserService : IUserService
 
         return Convert.FromBase64String(base64);
     }
+
+    public Task Logout()
+    {
+        Jwt = null;
+        ClaimsPrincipal principal = new();
+        OnAuthStateChanged.Invoke(principal);
+        return Task.CompletedTask;
+    }
 }
