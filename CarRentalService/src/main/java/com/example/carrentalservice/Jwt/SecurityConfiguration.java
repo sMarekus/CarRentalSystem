@@ -3,7 +3,6 @@ package com.example.carrentalservice.Jwt;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -37,8 +36,6 @@ public class SecurityConfiguration {
                  .csrf(AbstractHttpConfigurer::disable)
                  .authorizeHttpRequests(authorize -> authorize
                          .requestMatchers("/", "/users/authenticate").permitAll()
-                         .requestMatchers(HttpMethod.POST, "/cars").permitAll()
-                         .requestMatchers(HttpMethod.POST, "/users").permitAll()
                          .anyRequest().authenticated())
                  .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                  .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class)
