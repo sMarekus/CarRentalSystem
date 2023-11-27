@@ -1,9 +1,6 @@
-.navbar-toggler {
-    background: rgb(2,0,36);
-    background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(132,0,218,1) 100%);
-}
 
-.nav-scrollable{
+
+#sideNavBar{
     background: rgb(2,0,36);
     background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(132,0,218,1) 100%);
 }
