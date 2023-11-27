@@ -1,4 +1,5 @@
-﻿using System.Net.Http.Json;
+﻿using System.Net.Http.Headers;
+using System.Net.Http.Json;
 using System.Text;
 using System.Text.Json;
 using Domain.DTOs;
@@ -19,17 +20,25 @@ public class CarService : ICarService
         this.client = client;
     }
     
-    public async Task CreateAsync(CarCreationDto carToCreate)
+    public async Task<Car> CreateAsync(CarCreationDto carToCreate)
     {
         HttpResponseMessage response = await client.PostAsJsonAsync("/cars", carToCreate);
-
+        string result = await response.Content.ReadAsStringAsync();
+        
         if (!response.IsSuccessStatusCode)
         {
             var statusCode = response.StatusCode;
             Console.WriteLine($"Status Code: {statusCode}");
-            string content = await response.Content.ReadAsStringAsync();
-            throw new Exception(content);
+            throw new Exception(result);
         }
+        
+        Car car = JsonSerializer.Deserialize<Car>(result, new JsonSerializerOptions
+        {
+            PropertyNameCaseInsensitive = true
+        })!;
+        Console.WriteLine("User deserialized");
+
+        return car;
     }
 
     public async Task<IEnumerable<Car>> GetCarsAsync(string? brand, string? model, string? bodyType, int? horsePower, string? fuelType, string? gearbox, string? color, int? pricePerDay, CarStatus? status)

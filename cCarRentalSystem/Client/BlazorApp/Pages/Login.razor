@@ -1,7 +1,12 @@
 ﻿@page "/Login"
 @using HttpClients.ClientInterfaces
+@using System.Security.Claims
+@using Domain.DTOs
+@using Domain.Models
+
 @inject IUserService userService;
 @inject NavigationManager navManager;
+
 
 
 <div class="row d-flex justify-content-center">
@@ -47,7 +52,10 @@
     </NotAuthorized>
     <Authorized>
         <div class="card">
-            <h3>Hello, @context.User.Identity.Name</h3>
+            <h3>You are already logged in!</h3>
+            <div class="button-row">
+                <button @onclick="Logout" class="acceptbtn">Logout</button>
+            </div>
         </div>
     </Authorized>
 </AuthorizeView>
@@ -58,6 +66,7 @@
     private string password { get; set; }
     private string resultMsg = "";
     private string color = "";
+    
     
     private bool IsLoginButtonDisabled => string.IsNullOrWhiteSpace(userName) || string.IsNullOrWhiteSpace(password);
 
@@ -79,5 +88,11 @@
             color = "red";
         }
         
+    }
+
+    private async Task Logout()
+    {
+        await userService.Logout();
+        navManager.NavigateTo("/");
     }
 }

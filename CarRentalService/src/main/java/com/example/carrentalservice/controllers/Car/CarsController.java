@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:8080")
 public class CarsController
 {
     private final ICarService carService;
@@ -20,6 +19,7 @@ public class CarsController
 
     @PostMapping(value = "/cars")
     public ResponseEntity<Car> createCar(@RequestBody Car car) {
+        System.out.println("Creating car in CarsController.java: " + car.toString());
         try{
             return new ResponseEntity<>(carService.createCar(car), HttpStatus.OK);
         } catch (Exception e) {

@@ -4,6 +4,8 @@
     flex-direction: column;
 }
 
+
+
 main {
     flex: 1;
 }
@@ -18,7 +20,7 @@ main {
     background-color: dimgrey;
 }
 
-.sidebar {
+#Sidebar {
     background-image: linear-gradient(180deg, rgb(5, 39, 103) 0%, #3a0647 70%);
 }
 

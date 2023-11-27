@@ -17,6 +17,7 @@ public class CarServiceImplementation implements ICarService
 
     @Override
     public Car createCar(Car car) {
+        System.out.println("Creating car in CarServiceImpl.java: " + car.toString());
         try {
             return client.createCar(car);
         } catch (Exception e) {

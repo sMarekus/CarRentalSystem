@@ -1,5 +1,12 @@
-.navbar-toggler[b-7cxxmz0cwl] {
-    background-color: rgba(255, 255, 255, 0.1);
+
+
+#sideNavBar[b-7cxxmz0cwl]{
+    background: rgb(2,0,36);
+    background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(132,0,218,1) 100%);
+}
+
+.navbar[b-7cxxmz0cwl]{
+    background-color: rebeccapurple;
 }
 
 .top-row[b-7cxxmz0cwl] {
@@ -9,6 +16,7 @@
 
 .navbar-brand[b-7cxxmz0cwl] {
     font-size: 1.1rem;
+    background-color: #020024;
 }
 
 .oi[b-7cxxmz0cwl] {
@@ -65,4 +73,8 @@
         height: calc(100vh - 3.5rem);
         overflow-y: auto;
     }
+}
+
+#topCorner[b-7cxxmz0cwl]{
+    background-color: #020024;
 }
