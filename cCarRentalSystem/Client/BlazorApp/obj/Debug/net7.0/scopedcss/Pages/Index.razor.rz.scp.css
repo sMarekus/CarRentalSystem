@@ -1,5 +1,5 @@
-﻿.desc {
-    animation: fadeIn 5s;
+.desc[b-w6l7chfipm] {
+    animation: fadeIn-b-w6l7chfipm 5s;
     -webkit-animation: fadeIn 5s;
     -moz-animation: fadeIn 5s;
     -o-animation: fadeIn 5s;
@@ -9,11 +9,11 @@
     margin-top:50px;
 }
 
-.img{
+.img[b-w6l7chfipm]{
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
-@keyframes fadeIn {
+@keyframes fadeIn-b-w6l7chfipm {
     0% { opacity: 0; }
     100% { opacity: 1; }
 }
@@ -37,7 +37,7 @@
     0% { opacity: 0; }
     100% { opacity: 1; }
 }
-h1 {
+h1[b-w6l7chfipm] {
     text-align: center;
     margin-top: 50px;
     margin-bottom: 50px;
@@ -47,12 +47,12 @@ h1 {
 }
 
 /* Adding a hover effect */
-h1:hover {
+h1:hover[b-w6l7chfipm] {
     color: #070407; /* Change text color to purple on hover */
     font-size: 68px; /* Increase font size on hover */
 }
 
-footer{
+footer[b-w6l7chfipm]{
     text-align: center;
     padding: 3px;
     color: black;
