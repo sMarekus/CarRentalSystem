@@ -1,6 +1,7 @@
 ﻿@page "/Register"
 @using Domain.DTOs
 @using HttpClients.ClientInterfaces
+
 @inject IUserService userService;
 @inject NavigationManager navManager;
 
@@ -10,84 +11,96 @@
     </div>
 </div>
 
-<div class="container">
-<div class="card">
-    <div class="row d-flex justify-content-center">
-        <div class="col-md-6">
-            <div class="form-group field">
-                <label>First Name:</label>
-                <input id="inputFirstName" type="text" class="form-control" @bind="firstName" @bind:event="oninput"/>
-            </div>
-        </div>
-    </div>
-    
-    <div class="row d-flex justify-content-center">
-        <div class="col-md-6">
-            <div class="form-group field">
-                <label>Last Name:</label>
-                <input id="inputLastName" type="text" class="form-control" @bind="lastName" @bind:event="oninput"/>
-            </div>
-        </div>
-    </div>
-    
-    <div class="row d-flex justify-content-center">
-        <div class="col-md-6">
-            <div class="form-group field">
-                <label>Email:</label>
-                <input id="inputEmail" type="text" class="form-control" @bind="email" @bind:event="oninput"/>
-            </div>
-        </div>
-    </div>
-    
-    <div class="row d-flex justify-content-center">
-        <div class="col-md-6">
-            <div class="form-group field">
-                <label>Password:</label>
-                <input id="inputPassword" type="password" class="form-control" @bind="password" @bind:event="oninput"/>
-            </div>
-        </div>
-    </div>
-    
-    <div class="row d-flex justify-content-center">
-        <div class="col-md-6">
-            <div class="form-group field">
-                <label>Username:</label>
-                <input id="inputCprNumber" type="text" class="form-control" @bind="userName" @bind:event="oninput"/>
-            </div>
-        </div>
-    </div>
-    
-    <div class="row d-flex justify-content-center">
-        <div class="col-md-6">
-            <div class="form-group field">
-                <label>Phone Number:</label>
-                <input id="inputPhoneNumber" type="text" class="form-control" @bind="phoneNumber" @bind:event="oninput"/>
-            </div>
-        </div>
-    </div>
-    
-    <div class="row d-flex justify-content-center">
-        <div class="col-md-6">
-            <div class="form-group field">
-                <label>Admin?</label>
-                <input id="inputAdmin" type="checkbox" class="form-check-input" @bind="isAdmin"/>
-            </div>
-        </div>
-    </div>
-    
-    <div class="row d-flex justify-content-center">
-            <div class="col-md-6">
-                @if (!string.IsNullOrEmpty(resultMsg))
-                    {
-                        <label style="color: @color">@resultMsg</label>
-                    }
-                <div class="button-row">
-                    <button @onclick="Create" disabled="@IsRegisterButtonDisabled" class="acceptbtn">Register</button>
+<AuthorizeView>
+    <NotAuthorized>
+        <div class="container">
+            <div class="card">
+                <div class="row d-flex justify-content-center">
+                    <div class="col-md-6">
+                        <div class="form-group field">
+                            <label>First Name:</label>
+                            <input id="inputFirstName" type="text" class="form-control" @bind="firstName" @bind:event="oninput"/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row d-flex justify-content-center">
+                    <div class="col-md-6">
+                        <div class="form-group field">
+                            <label>Last Name:</label>
+                            <input id="inputLastName" type="text" class="form-control" @bind="lastName" @bind:event="oninput"/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row d-flex justify-content-center">
+                    <div class="col-md-6">
+                        <div class="form-group field">
+                            <label>Email:</label>
+                            <input id="inputEmail" type="text" class="form-control" @bind="email" @bind:event="oninput"/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row d-flex justify-content-center">
+                    <div class="col-md-6">
+                        <div class="form-group field">
+                            <label>Password:</label>
+                            <input id="inputPassword" type="password" class="form-control" @bind="password" @bind:event="oninput"/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row d-flex justify-content-center">
+                    <div class="col-md-6">
+                        <div class="form-group field">
+                            <label>Username:</label>
+                            <input id="inputCprNumber" type="text" class="form-control" @bind="userName" @bind:event="oninput"/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row d-flex justify-content-center">
+                    <div class="col-md-6">
+                        <div class="form-group field">
+                            <label>Phone Number:</label>
+                            <input id="inputPhoneNumber" type="text" class="form-control" @bind="phoneNumber" @bind:event="oninput"/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row d-flex justify-content-center">
+                    <div class="col-md-6">
+                        <div class="form-group field">
+                            <label>Admin?</label>
+                            <input id="inputAdmin" type="checkbox" class="form-check-input" @bind="isAdmin"/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row d-flex justify-content-center">
+                    <div class="col-md-6">
+                        @if (!string.IsNullOrEmpty(resultMsg))
+                        {
+                            <label style="color: @color">@resultMsg</label>
+                        }
+                        <div class="button-row">
+                            <button @onclick="Create" disabled="@IsRegisterButtonDisabled" class="acceptbtn">Register</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</div>
+    </NotAuthorized>
+    <Authorized>
+        <div class="card">
+            <h3>You are already logged in!</h3>
+            <div class="button-row">
+                <button @onclick="Logout" class="acceptbtn">Logout</button>
+            </div>
+        </div>
+    </Authorized>
+</AuthorizeView>
 
 
 @code {
@@ -113,6 +126,7 @@
         try
         {
             await userService.CreateAsync(new UserCreationDto(firstName, lastName, email, password, userName, phoneNumber, isAdmin));
+            await userService.ValidateUser(userName, password);
             firstName = "";
             lastName = "";
             email = "";
@@ -130,5 +144,11 @@
             resultMsg = e.Message;
             color = "red";
         }
+    }
+
+    private async Task Logout()
+    {
+        await userService.Logout();
+        navManager.NavigateTo("/");
     }
 }

@@ -1,14 +1,19 @@
-.navbar-toggler {
-    background-color: rgba(255, 255, 255, 0.1);
+#sideNavBar{
+    background: rgb(2,0,36);
+    background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(132,0,218,1) 100%);
+}
+
+#topCorner{
+    background-color: #020024;
 }
 
 .top-row {
     height: 3.5rem;
-    background-color: rgba(0,0,0,0.4);
 }
 
 .navbar-brand {
     font-size: 1.1rem;
+    background-color: #020024;
 }
 
 .oi {
@@ -66,3 +71,5 @@
         overflow-y: auto;
     }
 }
+
+

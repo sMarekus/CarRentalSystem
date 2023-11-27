@@ -37,6 +37,7 @@ public class UserServiceImplementation implements IUserService {
     @Override
     public User createUser(User user) {
         try {
+            user.setPassword(passwordEncoder.encode(user.getPassword()));
             return client.createUser(user);
         } catch (Exception e) {
             throw new RuntimeException(e);

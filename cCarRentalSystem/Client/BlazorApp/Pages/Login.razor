@@ -1,7 +1,12 @@
 ﻿@page "/Login"
 @using HttpClients.ClientInterfaces
+@using System.Security.Claims
+@using Domain.DTOs
+@using Domain.Models
+
 @inject IUserService userService;
 @inject NavigationManager navManager;
+
 
 
 <div class="row d-flex justify-content-center">
@@ -10,38 +15,50 @@
     </div>
 </div>
 
-<div class="container">
-    <div class="card">
-        <div class="row d-flex justify-content-center">
-            <div class="col-md-6">
-                <div class="form-group field">
-                    <label>Username:</label>
-                    <input id="inputCpr" type="text" class="form-control" @bind="userName" @bind:event="oninput"/>
+<AuthorizeView>
+    <NotAuthorized>
+        <div class="container">
+            <div class="card">
+                <div class="row d-flex justify-content-center">
+                    <div class="col-md-6">
+                        <div class="form-group field">
+                            <label>Username:</label>
+                            <input id="inputCpr" type="text" class="form-control" @bind="userName" @bind:event="oninput"/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row d-flex justify-content-center">
+                    <div class="col-md-6">
+                        <div class="form-group field">
+                            <label>Password:</label>
+                            <input id="inputPassword" type="password" class="form-control" @bind="password" @bind:event="oninput"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="row d-flex justify-content-center">
+                    <div class="col-md-6">
+                        @if (!string.IsNullOrEmpty(resultMsg))
+                        {
+                            <label style="color: @color">@resultMsg</label>
+                        }
+                        <div class="button-row">
+                            <button @onclick="LoginAsync" disabled="@IsLoginButtonDisabled" class="acceptbtn">Login</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-        
-        <div class="row d-flex justify-content-center">
-            <div class="col-md-6">
-                <div class="form-group field">
-                    <label>Password:</label>
-                    <input id="inputPassword" type="password" class="form-control" @bind="password" @bind:event="oninput"/>
-                </div>
+    </NotAuthorized>
+    <Authorized>
+        <div class="card">
+            <h3>You are already logged in!</h3>
+            <div class="button-row">
+                <button @onclick="Logout" class="acceptbtn">Logout</button>
             </div>
         </div>
-        <div class="row d-flex justify-content-center">
-            <div class="col-md-6">
-                @if (!string.IsNullOrEmpty(resultMsg))
-                    {
-                        <label style="color: @color">@resultMsg</label>
-                    }
-                <div class="button-row">
-                    <button @onclick="LoginAsync" disabled="@IsLoginButtonDisabled" class="acceptbtn">Login</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+    </Authorized>
+</AuthorizeView>
 
 
 @code {
@@ -49,6 +66,7 @@
     private string password { get; set; }
     private string resultMsg = "";
     private string color = "";
+    
     
     private bool IsLoginButtonDisabled => string.IsNullOrWhiteSpace(userName) || string.IsNullOrWhiteSpace(password);
 
@@ -70,5 +88,11 @@
             color = "red";
         }
         
+    }
+
+    private async Task Logout()
+    {
+        await userService.Logout();
+        navManager.NavigateTo("/");
     }
 }
