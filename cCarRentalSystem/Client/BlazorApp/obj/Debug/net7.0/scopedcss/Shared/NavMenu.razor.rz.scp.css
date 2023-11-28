@@ -1,17 +1,14 @@
-
-
 #sideNavBar[b-7cxxmz0cwl]{
     background: rgb(2,0,36);
     background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(132,0,218,1) 100%);
 }
 
-.navbar[b-7cxxmz0cwl]{
-    background-color: rebeccapurple;
+#topCorner[b-7cxxmz0cwl]{
+    background-color: #020024;
 }
 
 .top-row[b-7cxxmz0cwl] {
     height: 3.5rem;
-    background-color: rgba(0,0,0,0.4);
 }
 
 .navbar-brand[b-7cxxmz0cwl] {
@@ -75,6 +72,4 @@
     }
 }
 
-#topCorner[b-7cxxmz0cwl]{
-    background-color: #020024;
-}
+

@@ -18,10 +18,13 @@ public class CarService : ICarService
     public CarService(HttpClient client)
     {
         this.client = client;
+        client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", UserService.Jwt);
+
     }
     
     public async Task<Car> CreateAsync(CarCreationDto carToCreate)
     {
+        Console.WriteLine(UserService.Jwt);
         HttpResponseMessage response = await client.PostAsJsonAsync("/cars", carToCreate);
         string result = await response.Content.ReadAsStringAsync();
         
