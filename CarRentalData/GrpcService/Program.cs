@@ -11,12 +11,14 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddGrpc();
 builder.Services.AddScoped<IUserDao, UserDao>();
+builder.Services.AddScoped<ICarDao, CarDao>();
 builder.Services.AddScoped<CarRentalSystemContext>();
 
 
 var app = builder.Build();
 
 app.MapGrpcService<UserService>();
+app.MapGrpcService<CarService>();
 
 // Configure the HTTP request pipeline.
 app.MapGet("/",
