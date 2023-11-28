@@ -4,97 +4,97 @@ import com.example.carrentalservice.model.Enums.CarStatus;
 
 public class Car
 {
-    private int id;
-    private String brand;
-    private String model;
-    private String bodyType;
-    private int horsePower;
-    private String fuelType;
-    private String gearbox;
-    private String color;
-    private String description;
-    private int pricePerDay;
-    private CarStatus status;
+    private int Id;
+    private String Brand;
+    private String Model;
+    private String BodyType;
+    private int HorsePower;
+    private String FuelType;
+    private String Gearbox;
+    private String Color;
+    private String Description;
+    private int PricePerDay;
+    private CarStatus Status;
     public Car(int id, String brand, String model, String bodyType, int horsePower, String fuelType, String gearbox, String color, String description, int pricePerDay, CarStatus status) {
-        this.id = id;
-        this.brand = brand;
-        this.model = model;
-        this.bodyType = bodyType;
-        this.horsePower = horsePower;
-        this.fuelType = fuelType;
-        this.gearbox = gearbox;
-        this.color = color;
-        this.description = description;
-        this.pricePerDay = pricePerDay;
-        this.status = status;
+        this.Id = id;
+        this.Brand = brand;
+        this.Model = model;
+        this.BodyType = bodyType;
+        this.HorsePower = horsePower;
+        this.FuelType = fuelType;
+        this.Gearbox = gearbox;
+        this.Color = color;
+        this.Description = description;
+        this.PricePerDay = pricePerDay;
+        this.Status = status;
     }
     public Car() {
         CarStatus status = CarStatus.AVAILABLE;
     }
     public int getId() {
-        return id;
+        return Id;
     }
     public void setId(int id) {
-        this.id = id;
+        this.Id = id;
     }
     public String getBrand() {
-        return brand;
+        return Brand;
     }
     public void setBrand(String brand) {
-        this.brand = brand;
+        this.Brand = brand;
     }
     public String getModel() {
-        return model;
+        return Model;
     }
     public void setModel(String model) {
-        this.model = model;
+        this.Model = model;
     }
     public String getBodyType() {
-        return bodyType;
+        return BodyType;
     }
     public void setBodyType(String bodyType) {
-        this.bodyType = bodyType;
+        this.BodyType = bodyType;
     }
     public int getHorsePower() {
-        return horsePower;
+        return HorsePower;
     }
     public void setHorsePower(int horsePower) {
-        this.horsePower = horsePower;
+        this.HorsePower = horsePower;
     }
     public String getFuelType() {
-        return fuelType;
+        return FuelType;
     }
     public void setFuelType(String fuelType) {
-        this.fuelType = fuelType;
+        this.FuelType = fuelType;
     }
     public String getGearbox() {
-        return gearbox;
+        return Gearbox;
     }
     public void setGearbox(String gearbox) {
-        this.gearbox = gearbox;
+        this.Gearbox = gearbox;
     }
     public String getColor() {
-        return color;
+        return Color;
     }
     public void setColor(String color) {
-        this.color = color;
+        this.Color = color;
     }
     public String getDescription() {
-        return description;
+        return Description;
     }
     public void setDescription(String description) {
-        this.description = description;
+        this.Description = description;
     }
     public int getPricePerDay() {
-        return pricePerDay;
+        return PricePerDay;
     }
     public void setPricePerDay(int pricePerDay) {
-        this.pricePerDay = pricePerDay;
+        this.PricePerDay = pricePerDay;
     }
     public CarStatus getStatus() {
-        return status;
+        return Status;
     }
     public void setStatus(CarStatus status) {
-        this.status = status;
+        this.Status = status;
     }
 }
