@@ -21,7 +21,9 @@ public class CarsController
     public ResponseEntity<Car> createCar(@RequestBody Car car) {
         System.out.println("Creating car in CarsController.java: " + car.toString());
         try{
-            return new ResponseEntity<>(carService.createCar(car), HttpStatus.OK);
+            Car carFromDatabase = carService.createCar(car);
+            System.out.println("car = " + car);
+            return new ResponseEntity<>(carFromDatabase, HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
