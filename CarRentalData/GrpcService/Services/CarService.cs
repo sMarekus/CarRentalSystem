@@ -73,12 +73,12 @@ public class CarService : CarProtoService.CarProtoServiceBase
     
     private static CarStatus ConvertStatus(Entity.Enum.CarStatus status)
     {
-        return (CarStatus)Enum.Parse(typeof(CarStatus), status.ToString());
+        return (CarStatus)Enum.Parse(typeof(CarStatus), status.ToString().ToUpper());
     }
     
     private static Entity.Enum.CarStatus ConvertProtoStatusToEntityStatus(CarRentalData.CarStatus protoStatus)
     {
         // Assuming both enums have the same names for their members
-        return (Entity.Enum.CarStatus)Enum.Parse(typeof(Entity.Enum.CarStatus), protoStatus.ToString());
+        return (Entity.Enum.CarStatus)Enum.Parse(typeof(Entity.Enum.CarStatus), protoStatus.ToString().ToUpper());
     }
 }
