@@ -16,23 +16,31 @@ public class CarService : CarProtoService.CarProtoServiceBase
     
     public override async Task<CarProtoObj> CreateCar(CarProtoObj request, ServerCallContext context)
     {
+        Console.WriteLine($"CreateCar called with request: {request}");
+        
         try
         {
             Car? toAddCar = FromProtoToEntity(request);
+            
+            Console.WriteLine("Attempting to add car to database.");
             Car? addedCar = await carDao.CreateCarAsync(toAddCar);
+            Console.WriteLine($"Car added to database: {addedCar}");
             
             CarProtoObj carProtoObj = FromEntityToProto(addedCar);
             return carProtoObj;
         }
         catch (Exception e)
         {
-            Console.WriteLine(e);
+            Console.WriteLine($"Exception in CreateCar: {e.Message}");
+            Console.WriteLine($"Stack Trace: {e.StackTrace}");
             throw new RpcException(new Status(StatusCode.AlreadyExists, e.Message));
         }
     }
     
     public static Car? FromProtoToEntity(CarProtoObj carProtoObj)
     {
+        Console.WriteLine($"Converting Proto to Entity. Status: {carProtoObj.Status}");
+        
         Car? carEntity = new Car()
         {
             Id = carProtoObj.Id,
@@ -48,6 +56,7 @@ public class CarService : CarProtoService.CarProtoServiceBase
             Status = ConvertProtoStatusToEntityStatus(carProtoObj.Status),
         };
 
+        Console.WriteLine($"Converted Entity: {carEntity}");
         return carEntity;
     }
     
@@ -73,12 +82,31 @@ public class CarService : CarProtoService.CarProtoServiceBase
     
     private static CarStatus ConvertStatus(Entity.Enum.CarStatus status)
     {
-        return (CarStatus)Enum.Parse(typeof(CarStatus), status.ToString().ToUpper());
+        switch (status)
+        {
+            case Entity.Enum.CarStatus.AVAILABLE:
+                return CarRentalData.CarStatus.Available;
+            case Entity.Enum.CarStatus.RESERVED:
+                return CarRentalData.CarStatus.Reserved;
+            case Entity.Enum.CarStatus.UNAVAILABLE:
+                return CarRentalData.CarStatus.Unavailable;
+            default:
+                throw new ArgumentOutOfRangeException(nameof(status), status, null);
+        }
     }
     
     private static Entity.Enum.CarStatus ConvertProtoStatusToEntityStatus(CarRentalData.CarStatus protoStatus)
     {
-        // Assuming both enums have the same names for their members
-        return (Entity.Enum.CarStatus)Enum.Parse(typeof(Entity.Enum.CarStatus), protoStatus.ToString().ToUpper());
+        switch (protoStatus)
+        {
+            case CarRentalData.CarStatus.Available:
+                return Entity.Enum.CarStatus.AVAILABLE;
+            case CarRentalData.CarStatus.Reserved:
+                return Entity.Enum.CarStatus.RESERVED;
+            case CarRentalData.CarStatus.Unavailable:
+                return Entity.Enum.CarStatus.UNAVAILABLE;
+            default:
+                throw new ArgumentOutOfRangeException(nameof(protoStatus), protoStatus, null);
+        }
     }
 }
