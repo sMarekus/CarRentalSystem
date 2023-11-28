@@ -97,4 +97,21 @@ public class Car
     public void setStatus(CarStatus status) {
         this.Status = status;
     }
+
+    @Override
+    public String toString() {
+        return "Car{" +
+                "Id=" + Id +
+                ", Brand='" + Brand + '\'' +
+                ", Model='" + Model + '\'' +
+                ", BodyType='" + BodyType + '\'' +
+                ", HorsePower=" + HorsePower +
+                ", FuelType='" + FuelType + '\'' +
+                ", Gearbox='" + Gearbox + '\'' +
+                ", Color='" + Color + '\'' +
+                ", Description='" + Description + '\'' +
+                ", PricePerDay=" + PricePerDay +
+                ", Status=" + Status +
+                '}';
+    }
 }

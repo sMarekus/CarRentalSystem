@@ -6,47 +6,50 @@ using Domain.DTOs;
 using Domain.Enums;
 using Domain.Models;
 using HttpClients.ClientInterfaces;
+using HttpClients.utils;
 using Microsoft.VisualBasic.CompilerServices;
 
 namespace HttpClients.Implementations;
 
 public class CarService : ICarService
 {
-
     private readonly HttpClient client;
 
     public CarService(HttpClient client)
     {
         this.client = client;
         client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", UserService.Jwt);
-
     }
-    
+
     public async Task<Car> CreateAsync(CarCreationDto carToCreate)
     {
         Console.WriteLine(UserService.Jwt);
         HttpResponseMessage response = await client.PostAsJsonAsync("/cars", carToCreate);
         string result = await response.Content.ReadAsStringAsync();
-        
+
         if (!response.IsSuccessStatusCode)
         {
             var statusCode = response.StatusCode;
             Console.WriteLine($"Status Code: {statusCode}");
             throw new Exception(result);
         }
-        
-        Car car = JsonSerializer.Deserialize<Car>(result, new JsonSerializerOptions
-        {
-            PropertyNameCaseInsensitive = true
-        })!;
-        Console.WriteLine("User deserialized");
 
+        Console.WriteLine(result);
+        JsonSerializerOptions jsonOptions = new JsonSerializerOptions
+        {
+            PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+            PropertyNameCaseInsensitive = true,
+            Converters = { new CustomEnumConverter<CarStatus>() }
+        };
+        Car car = JsonSerializer.Deserialize<Car>(result, jsonOptions)!;
         return car;
     }
 
-    public async Task<IEnumerable<Car>> GetCarsAsync(string? brand, string? model, string? bodyType, int? horsePower, string? fuelType, string? gearbox, string? color, int? pricePerDay, CarStatus? status)
+    public async Task<IEnumerable<Car>> GetCarsAsync(string? brand, string? model, string? bodyType, int? horsePower,
+        string? fuelType, string? gearbox, string? color, int? pricePerDay, CarStatus? status)
     {
-        string query = ConstructQuery(brand, model, bodyType, horsePower, fuelType, gearbox, color, pricePerDay, status);
+        string query = ConstructQuery(brand, model, bodyType, horsePower, fuelType, gearbox, color, pricePerDay,
+            status);
 
         HttpResponseMessage response = await client.GetAsync("/cars" + query);
         string content = await response.Content.ReadAsStringAsync();
@@ -66,10 +69,11 @@ public class CarService : ICarService
         return cars;
     }
 
-    private static string ConstructQuery(string? brand, string? model, string? bodyType, int? horsePower, string? fuelType, string? gearbox, string? color, int? pricePerDay, CarStatus? status)
+    private static string ConstructQuery(string? brand, string? model, string? bodyType, int? horsePower,
+        string? fuelType, string? gearbox, string? color, int? pricePerDay, CarStatus? status)
     {
         string query = "";
-        
+
         if (!string.IsNullOrEmpty(brand))
         {
             query += $"?brand={brand}";
@@ -143,7 +147,8 @@ public class CarService : ICarService
             PropertyNameCaseInsensitive = true
         })!;
 
-        Car car = new Car(dto.Brand, dto.Model, dto.BodyType, dto.HorsePower, dto.FuelType, dto.Gearbox, dto.Color, dto.Description,
+        Car car = new Car(dto.Brand, dto.Model, dto.BodyType, dto.HorsePower, dto.FuelType, dto.Gearbox, dto.Color,
+            dto.Description,
             dto.PricePerDay, dto.Status);
 
         return car;
