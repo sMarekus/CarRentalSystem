@@ -51,7 +51,12 @@ public class CarService : ICarService
         string query = ConstructQuery(brand, model, bodyType, horsePower, fuelType, gearbox, color, pricePerDay,
             status);
 
-        HttpResponseMessage response = await client.GetAsync("/cars" + query);
+        Console.WriteLine("Made query" +query);
+
+        string endpoint = "/cars" + query;
+        Console.WriteLine("Made endpoint " + endpoint);
+
+        HttpResponseMessage response = await client.GetAsync(endpoint);
         string content = await response.Content.ReadAsStringAsync();
 
         if (!response.IsSuccessStatusCode)
@@ -121,7 +126,7 @@ public class CarService : ICarService
             query += $"priceperday={pricePerDay}";
         }
 
-        if (status != CarStatus.UNAVAILABLE)
+        if (status != null)
         {
             query += string.IsNullOrEmpty(query) ? "?" : "&";
             query += $"status]{status}";

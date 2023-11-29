@@ -1,0 +1,53 @@
+syntax = "proto3";
+
+option csharp_namespace = "CarRentalData";
+
+package proto;
+import "google/protobuf/wrappers.proto";
+import "google/protobuf/empty.proto";
+
+enum CarStatus {
+  AVAILABLE = 0;
+  RESERVED = 1;
+  UNAVAILABLE = 2;
+}
+message CarFilterProtoObj
+{
+  int32 Id = 1;
+  string Brand = 2;
+  string Model = 3;
+  string BodyType = 4;
+  int32 HorsePower = 5;
+  string FuelType = 6;
+  string Gearbox = 7;
+  string Color = 8;
+  string Description = 9;
+  int32 PricePerDay = 10;
+  CarStatus Status = 11;
+}
+
+message CarProtoObj
+{
+  int32 Id = 1;
+  string Brand = 2;
+  string Model = 3;
+  string BodyType = 4;
+  int32 HorsePower = 5;
+  string FuelType = 6;
+  string Gearbox = 7;
+  string Color = 8;
+  string Description = 9;
+  int32 PricePerDay = 10;
+  CarStatus Status = 11;
+}
+
+message ListCarObj{
+  repeated CarProtoObj carList=1;
+}
+
+service CarProtoService
+{
+  rpc CreateCar(CarProtoObj) returns (CarProtoObj){}
+  rpc GetCars(CarFilterProtoObj) returns (ListCarObj){}
+
+}

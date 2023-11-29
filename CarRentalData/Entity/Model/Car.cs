@@ -1,11 +1,12 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using Entity.Enum;
 
 namespace Entity.Model;
 
 public class Car
 {
-    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    [Key]
     public int Id { get; set; }
     public string Brand { get; set; }
     public string Model { get; set; }
@@ -16,5 +17,5 @@ public class Car
     public string Color { get; set; }
     public string Description { get; set; }
     public int PricePerDay { get; set; }
-    public CarStatus Status { get; set; }
+    public string Status { get; set; }
 }
