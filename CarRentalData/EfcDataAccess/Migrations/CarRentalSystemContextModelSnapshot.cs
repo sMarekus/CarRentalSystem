@@ -56,8 +56,9 @@ namespace EfcDataAccess.Migrations
                     b.Property<int>("PricePerDay")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("Status")
-                        .HasColumnType("INTEGER");
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
 
                     b.HasKey("Id");
 
