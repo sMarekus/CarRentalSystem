@@ -66,11 +66,14 @@ public class CarService : ICarService
             throw new Exception(content);
         }
 
-        IEnumerable<Car> cars = JsonSerializer.Deserialize<IEnumerable<Car>>(content, new JsonSerializerOptions
+        Console.WriteLine(content);
+        JsonSerializerOptions jsonOptions = new JsonSerializerOptions
         {
-            PropertyNameCaseInsensitive = true
-        })!;
-
+            PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+            PropertyNameCaseInsensitive = true,
+            Converters = { new CustomEnumConverter<CarStatus>() }
+        };
+        IEnumerable<Car> cars = JsonSerializer.Deserialize<IEnumerable<Car>>(content, jsonOptions)!;
         return cars;
     }
 

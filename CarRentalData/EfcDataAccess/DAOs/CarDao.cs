@@ -30,87 +30,64 @@ public class CarDao : ICarDao
         }
     }
 
-    public async Task<ICollection<CarDto>> GetCarsAsync(CarFilterDto carFilterDto)
+    public async Task<IEnumerable<CarDto>> GetCarsAsync(CarFilterDto carFilterDto)
     {
-        Console.WriteLine("Car filter =====================>" + carFilterDto);
-        carFilterDto.Description = carFilterDto.Description.Trim();
-        carFilterDto.Brand = carFilterDto.Brand.Trim();
-        carFilterDto.Model = carFilterDto.Model.Trim();
-        carFilterDto.BodyType = carFilterDto.BodyType.Trim();
-        carFilterDto.FuelType = carFilterDto.FuelType.Trim();
-        carFilterDto.Gearbox = carFilterDto.Gearbox.Trim();
-        carFilterDto.Color = carFilterDto.Color.Trim();
+        IQueryable<Car> query = context.Cars.AsQueryable();
 
-        Console.WriteLine(carFilterDto.Description is null);
-        var queryAble = context.Cars.AsQueryable();
-
-        if (string.IsNullOrEmpty(carFilterDto.Description))
+        if (!string.IsNullOrEmpty(carFilterDto.Description))
         {
-            Console.WriteLine(carFilterDto.Description);
-            queryAble = queryAble.Where(dto => dto.Description.Equals(carFilterDto.Description));
+            carFilterDto.Description = carFilterDto.Description.Trim();
+            query = query.Where(dto => dto.Description.Equals(carFilterDto.Description));
         }
 
-        if (string.IsNullOrEmpty(carFilterDto.Brand))
+        if (!string.IsNullOrEmpty(carFilterDto.Brand))
         {
-            Console.WriteLine(carFilterDto.Brand);
-
-            queryAble = queryAble.Where(dto => dto.Brand.Equals(carFilterDto.Brand));
+            carFilterDto.Brand = carFilterDto.Brand.Trim();
+            query = query.Where(dto => dto.Brand.Equals(carFilterDto.Brand));
         }
 
-        if (string.IsNullOrEmpty(carFilterDto.Model))
+        if (!string.IsNullOrEmpty(carFilterDto.Model))
         {
-            Console.WriteLine(carFilterDto.Model);
-
-            queryAble = queryAble.Where(dto => dto.Model.Equals(carFilterDto.Model));
+            carFilterDto.Model = carFilterDto.Model.Trim();
+            query = query.Where(dto => dto.Model.Equals(carFilterDto.Model));
         }
 
-        if (string.IsNullOrEmpty(carFilterDto.BodyType))
+        if (!string.IsNullOrEmpty(carFilterDto.BodyType))
         {
-            Console.WriteLine(carFilterDto.BodyType);
-
-            queryAble = queryAble.Where(dto => dto.BodyType.Equals(carFilterDto.BodyType));
+            carFilterDto.BodyType = carFilterDto.BodyType.Trim();
+            query = query.Where(dto => dto.BodyType.Equals(carFilterDto.BodyType));
         }
 
         if (carFilterDto.HorsePower is not null)
         {
-            Console.WriteLine(carFilterDto.HorsePower);
-
-            queryAble = queryAble.Where(dto => dto.HorsePower == carFilterDto.HorsePower);
+            query = query.Where(dto => dto.HorsePower == carFilterDto.HorsePower);
         }
 
-        if (string.IsNullOrEmpty(carFilterDto.FuelType))
+        if (!string.IsNullOrEmpty(carFilterDto.FuelType))
         {
-            Console.WriteLine(carFilterDto.FuelType);
-            queryAble = queryAble.Where(dto => dto.FuelType.Equals(carFilterDto.FuelType));
+            carFilterDto.FuelType = carFilterDto.FuelType.Trim();
+            query = query.Where(dto => dto.FuelType.Equals(carFilterDto.FuelType));
         }
 
-        if (string.IsNullOrEmpty(carFilterDto.Gearbox))
+        if (!string.IsNullOrEmpty(carFilterDto.Gearbox))
         {
-            Console.WriteLine(carFilterDto.Gearbox);
-            queryAble = queryAble.Where(dto => dto.Gearbox.Equals(carFilterDto.Gearbox));
+            carFilterDto.Gearbox = carFilterDto.Gearbox.Trim();
+            query = query.Where(dto => dto.Gearbox.Equals(carFilterDto.Gearbox));
         }
 
-        if (string.IsNullOrEmpty(carFilterDto.Color))
+        if (!string.IsNullOrEmpty(carFilterDto.Color))
         {
-            Console.WriteLine(carFilterDto.Color);
-            queryAble = queryAble.Where(dto => dto.Color.Equals(carFilterDto.Color));
+            carFilterDto.Color = carFilterDto.Color.Trim();
+            query = query.Where(dto => dto.Color.Equals(carFilterDto.Color));
         }
 
         if (carFilterDto.PricePerDay is not null)
         {
-            Console.WriteLine(carFilterDto.PricePerDay);
-            queryAble = queryAble.Where(dto => dto.PricePerDay == carFilterDto.PricePerDay);
+            query = query.Where(dto => dto.PricePerDay == carFilterDto.PricePerDay);
         }
 
-
-
-        List<Car> cars = await queryAble.ToListAsync();
-
-        Console.WriteLine("Car count =========================>  " + cars.Count);
-        ICollection<CarDto> carDtos = cars.Select(convertToCarDto).ToList();
-
-        Console.WriteLine("Car count =========================>  " + carDtos.Count);
-
+        List<Car> cars = await query.ToListAsync();
+        IEnumerable<CarDto> carDtos = cars.Select(convertToCarDto);
 
         return carDtos;
     }
