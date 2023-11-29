@@ -19,12 +19,10 @@ public class CarService : CarProtoService.CarProtoServiceBase
     {
         try
         {
-            ICollection<CarDto> cars = await carDao.GetCarsAsync(FromProtoToCarFilterDto(request));
+            IEnumerable<CarDto> cars = await carDao.GetCarsAsync(FromProtoToCarFilterDto(request));
             RepeatedField<CarFilterProtoObj> carProtoObjs = new RepeatedField<CarFilterProtoObj>();
 
-
             List<CarProtoObj> protoObjs = cars.Select(FromDtoToProto).ToList();
-
 
             return new ListCarObj()
             {

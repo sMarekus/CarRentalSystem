@@ -5,5 +5,5 @@ namespace EfcDataAccess.DaoInterfaces;
 public interface ICarDao
 {
     Task<Car?> CreateCarAsync(Car? carEntity);
-    Task<ICollection<CarDto>> GetCarsAsync(CarFilterDto fromProtoToCarFilterDto);
+    Task<IEnumerable<CarDto>> GetCarsAsync(CarFilterDto fromProtoToCarFilterDto);
 }
