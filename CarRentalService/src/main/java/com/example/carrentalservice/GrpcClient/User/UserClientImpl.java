@@ -56,15 +56,14 @@ public class UserClientImpl implements IUserClient
     public User getUserByUserName(String userName) {
         try {
             proto.User.UserProtoObj userProtoObj = getUserStub().fetchUserByUsername(StringValue.of(userName));
-            User user= fromProtoObjToEntity(userProtoObj);
-            return user;
+            return fromProtoObjToEntity(userProtoObj);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
     }
 
 
-    public static proto.User.UserProtoObj fromEntityToProtoObj(User userEntity) {
+    public proto.User.UserProtoObj fromEntityToProtoObj(User userEntity) {
         proto.User.UserProtoObj.Builder builder = proto.User.UserProtoObj.newBuilder()
                 .setFirstName(userEntity.getFirstName())
                 .setLastName(userEntity.getLastName())

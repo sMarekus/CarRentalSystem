@@ -23,7 +23,7 @@ public class ManagedChannelProvider {
             synchronized (lock){
                 if (channel == null){
                     channel = ManagedChannelBuilder.forAddress("localhost",
-                                    5017)
+                                    5217)
                             .usePlaintext()
                             .build();
                 }
