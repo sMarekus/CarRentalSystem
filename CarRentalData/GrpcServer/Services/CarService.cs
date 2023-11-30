@@ -110,6 +110,7 @@ public class CarService : CarProtoService.CarProtoServiceBase
 
         CarFilterDto carDto = new CarFilterDto()
         {
+            Id = carFilterProtoObj.Id,
             Brand = carFilterProtoObj.Brand,
             Model = carFilterProtoObj.Model,
             BodyType = carFilterProtoObj.BodyType,
@@ -150,6 +151,7 @@ public class CarService : CarProtoService.CarProtoServiceBase
     {
         CarProtoObj carProtoObj = new CarProtoObj()
         {
+            Id = carEntity.Id,
             Brand = carEntity.Brand,
             Model = carEntity.Model,
             BodyType = carEntity.BodyType,

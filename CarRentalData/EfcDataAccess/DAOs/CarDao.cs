@@ -98,6 +98,7 @@ public class CarDao : ICarDao
     {
         CarDto carDto = new CarDto()
         {
+            Id = car.Id,
             Brand = car.Brand,
             Model = car.Model,
             BodyType = car.BodyType,
