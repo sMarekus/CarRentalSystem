@@ -2,9 +2,13 @@ package com.example.carrentalservice.service.Car;
 
 
 import com.example.carrentalservice.GrpcClient.Car.ICarClient;
+import com.example.carrentalservice.dto.CarFilterDto;
 import com.example.carrentalservice.model.Car;
+import com.example.carrentalservice.model.User;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class CarServiceImplementation implements ICarService
@@ -23,6 +27,16 @@ public class CarServiceImplementation implements ICarService
             return client.createCar(car);
         } catch (Exception e) {
             throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public List<Car> getCars(CarFilterDto carFilterDto) {
+        try {
+            List<Car> cars = client.getCars(carFilterDto);
+            return cars;
+        } catch (Exception e) {
+            throw new RuntimeException(e.getMessage());
         }
     }
 }

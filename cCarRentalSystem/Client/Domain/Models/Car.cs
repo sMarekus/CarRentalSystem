@@ -30,4 +30,9 @@ public class Car
         PricePerDay = pricePerDay;
         Status = status;
     }
+
+    public Car()
+    {
+
+    }
 }

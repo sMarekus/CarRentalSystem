@@ -59,6 +59,38 @@ public final class CarProtoServiceGrpc {
      return getCreateCarMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<proto.Car.CarFilterProtoObj,
+      proto.Car.ListCarObj> getGetCarsMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "GetCars",
+      requestType = proto.Car.CarFilterProtoObj.class,
+      responseType = proto.Car.ListCarObj.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<proto.Car.CarFilterProtoObj,
+      proto.Car.ListCarObj> getGetCarsMethod() {
+    io.grpc.MethodDescriptor<proto.Car.CarFilterProtoObj, proto.Car.ListCarObj> getGetCarsMethod;
+    if ((getGetCarsMethod = CarProtoServiceGrpc.getGetCarsMethod) == null) {
+      synchronized (CarProtoServiceGrpc.class) {
+        if ((getGetCarsMethod = CarProtoServiceGrpc.getGetCarsMethod) == null) {
+          CarProtoServiceGrpc.getGetCarsMethod = getGetCarsMethod = 
+              io.grpc.MethodDescriptor.<proto.Car.CarFilterProtoObj, proto.Car.ListCarObj>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(
+                  "proto.CarProtoService", "GetCars"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  proto.Car.CarFilterProtoObj.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  proto.Car.ListCarObj.getDefaultInstance()))
+                  .setSchemaDescriptor(new CarProtoServiceMethodDescriptorSupplier("GetCars"))
+                  .build();
+          }
+        }
+     }
+     return getGetCarsMethod;
+  }
+
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -93,6 +125,13 @@ public final class CarProtoServiceGrpc {
       asyncUnimplementedUnaryCall(getCreateCarMethod(), responseObserver);
     }
 
+    /**
+     */
+    public void getCars(proto.Car.CarFilterProtoObj request,
+        io.grpc.stub.StreamObserver<proto.Car.ListCarObj> responseObserver) {
+      asyncUnimplementedUnaryCall(getGetCarsMethod(), responseObserver);
+    }
+
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
@@ -102,6 +141,13 @@ public final class CarProtoServiceGrpc {
                 proto.Car.CarProtoObj,
                 proto.Car.CarProtoObj>(
                   this, METHODID_CREATE_CAR)))
+          .addMethod(
+            getGetCarsMethod(),
+            asyncUnaryCall(
+              new MethodHandlers<
+                proto.Car.CarFilterProtoObj,
+                proto.Car.ListCarObj>(
+                  this, METHODID_GET_CARS)))
           .build();
     }
   }
@@ -131,6 +177,14 @@ public final class CarProtoServiceGrpc {
       asyncUnaryCall(
           getChannel().newCall(getCreateCarMethod(), getCallOptions()), request, responseObserver);
     }
+
+    /**
+     */
+    public void getCars(proto.Car.CarFilterProtoObj request,
+        io.grpc.stub.StreamObserver<proto.Car.ListCarObj> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getGetCarsMethod(), getCallOptions()), request, responseObserver);
+    }
   }
 
   /**
@@ -156,6 +210,13 @@ public final class CarProtoServiceGrpc {
     public proto.Car.CarProtoObj createCar(proto.Car.CarProtoObj request) {
       return blockingUnaryCall(
           getChannel(), getCreateCarMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public proto.Car.ListCarObj getCars(proto.Car.CarFilterProtoObj request) {
+      return blockingUnaryCall(
+          getChannel(), getGetCarsMethod(), getCallOptions(), request);
     }
   }
 
@@ -184,9 +245,18 @@ public final class CarProtoServiceGrpc {
       return futureUnaryCall(
           getChannel().newCall(getCreateCarMethod(), getCallOptions()), request);
     }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<proto.Car.ListCarObj> getCars(
+        proto.Car.CarFilterProtoObj request) {
+      return futureUnaryCall(
+          getChannel().newCall(getGetCarsMethod(), getCallOptions()), request);
+    }
   }
 
   private static final int METHODID_CREATE_CAR = 0;
+  private static final int METHODID_GET_CARS = 1;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -208,6 +278,10 @@ public final class CarProtoServiceGrpc {
         case METHODID_CREATE_CAR:
           serviceImpl.createCar((proto.Car.CarProtoObj) request,
               (io.grpc.stub.StreamObserver<proto.Car.CarProtoObj>) responseObserver);
+          break;
+        case METHODID_GET_CARS:
+          serviceImpl.getCars((proto.Car.CarFilterProtoObj) request,
+              (io.grpc.stub.StreamObserver<proto.Car.ListCarObj>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -271,6 +345,7 @@ public final class CarProtoServiceGrpc {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
               .setSchemaDescriptor(new CarProtoServiceFileDescriptorSupplier())
               .addMethod(getCreateCarMethod())
+              .addMethod(getGetCarsMethod())
               .build();
         }
       }
