@@ -5,6 +5,7 @@ namespace Entity.Model;
 
 public class CarDto
 {
+    
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int Id { get; set; }
     public string Brand { get; set; }
@@ -17,4 +18,23 @@ public class CarDto
     public string Description { get; set; }
     public int PricePerDay { get; set; }
     public CarStatus Status { get; set; }
+    
+    public CarDto (string brand, string model, string bodyType, int horsePower, string fuelType, string gearbox,
+        string color, string description, int pricePerDay, CarStatus status)
+    {
+        Brand = brand;
+        Model = model;
+        BodyType = bodyType;
+        HorsePower = horsePower;
+        FuelType = fuelType;
+        Gearbox = gearbox;
+        Color = color;
+        Description = description;
+        PricePerDay = pricePerDay;
+        Status = status;
+    }
+    public CarDto()
+    {
+        
+    }
 }
