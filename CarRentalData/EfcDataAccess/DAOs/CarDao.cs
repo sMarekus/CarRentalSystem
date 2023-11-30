@@ -94,10 +94,23 @@ public class CarDao : ICarDao
         return carDtos;
     }
 
+    public Task<Car> GetCarByIdAsync(int carId)
+    {
+       Car? car = context.Cars.AsNoTracking().FirstOrDefault(car => car.Id == carId);
+
+       if (car == null)
+       {
+           throw new Exception("Car not found");
+       }
+
+         return Task.FromResult(car);
+    }
+
     public CarDto convertToCarDto(Car car)
     {
         CarDto carDto = new CarDto()
         {
+            Id = car.Id,
             Brand = car.Brand,
             Model = car.Model,
             BodyType = car.BodyType,
@@ -110,5 +123,24 @@ public class CarDao : ICarDao
             Status = CarStatus.AVAILABLE
         };
         return carDto;
+    }
+
+    public Car convertToEntity(Car dto)
+    {
+        Car car = new Car()
+            {
+                Id = dto.Id,
+                Brand = dto.Brand,
+                Model = dto.Model,
+                BodyType = dto.BodyType,
+                HorsePower = dto.HorsePower,
+                FuelType = dto.FuelType,
+                Gearbox = dto.Gearbox,
+                Color = dto.Color,
+                Description = dto.Description,
+                PricePerDay = dto.PricePerDay,
+                Status = CarStatus.AVAILABLE
+            }
+            ;return car;
     }
 }
