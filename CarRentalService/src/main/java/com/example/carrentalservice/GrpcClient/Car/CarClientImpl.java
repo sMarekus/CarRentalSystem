@@ -1,10 +1,14 @@
 package com.example.carrentalservice.GrpcClient.Car;
 
 import com.example.carrentalservice.GrpcClient.ManagedChannelProvider;
+import com.example.carrentalservice.dto.CarFilterDto;
 import com.example.carrentalservice.model.Car;
 import io.grpc.ManagedChannel;
 import org.springframework.stereotype.Service;
 import proto.CarProtoServiceGrpc;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class CarClientImpl implements ICarClient {
@@ -18,6 +22,8 @@ public class CarClientImpl implements ICarClient {
         return carStub;
     }
 
+
+
     @Override
     public Car createCar(Car car) {
         System.out.println("Creating car in CarClientImpl.java: " + car.toString());
@@ -30,7 +36,20 @@ public class CarClientImpl implements ICarClient {
         }
     }
 
-    private proto.Car.CarProtoObj fromEntityToProtoObj(Car car) {
+    @Override
+    public List<Car> getCars(CarFilterDto dto) {
+        try {
+            proto.Car.CarFilterProtoObj filterProtoObj = fromDtoToProtoObj(dto);
+            proto.Car.ListCarObj listCarObj = getCarStub().getCars(filterProtoObj);
+            return fromListProtoObjToListEntity(listCarObj);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+
+
+        private proto.Car.CarProtoObj fromEntityToProtoObj(Car car) {
         proto.Car.CarProtoObj.Builder builder = proto.Car.CarProtoObj.newBuilder()
                 .setId(car.getId())
                 .setBrand(car.getBrand())
@@ -46,7 +65,7 @@ public class CarClientImpl implements ICarClient {
         return builder.build();
     }
 
-    public static Car fromProtoObjToEntity(proto.Car.CarProtoObj carProtoObj) {
+    public  Car fromProtoObjToEntity(proto.Car.CarProtoObj carProtoObj) {
         Car carEntity = new Car();
         carEntity.setId(carProtoObj.getId());
         carEntity.setBrand(carProtoObj.getBrand());
@@ -61,30 +80,43 @@ public class CarClientImpl implements ICarClient {
         carEntity.setStatus(mapProtoCarStatus(carProtoObj.getStatus()));
         return carEntity;
     }
+    private proto.Car.CarFilterProtoObj fromDtoToProtoObj(CarFilterDto dto) {
 
+
+        proto.Car.CarFilterProtoObj.Builder builder = proto.Car.CarFilterProtoObj.newBuilder();
+        if (dto.getBrand() != null) builder.setBrand(dto.getBrand());
+        if (dto.getModel() != null) builder.setModel(dto.getModel());
+        if (dto.getBodyType() != null) builder.setBodyType(dto.getBodyType());
+        if (dto.getHorsePower() != null) builder.setHorsePower(dto.getHorsePower());
+        if (dto.getFuelType() != null) builder.setFuelType(dto.getFuelType());
+        if (dto.getGearbox() != null) builder.setGearbox(dto.getGearbox());
+        if (dto.getColor() != null) builder.setColor(dto.getColor());
+        if (dto.getDescription() != null) builder.setDescription(dto.getDescription());
+        if (dto.getPricePerDay() != null) builder.setPricePerDay(dto.getPricePerDay());
+        if (dto.getStatus() != null) builder.setStatus(mapCarStatus(dto.getStatus()));
+        return builder.build();
+
+    }
+
+    private List<Car> fromListProtoObjToListEntity(proto.Car.ListCarObj listCarObj) {
+        return listCarObj.getCarListList().stream()
+                .map(this::fromProtoObjToEntity)
+                .collect(Collectors.toList());
+    }
     private proto.Car.CarStatus mapCarStatus(com.example.carrentalservice.model.Enums.CarStatus status) {
-        switch (status) {
-            case AVAILABLE:
-                return proto.Car.CarStatus.AVAILABLE;
-            case RESERVED:
-                return proto.Car.CarStatus.RESERVED;
-            case UNAVAILABLE:
-                return proto.Car.CarStatus.UNAVAILABLE;
-            default:
-                throw new IllegalArgumentException("Unknown CarStatus: " + status);
-        }
+        return switch (status) {
+            case AVAILABLE -> proto.Car.CarStatus.AVAILABLE;
+            case RESERVED -> proto.Car.CarStatus.RESERVED;
+            case UNAVAILABLE -> proto.Car.CarStatus.UNAVAILABLE;
+        };
     }
 
     private static com.example.carrentalservice.model.Enums.CarStatus mapProtoCarStatus(proto.Car.CarStatus status) {
-        switch (status) {
-            case AVAILABLE:
-                return com.example.carrentalservice.model.Enums.CarStatus.AVAILABLE;
-            case RESERVED:
-                return com.example.carrentalservice.model.Enums.CarStatus.RESERVED;
-            case UNAVAILABLE:
-                return com.example.carrentalservice.model.Enums.CarStatus.UNAVAILABLE;
-            default:
-                throw new IllegalArgumentException("Unknown CarStatus: " + status);
-        }
+        return switch (status) {
+            case AVAILABLE -> com.example.carrentalservice.model.Enums.CarStatus.AVAILABLE;
+            case RESERVED -> com.example.carrentalservice.model.Enums.CarStatus.RESERVED;
+            case UNAVAILABLE -> com.example.carrentalservice.model.Enums.CarStatus.UNAVAILABLE;
+            default -> throw new IllegalArgumentException("Unknown CarStatus: " + status);
+        };
     }
 }
