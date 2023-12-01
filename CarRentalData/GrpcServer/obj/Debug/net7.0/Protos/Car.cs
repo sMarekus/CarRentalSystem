@@ -38,10 +38,12 @@ namespace CarRentalData {
             "eRgKIAEoBRIgCgZTdGF0dXMYCyABKA4yEC5wcm90by5DYXJTdGF0dXMiMQoK",
             "TGlzdENhck9iahIjCgdjYXJMaXN0GAEgAygLMhIucHJvdG8uQ2FyUHJvdG9P",
             "YmoqOQoJQ2FyU3RhdHVzEg0KCUFWQUlMQUJMRRAAEgwKCFJFU0VSVkVEEAES",
-            "DwoLVU5BVkFJTEFCTEUQAjKCAQoPQ2FyUHJvdG9TZXJ2aWNlEjUKCUNyZWF0",
+            "DwoLVU5BVkFJTEFCTEUQAjLDAQoPQ2FyUHJvdG9TZXJ2aWNlEjUKCUNyZWF0",
             "ZUNhchISLnByb3RvLkNhclByb3RvT2JqGhIucHJvdG8uQ2FyUHJvdG9PYmoi",
             "ABI4CgdHZXRDYXJzEhgucHJvdG8uQ2FyRmlsdGVyUHJvdG9PYmoaES5wcm90",
-            "by5MaXN0Q2FyT2JqIgBCEKoCDUNhclJlbnRhbERhdGFiBnByb3RvMw=="));
+            "by5MaXN0Q2FyT2JqIgASPwoKR2V0Q2FyQnlJZBIbLmdvb2dsZS5wcm90b2J1",
+            "Zi5JbnQzMlZhbHVlGhIucHJvdG8uQ2FyUHJvdG9PYmoiAEIQqgINQ2FyUmVu",
+            "dGFsRGF0YWIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.WrappersReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.EmptyReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::CarRentalData.CarStatus), }, null, new pbr::GeneratedClrTypeInfo[] {

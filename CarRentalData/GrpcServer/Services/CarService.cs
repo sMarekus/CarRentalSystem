@@ -2,6 +2,7 @@
 using EfcDataAccess.DaoInterfaces;
 using Entity.Model;
 using Google.Protobuf.Collections;
+using Google.Protobuf.WellKnownTypes;
 using Grpc.Core;
 
 namespace GrpcService.Services;
@@ -28,6 +29,23 @@ public class CarService : CarProtoService.CarProtoServiceBase
             {
                 CarList = { protoObjs }
             };
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw new RpcException(new Status(StatusCode.NotFound, e.Message));
+        }
+    }
+    public override async Task<CarProtoObj> GetCarById(Int32Value request, ServerCallContext context)
+    {
+        try
+        {
+            
+            Car car = await carDao.GetCarByIdAsync(request.Value );
+            CarDto dto = new CarDto( car.Brand, car.Model, car.BodyType, car.HorsePower, car.FuelType,
+                car.Gearbox, car.Color, car.Description, car.PricePerDay, car.Status);
+            CarProtoObj carProtoObj = convertDtoToProto(dto);
+            return carProtoObj;
         }
         catch (Exception e)
         {
@@ -97,7 +115,7 @@ public class CarService : CarProtoService.CarProtoServiceBase
             Color = carProtoObj.Color,
             Description = carProtoObj.Description,
             PricePerDay = carProtoObj.PricePerDay,
-            Status = "Available"
+            Status = ConvertProtoStatusToEntityStatus(carProtoObj.Status),
         };
 
         Console.WriteLine($"Converted Entity: {carEntity}");
@@ -110,6 +128,7 @@ public class CarService : CarProtoService.CarProtoServiceBase
 
         CarFilterDto carDto = new CarFilterDto()
         {
+            Id = carFilterProtoObj.Id,
             Brand = carFilterProtoObj.Brand,
             Model = carFilterProtoObj.Model,
             BodyType = carFilterProtoObj.BodyType,
@@ -150,6 +169,7 @@ public class CarService : CarProtoService.CarProtoServiceBase
     {
         CarProtoObj carProtoObj = new CarProtoObj()
         {
+            Id = carEntity.Id,
             Brand = carEntity.Brand,
             Model = carEntity.Model,
             BodyType = carEntity.BodyType,

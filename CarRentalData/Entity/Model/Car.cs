@@ -17,5 +17,5 @@ public class Car
     public string Color { get; set; }
     public string Description { get; set; }
     public int PricePerDay { get; set; }
-    public string Status { get; set; }
+    public CarStatus Status { get; set; }
 }
