@@ -3,6 +3,7 @@ package com.example.carrentalservice.GrpcClient.Car;
 import com.example.carrentalservice.GrpcClient.ManagedChannelProvider;
 import com.example.carrentalservice.dto.CarFilterDto;
 import com.example.carrentalservice.model.Car;
+import com.google.protobuf.Int32Value;
 import io.grpc.ManagedChannel;
 import org.springframework.stereotype.Service;
 import proto.CarProtoServiceGrpc;
@@ -14,7 +15,7 @@ import java.util.stream.Collectors;
 public class CarClientImpl implements ICarClient {
     private CarProtoServiceGrpc.CarProtoServiceBlockingStub carStub;
 
-    public CarProtoServiceGrpc.CarProtoServiceBlockingStub getCarStub() {
+public CarProtoServiceGrpc.CarProtoServiceBlockingStub getCarStub() {
         if (carStub == null) {
             ManagedChannel channel = ManagedChannelProvider.getChannel();
             carStub = CarProtoServiceGrpc.newBlockingStub(channel);
@@ -47,9 +48,19 @@ public class CarClientImpl implements ICarClient {
         }
     }
 
+    @Override
+    public Car getCarById(int id) {
+        try {
+          proto.Car.CarProtoObj carProtoObj=getCarStub().getCarById(Int32Value.of(id));
+            return fromProtoObjToEntity(carProtoObj);
+        }
+        catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
 
 
-        private proto.Car.CarProtoObj fromEntityToProtoObj(Car car) {
+    private proto.Car.CarProtoObj fromEntityToProtoObj(Car car) {
         proto.Car.CarProtoObj.Builder builder = proto.Car.CarProtoObj.newBuilder()
                 .setId(car.getId())
                 .setBrand(car.getBrand())

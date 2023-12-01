@@ -1,4 +1,5 @@
-﻿using System.Net.Http.Headers;
+﻿using System.Collections;
+using System.Net.Http.Headers;
 using System.Net.Http.Json;
 using System.Text;
 using System.Text.Json;
@@ -45,12 +46,9 @@ public class CarService : ICarService
         return car;
     }
 
-    public async Task<IEnumerable<Car>> GetCarsAsync(string? brand, string? model, string? bodyType, int? horsePower,
-        string? fuelType, string? gearbox, string? color, int? pricePerDay, CarStatus? status)
+    public async Task<IEnumerable<Car>> GetCarsAsync(SearchCarParametersDto dto)
     {
-        string query = ConstructQuery(brand, model, bodyType, horsePower, fuelType, gearbox, color, pricePerDay,
-            status);
-
+        string query = ConstructQuery(dto);
         Console.WriteLine("Made query" +query);
 
         string endpoint = "/cars" + query;
@@ -77,62 +75,61 @@ public class CarService : ICarService
         return cars;
     }
 
-    private static string ConstructQuery(string? brand, string? model, string? bodyType, int? horsePower,
-        string? fuelType, string? gearbox, string? color, int? pricePerDay, CarStatus? status)
+    private static string ConstructQuery(SearchCarParametersDto dto)
     {
         string query = "";
 
-        if (!string.IsNullOrEmpty(brand))
+        if (!string.IsNullOrEmpty(dto.BrandContains))
         {
-            query += $"?brand={brand}";
+            query += $"?brand={dto.BrandContains}";
         }
 
-        if (!string.IsNullOrEmpty(model))
+        if (!string.IsNullOrEmpty(dto.ModelContains))
         {
             query += string.IsNullOrEmpty(query) ? "?" : "&";
-            query += $"model={model}";
+            query += $"model={dto.ModelContains}";
         }
 
-        if (!string.IsNullOrEmpty(bodyType))
+        if (!string.IsNullOrEmpty(dto.BodyTypeContains))
         {
             query += string.IsNullOrEmpty(query) ? "?" : "&";
-            query += $"bodytype={bodyType}";
+            query += $"bodytype={dto.BodyTypeContains}";
         }
 
-        if (horsePower != null)
+        if (dto.HorsePowerContains != null)
         {
             query += string.IsNullOrEmpty(query) ? "?" : "&";
-            query += $"horsepower={horsePower}";
+            query += $"horsepower={dto.HorsePowerContains}";
         }
 
-        if (!string.IsNullOrEmpty(fuelType))
+        if (!string.IsNullOrEmpty(dto.FuelTypeContains))
         {
             query += string.IsNullOrEmpty(query) ? "?" : "&";
-            query += $"fueltype={fuelType}";
+            query += $"fueltype={dto.FuelTypeContains}";
         }
 
-        if (!string.IsNullOrEmpty(gearbox))
+        if (!string.IsNullOrEmpty(dto.GearboxContains))
         {
             query += string.IsNullOrEmpty(query) ? "?" : "&";
-            query += $"gearbox={gearbox}";
+            query += $"gearbox={dto.GearboxContains}";
         }
 
-        if (!string.IsNullOrEmpty(color))
+        if (!string.IsNullOrEmpty(dto.ColorContains))
         {
             query += string.IsNullOrEmpty(query) ? "?" : "&";
-            query += $"color={color}";
+            query += $"color={dto.ColorContains}";
         }
 
-        if (pricePerDay != null)
+        if (dto.PricePerDayContains != null)
         {
             query += string.IsNullOrEmpty(query) ? "?" : "&";
-            query += $"priceperday={pricePerDay}";
+            query += $"priceperday={dto.PricePerDayContains}";
         }
 
-        if (status != null)
+        if (dto.StatusContains != null)
         {
             query += string.IsNullOrEmpty(query) ? "?" : "&";
-            query += $"status]{status}";
+            query += $"status]{dto.StatusContains}";
         }
 
         return query;

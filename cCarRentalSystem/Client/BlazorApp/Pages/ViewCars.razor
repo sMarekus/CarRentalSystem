@@ -1,6 +1,7 @@
 ﻿@page "/ViewCars"
 @using Domain.Models
 @using HttpClients.ClientInterfaces
+@using Domain.DTOs
 @inject ICarService carService;
 
 <h3 style="text-align: center">View Cars</h3>
@@ -25,9 +26,10 @@
      <div class="cars-container">
          @foreach (Car cars in cars)
               {
-                  <div class="card">
+                  <a href="/CarDetails/@cars.Id" class="card">
                       <label>@cars.Brand</label>
-                  </div>
+                      
+                  </a>
               }
      </div>
  }
@@ -40,12 +42,13 @@
  protected override async Task OnInitializedAsync()
      {
         try
-         {
-         cars = await carService.GetCarsAsync();
-        }
-        catch (Exception e)
         {
-        msg = e.Message;
+            SearchCarParametersDto dto = new SearchCarParametersDto(null, null, null, null, null, null, null, null, null, null);
+             cars = await carService.GetCarsAsync(dto);
+         }
+         catch (Exception e)
+         {
+            msg = e.Message;
          }
      }
 }

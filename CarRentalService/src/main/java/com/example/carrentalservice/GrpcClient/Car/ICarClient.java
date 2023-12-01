@@ -9,4 +9,5 @@ public interface ICarClient
 {
     Car createCar(Car car);
     List<Car> getCars(CarFilterDto dto);
+    Car getCarById(int id);
 }
