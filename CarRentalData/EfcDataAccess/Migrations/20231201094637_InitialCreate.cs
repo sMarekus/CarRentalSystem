@@ -5,7 +5,7 @@
 namespace EfcDataAccess.Migrations
 {
     /// <inheritdoc />
-    public partial class Car : Migration
+    public partial class InitialCreate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -31,6 +31,23 @@ namespace EfcDataAccess.Migrations
                 {
                     table.PrimaryKey("PK_Cars", x => x.Id);
                 });
+
+            migrationBuilder.CreateTable(
+                name: "Users",
+                columns: table => new
+                {
+                    Username = table.Column<string>(type: "TEXT", nullable: false),
+                    FirstName = table.Column<string>(type: "TEXT", nullable: false),
+                    LastName = table.Column<string>(type: "TEXT", nullable: false),
+                    Email = table.Column<string>(type: "TEXT", nullable: false),
+                    Password = table.Column<string>(type: "TEXT", nullable: false),
+                    PhoneNumber = table.Column<long>(type: "INTEGER", nullable: false),
+                    IsAdmin = table.Column<bool>(type: "INTEGER", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Users", x => x.Username);
+                });
         }
 
         /// <inheritdoc />
@@ -38,6 +55,9 @@ namespace EfcDataAccess.Migrations
         {
             migrationBuilder.DropTable(
                 name: "Cars");
+
+            migrationBuilder.DropTable(
+                name: "Users");
         }
     }
 }
