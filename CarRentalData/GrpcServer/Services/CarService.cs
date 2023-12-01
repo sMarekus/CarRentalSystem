@@ -40,9 +40,8 @@ public class CarService : CarProtoService.CarProtoServiceBase
     {
         try
         {
-            
             Car car = await carDao.GetCarByIdAsync(request.Value );
-            CarDto dto = new CarDto( car.Brand, car.Model, car.BodyType, car.HorsePower, car.FuelType,
+            CarDto dto = new CarDto(car.Id, car.Brand, car.Model, car.BodyType, car.HorsePower, car.FuelType,
                 car.Gearbox, car.Color, car.Description, car.PricePerDay, car.Status);
             CarProtoObj carProtoObj = convertDtoToProto(dto);
             return carProtoObj;
@@ -55,7 +54,8 @@ public class CarService : CarProtoService.CarProtoServiceBase
     }
 
     private CarProtoObj convertDtoToProto(CarDto carDto)
-    {CarProtoObj carProtoObj = new CarProtoObj()
+    {
+        CarProtoObj carProtoObj = new CarProtoObj()
         {
             Id = carDto.Id,
             Brand = carDto.Brand,
@@ -69,9 +69,7 @@ public class CarService : CarProtoService.CarProtoServiceBase
             PricePerDay = carDto.PricePerDay,
             Status = ConvertStatus(carDto.Status),
         };
-
         return carProtoObj;
-
     }
 
     public override async Task<CarProtoObj> CreateCar(CarProtoObj request, ServerCallContext context)

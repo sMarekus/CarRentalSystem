@@ -19,9 +19,10 @@ public class CarDto
     public int PricePerDay { get; set; }
     public CarStatus Status { get; set; }
     
-    public CarDto (string brand, string model, string bodyType, int horsePower, string fuelType, string gearbox,
+    public CarDto (int id,string brand, string model, string bodyType, int horsePower, string fuelType, string gearbox,
         string color, string description, int pricePerDay, CarStatus status)
     {
+        Id = id;
         Brand = brand;
         Model = model;
         BodyType = bodyType;
