@@ -94,9 +94,9 @@ public class CarDao : ICarDao
         return carDtos;
     }
 
-    public Task<Car> GetCarByIdAsync(int carId)
+    public Task<Car> GetCarByIdAsync(int id)
     {
-       Car? car = context.Cars.AsNoTracking().FirstOrDefault(car => car.Id == carId);
+       Car? car = context.Cars.FirstOrDefault(car => car.Id == id);
 
        if (car == null)
        {
@@ -140,7 +140,7 @@ public class CarDao : ICarDao
                 Description = dto.Description,
                 PricePerDay = dto.PricePerDay,
                 Status = CarStatus.AVAILABLE
-            }
-            ;return car;
+            };
+            return car;
     }
 }

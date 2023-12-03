@@ -8,12 +8,8 @@
     margin: auto;
     margin-top: 50px;
     border-radius: 15px;
-}
-
-#inputPassword:focus{
-    border: 3px solid dimgrey;
-    width: 160px;
-    outline: none;
+    background-color: rgb(67, 0, 127);
+    color: white;
 }
 
 .field{
@@ -22,23 +18,14 @@
     justify-content: center;
 }
 
-#inputCprNumber:focus{
-    border: 3px solid dimgrey;
-    width: 160px;
-    outline: none;
-}
-
 .acceptbtn{
-    background-color:lightgreen;
+    color:white;
+    background-color: rgb(132,0,218);
+    outline: solid 3px black;
     border-radius: 5px;
     padding: 5px;
     padding-left: 10px;
     padding-right: 10px;
-}
-#inputEmail:focus{
-    border: 3px solid dimgrey;
-    width: 160px;
-    outline: none;
 }
 
 .button-row{
@@ -47,80 +34,66 @@
     text-align: center;
 }
 
-#inputPhoneNumber:focus{
-    border: 3px solid dimgrey;
-    width: 160px;
-    outline: none;
-}
-
-#inputFirstName:focus{
-    border: 3px solid dimgrey;
-    width: 160px;
-    outline: none;
-}
-
-#inputLastName:focus{
-    border: 3px solid dimgrey;
-    width: 160px;
-    outline: none;
-}
-
-#inputPassword:focus{
-    border: 3px solid dimgrey;
-    width: 160px;
-    outline: none;
-}
-
 #inputFirstName{
     padding: 12px 20px;
-    transition: width 1s ease-in-out 250ms;
     resize: vertical;
     min-height: 50px;
-    width: 50px;
+    margin-top: 10px;
+    animation: expandWidth 2s ease-in-out;
 }
 
 #inputLastName{
     padding: 12px 20px;
-    transition: width 1s ease-in-out 250ms;
     resize: vertical;
     min-height: 50px;
-    width: 50px;
+    margin-top: 10px;
+    animation: expandWidth 2s ease-in-out;
 }
 
 #inputEmail{
     padding: 12px 20px;
-    transition: width 1s ease-in-out 250ms;
     resize: vertical;
     min-height: 50px;
-    width: 50px;
+    margin-top: 10px;
+    animation: expandWidth 2s ease-in-out;
 }
 
 #inputPassword{
     padding: 12px 20px;
-    transition: width 1s ease-in-out 250ms;
     resize: vertical;
     min-height: 50px;
-    width: 50px;
+    margin-top: 10px;
+    animation: expandWidth 2s ease-in-out;
 }
 
 #inputCprNumber{
     padding: 12px 20px;
-    transition: width 1s ease-in-out 250ms;
     resize: vertical;
     min-height: 50px;
-    width: 50px;
+    margin-top: 10px;
+    animation: expandWidth 2s ease-in-out;
 }
 
 #inputPhoneNumber{
     padding: 12px 20px;
-    transition: width 1s ease-in-out 250ms;
     resize: vertical;
     min-height: 50px;
-    width: 50px;
+    margin-top: 10px;
+    animation: expandWidth 2s ease-in-out;
 }
 
 #header{
     text-align: center;
+    color: rgb(67, 0, 127);
+    font-size: 40px;
+    font-weight: 750;
 }
 
-
+@keyframes expandWidth {
+    0% {
+        width: 50px;
+    }
+    100% {
+        width: 160px;
+    }
+}
