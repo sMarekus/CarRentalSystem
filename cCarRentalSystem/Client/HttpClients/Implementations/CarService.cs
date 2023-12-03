@@ -149,7 +149,9 @@ public class CarService : ICarService
 
         GetCarDto dto = JsonSerializer.Deserialize<GetCarDto>(content, new JsonSerializerOptions
         {
-            PropertyNameCaseInsensitive = true
+            PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+            PropertyNameCaseInsensitive = true,
+            Converters = { new CustomEnumConverter<CarStatus>() }
         })!;
 
         Car car = new Car(dto.Id,dto.Brand, dto.Model, dto.BodyType, dto.HorsePower, dto.FuelType, dto.Gearbox, dto.Color,
