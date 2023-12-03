@@ -8,13 +8,16 @@
     margin: auto;
     margin-top: 50px;
     border-radius: 15px;
+    background-color: rgb(67, 0, 127);
+    color: white;
 }
 
-#inputPassword:focus{
-    border: 3px solid dimgrey;
-    width: 160px;
-    outline: none;
-}
+
+/*#inputPassword:focus{*/
+/*    border: 3px solid dimgrey;*/
+/*    width: 160px;*/
+/*    outline: none;*/
+/*}*/
 
 .field{
     margin-top: 20px;
@@ -22,40 +25,59 @@
     justify-content: center;
 }
 
-#inputCpr:focus{
-    border: 3px solid dimgrey;
-    width: 160px;
-    outline: none;
-}
-
-#inputPassword{
-    padding: 12px 20px;
-    transition: width 1s ease-in-out 250ms;
-    resize: vertical;
-    min-height: 50px;
-    width: 50px;
-}
 
 #inputCpr{
     padding: 12px 20px;
     transition: width 1s ease-in-out 250ms;
     resize: vertical;
     min-height: 50px;
-    width: 50px;
+    animation: expandWidth 2s ease-in-out;
+    margin-top: 10px;
 }
 
 #header{
     text-align: center;
+    color: rgb(67, 0, 127);
+    font-size: 40px;
+    font-weight: 750;
 }
 
 .acceptbtn{
-    background-color:lightgreen;
+    color:white;
+    background-color: rgb(132,0,218);
+    outline: solid 3px black;
     border-radius: 5px;
     padding: 5px;
     padding-left: 10px;
     padding-right: 10px;
+    margin-top: 20px;
 }
 
-.button-row{
-    margin-top: 15px;
+
+#NewUser{
+    text-decoration: none;
+    color: lightpink;
 }
+
+#NewUser:hover{
+    text-decoration: none;
+    color: white;
+}
+
+#inputPassword {
+    padding: 12px 20px;
+    resize: vertical;
+    min-height: 50px;
+    margin-top: 10px;
+    animation: expandWidth 2s ease-in-out; 
+}
+
+@keyframes expandWidth {
+    0% {
+        width: 50px;
+    }
+    100% {
+        width: 160px;
+    }
+}
+
