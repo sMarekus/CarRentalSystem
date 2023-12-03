@@ -51,4 +51,9 @@ public class Car
     {
 
     }
+    
+    public string ToString()
+    {
+        return $"Id: {Id}, Brand: {Brand}, Model: {Model}, BodyType: {BodyType}, HorsePower: {HorsePower}, FuelType: {FuelType}, Gearbox: {Gearbox}, Color: {Color}, Description: {Description}, PricePerDay: {PricePerDay}, Status: {Status}";
+    }
 }
