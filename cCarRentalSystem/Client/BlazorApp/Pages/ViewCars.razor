@@ -26,9 +26,11 @@
      <div class="cars-container">
          @foreach (Car cars in cars)
               {
-                  <div class="card">
+                  <a href="/CarDetails/@cars.Id" class="card">
                       <label>@cars.Brand</label>
-                  </div>
+                      <label>@cars.Status</label>
+                      
+                  </a>
               }
      </div>
  }

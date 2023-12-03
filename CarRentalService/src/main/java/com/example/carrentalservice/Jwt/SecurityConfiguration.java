@@ -39,6 +39,8 @@ public class SecurityConfiguration {
                          .requestMatchers("/", "/users/authenticate").permitAll()
                          .requestMatchers(HttpMethod.POST, "/users").permitAll()
                          .requestMatchers(HttpMethod.POST, "/cars").permitAll()
+                         .requestMatchers(HttpMethod.GET, "/cars/{id}").permitAll()
+                         .requestMatchers(HttpMethod.GET, "/cars").permitAll()
                          .anyRequest().authenticated())
                  .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                  .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class)

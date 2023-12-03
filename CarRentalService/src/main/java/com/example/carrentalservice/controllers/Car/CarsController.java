@@ -56,4 +56,14 @@ public class CarsController
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
     }
+
+    @GetMapping(value = "/cars/{id}")
+    public ResponseEntity<Car> getCarById(@PathVariable("id") int id) {
+        try {
+            Car car = carService.getCarById(id);
+            return new ResponseEntity<>(car, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+    }
 }

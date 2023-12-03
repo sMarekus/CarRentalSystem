@@ -39,4 +39,13 @@ public class CarServiceImplementation implements ICarService
             throw new RuntimeException(e.getMessage());
         }
     }
+
+    @Override
+    public Car getCarById(int id) {
+        try {
+            return client.getCarById(id);
+        } catch (Exception e) {
+            throw new RuntimeException(e.getMessage());
+        }
+    }
 }

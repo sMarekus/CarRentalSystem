@@ -4253,10 +4253,12 @@ public final class Car {
       "CarStatus\"1\n\nListCarObj\022#\n\007carList\030\001 \003(\013" +
       "2\022.proto.CarProtoObj*9\n\tCarStatus\022\r\n\tAVA" +
       "ILABLE\020\000\022\014\n\010RESERVED\020\001\022\017\n\013UNAVAILABLE\020\0022" +
-      "\202\001\n\017CarProtoService\0225\n\tCreateCar\022\022.proto" +
-      ".CarProtoObj\032\022.proto.CarProtoObj\"\000\0228\n\007Ge" +
-      "tCars\022\030.proto.CarFilterProtoObj\032\021.proto." +
-      "ListCarObj\"\000b\006proto3"
+      "\303\001\n\017CarProtoService\0225\n\tCreateCar\022\022.proto" +
+      ".CarProtoObj\032\022.proto.CarProtoObj\"\000\022?\n\nGe" +
+      "tCarById\022\033.google.protobuf.Int32Value\032\022." +
+      "proto.CarProtoObj\"\000\0228\n\007GetCars\022\030.proto.C" +
+      "arFilterProtoObj\032\021.proto.ListCarObj\"\000b\006p" +
+      "roto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {

@@ -51,6 +51,8 @@ namespace CarRentalData {
     static readonly grpc::Marshaller<global::CarRentalData.CarFilterProtoObj> __Marshaller_proto_CarFilterProtoObj = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::CarRentalData.CarFilterProtoObj.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Marshaller<global::CarRentalData.ListCarObj> __Marshaller_proto_ListCarObj = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::CarRentalData.ListCarObj.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::Google.Protobuf.WellKnownTypes.Int32Value> __Marshaller_google_protobuf_Int32Value = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Google.Protobuf.WellKnownTypes.Int32Value.Parser));
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Method<global::CarRentalData.CarProtoObj, global::CarRentalData.CarProtoObj> __Method_CreateCar = new grpc::Method<global::CarRentalData.CarProtoObj, global::CarRentalData.CarProtoObj>(
@@ -67,6 +69,14 @@ namespace CarRentalData {
         "GetCars",
         __Marshaller_proto_CarFilterProtoObj,
         __Marshaller_proto_ListCarObj);
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::Google.Protobuf.WellKnownTypes.Int32Value, global::CarRentalData.CarProtoObj> __Method_GetCarById = new grpc::Method<global::Google.Protobuf.WellKnownTypes.Int32Value, global::CarRentalData.CarProtoObj>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "GetCarById",
+        __Marshaller_google_protobuf_Int32Value,
+        __Marshaller_proto_CarProtoObj);
 
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
@@ -90,6 +100,12 @@ namespace CarRentalData {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::System.Threading.Tasks.Task<global::CarRentalData.CarProtoObj> GetCarById(global::Google.Protobuf.WellKnownTypes.Int32Value request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
     }
 
     /// <summary>Creates service definition that can be registered with a server</summary>
@@ -99,7 +115,8 @@ namespace CarRentalData {
     {
       return grpc::ServerServiceDefinition.CreateBuilder()
           .AddMethod(__Method_CreateCar, serviceImpl.CreateCar)
-          .AddMethod(__Method_GetCars, serviceImpl.GetCars).Build();
+          .AddMethod(__Method_GetCars, serviceImpl.GetCars)
+          .AddMethod(__Method_GetCarById, serviceImpl.GetCarById).Build();
     }
 
     /// <summary>Register service method with a service binder with or without implementation. Useful when customizing the service binding logic.
@@ -111,6 +128,7 @@ namespace CarRentalData {
     {
       serviceBinder.AddMethod(__Method_CreateCar, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::CarRentalData.CarProtoObj, global::CarRentalData.CarProtoObj>(serviceImpl.CreateCar));
       serviceBinder.AddMethod(__Method_GetCars, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::CarRentalData.CarFilterProtoObj, global::CarRentalData.ListCarObj>(serviceImpl.GetCars));
+      serviceBinder.AddMethod(__Method_GetCarById, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Google.Protobuf.WellKnownTypes.Int32Value, global::CarRentalData.CarProtoObj>(serviceImpl.GetCarById));
     }
 
   }

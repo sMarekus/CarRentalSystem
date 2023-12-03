@@ -3,7 +3,8 @@ using Entity.Enum;
 namespace Entity.Model;
 
 public class CarFilterDto
-{
+{   
+    public int? Id { get; set; }
     public string? Brand { get; set; }
     public string? Model { get; set;}
     public string? BodyType {get; set;}
@@ -15,9 +16,27 @@ public class CarFilterDto
     public int? PricePerDay {get; set;}
     public CarStatus? Status {get; set;}
 
-
+    public CarFilterDto(int? id, string? brand, string? model, string? bodyType, int? horsePower, string? fuelType, string? gearbox,
+        string? color, string? description, int? pricePerDay, CarStatus? status)
+    {
+        Id = id;
+        Brand = brand;
+        Model = model;
+        BodyType = bodyType;
+        HorsePower = horsePower;
+        FuelType = fuelType;
+        Gearbox = gearbox;
+        Color = color;
+        Description = description;
+        PricePerDay = pricePerDay;
+        Status = status;
+    }
+    public CarFilterDto()
+    {
+        
+    }
     public override string ToString()
     {
-        return $"Brand: {Brand}, Model: {Model}, BodyType: {BodyType}, HorsePower: {HorsePower}, FuelType: {FuelType}, Gearbox: {Gearbox}, Color: {Color}, Description: {Description}, PricePerDay: {PricePerDay}, Status: {Status}";
+        return $"Id: {Id}, Brand: {Brand}, Model: {Model}, BodyType: {BodyType}, HorsePower: {HorsePower}, FuelType: {FuelType}, Gearbox: {Gearbox}, Color: {Color}, Description: {Description}, PricePerDay: {PricePerDay}, Status: {Status}";
     }
 }

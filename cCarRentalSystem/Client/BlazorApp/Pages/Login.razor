@@ -9,6 +9,7 @@
 
 
 
+
 <div class="row d-flex justify-content-center">
     <div class="col-md-6">
         <h3 id="header">Login</h3>
@@ -42,8 +43,9 @@
                         {
                             <label style="color: @color">@resultMsg</label>
                         }
-                        <div class="button-row">
+                        <div class="cold-md-6">
                             <button @onclick="LoginAsync" disabled="@IsLoginButtonDisabled" class="acceptbtn">Login</button>
+                            <a id="NewUser" href="/Register">New user?</a>
                         </div>
                     </div>
                 </div>

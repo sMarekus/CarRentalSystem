@@ -19,6 +19,22 @@ public class Car
     public Car(string brand, string model, string bodyType, int horsePower, string fuelType, string gearbox,
         string color, string description, int pricePerDay, CarStatus status)
     {
+        
+        Brand = brand;
+        Model = model;
+        BodyType = bodyType;
+        HorsePower = horsePower;
+        FuelType = fuelType;
+        Gearbox = gearbox;
+        Color = color;
+        Description = description;
+        PricePerDay = pricePerDay;
+        Status = status;
+    }
+    public Car(int id,string brand, string model, string bodyType, int horsePower, string fuelType, string gearbox,
+        string color, string description, int pricePerDay, CarStatus status)
+    {
+        Id = id;
         Brand = brand;
         Model = model;
         BodyType = bodyType;
