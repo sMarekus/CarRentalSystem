@@ -4,11 +4,13 @@
         <TargetFramework>net7.0</TargetFramework>
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
+        <RootNamespace>GrpcServer</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
         <Protobuf Include="Protos\car.proto" GrpcServices="Server"/>
         <Protobuf Include="Protos\user.proto" GrpcServices="Server"/>
+        <Protobuf Include="Protos\reservation.proto" GrpcServices="Server"/>
     </ItemGroup>
 
     <ItemGroup>
