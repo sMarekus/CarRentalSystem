@@ -17,7 +17,7 @@ public class ReservationsController
     }
 
     @PostMapping(value = "/reservations")
-public ResponseEntity<Reservation> createReservation(@RequestBody Reservation reservation)
+    public ResponseEntity<Reservation> createReservation(@RequestBody Reservation reservation)
     {
         try {
             Reservation reservationFromDatabase = reservationService.createReservation(reservation);
