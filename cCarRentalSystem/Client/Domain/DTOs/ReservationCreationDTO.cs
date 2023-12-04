@@ -11,9 +11,8 @@ public class ReservationCreationDTO
     public DateTime EndDate{get;set;}
     public int TotalPrice{get;set;}
 
-    public ReservationCreationDTO(int id,int userId, int carId, DateTime startDate, DateTime endDate, int totalPrice)
+    public ReservationCreationDTO(int userId, int carId, DateTime startDate, DateTime endDate, int totalPrice)
     {
-        Id = id;
         UserId = userId;
         CarId = carId;
         StartDate = startDate;
