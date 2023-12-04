@@ -1,27 +1,36 @@
 ﻿@page "/CarDetails/{carId:int}"
 @using Domain.Models
 @using HttpClients.ClientInterfaces
+@using System.Runtime.InteropServices.JavaScript
+@using Domain.DTOs
 @inject ICarService carService;
+@inject IReservationService reserveService;
 
 <div class="row d-flex justify-content-center">
     <div class="col-6-md">
-        <h3 id="header">CarDetails</h3>
+        <h3 id="header">Car Details</h3>
     </div>
 </div>
 
 @if (car != null)
 {
-    <div class="post">
-        <h3>@car.Model</h3>
-        <h4><i>@car.Brand</i></h4>
-        <p>@car.Description</p>
-        <p>Color: @car.Color</p>
-        <p>Gearbox: @car.Gearbox</p>
-        <p>Status: @car.Status</p>
-        <p>Body type: @car.BodyType</p>
-        <p>Fuel type: @car.FuelType</p>
-        <p>Horsepower: @car.HorsePower</p>
-        <p>Price per day: @car.PricePerDay</p>
+    <div class="carDetails">
+        <div class="carModel">
+            <h3>@car.Model</h3>
+        </div>
+        <div class="brandName">
+            <h4><i>@car.Brand</i></h4>
+        </div>
+        <div class="restOfDetails">
+            <p>@car.Description</p>
+            <p>Color: @car.Color</p>
+            <p>Gearbox: @car.Gearbox</p>
+            <p>Status: @car.Status</p>
+            <p>Body type: @car.BodyType</p>
+            <p>Fuel type: @car.FuelType</p>
+            <p>Horsepower: @car.HorsePower</p>
+            <p>Price per day: @car.PricePerDay</p>
+        </div>
     </div>
 }
 else
@@ -29,11 +38,46 @@ else
     <p>Car not found.</p>
 }
 
+<button id="openBtn">Open Popup</button>
+
+<div id="popup" class="popup">
+    <div class="popup-content">
+        <div class="container justify-content-center">
+            <div class="card">
+                <div class="row d-flex justify-content-center">
+                    <div class="col-md-12">
+                        <div class="form-group field">
+                            <label>Pickup date:</label>
+                            <input id="inputStart" type="date" min="@GetCurrentDate()" class="form-control" @bind="pickup" @bind:event="oninput"/>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="row d-flex justify-content-center">
+                    <div class="col-md-12">
+                        <div class="form-group field">
+                            <label>End of rental period:</label>
+                            <input id="inputEnd" type="date" class="form-control" @bind="returnDate" @bind:event="oninput"/>
+                        </div>
+                    </div>
+                </div>
+                <p>*Minimum rental period: 3 days</p>
+                <button class="reserve-btn" id="reserveBtn" @onclick="Reserve">Reserve</button>
+                <span class="close-btn" id="closeBtn">&times;</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="reserveScript.js"></script>
+
 
 @code {
     [Parameter]
     public int carId { get; set; }
 
+    private DateTime pickup;
+    private DateTime returnDate;
     private Car car;
     private string msg = "";
 
@@ -52,6 +96,48 @@ else
         {
             msg = "There was a problem fetching the selected car.";
             Console.WriteLine(e);
+        }
+    }
+    
+    private static DateTime GetCurrentDate()
+    {
+        DateTime currentDate = DateTime.Now;
+        return currentDate;
+    }
+
+    private void ConvertToSimpleDate()
+    {
+        pickup = new DateTime(pickup.Day, pickup.Month, pickup.Year);
+        returnDate = new DateTime(returnDate.Day, returnDate.Month, returnDate.Year);
+    }
+
+    private async Task<Reservation> Reserve()
+    {
+        ValidateDateInput(pickup, returnDate);
+        ConvertToSimpleDate();
+        ReservationCreationDTO dto = new ReservationCreationDTO(1, carId, pickup, returnDate, car.PricePerDay);
+        await reserveService.CreateAsync(dto);
+        Reservation reservation = new Reservation(dto.UserId, dto.CarId, dto.StartDate, dto.EndDate, dto.TotalPrice);
+        return reservation;
+    }
+
+    private void ValidateDateInput(DateTime start, DateTime end)
+    {
+        TimeSpan timeDifference = end - start;
+        TimeSpan minimumPeriod = TimeSpan.FromDays(3);
+        DateTime currentDate = GetCurrentDate();
+
+        if (timeDifference < minimumPeriod)
+        {
+            Console.WriteLine("Error: The rental period must be at least one week.");
+        }
+        if (start < currentDate)
+        {
+            Console.WriteLine("Cannot select earlier start date than today!");
+        }
+        else
+        {
+            Console.WriteLine("Rental period is valid.");
         }
     }
 }
