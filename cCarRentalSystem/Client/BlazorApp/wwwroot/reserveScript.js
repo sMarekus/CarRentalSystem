@@ -1,9 +1,17 @@
-﻿const dateControl = document.querySelector('input[type="date"]');
-var currentDateAndTime = new Date();
+﻿
+function formatDateToDDMMYYYY(date) {
+    const options = { day: '2-digit', month: '2-digit', year: 'numeric' };
+    const formattedDate = new Date(date).toLocaleDateString(undefined, options);
+    return new Date(formattedDate);
+}
+const dateControl = document.getElementById("inputStart");
+const control = document.getElementById("inputEnd");
+const currentDate = new Date();
+const formattedDate = formatDateToDDMMYYYY(currentDate);
 
-dateControl.value = currentDateAndTime;
-const dateControl2 = document.getElementById("inputEnd");
-dateControl2.value = currentDateAndTime;
+dateControl.value = formattedDate;
+
+control.value = formattedDate;
 document.getElementById('openBtn').addEventListener('click', function() {
     document.getElementById('popup').style.display = 'block';
 });
