@@ -147,12 +147,12 @@ public class CarService : ICarService
             throw new Exception(content);
         }
 
-        CarCreationDto dto = JsonSerializer.Deserialize<CarCreationDto>(content, new JsonSerializerOptions
+        GetCarDto dto = JsonSerializer.Deserialize<GetCarDto>(content, new JsonSerializerOptions
         {
             PropertyNameCaseInsensitive = true
         })!;
 
-        Car car = new Car(dto.Brand, dto.Model, dto.BodyType, dto.HorsePower, dto.FuelType, dto.Gearbox, dto.Color,
+        Car car = new Car(dto.Id,dto.Brand, dto.Model, dto.BodyType, dto.HorsePower, dto.FuelType, dto.Gearbox, dto.Color,
             dto.Description,
             dto.PricePerDay, dto.Status);
 
