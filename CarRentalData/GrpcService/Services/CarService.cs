@@ -74,23 +74,17 @@ public class CarService : CarProtoService.CarProtoServiceBase
 
     public override async Task<CarProtoObj> CreateCar(CarProtoObj request, ServerCallContext context)
     {
-        Console.WriteLine($"CreateCar called with request: {request}");
-        
         try
         {
             Car? toAddCar = FromProtoToEntity(request);
             
-            Console.WriteLine("Attempting to add car to database.");
             Car? addedCar = await carDao.CreateCarAsync(toAddCar);
-            Console.WriteLine($"Car added to database: {addedCar}");
             
             CarProtoObj carProtoObj = FromEntityToProto(addedCar);
             return carProtoObj;
         }
         catch (Exception e)
         {
-            Console.WriteLine($"Exception in CreateCar: {e.Message}");
-            Console.WriteLine($"Stack Trace: {e.StackTrace}");
             throw new RpcException(new Status(StatusCode.AlreadyExists, e.Message));
         }
     }
@@ -99,8 +93,6 @@ public class CarService : CarProtoService.CarProtoServiceBase
 
     public static Car? FromProtoToEntity(CarProtoObj carProtoObj)
     {
-        Console.WriteLine($"Converting Proto to Entity. Status: {carProtoObj.Status}");
-        
         Car? carEntity = new Car()
         {
             Id = carProtoObj.Id,
@@ -115,15 +107,12 @@ public class CarService : CarProtoService.CarProtoServiceBase
             PricePerDay = carProtoObj.PricePerDay,
             Status = ConvertProtoStatusToEntityStatus(carProtoObj.Status),
         };
-
-        Console.WriteLine($"Converted Entity: {carEntity}");
+        
         return carEntity;
     }
 
     public static CarFilterDto FromProtoToCarFilterDto(CarFilterProtoObj carFilterProtoObj)
     {
-        Console.WriteLine($"Converting Proto to Entity. Status: {carFilterProtoObj.Status}");
-
         CarFilterDto carDto = new CarFilterDto()
         {
             Id = carFilterProtoObj.Id,
@@ -138,8 +127,7 @@ public class CarService : CarProtoService.CarProtoServiceBase
             PricePerDay = carFilterProtoObj.PricePerDay,
             Status = ConvertProtoStatusToEntityStatus(carFilterProtoObj.Status),
         };
-
-        Console.WriteLine($"Converted Dto: {carDto}");
+        
         return carDto;
     }
     
