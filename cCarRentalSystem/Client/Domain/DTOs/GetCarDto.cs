@@ -4,17 +4,17 @@ namespace Domain.DTOs;
 
 public class GetCarDto
 {
-    public int Id { get; }
-    public string Brand { get; }
-    public string Model { get; }
-    public string BodyType { get; }
-    public int HorsePower { get; }
-    public string FuelType { get; }
-    public string Gearbox { get; }
-    public string Color { get; }
-    public string Description { get; }
-    public int PricePerDay { get; }
-    public CarStatus Status { get; }
+    public int Id { get; set; }
+    public string Brand { get; set; }
+    public string Model { get; set; }
+    public string BodyType { get; set; }
+    public int HorsePower { get; set; }
+    public string FuelType { get; set; }
+    public string Gearbox { get; set; }
+    public string Color { get; set; }
+    public string Description { get; set; }
+    public int PricePerDay { get; set; }
+    public CarStatus Status { get; set; }
 
     public GetCarDto(int id, string brand, string model, string bodyType, int horsePower, string fuelType, string gearbox,
         string color, string description, int pricePerDay, CarStatus status)
@@ -33,4 +33,9 @@ public class GetCarDto
     }
     
     public GetCarDto(){}
+    
+    public string ToString()
+    {
+        return $"Id: {Id}, Brand: {Brand}, Model: {Model}, BodyType: {BodyType}, HorsePower: {HorsePower}, FuelType: {FuelType}, Gearbox: {Gearbox}, Color: {Color}, Description: {Description}, PricePerDay: {PricePerDay}, Status: {Status}";
+    }
 }
