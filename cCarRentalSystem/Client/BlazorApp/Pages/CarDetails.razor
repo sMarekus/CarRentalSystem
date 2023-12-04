@@ -1,6 +1,7 @@
 ﻿@page "/CarDetails/{carId:int}"
 @using Domain.Models
 @using HttpClients.ClientInterfaces
+@using System.Runtime.InteropServices.JavaScript
 @inject ICarService carService;
 
 <div class="row d-flex justify-content-center">
@@ -29,11 +30,45 @@ else
     <p>Car not found.</p>
 }
 
+<button id="openBtn">Open Popup</button>
+
+<div id="popup" class="popup">
+    <div class="popup-content">
+        <div class="container">
+            <div class="card">
+                <div class="row d-flex justify-content-center">
+                    <div class="col-md-6">
+                        <div class="form-group field">
+                            <label>Pickup date:</label>
+                            <input id="inputBrand" type="date" min="@GetCurrentDate()" class="form-control" @bind="pickup" @bind:event="oninput"/>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="row d-flex justify-content-center">
+                    <div class="col-md-6">
+                        <div class="form-group field">
+                            <label>End of rental period:</label>
+                            <input id="inputModel" type="date" class="form-control" @bind="returnDate" @bind:event="oninput"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <span class="close-btn" id="closeBtn">&times;</span>
+        <button class="reserve-btn" id="reserveBtn">Reserve</button>
+    </div>
+</div>
+
+<script src="reserveScript.js"></script>
+
 
 @code {
     [Parameter]
     public int carId { get; set; }
 
+    private DateTime pickup;
+    private DateTime returnDate;
     private Car car;
     private string msg = "";
 
@@ -53,5 +88,17 @@ else
             msg = "There was a problem fetching the selected car.";
             Console.WriteLine(e);
         }
+    }
+    
+    private static DateTime GetCurrentDate()
+    {
+        DateTime currentDate = DateTime.Now;
+        return currentDate;
+    }
+
+    private void ConvertToSimpleDate()
+    {
+        pickup = new DateTime(pickup.Day, pickup.Month, pickup.Year);
+        returnDate = new DateTime(returnDate.Day, returnDate.Month, returnDate.Year);
     }
 }
