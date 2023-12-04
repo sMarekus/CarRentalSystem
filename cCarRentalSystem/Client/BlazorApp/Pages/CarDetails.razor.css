@@ -1,5 +1,7 @@
 ﻿#header{
     text-align: center;
+    color: rgb(67, 0, 127);
+    font-weight: 750;
 }
 
 .popup {
@@ -15,11 +17,12 @@
 .popup-content {
     position: absolute;
     top: 50%;
-    left: 50%;
+    left: 58%;
     transform: translate(-50%, -50%);
-    background-color: white;
+    color: rgb(67, 0, 127);
+    background-color: rgb(67, 0, 127);
     padding: 20px;
-    width: 300px;
+    width: 340px;
     height: 400px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -31,4 +34,51 @@
     right: 10px;
     font-size: 20px;
     cursor: pointer;
+    color: black;
+    padding: 10px;
+}
+
+.close-btn:hover{
+    background-color: black;
+    color: white;
+}
+
+.card{
+    height: 90%;
+    width: 90%;
+    padding: 25px;
+    text-align: center;
+    border-radius: 15px;
+    margin-top: 10px;
+}
+
+.container{
+    display: flex;
+}
+
+#reserveBtn{
+    width: 40%;
+    background-color: rgb(67, 0, 127);
+    color: white;
+    font-weight: 700;
+    margin-top: 15px;
+    margin-left: 50%;
+    transform: translateX(-50%);
+}
+
+.field{
+    margin-top: 20px;
+    text-align: center;
+    justify-content: center;
+}
+
+.field label{
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.card p{
+    font-size: 10px;
+    margin-top: 10px;
+    color: rgb(67, 0, 127);
 }

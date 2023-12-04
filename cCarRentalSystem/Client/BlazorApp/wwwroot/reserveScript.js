@@ -1,4 +1,10 @@
-﻿document.getElementById('openBtn').addEventListener('click', function() {
+﻿const dateControl = document.querySelector('input[type="date"]');
+var currentDateAndTime = new Date();
+
+dateControl.value = currentDateAndTime;
+const dateControl2 = document.getElementById("inputEnd");
+dateControl2.value = currentDateAndTime;
+document.getElementById('openBtn').addEventListener('click', function() {
     document.getElementById('popup').style.display = 'block';
 });
 

@@ -22,6 +22,7 @@ builder.Services.AddScoped(
 );
 builder.Services.AddScoped<ICarService, CarService>();
 builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<IReservationService, ReservationService>();
 AuthorizationPolicies.AddPolicies(builder.Services);
 builder.Services.AddSingleton<WeatherForecastService>();
 builder.Services.AddScoped<AuthenticationStateProvider, CustomAuthProvider>();
