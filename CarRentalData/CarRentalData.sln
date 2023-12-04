@@ -4,7 +4,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EfcDataAccess", "EfcDataAcc
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entity", "Entity\Entity.csproj", "{927EB1B6-22F0-408D-AAF2-FDACEEBDA269}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrpcServer", "GrpcServer\GrpcServer.csproj", "{8730CA3C-CA1B-4AAA-878E-0D17B5BB898A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrpcService", "GrpcService\GrpcService.csproj", "{8730CA3C-CA1B-4AAA-878E-0D17B5BB898A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
