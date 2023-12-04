@@ -3,12 +3,14 @@
 @using System.Security.Claims
 @using Domain.DTOs
 @using Domain.Models
+@using System.Reflection
 
 @inject IUserService userService;
 @inject NavigationManager navManager;
 
 
-
+<html>
+<body>
 
 <div class="row d-flex justify-content-center">
     <div class="col-md-6">
@@ -38,12 +40,12 @@
                     </div>
                 </div>
                 <div class="row d-flex justify-content-center">
-                    <div class="col-md-6">
+                    <div class="col-md-12">
                         @if (!string.IsNullOrEmpty(resultMsg))
                         {
                             <label style="color: @color">@resultMsg</label>
                         }
-                        <div class="cold-md-6">
+                        <div class="col-md-12">
                             <button @onclick="LoginAsync" disabled="@IsLoginButtonDisabled" class="acceptbtn">Login</button>
                             <a id="NewUser" href="/Register">New user?</a>
                         </div>
@@ -62,6 +64,20 @@
     </Authorized>
 </AuthorizeView>
 
+<script>
+    document.addEventListener(
+      "keydown",
+      (event) => {
+        const keyName = event.key;
+    
+        if (keyName === "Enter") {
+          DotNet.invokeMethodAsync('BlazorApp','LoginAsync');
+        }});
+</script>
+
+</body>
+</html>
+
 
 @code {
     private string userName { get; set;}
@@ -72,7 +88,8 @@
     
     private bool IsLoginButtonDisabled => string.IsNullOrWhiteSpace(userName) || string.IsNullOrWhiteSpace(password);
 
-    private async Task LoginAsync()
+    [JSInvokable]
+    public async Task LoginAsync()
     {
         try
         {

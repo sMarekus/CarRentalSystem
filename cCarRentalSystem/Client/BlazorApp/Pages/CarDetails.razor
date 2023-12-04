@@ -62,7 +62,14 @@ else
                     </div>
                 </div>
                 <p>*Minimum rental period: 3 days</p>
-                <button class="reserve-btn" id="reserveBtn" @onclick="Reserve">Reserve</button>
+                <AuthorizeView>
+                    <Authorized>
+                        <button class="reserve-btn" id="reserveBtn" @onclick="Reserve">Reserve</button>
+                    </Authorized>
+                    <NotAuthorized>
+                        <label>Please log in to reserve.</label>
+                    </NotAuthorized>
+                </AuthorizeView>
                 <span class="close-btn" id="closeBtn">&times;</span>
             </div>
         </div>
