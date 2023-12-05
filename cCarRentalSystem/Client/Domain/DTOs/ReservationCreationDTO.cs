@@ -5,15 +5,15 @@ namespace Domain.DTOs;
 public class ReservationCreationDTO
 {
     public int Id{get;set;}
-    public int UserId{get;set;}
+    public string Username{get;set;}
     public int CarId{get;set;}
     public DateTime StartDate{get;set;}
     public DateTime EndDate{get;set;}
     public int TotalPrice{get;set;}
 
-    public ReservationCreationDTO(int userId, int carId, DateTime startDate, DateTime endDate, int totalPrice)
+    public ReservationCreationDTO(string username, int carId, DateTime startDate, DateTime endDate, int totalPrice)
     {
-        UserId = userId;
+        Username = username;
         CarId = carId;
         StartDate = startDate;
         EndDate = endDate;

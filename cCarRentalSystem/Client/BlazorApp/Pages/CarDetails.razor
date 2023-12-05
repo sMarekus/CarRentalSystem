@@ -4,7 +4,9 @@
 @using System.Runtime.InteropServices.JavaScript
 @using Domain.DTOs
 @inject ICarService carService;
+@inject AuthenticationStateProvider StateProvider;
 @inject IReservationService reserveService;
+@inject IUserService userService;
 
 <div class="row d-flex justify-content-center">
     <div class="col-6-md">
@@ -86,6 +88,7 @@ else
     private DateTime returnDate;
     private Car car;
     private string msg = "";
+    private string? currentUser = "";
 
     protected override async Task OnInitializedAsync()
     {
@@ -121,9 +124,10 @@ else
     {
         ValidateDateInput(pickup, returnDate);
         ConvertToSimpleDate();
-        ReservationCreationDTO dto = new ReservationCreationDTO(1, carId, pickup, returnDate, car.PricePerDay);
+        await GetLoggedInUserId();
+        ReservationCreationDTO dto = new ReservationCreationDTO(currentUser, carId, pickup, returnDate, CalculateTotalPrice(pickup, returnDate, car.PricePerDay));
         await reserveService.CreateAsync(dto);
-        Reservation reservation = new Reservation(dto.UserId, dto.CarId, dto.StartDate, dto.EndDate, dto.TotalPrice);
+        Reservation reservation = new Reservation(dto.Username, dto.CarId, dto.StartDate, dto.EndDate, dto.TotalPrice);
         return reservation;
     }
 
@@ -145,5 +149,18 @@ else
         {
             Console.WriteLine("Rental period is valid.");
         }
+    }
+
+    private int CalculateTotalPrice(DateTime startDate, DateTime endDate, int pricePerDay)
+    {
+        int numOfDays = (startDate - endDate).Days;
+        return numOfDays * pricePerDay;
+    }
+
+    private async Task<string> GetLoggedInUserId()
+    {
+        AuthenticationState state = await StateProvider.GetAuthenticationStateAsync();
+        currentUser = state.User.Claims.FirstOrDefault(claim => claim.Type.Equals("username"))!.Value.ToString();
+        return currentUser;
     }
 }
