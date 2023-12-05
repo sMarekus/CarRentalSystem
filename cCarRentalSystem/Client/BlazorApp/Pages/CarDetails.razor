@@ -116,8 +116,8 @@ else
 
     private void ConvertToSimpleDate()
     {
-        pickup = new DateTime(pickup.Day, pickup.Month, pickup.Year);
-        returnDate = new DateTime(returnDate.Day, returnDate.Month, returnDate.Year);
+        pickup = new DateTime(pickup.Year, pickup.Month, pickup.Day);
+        returnDate = new DateTime(returnDate.Year, returnDate.Month, returnDate.Day);
     }
 
     private async Task<Reservation> Reserve()
