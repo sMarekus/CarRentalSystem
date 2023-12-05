@@ -27,9 +27,15 @@
          @foreach (Car cars in cars)
               {
                   <a href="/CarDetails/@cars.Id" class="card">
-                      <label>@cars.Brand</label>
-                      <label>@cars.Status</label>
-                      
+                      <div class="row-col-6 d-flex justify-content-center">
+                          <img src="logo-no-background.png" width="80%"/>
+                      </div>
+                      <div class="row-col-6 d-flex justify-content-center">
+                          <label>@cars.Brand</label>
+                      </div>
+                      <div class="row-col-6 d-flex justify-content-center">
+                          <label>@cars.Model</label>
+                      </div>
                   </a>
               }
      </div>
