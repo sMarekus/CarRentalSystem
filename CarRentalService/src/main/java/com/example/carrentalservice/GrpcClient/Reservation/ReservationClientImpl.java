@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import proto.ReservationProtoServiceGrpc;
 
 import java.time.Instant;
+import java.time.LocalDateTime;
 import java.time.ZoneOffset;
 
 import static com.example.carrentalservice.GrpcClient.User.UserClientImpl.fromProtoObjToEntity;
@@ -27,6 +28,7 @@ public class ReservationClientImpl implements IReservationClient
 
     @Override
     public Reservation createReservation(Reservation reservation) {
+        System.out.println("Hit");
         try {
             proto.Reservation.ReservationProtoObj reservationProtoObj = fromEntityToProtoObj(reservation);
             proto.Reservation.ReservationProtoObj protoObjFromServer = getStub().createReservation(reservationProtoObj);
@@ -38,54 +40,36 @@ public class ReservationClientImpl implements IReservationClient
 
     private proto.Reservation.ReservationProtoObj fromEntityToProtoObj(Reservation reservation)
     {
-        Timestamp startDate = Timestamp.newBuilder()
-                .setSeconds(reservation.getStartDate().getSeconds()) // Assuming startDate is DateTime
-                .setNanos(reservation.getStartDate().getNanos()) // Assuming startDate is DateTime
-                .build();
-
-        Timestamp endDate = Timestamp.newBuilder()
-                .setSeconds(reservation.getEndDate().getSeconds()) // Assuming endDate is DateTime
-                .setNanos(reservation.getEndDate().getNanos()) // Assuming endDate is DateTime
-                .build();
-
         // Build the ReservationProtoObj
         return proto.Reservation.ReservationProtoObj.newBuilder()
                 .setId(reservation.getId())
                 .setCarId(reservation.getCarId())
                 .setUserId(reservation.getUserId())
-                .setStartDate(startDate)
-                .setEndDate(endDate)
+                .setStartDate(convertToTimestamp(reservation.getStartDate()))
+                .setEndDate(convertToTimestamp(reservation.getEndDate()))
                 .setTotalPrice(reservation.getTotalPrice())
                 .build();
     }
 
     private Reservation fromProtoObjToEntity(proto.Reservation.ReservationProtoObj reservationProtoObj) {
-        // Convert Timestamp objects to DateTime objects
-        DateTime startDate = convertTimestampToDateTime(reservationProtoObj.getStartDate());
-        DateTime endDate = convertTimestampToDateTime(reservationProtoObj.getEndDate());
-
-        // Create and return the Reservation object
         return new Reservation(
                 reservationProtoObj.getId(),
                 reservationProtoObj.getCarId(),
                 reservationProtoObj.getUserId(),
-                startDate,
-                endDate,
+                convertToLocalDateTime(reservationProtoObj.getStartDate()),
+                convertToLocalDateTime(reservationProtoObj.getEndDate()),
                 reservationProtoObj.getTotalPrice()
         );
     }
 
-    private DateTime convertTimestampToDateTime(Timestamp timestamp) {
-        long seconds = timestamp.getSeconds();
-        int nanos = timestamp.getNanos();
-
-        long milliseconds = seconds * 1000 + nanos / 1_000_000; // Convert nanoseconds to milliseconds
-
-        DateTime dateTime = DateTime.newBuilder()
-                .setSeconds((int) (milliseconds / 1000))
-                .setNanos((int) ((milliseconds % 1000) * 1_000_000))
+    private Timestamp convertToTimestamp(LocalDateTime localDateTime) {
+        return Timestamp.newBuilder()
+                .setSeconds(localDateTime.toEpochSecond(ZoneOffset.UTC))
+                .setNanos(localDateTime.getNano())
                 .build();
+    }
 
-        return dateTime;
+    private LocalDateTime convertToLocalDateTime(Timestamp timestamp) {
+        return LocalDateTime.ofEpochSecond(timestamp.getSeconds(), timestamp.getNanos(), ZoneOffset.UTC);
     }
 }
