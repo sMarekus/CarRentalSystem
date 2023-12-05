@@ -31,3 +31,4 @@ C:\Users\mkuku\Sep3Project\CarRentalSystem\CarRentalData\Entity\obj\Debug\net7.0
 C:\Users\mkuku\Sep3Project\CarRentalSystem\CarRentalData\Entity\obj\Debug\net7.0\refint\Entity.dll
 C:\Users\mkuku\Sep3Project\CarRentalSystem\CarRentalData\Entity\obj\Debug\net7.0\Entity.pdb
 C:\Users\mkuku\Sep3Project\CarRentalSystem\CarRentalData\Entity\obj\Debug\net7.0\ref\Entity.dll
+C:\Users\marek\School\Semester 3\SEP\CarRentalSystem\CarRentalData\Entity\obj\Debug\net7.0\Entity.csproj.AssemblyReference.cache

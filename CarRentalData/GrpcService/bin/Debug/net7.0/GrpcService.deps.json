@@ -10,23 +10,24 @@
         "dependencies": {
           "EfcDataAccess": "1.0.0",
           "Entity": "1.0.0",
+          "Google.Protobuf": "3.25.1",
           "Grpc.AspNetCore": "2.49.0"
         },
         "runtime": {
           "GrpcService.dll": {}
         }
       },
-      "Google.Protobuf/3.21.5": {
+      "Google.Protobuf/3.25.1": {
         "runtime": {
           "lib/net5.0/Google.Protobuf.dll": {
-            "assemblyVersion": "3.21.5.0",
-            "fileVersion": "3.21.5.0"
+            "assemblyVersion": "3.25.1.0",
+            "fileVersion": "3.25.1.0"
           }
         }
       },
       "Grpc.AspNetCore/2.49.0": {
         "dependencies": {
-          "Google.Protobuf": "3.21.5",
+          "Google.Protobuf": "3.25.1",
           "Grpc.AspNetCore.Server.ClientFactory": "2.49.0",
           "Grpc.Tools": "2.49.0"
         }
@@ -390,6 +391,7 @@
       "EfcDataAccess/1.0.0": {
         "dependencies": {
           "Entity": "1.0.0",
+          "Google.Protobuf": "3.25.1",
           "Microsoft.EntityFrameworkCore": "7.0.13",
           "Microsoft.EntityFrameworkCore.Sqlite": "7.0.13"
         },
@@ -398,6 +400,9 @@
         }
       },
       "Entity/1.0.0": {
+        "dependencies": {
+          "Google.Protobuf": "3.25.1"
+        },
         "runtime": {
           "Entity.dll": {}
         }
@@ -410,12 +415,12 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Google.Protobuf/3.21.5": {
+    "Google.Protobuf/3.25.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-d7zwRm0edg2cxqRynMD31F8HUUyicBT0l5M74EIsU6GAaq3dxxaZ/PpSPlso010W9nIXoVVKUYZSsiOspAOO/A==",
-      "path": "google.protobuf/3.21.5",
-      "hashPath": "google.protobuf.3.21.5.nupkg.sha512"
+      "sha512": "sha512-Sw9bq4hOD+AaS3RrnmP5IT25cyZ/T1qpM0e8+G+23Nojhv7+ScJFPEAQo1m4EFQWhXoI4FRZDrK+wjHCPw9yxg==",
+      "path": "google.protobuf/3.25.1",
+      "hashPath": "google.protobuf.3.25.1.nupkg.sha512"
     },
     "Grpc.AspNetCore/2.49.0": {
       "type": "package",

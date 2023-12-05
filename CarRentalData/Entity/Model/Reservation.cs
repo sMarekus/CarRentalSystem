@@ -5,6 +5,7 @@ namespace Entity.Model;
 
 public class Reservation
 {
+    [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int Id { get; set; }
     public int CarId { get; set; }
