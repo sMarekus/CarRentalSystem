@@ -59,6 +59,18 @@ public CarProtoServiceGrpc.CarProtoServiceBlockingStub getCarStub() {
         }
     }
 
+    @Override
+    public Car deleteCar(int id) {
+        try {
+            proto.Car.CarProtoObj carProtoObj=getCarStub().deleteCar(Int32Value.of(id));
+            return fromProtoObjToEntity(carProtoObj);
+        }
+        catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+
 
     private proto.Car.CarProtoObj fromEntityToProtoObj(Car car) {
         proto.Car.CarProtoObj.Builder builder = proto.Car.CarProtoObj.newBuilder()
