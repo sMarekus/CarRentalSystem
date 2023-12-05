@@ -52,6 +52,22 @@ public class CarService : CarProtoService.CarProtoServiceBase
             throw new RpcException(new Status(StatusCode.NotFound, e.Message));
         }
     }
+    public override async Task<CarProtoObj> DeleteCar(Int32Value request, ServerCallContext context)
+    {
+        try
+        {
+            Car car = await carDao.DeleteCarAsync(request.Value);
+            CarDto dto = new CarDto(car.Id, car.Brand, car.Model, car.BodyType, car.HorsePower, car.FuelType,
+                car.Gearbox, car.Color, car.Description, car.PricePerDay, car.Status);
+            CarProtoObj carProtoObj = convertDtoToProto(dto);
+            return carProtoObj;
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw new RpcException(new Status(StatusCode.NotFound, e.Message));
+        }
+    }
 
     private CarProtoObj convertDtoToProto(CarDto carDto)
     {
