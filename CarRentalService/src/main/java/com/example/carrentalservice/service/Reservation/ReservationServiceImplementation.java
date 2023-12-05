@@ -16,6 +16,7 @@ public class ReservationServiceImplementation implements IReservationService
 
     @Override
     public Reservation createReservation(Reservation reservation) {
+        System.out.println("Hit");
         try {
             return client.createReservation(reservation);
         } catch (Exception e) {

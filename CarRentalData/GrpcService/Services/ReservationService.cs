@@ -54,8 +54,8 @@ public class ReservationService : ReservationProtoService.ReservationProtoServic
             Id = reservationEntity.Id,
             CarId = reservationEntity.CarId,
             UserId = reservationEntity.UserId,
-            StartDate = Timestamp.FromDateTime(reservationEntity.StartDate),
-            EndDate = Timestamp.FromDateTime(reservationEntity.EndDate),
+            StartDate = Timestamp.FromDateTime(reservationEntity.StartDate.ToUniversalTime()),
+            EndDate = Timestamp.FromDateTime(reservationEntity.EndDate.ToUniversalTime()),
             TotalPrice = reservationEntity.TotalPrice,
         };
 
