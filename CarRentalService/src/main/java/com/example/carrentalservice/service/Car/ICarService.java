@@ -11,4 +11,5 @@ public interface ICarService
     List<Car> getCars(CarFilterDto carFilterDto);
 
     Car getCarById(int id);
+    Car deleteCar(int id);
 }

@@ -102,8 +102,22 @@ public class CarDao : ICarDao
        {
            throw new Exception("Car not found");
        }
-
+       
          return Task.FromResult(car);
+    }
+
+    public async Task<Car> DeleteCarAsync(int carId)
+    {
+        Car car = await context.Cars.FirstOrDefaultAsync(car => car.Id == carId);
+        if (car == null)
+        {
+            throw new Exception($"Car with this id {carId} was not found");
+        } 
+    
+        context.Cars.Remove(car);
+        await context.SaveChangesAsync();
+
+        return car; // Return the deleted car
     }
 
     public CarDto convertToCarDto(Car car)

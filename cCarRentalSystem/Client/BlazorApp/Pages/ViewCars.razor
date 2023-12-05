@@ -24,18 +24,23 @@
  else
  {
      <div class="cars-container">
-         @foreach (Car cars in cars)
+         @foreach (var item in cars)
               {
-                  <a href="/CarDetails/@cars.Id" class="card">
+                  <a href="/CarDetails/@item.Id" class="card">
                       <div class="row-col-6 d-flex justify-content-center">
                           <img src="logo-no-background.png" width="80%"/>
                       </div>
                       <div class="row-col-6 d-flex justify-content-center">
-                          <label>@cars.Brand</label>
+                          <label>@item.Brand</label>
                       </div>
                       <div class="row-col-6 d-flex justify-content-center">
-                          <label>@cars.Model</label>
+                          <label>@item.Model</label>
                       </div>
+                      
+                      <label @onclick="@(() => RemoveCar(item.Id))" style="cursor:pointer; color: red; font-weight: bold">
+                                              &#x2717;
+                          </label>
+                                      
                   </a>
               }
      </div>
@@ -58,4 +63,22 @@
             msg = e.Message;
          }
      }
+    
+    private async Task RemoveCar(int carId)
+    {
+        msg="";
+        try
+        {
+            await carService.DeleteAsync(carId);
+
+            var list = new List<Car>(cars!);
+            list.RemoveAll(car => car.Id == carId);
+            cars= list.AsEnumerable();
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
+    }
 }

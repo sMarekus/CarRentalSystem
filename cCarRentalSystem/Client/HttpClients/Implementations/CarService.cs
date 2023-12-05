@@ -175,4 +175,16 @@ public class CarService : ICarService
             throw new Exception(content);
         }
     }
+
+    public async Task DeleteAsync(int carId)
+    {
+        HttpResponseMessage response = await client.DeleteAsync($"/cars/{carId}");
+        if (!response.IsSuccessStatusCode)
+        {
+            var statusCode = response.StatusCode;
+            Console.WriteLine($"Status Code: {statusCode}");
+            string content = await response.Content.ReadAsStringAsync();
+            throw new Exception(content);
+        }
+    }
 }
