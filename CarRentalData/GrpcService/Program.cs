@@ -13,6 +13,7 @@ builder.Services.AddGrpc();
 
 builder.Services.AddScoped<IUserDao, UserDao>();
 builder.Services.AddScoped<ICarDao, CarDao>();
+builder.Services.AddScoped<IReservationDao, ReservationDao>();
 builder.Services.AddScoped<CarRentalSystemContext>();
 
 var app = builder.Build();
@@ -21,6 +22,7 @@ var app = builder.Build();
 
 app.MapGrpcService<UserService>();
 app.MapGrpcService<CarService>();
+app.MapGrpcService<ReservationService>();
 
 app.MapGet("/",
     () =>
