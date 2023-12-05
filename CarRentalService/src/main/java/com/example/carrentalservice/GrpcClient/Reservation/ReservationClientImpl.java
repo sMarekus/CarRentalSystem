@@ -29,7 +29,7 @@ public class ReservationClientImpl implements IReservationClient
     public Reservation createReservation(Reservation reservation) {
         try {
             proto.Reservation.ReservationProtoObj reservationProtoObj = fromEntityToProtoObj(reservation);
-            proto.Reservation.ReservationProtoObj protoObjFromServer = reservationStub.createReservation(reservationProtoObj);
+            proto.Reservation.ReservationProtoObj protoObjFromServer = getStub().createReservation(reservationProtoObj);
             return fromProtoObjToEntity(protoObjFromServer);
         } catch (Exception e) {
             throw new RuntimeException(e);
