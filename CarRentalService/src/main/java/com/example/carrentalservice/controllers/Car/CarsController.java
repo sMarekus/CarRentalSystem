@@ -66,4 +66,14 @@ public class CarsController
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
     }
+
+    @DeleteMapping(value = "/cars/{id}")
+    public ResponseEntity<Car> deleteCar(@PathVariable("id") int id) {
+        try {
+            Car car = carService.deleteCar(id);
+            return new ResponseEntity<>(car, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+    }
 }

@@ -48,4 +48,13 @@ public class CarServiceImplementation implements ICarService
             throw new RuntimeException(e.getMessage());
         }
     }
+
+    @Override
+    public Car deleteCar(int id) {
+        try {
+            return client.deleteCar(id);
+        } catch (Exception e) {
+            throw new RuntimeException(e.getMessage());
+        }
+    }
 }
