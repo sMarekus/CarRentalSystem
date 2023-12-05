@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "Xqxcw/UconjZHzydXF4MRWq/aYYjywmT1hBKq4+OMZFuGogcBFXug1ePbbPEK7gJEeMrkukAAwR55qzACR4ZVA==",
+  "dgSpecHash": "I/F59X+xdtyUs75vNNrdUbbWrthoJWxxOITp9weveVYyIBCb4vA3W7R7jgwefWEpBH/WdIktydm0Di3lYc62yA==",
   "success": true,
   "projectFilePath": "C:\\Users\\marek\\School\\Semester 3\\SEP\\CarRentalSystem\\CarRentalData\\EfcDataAccess\\EfcDataAccess.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\marek\\.nuget\\packages\\google.protobuf\\3.25.1\\google.protobuf.3.25.1.nupkg.sha512",
     "C:\\Users\\marek\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\marek\\.nuget\\packages\\microsoft.data.sqlite.core\\7.0.13\\microsoft.data.sqlite.core.7.0.13.nupkg.sha512",
     "C:\\Users\\marek\\.nuget\\packages\\microsoft.entityframeworkcore\\7.0.13\\microsoft.entityframeworkcore.7.0.13.nupkg.sha512",
