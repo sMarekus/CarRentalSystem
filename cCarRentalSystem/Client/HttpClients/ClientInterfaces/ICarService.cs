@@ -10,4 +10,5 @@ public interface ICarService
     public Task<IEnumerable<Car>> GetCarsAsync(SearchCarParametersDto dto);
     public Task<Car> GetCarById(int carId);
     public Task UpdateAsync(CarCreationDto dto);
+    public Task DeleteAsync(int carId);
 }

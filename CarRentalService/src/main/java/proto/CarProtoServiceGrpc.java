@@ -123,6 +123,38 @@ public final class CarProtoServiceGrpc {
      return getGetCarsMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<com.google.protobuf.Int32Value,
+      proto.Car.CarProtoObj> getDeleteCarMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "DeleteCar",
+      requestType = com.google.protobuf.Int32Value.class,
+      responseType = proto.Car.CarProtoObj.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<com.google.protobuf.Int32Value,
+      proto.Car.CarProtoObj> getDeleteCarMethod() {
+    io.grpc.MethodDescriptor<com.google.protobuf.Int32Value, proto.Car.CarProtoObj> getDeleteCarMethod;
+    if ((getDeleteCarMethod = CarProtoServiceGrpc.getDeleteCarMethod) == null) {
+      synchronized (CarProtoServiceGrpc.class) {
+        if ((getDeleteCarMethod = CarProtoServiceGrpc.getDeleteCarMethod) == null) {
+          CarProtoServiceGrpc.getDeleteCarMethod = getDeleteCarMethod = 
+              io.grpc.MethodDescriptor.<com.google.protobuf.Int32Value, proto.Car.CarProtoObj>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(
+                  "proto.CarProtoService", "DeleteCar"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.google.protobuf.Int32Value.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  proto.Car.CarProtoObj.getDefaultInstance()))
+                  .setSchemaDescriptor(new CarProtoServiceMethodDescriptorSupplier("DeleteCar"))
+                  .build();
+          }
+        }
+     }
+     return getDeleteCarMethod;
+  }
+
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -171,6 +203,13 @@ public final class CarProtoServiceGrpc {
       asyncUnimplementedUnaryCall(getGetCarsMethod(), responseObserver);
     }
 
+    /**
+     */
+    public void deleteCar(com.google.protobuf.Int32Value request,
+        io.grpc.stub.StreamObserver<proto.Car.CarProtoObj> responseObserver) {
+      asyncUnimplementedUnaryCall(getDeleteCarMethod(), responseObserver);
+    }
+
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
@@ -194,6 +233,13 @@ public final class CarProtoServiceGrpc {
                 proto.Car.CarFilterProtoObj,
                 proto.Car.ListCarObj>(
                   this, METHODID_GET_CARS)))
+          .addMethod(
+            getDeleteCarMethod(),
+            asyncUnaryCall(
+              new MethodHandlers<
+                com.google.protobuf.Int32Value,
+                proto.Car.CarProtoObj>(
+                  this, METHODID_DELETE_CAR)))
           .build();
     }
   }
@@ -239,6 +285,14 @@ public final class CarProtoServiceGrpc {
       asyncUnaryCall(
           getChannel().newCall(getGetCarsMethod(), getCallOptions()), request, responseObserver);
     }
+
+    /**
+     */
+    public void deleteCar(com.google.protobuf.Int32Value request,
+        io.grpc.stub.StreamObserver<proto.Car.CarProtoObj> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getDeleteCarMethod(), getCallOptions()), request, responseObserver);
+    }
   }
 
   /**
@@ -278,6 +332,13 @@ public final class CarProtoServiceGrpc {
     public proto.Car.ListCarObj getCars(proto.Car.CarFilterProtoObj request) {
       return blockingUnaryCall(
           getChannel(), getGetCarsMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public proto.Car.CarProtoObj deleteCar(com.google.protobuf.Int32Value request) {
+      return blockingUnaryCall(
+          getChannel(), getDeleteCarMethod(), getCallOptions(), request);
     }
   }
 
@@ -322,11 +383,20 @@ public final class CarProtoServiceGrpc {
       return futureUnaryCall(
           getChannel().newCall(getGetCarsMethod(), getCallOptions()), request);
     }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<proto.Car.CarProtoObj> deleteCar(
+        com.google.protobuf.Int32Value request) {
+      return futureUnaryCall(
+          getChannel().newCall(getDeleteCarMethod(), getCallOptions()), request);
+    }
   }
 
   private static final int METHODID_CREATE_CAR = 0;
   private static final int METHODID_GET_CAR_BY_ID = 1;
   private static final int METHODID_GET_CARS = 2;
+  private static final int METHODID_DELETE_CAR = 3;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -356,6 +426,10 @@ public final class CarProtoServiceGrpc {
         case METHODID_GET_CARS:
           serviceImpl.getCars((proto.Car.CarFilterProtoObj) request,
               (io.grpc.stub.StreamObserver<proto.Car.ListCarObj>) responseObserver);
+          break;
+        case METHODID_DELETE_CAR:
+          serviceImpl.deleteCar((com.google.protobuf.Int32Value) request,
+              (io.grpc.stub.StreamObserver<proto.Car.CarProtoObj>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -421,6 +495,7 @@ public final class CarProtoServiceGrpc {
               .addMethod(getCreateCarMethod())
               .addMethod(getGetCarByIdMethod())
               .addMethod(getGetCarsMethod())
+              .addMethod(getDeleteCarMethod())
               .build();
         }
       }
