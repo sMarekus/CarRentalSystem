@@ -35,5 +35,3 @@ function initializeCarDetails() {
                 document.getElementById('popup').style.display = 'none';
             }});
 }
-
-

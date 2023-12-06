@@ -6,12 +6,12 @@ import "google/protobuf/timestamp.proto";
 
 message ReservationProtoObj
 {
-  int32 id = 1;
-  int32 carId = 2;
-  int32 userId = 3;
-  google.protobuf.Timestamp startDate = 4;
-  google.protobuf.Timestamp endDate = 5;
-  double totalPrice = 6;
+  int32 Id = 1;
+  int32 CarId = 2;
+  int32 UserId = 3;
+  google.protobuf.Timestamp StartDate = 4;
+  google.protobuf.Timestamp EndDate = 5;
+  double TotalPrice = 6;
 }
 
 service ReservationProtoService

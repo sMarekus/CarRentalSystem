@@ -19,6 +19,7 @@ public class ReservationsController
     @PostMapping(value = "/reservations")
     public ResponseEntity<Reservation> createReservation(@RequestBody Reservation reservation)
     {
+        System.out.println("Received reservation: " + reservation);
         try {
             Reservation reservationFromDatabase = reservationService.createReservation(reservation);
             return new ResponseEntity<>(reservationFromDatabase, HttpStatus.OK);
