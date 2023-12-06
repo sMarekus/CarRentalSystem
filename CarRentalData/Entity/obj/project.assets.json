@@ -48,26 +48,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\marek\\.nuget\\packages\\": {}
+    "C:\\Users\\apurv\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\marek\\School\\Semester 3\\SEP\\CarRentalSystem\\CarRentalData\\Entity\\Entity.csproj",
+      "projectUniqueName": "C:\\Users\\apurv\\OneDrive\\Desktop\\CarRentalSEP\\CarRentalData\\Entity\\Entity.csproj",
       "projectName": "Entity",
-      "projectPath": "C:\\Users\\marek\\School\\Semester 3\\SEP\\CarRentalSystem\\CarRentalData\\Entity\\Entity.csproj",
-      "packagesPath": "C:\\Users\\marek\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\marek\\School\\Semester 3\\SEP\\CarRentalSystem\\CarRentalData\\Entity\\obj\\",
+      "projectPath": "C:\\Users\\apurv\\OneDrive\\Desktop\\CarRentalSEP\\CarRentalData\\Entity\\Entity.csproj",
+      "packagesPath": "C:\\Users\\apurv\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\apurv\\OneDrive\\Desktop\\CarRentalSEP\\CarRentalData\\Entity\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\marek\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\apurv\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net7.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -107,7 +105,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
       }
     }
   }

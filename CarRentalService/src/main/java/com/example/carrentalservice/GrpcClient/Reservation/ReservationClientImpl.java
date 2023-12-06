@@ -44,7 +44,7 @@ public class ReservationClientImpl implements IReservationClient
         return proto.Reservation.ReservationProtoObj.newBuilder()
                 .setId(reservation.getId())
                 .setCarId(reservation.getCarId())
-                .setUserId(reservation.getUserId())
+                .setUserName(reservation.getUserName())
                 .setStartDate(convertToTimestamp(reservation.getStartDate()))
                 .setEndDate(convertToTimestamp(reservation.getEndDate()))
                 .setTotalPrice(reservation.getTotalPrice())
@@ -55,7 +55,7 @@ public class ReservationClientImpl implements IReservationClient
         return new Reservation(
                 reservationProtoObj.getId(),
                 reservationProtoObj.getCarId(),
-                reservationProtoObj.getUserId(),
+                reservationProtoObj.getUserName(),
                 convertToLocalDateTime(reservationProtoObj.getStartDate()),
                 convertToLocalDateTime(reservationProtoObj.getEndDate()),
                 reservationProtoObj.getTotalPrice()
