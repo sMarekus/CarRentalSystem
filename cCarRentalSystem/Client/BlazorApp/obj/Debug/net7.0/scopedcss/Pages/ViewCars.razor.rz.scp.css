@@ -5,7 +5,20 @@
 .card[b-4ws64lblw9]{
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     display: inline-block;
+    width: 30%;
+    height: 30%;
     margin: 25px;
     padding: 15px;
     border-radius: 10px;
+}
+
+.card label[b-4ws64lblw9]{
+    text-decoration: none;
+    color:black;
+    font-weight: 650;
+    font-size: 20px;
+}
+
+.card[b-4ws64lblw9]{
+    text-decoration: none;
 }
