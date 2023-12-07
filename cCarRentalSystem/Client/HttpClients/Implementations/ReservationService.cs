@@ -88,11 +88,33 @@ public class ReservationService: IReservationService
             throw new Exception(content);
         }
         
-        IEnumerable<Reservation> reservations = JsonSerializer.Deserialize<IEnumerable<Reservation>>(content, new JsonSerializerOptions
+        IEnumerable<Reservation?> reservations = JsonSerializer.Deserialize<IEnumerable<Reservation>>(content, new JsonSerializerOptions
         {
             PropertyNameCaseInsensitive = true
         })!;
 
-        return reservations;
+        return reservations.ToList();
+    }
+
+    public async Task<IEnumerable<Reservation>> GetReservationsByUsername(string username)
+    {
+        string query = $"/reservations/?username={username}";
+
+        HttpResponseMessage response = await client.GetAsync(query);
+        string content = await response.Content.ReadAsStringAsync();
+
+        if (!response.IsSuccessStatusCode)
+        {
+            var statusCode = response.StatusCode;
+            Console.WriteLine($"Status Code: {statusCode}");
+            throw new Exception(content);
+        }
+
+        IEnumerable<Reservation?> reservations = JsonSerializer.Deserialize<IEnumerable<Reservation>>(content, new JsonSerializerOptions
+        {
+            PropertyNameCaseInsensitive = true
+        })!;
+
+        return reservations.ToList();
     }
 }
