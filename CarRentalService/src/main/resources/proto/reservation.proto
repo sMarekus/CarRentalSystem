@@ -17,5 +17,11 @@ message ReservationProtoObj
 service ReservationProtoService
 {
   rpc CreateReservation(ReservationProtoObj) returns (ReservationProtoObj);
+  rpc GetAllReservations(google.protobuf.Empty) returns (ReservationProtoList);
   rpc GetReservationById(google.protobuf.Int32Value) returns (ReservationProtoObj);
+}
+
+message ReservationProtoList
+{
+  repeated ReservationProtoObj Reservation = 1;
 }
