@@ -51,7 +51,7 @@ public class ReservationsController
         }
     }
 
-    @GetMapping(value = "/reservations/{carId}")
+    @GetMapping(value = "/reservations/by-car/{carId}")
     public ResponseEntity<List<Reservation>> getReservationsByCarId(@PathVariable("carId") int carId)
     {
         System.out.println("Received car id: " + carId);
@@ -63,7 +63,7 @@ public class ReservationsController
         }
     }
 
-    @GetMapping(value = "/reservations/{userName}")
+    @GetMapping(value = "/reservations/by-user/{userName}")
     public ResponseEntity<List<Reservation>> getReservationsByUserName(@PathVariable("userName") String userName)
     {
         System.out.println("Received user name: " + userName);
