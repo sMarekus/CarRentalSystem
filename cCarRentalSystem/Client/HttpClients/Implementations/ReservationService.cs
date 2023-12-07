@@ -75,4 +75,24 @@ public class ReservationService: IReservationService
 
         return reservation;
     }
+
+    public async Task<IEnumerable<Reservation>> GetReservationsByCarId(int carId)
+    {
+        HttpResponseMessage response = await client.GetAsync($"/reservations/{carId}");
+        string content = await response.Content.ReadAsStringAsync();
+        
+        if (!response.IsSuccessStatusCode)
+        {
+            var statusCode = response.StatusCode;
+            Console.WriteLine($"Status Code: {statusCode}");
+            throw new Exception(content);
+        }
+        
+        IEnumerable<Reservation> reservations = JsonSerializer.Deserialize<IEnumerable<Reservation>>(content, new JsonSerializerOptions
+        {
+            PropertyNameCaseInsensitive = true
+        })!;
+
+        return reservations;
+    }
 }
