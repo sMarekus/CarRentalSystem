@@ -10,6 +10,10 @@ public interface IReservationService
 
     List<Reservation> getReservations();
     Reservation getReservationById(int id);
+    List<Reservation> getReservationsByCarId(int carId);
+    List<Reservation> getReservationsByUserName(String userName);
+
+
 
 
 }

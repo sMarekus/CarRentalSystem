@@ -1954,14 +1954,18 @@ public final class Reservation {
       "EndDate\030\005 \001(\0132\032.google.protobuf.Timestam" +
       "p\022\022\n\nTotalPrice\030\006 \001(\001\"G\n\024ReservationProt" +
       "oList\022/\n\013Reservation\030\001 \003(\0132\032.proto.Reser" +
-      "vationProtoObj2\200\002\n\027ReservationProtoServi" +
+      "vationProtoObj2\254\003\n\027ReservationProtoServi" +
       "ce\022K\n\021CreateReservation\022\032.proto.Reservat" +
       "ionProtoObj\032\032.proto.ReservationProtoObj\022" +
       "I\n\022GetAllReservations\022\026.google.protobuf." +
       "Empty\032\033.proto.ReservationProtoList\022M\n\022Ge" +
       "tReservationById\022\033.google.protobuf.Int32" +
-      "Value\032\032.proto.ReservationProtoObjb\006proto" +
-      "3"
+      "Value\032\032.proto.ReservationProtoObj\022R\n\026Get" +
+      "ReservationsByCarId\022\033.google.protobuf.In" +
+      "t32Value\032\033.proto.ReservationProtoList\022V\n" +
+      "\031GetReservationsByUserName\022\034.google.prot" +
+      "obuf.StringValue\032\033.proto.ReservationProt" +
+      "oListb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
