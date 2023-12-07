@@ -2,6 +2,7 @@ package com.example.carrentalservice.GrpcClient.Reservation;
 
 import com.example.carrentalservice.GrpcClient.ManagedChannelProvider;
 import com.example.carrentalservice.model.Reservation;
+import com.google.protobuf.Int32Value;
 import com.google.protobuf.Timestamp;
 import com.google.type.DateTime;
 import io.grpc.ManagedChannel;
@@ -33,6 +34,16 @@ public class ReservationClientImpl implements IReservationClient
             proto.Reservation.ReservationProtoObj reservationProtoObj = fromEntityToProtoObj(reservation);
             proto.Reservation.ReservationProtoObj protoObjFromServer = getStub().createReservation(reservationProtoObj);
             return fromProtoObjToEntity(protoObjFromServer);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public Reservation getReservationById(int id) {
+        try {
+            proto.Reservation.ReservationProtoObj reservationProtoObj = getStub().getReservationById(Int32Value.of(id));
+            return fromProtoObjToEntity(reservationProtoObj);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

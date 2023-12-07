@@ -5,4 +5,5 @@ import com.example.carrentalservice.model.Reservation;
 public interface IReservationClient
 {
     Reservation createReservation(Reservation reservation);
+    Reservation getReservationById(int id);
 }

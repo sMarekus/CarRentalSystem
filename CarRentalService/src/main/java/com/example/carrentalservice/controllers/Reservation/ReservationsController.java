@@ -4,9 +4,7 @@ import com.example.carrentalservice.model.Reservation;
 import com.example.carrentalservice.service.Reservation.IReservationService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class ReservationsController
@@ -22,6 +20,18 @@ public class ReservationsController
         System.out.println("Received reservation: " + reservation);
         try {
             Reservation reservationFromDatabase = reservationService.createReservation(reservation);
+            return new ResponseEntity<>(reservationFromDatabase, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @GetMapping(value = "/reservations/{id}")
+    public ResponseEntity<Reservation> getReservationById(@PathVariable("id") int id)
+    {
+        System.out.println("Received reservation id: " + id);
+        try {
+            Reservation reservationFromDatabase = reservationService.getReservationById(id);
             return new ResponseEntity<>(reservationFromDatabase, HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);

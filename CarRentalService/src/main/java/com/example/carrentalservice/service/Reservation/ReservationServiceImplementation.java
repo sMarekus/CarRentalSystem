@@ -22,4 +22,13 @@ public class ReservationServiceImplementation implements IReservationService
             throw new RuntimeException(e);
         }
     }
+
+    @Override
+    public Reservation getReservationById(int id) {
+        try {
+            return client.getReservationById(id);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
 }
