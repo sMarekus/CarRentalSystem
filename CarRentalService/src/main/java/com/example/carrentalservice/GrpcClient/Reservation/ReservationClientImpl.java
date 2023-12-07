@@ -2,6 +2,8 @@ package com.example.carrentalservice.GrpcClient.Reservation;
 
 import com.example.carrentalservice.GrpcClient.ManagedChannelProvider;
 import com.example.carrentalservice.model.Reservation;
+import com.google.protobuf.Empty;
+import com.google.protobuf.Int32Value;
 import com.google.protobuf.Timestamp;
 import com.google.type.DateTime;
 import io.grpc.ManagedChannel;
@@ -11,6 +13,8 @@ import proto.ReservationProtoServiceGrpc;
 import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;
+import java.util.ArrayList;
+import java.util.List;
 
 import static com.example.carrentalservice.GrpcClient.User.UserClientImpl.fromProtoObjToEntity;
 @Service
@@ -33,6 +37,31 @@ public class ReservationClientImpl implements IReservationClient
             proto.Reservation.ReservationProtoObj reservationProtoObj = fromEntityToProtoObj(reservation);
             proto.Reservation.ReservationProtoObj protoObjFromServer = getStub().createReservation(reservationProtoObj);
             return fromProtoObjToEntity(protoObjFromServer);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public List<Reservation> getReservations() {
+        try {
+            proto.Reservation.ReservationProtoList reservationProtoObjs = getStub().getAllReservations(Empty.newBuilder().build());
+            List<Reservation> reservations=new ArrayList<>();
+            for (proto.Reservation.ReservationProtoObj reservationProtoObj : reservationProtoObjs.getReservationList()) {
+                Reservation reservation=(fromProtoObjToEntity(reservationProtoObj));
+                reservations.add(reservation);
+            }
+            return reservations;
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public Reservation getReservationById(int id) {
+        try {
+            proto.Reservation.ReservationProtoObj reservationProtoObj = getStub().getReservationById(Int32Value.of(id));
+            return fromProtoObjToEntity(reservationProtoObj);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
