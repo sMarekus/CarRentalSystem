@@ -1,4 +1,5 @@
-﻿using CarRentalData;
+﻿using System.ComponentModel;
+using CarRentalData;
 using EfcDataAccess.DaoInterfaces;
 using Entity.Model;
 using Google.Protobuf.Collections;
@@ -49,6 +50,56 @@ public class ReservationService : ReservationProtoService.ReservationProtoServic
         {
             Console.WriteLine(e);
             throw;
+        }
+    }
+    
+    public override async Task<ReservationProtoObj> GetReservationById(Int32Value request, ServerCallContext context)
+    {
+        try
+        {
+            Reservation? reservation = await reservationDao.GetReservationByIdAsync(request.Value);
+            ReservationProtoObj reservationProtoObj = FromEntityToProto(reservation);
+            return reservationProtoObj;
+        }
+        catch (Exception e)
+        {
+            throw new RpcException(new Status(StatusCode.NotFound, e.Message));
+        }
+    }
+    
+    public override async Task<ReservationProtoList> GetReservationsByCarId(Int32Value request, ServerCallContext context)
+    {
+        try
+        {
+            IEnumerable<Reservation?> reservations = await reservationDao.GetReservationByCarIdAsync(request.Value);
+            List<ReservationProtoObj> protoObjs = reservations.Select(FromEntityToProto).ToList();
+            
+            return new ReservationProtoList()
+            {
+                Reservation = { protoObjs }
+            };
+        }
+        catch (Exception e)
+        {
+            throw new RpcException(new Status(StatusCode.NotFound, e.Message));
+        }
+    }
+    
+    public override async Task<ReservationProtoList> GetReservationsByUserName(StringValue request, ServerCallContext context)
+    {
+        try
+        {
+            IEnumerable<Reservation?> reservations = await reservationDao.GetReservationByUserNameAsync(request.Value);
+            List<ReservationProtoObj> protoObjs = reservations.Select(FromEntityToProto).ToList();
+            
+            return new ReservationProtoList()
+            {
+                Reservation = { protoObjs }
+            };
+        }
+        catch (Exception e)
+        {
+            throw new RpcException(new Status(StatusCode.NotFound, e.Message));
         }
     }
 

@@ -43,4 +43,58 @@ public class ReservationDao : IReservationDao
             throw;
         }
     }
+
+    public async Task<Reservation?> GetReservationByIdAsync(int reservationId)
+    {
+        try
+        {
+            Reservation? reservation =  await context.Reservations.FirstOrDefaultAsync(reservation => reservation.Id == reservationId);
+
+            if (reservation == null)
+            {
+                throw new Exception("Reservation not found");
+            }
+       
+            return await Task.FromResult(reservation);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
+    }
+
+    public async Task<IEnumerable<Reservation?>> GetReservationByUserNameAsync(string userName)
+    {
+        try
+        {
+            var reservations = await context.Reservations
+                .Where(reservation => reservation.UserName == userName)
+                .ToListAsync();
+
+            return reservations;
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
+    }
+
+    public async Task<IEnumerable<Reservation?>> GetReservationByCarIdAsync(int carId)
+    {
+        try
+        {
+            var reservations = await context.Reservations
+                .Where(reservation => reservation.CarId == carId)
+                .ToListAsync();
+
+            return reservations;
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
+    }
 }
