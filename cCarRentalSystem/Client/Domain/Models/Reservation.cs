@@ -27,4 +27,6 @@ public class Reservation
         TotalPrice = totalPrice;
     }
 
+    public Reservation(){}
+
 }
