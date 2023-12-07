@@ -11,4 +11,6 @@ public interface ICarClient
     List<Car> getCars(CarFilterDto dto);
     Car getCarById(int id);
     Car deleteCar(int id);
+
+    Car updateCar(Car car);
 }

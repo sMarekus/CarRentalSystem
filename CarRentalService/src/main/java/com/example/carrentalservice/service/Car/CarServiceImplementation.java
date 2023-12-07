@@ -57,4 +57,13 @@ public class CarServiceImplementation implements ICarService
             throw new RuntimeException(e.getMessage());
         }
     }
+
+    @Override
+    public Car updateCar(Car car) {
+        try {
+            return client.updateCar(car);
+        } catch (Exception e) {
+            throw new RuntimeException(e.getMessage());
+        }
+    }
 }
