@@ -16,5 +16,15 @@ public class Reservation
         EndDate = endDate;
         TotalPrice = totalPrice;
     }
+    
+    public Reservation(int id, string username, int carId, DateTime startDate, DateTime endDate, double totalPrice)
+    {
+        Id = id;
+        Username = username;
+        CarId = carId;
+        StartDate = startDate;
+        EndDate = endDate;
+        TotalPrice = totalPrice;
+    }
 
 }

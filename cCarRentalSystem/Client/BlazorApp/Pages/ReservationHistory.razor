@@ -1,0 +1,28 @@
+﻿@page "/ReservationHistory/{username}"
+@using Domain.Models
+@using HttpClients.ClientInterfaces
+@inject AuthenticationStateProvider StateProvider;
+@inject IReservationService reservationService;
+@attribute [Authorize]
+
+
+<h3>ReservationHistory</h3>
+
+@code {
+    private string? currentUser="";
+    Reservation? reservation;
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        // NEED A NEW METHOD FOR THIS FINISH LATER
+        reservation = await reservationService.GetReservationById(1);
+    }
+    
+    private async Task<string> GetLoggedInUserId()
+    {
+        AuthenticationState state = await StateProvider.GetAuthenticationStateAsync();
+        currentUser = state.User.Claims.FirstOrDefault(claim => claim.Type.Equals("username"))!.Value.ToString();
+        return currentUser;
+    }
+}
