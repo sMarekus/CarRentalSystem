@@ -70,7 +70,16 @@ public CarProtoServiceGrpc.CarProtoServiceBlockingStub getCarStub() {
         }
     }
 
-
+    @Override
+    public Car updateCar(Car car) {
+        try {
+            proto.Car.CarProtoObj carProtoObj = fromEntityToProtoObj(car);
+            proto.Car.CarProtoObj protoObjFromServer = getCarStub().updateCar(Int32Value.of(car.getId()));
+            return fromProtoObjToEntity(protoObjFromServer);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
 
     private proto.Car.CarProtoObj fromEntityToProtoObj(Car car) {
         proto.Car.CarProtoObj.Builder builder = proto.Car.CarProtoObj.newBuilder()
