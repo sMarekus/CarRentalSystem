@@ -8,4 +8,5 @@ public interface IReservationService
     Task<Reservation> CreateAsync(ReservationCreationDTO reservationToCreate);
     Task<IEnumerable<Reservation>> GetReservationsAsync();
     Task<Reservation> GetReservationById(int reservationId);
+    Task<IEnumerable<Reservation>> GetReservationsByCarId(int carId);
 }

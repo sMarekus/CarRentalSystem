@@ -125,9 +125,9 @@ else
         ValidateDateInput(pickup, returnDate);
         ConvertToSimpleDate();
         await GetLoggedInUserId();
-        ReservationCreationDTO dto = new ReservationCreationDTO(currentUser, carId, pickup, returnDate, CalculateTotalPrice(pickup, returnDate, car.PricePerDay));
+        ReservationCreationDTO dto = new ReservationCreationDTO(carId, currentUser, pickup, returnDate, CalculateTotalPrice(pickup, returnDate, car.PricePerDay));
         await reserveService.CreateAsync(dto);
-        Reservation reservation = new Reservation(dto.Username, dto.CarId, dto.StartDate, dto.EndDate, dto.TotalPrice);
+        Reservation reservation = new Reservation(dto.CarId, dto.UserName, dto.StartDate, dto.EndDate, dto.TotalPrice);
         return reservation;
     }
 
@@ -153,7 +153,7 @@ else
 
     private int CalculateTotalPrice(DateTime startDate, DateTime endDate, int pricePerDay)
     {
-        int numOfDays = (startDate - endDate).Days;
+        int numOfDays = (-1*(startDate - endDate)).Days;
         return numOfDays * pricePerDay;
     }
 

@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Net.Http.Headers;
 using System.Net.Http.Json;
 using System.Text.Json;
@@ -33,13 +34,65 @@ public class ReservationService: IReservationService
         return reservation;
     }
 
-    public Task<IEnumerable<Reservation>> GetReservationsAsync()
+    public async Task<IEnumerable<Reservation>> GetReservationsAsync()
     {
-        throw new NotImplementedException();
+        HttpResponseMessage response = await client.GetAsync("/reservations");
+        string content = await response.Content.ReadAsStringAsync();
+        
+        if (!response.IsSuccessStatusCode)
+        {
+            var statusCode = response.StatusCode;
+            Console.WriteLine($"Status Code: {statusCode}");
+            throw new Exception(content);
+        }
+
+        IEnumerable<Reservation> reservations = JsonSerializer.Deserialize<IEnumerable<Reservation>>(content, new JsonSerializerOptions
+        {
+            PropertyNameCaseInsensitive = true
+        })!;
+
+        return reservations;
     }
 
-    public Task<Reservation> GetReservationById(int reservationId)
+    public async Task<Reservation> GetReservationById(int reservationId)
     {
-        throw new NotImplementedException();
+        HttpResponseMessage response = await client.GetAsync($"/reservations/{reservationId}");
+        string content = await response.Content.ReadAsStringAsync();
+        
+        if (!response.IsSuccessStatusCode)
+        {
+            var statusCode = response.StatusCode;
+            Console.WriteLine($"Status Code: {statusCode}");
+            throw new Exception(content);
+        }
+
+        GetReservationDto dto = JsonSerializer.Deserialize<GetReservationDto>(content, new JsonSerializerOptions
+        {
+            PropertyNameCaseInsensitive = true
+        })!;
+
+        Reservation reservation = new Reservation(dto.Id, dto.Username, dto.CarId, dto.StartDate, dto.EndDate, dto.TotalPrice);
+
+        return reservation;
+    }
+
+    public async Task<IEnumerable<Reservation>> GetReservationsByCarId(int carId)
+    {
+        HttpResponseMessage response = await client.GetAsync($"/reservations/{carId}");
+        string content = await response.Content.ReadAsStringAsync();
+        
+        if (!response.IsSuccessStatusCode)
+        {
+            var statusCode = response.StatusCode;
+            Console.WriteLine($"Status Code: {statusCode}");
+            throw new Exception(content);
+        }
+        
+        IEnumerable<Reservation> reservations = JsonSerializer.Deserialize<IEnumerable<Reservation>>(content, new JsonSerializerOptions
+        {
+            PropertyNameCaseInsensitive = true
+        })!;
+
+        return reservations;
     }
 }

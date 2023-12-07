@@ -1,0 +1,53 @@
+﻿@page "/Reservations"
+@using Domain.Models
+@using HttpClients.ClientInterfaces
+@inject IReservationService reservationService;
+@attribute [Authorize]
+
+
+<h3>Reservations</h3>
+
+<div class="container">
+    @if (reservations != null)
+    {
+        @foreach (var r in reservations)
+        {
+            <div class="row-col-6 d-flex">
+                <div class="col-6">
+                    <a href="/ReservationDetails/@r.Id"><label>@r.Id</label></a>
+                    <ul>
+                        <li>User: @r.UserName</li>
+                        <li>Car ID: @r.CarId</li>
+                        <li>Start date: @r.StartDate</li>
+                        <li>End date: @r.EndDate</li>
+                        <li>Total price: @r.TotalPrice</li>
+                    </ul>
+                </div>
+            </div>
+        }
+    }
+    else
+    {
+        <h3>No reservations to display.</h3>
+    }
+    
+</div>
+
+
+
+@code {
+    private IEnumerable<Reservation>? reservations;
+    private string msg = "";
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            reservations = await reservationService.GetReservationsAsync();
+        }
+        catch(Exception e)
+        {
+            throw new Exception(e.Message);
+        }
+    }
+}

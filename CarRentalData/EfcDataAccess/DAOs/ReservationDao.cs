@@ -1,5 +1,7 @@
-﻿using EfcDataAccess.DaoInterfaces;
+﻿using System.Collections;
+using EfcDataAccess.DaoInterfaces;
 using Entity.Model;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 
 namespace EfcDataAccess.DAOs;
@@ -25,6 +27,20 @@ public class ReservationDao : IReservationDao
         catch (Exception e)
         {
             throw new Exception(e.Message);
+        }
+    }
+
+    public async Task<IEnumerable<Reservation>> GetAllReservationsAsync()
+    {
+        try
+        {
+            List<Reservation> reservations = await context.Reservations.ToListAsync();
+            return reservations;
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
         }
     }
 }

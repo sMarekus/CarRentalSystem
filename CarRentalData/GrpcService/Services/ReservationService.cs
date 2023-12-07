@@ -1,6 +1,7 @@
 ﻿using CarRentalData;
 using EfcDataAccess.DaoInterfaces;
 using Entity.Model;
+using Google.Protobuf.Collections;
 using Google.Protobuf.WellKnownTypes;
 using Grpc.Core;
 
@@ -19,7 +20,6 @@ public class ReservationService : ReservationProtoService.ReservationProtoServic
     {
         try
         {
-            Console.WriteLine("Service class received request");
             Reservation? toAddReservation = FromProtoToEntity(request);
             
             Reservation? addedReservation = await reservationDao.CreateReservationAsync(toAddReservation);
@@ -32,7 +32,26 @@ public class ReservationService : ReservationProtoService.ReservationProtoServic
             throw new RpcException(new Status(StatusCode.AlreadyExists, e.Message));
         }
     }
-    
+
+    public override async Task<ReservationProtoList> GetAllReservations(Empty request, ServerCallContext context)
+    {
+        try
+        {
+            IEnumerable<Reservation> reservations = await reservationDao.GetAllReservationsAsync();
+            List<ReservationProtoObj> protoObjs = reservations.Select(FromEntityToProto).ToList();
+            
+            return new ReservationProtoList()
+            {
+                Reservation = { protoObjs }
+            };
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
+    }
+
     public static Reservation? FromProtoToEntity(ReservationProtoObj reservationProtoObj)
     {
         Reservation? reservationEntity = new Reservation()
