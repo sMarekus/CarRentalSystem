@@ -29,9 +29,14 @@ public final class Reservation {
     int getCarId();
 
     /**
-     * <code>int32 UserId = 3;</code>
+     * <code>string UserName = 3;</code>
      */
-    int getUserId();
+    java.lang.String getUserName();
+    /**
+     * <code>string UserName = 3;</code>
+     */
+    com.google.protobuf.ByteString
+        getUserNameBytes();
 
     /**
      * <code>.google.protobuf.Timestamp StartDate = 4;</code>
@@ -79,7 +84,7 @@ public final class Reservation {
     private ReservationProtoObj() {
       id_ = 0;
       carId_ = 0;
-      userId_ = 0;
+      userName_ = "";
       totalPrice_ = 0D;
     }
 
@@ -117,9 +122,10 @@ public final class Reservation {
               carId_ = input.readInt32();
               break;
             }
-            case 24: {
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
 
-              userId_ = input.readInt32();
+              userName_ = s;
               break;
             }
             case 34: {
@@ -203,13 +209,38 @@ public final class Reservation {
       return carId_;
     }
 
-    public static final int USERID_FIELD_NUMBER = 3;
-    private int userId_;
+    public static final int USERNAME_FIELD_NUMBER = 3;
+    private volatile java.lang.Object userName_;
     /**
-     * <code>int32 UserId = 3;</code>
+     * <code>string UserName = 3;</code>
      */
-    public int getUserId() {
-      return userId_;
+    public java.lang.String getUserName() {
+      java.lang.Object ref = userName_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        userName_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string UserName = 3;</code>
+     */
+    public com.google.protobuf.ByteString
+        getUserNameBytes() {
+      java.lang.Object ref = userName_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        userName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
     }
 
     public static final int STARTDATE_FIELD_NUMBER = 4;
@@ -283,8 +314,8 @@ public final class Reservation {
       if (carId_ != 0) {
         output.writeInt32(2, carId_);
       }
-      if (userId_ != 0) {
-        output.writeInt32(3, userId_);
+      if (!getUserNameBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, userName_);
       }
       if (startDate_ != null) {
         output.writeMessage(4, getStartDate());
@@ -312,9 +343,8 @@ public final class Reservation {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(2, carId_);
       }
-      if (userId_ != 0) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(3, userId_);
+      if (!getUserNameBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, userName_);
       }
       if (startDate_ != null) {
         size += com.google.protobuf.CodedOutputStream
@@ -348,8 +378,8 @@ public final class Reservation {
           == other.getId());
       result = result && (getCarId()
           == other.getCarId());
-      result = result && (getUserId()
-          == other.getUserId());
+      result = result && getUserName()
+          .equals(other.getUserName());
       result = result && (hasStartDate() == other.hasStartDate());
       if (hasStartDate()) {
         result = result && getStartDate()
@@ -379,8 +409,8 @@ public final class Reservation {
       hash = (53 * hash) + getId();
       hash = (37 * hash) + CARID_FIELD_NUMBER;
       hash = (53 * hash) + getCarId();
-      hash = (37 * hash) + USERID_FIELD_NUMBER;
-      hash = (53 * hash) + getUserId();
+      hash = (37 * hash) + USERNAME_FIELD_NUMBER;
+      hash = (53 * hash) + getUserName().hashCode();
       if (hasStartDate()) {
         hash = (37 * hash) + STARTDATE_FIELD_NUMBER;
         hash = (53 * hash) + getStartDate().hashCode();
@@ -529,7 +559,7 @@ public final class Reservation {
 
         carId_ = 0;
 
-        userId_ = 0;
+        userName_ = "";
 
         if (startDateBuilder_ == null) {
           startDate_ = null;
@@ -573,7 +603,7 @@ public final class Reservation {
         proto.Reservation.ReservationProtoObj result = new proto.Reservation.ReservationProtoObj(this);
         result.id_ = id_;
         result.carId_ = carId_;
-        result.userId_ = userId_;
+        result.userName_ = userName_;
         if (startDateBuilder_ == null) {
           result.startDate_ = startDate_;
         } else {
@@ -639,8 +669,9 @@ public final class Reservation {
         if (other.getCarId() != 0) {
           setCarId(other.getCarId());
         }
-        if (other.getUserId() != 0) {
-          setUserId(other.getUserId());
+        if (!other.getUserName().isEmpty()) {
+          userName_ = other.userName_;
+          onChanged();
         }
         if (other.hasStartDate()) {
           mergeStartDate(other.getStartDate());
@@ -732,28 +763,71 @@ public final class Reservation {
         return this;
       }
 
-      private int userId_ ;
+      private java.lang.Object userName_ = "";
       /**
-       * <code>int32 UserId = 3;</code>
+       * <code>string UserName = 3;</code>
        */
-      public int getUserId() {
-        return userId_;
+      public java.lang.String getUserName() {
+        java.lang.Object ref = userName_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          userName_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
       }
       /**
-       * <code>int32 UserId = 3;</code>
+       * <code>string UserName = 3;</code>
        */
-      public Builder setUserId(int value) {
-        
-        userId_ = value;
+      public com.google.protobuf.ByteString
+          getUserNameBytes() {
+        java.lang.Object ref = userName_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          userName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string UserName = 3;</code>
+       */
+      public Builder setUserName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        userName_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int32 UserId = 3;</code>
+       * <code>string UserName = 3;</code>
        */
-      public Builder clearUserId() {
+      public Builder clearUserName() {
         
-        userId_ = 0;
+        userName_ = getDefaultInstance().getUserName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string UserName = 3;</code>
+       */
+      public Builder setUserNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        userName_ = value;
         onChanged();
         return this;
       }
@@ -1087,14 +1161,14 @@ public final class Reservation {
       "\n\021reservation.proto\022\005proto\032\036google/proto" +
       "buf/wrappers.proto\032\033google/protobuf/empt" +
       "y.proto\032\037google/protobuf/timestamp.proto" +
-      "\"\260\001\n\023ReservationProtoObj\022\n\n\002Id\030\001 \001(\005\022\r\n\005" +
-      "CarId\030\002 \001(\005\022\016\n\006UserId\030\003 \001(\005\022-\n\tStartDate" +
-      "\030\004 \001(\0132\032.google.protobuf.Timestamp\022+\n\007En" +
-      "dDate\030\005 \001(\0132\032.google.protobuf.Timestamp\022" +
-      "\022\n\nTotalPrice\030\006 \001(\0012f\n\027ReservationProtoS" +
-      "ervice\022K\n\021CreateReservation\022\032.proto.Rese" +
-      "rvationProtoObj\032\032.proto.ReservationProto" +
-      "Objb\006proto3"
+      "\"\262\001\n\023ReservationProtoObj\022\n\n\002Id\030\001 \001(\005\022\r\n\005" +
+      "CarId\030\002 \001(\005\022\020\n\010UserName\030\003 \001(\t\022-\n\tStartDa" +
+      "te\030\004 \001(\0132\032.google.protobuf.Timestamp\022+\n\007" +
+      "EndDate\030\005 \001(\0132\032.google.protobuf.Timestam" +
+      "p\022\022\n\nTotalPrice\030\006 \001(\0012f\n\027ReservationProt" +
+      "oService\022K\n\021CreateReservation\022\032.proto.Re" +
+      "servationProtoObj\032\032.proto.ReservationPro" +
+      "toObjb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -1116,7 +1190,7 @@ public final class Reservation {
     internal_static_proto_ReservationProtoObj_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_proto_ReservationProtoObj_descriptor,
-        new java.lang.String[] { "Id", "CarId", "UserId", "StartDate", "EndDate", "TotalPrice", });
+        new java.lang.String[] { "Id", "CarId", "UserName", "StartDate", "EndDate", "TotalPrice", });
     com.google.protobuf.WrappersProto.getDescriptor();
     com.google.protobuf.EmptyProto.getDescriptor();
     com.google.protobuf.TimestampProto.getDescriptor();

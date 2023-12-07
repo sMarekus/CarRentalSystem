@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "ls6CGFyv4jN9nQazPmTTGLCICuQGs2LgrEOJi2XEEQg=",
+  "Hash": "53lm8t7oOLUuXJHGlSy3kkaXJ/L6d+RwWHX8DEqBwBQ=",
   "Source": "BlazorApp",
   "BasePath": "_content/BlazorApp",
   "Mode": "Default",
@@ -304,6 +304,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\logo-no-background.png"
+    },
+    {
+      "Identity": "C:\\Users\\apurv\\OneDrive\\Desktop\\CarRentalSEP\\cCarRentalSystem\\Client\\BlazorApp\\wwwroot\\reserveScript.js",
+      "SourceId": "BlazorApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\apurv\\OneDrive\\Desktop\\CarRentalSEP\\cCarRentalSystem\\Client\\BlazorApp\\wwwroot\\",
+      "BasePath": "_content/BlazorApp",
+      "RelativePath": "reserveScript.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\reserveScript.js"
     }
   ]
 }

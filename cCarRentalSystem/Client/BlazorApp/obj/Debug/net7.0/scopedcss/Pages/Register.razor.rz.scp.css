@@ -8,12 +8,8 @@
     margin: auto;
     margin-top: 50px;
     border-radius: 15px;
-}
-
-#inputPassword:focus[b-x3lxt1hyuu]{
-    border: 3px solid dimgrey;
-    width: 160px;
-    outline: none;
+    background-color: rgb(67, 0, 127);
+    color: white;
 }
 
 .field[b-x3lxt1hyuu]{
@@ -22,23 +18,14 @@
     justify-content: center;
 }
 
-#inputCprNumber:focus[b-x3lxt1hyuu]{
-    border: 3px solid dimgrey;
-    width: 160px;
-    outline: none;
-}
-
 .acceptbtn[b-x3lxt1hyuu]{
-    background-color:lightgreen;
+    color:white;
+    background-color: rgb(132,0,218);
+    outline: solid 3px black;
     border-radius: 5px;
     padding: 5px;
     padding-left: 10px;
     padding-right: 10px;
-}
-#inputEmail:focus[b-x3lxt1hyuu]{
-    border: 3px solid dimgrey;
-    width: 160px;
-    outline: none;
 }
 
 .button-row[b-x3lxt1hyuu]{
@@ -47,80 +34,66 @@
     text-align: center;
 }
 
-#inputPhoneNumber:focus[b-x3lxt1hyuu]{
-    border: 3px solid dimgrey;
-    width: 160px;
-    outline: none;
-}
-
-#inputFirstName:focus[b-x3lxt1hyuu]{
-    border: 3px solid dimgrey;
-    width: 160px;
-    outline: none;
-}
-
-#inputLastName:focus[b-x3lxt1hyuu]{
-    border: 3px solid dimgrey;
-    width: 160px;
-    outline: none;
-}
-
-#inputPassword:focus[b-x3lxt1hyuu]{
-    border: 3px solid dimgrey;
-    width: 160px;
-    outline: none;
-}
-
 #inputFirstName[b-x3lxt1hyuu]{
     padding: 12px 20px;
-    transition: width 1s ease-in-out 250ms;
     resize: vertical;
     min-height: 50px;
-    width: 50px;
+    margin-top: 10px;
+    animation: expandWidth-b-x3lxt1hyuu 2s ease-in-out;
 }
 
 #inputLastName[b-x3lxt1hyuu]{
     padding: 12px 20px;
-    transition: width 1s ease-in-out 250ms;
     resize: vertical;
     min-height: 50px;
-    width: 50px;
+    margin-top: 10px;
+    animation: expandWidth-b-x3lxt1hyuu 2s ease-in-out;
 }
 
 #inputEmail[b-x3lxt1hyuu]{
     padding: 12px 20px;
-    transition: width 1s ease-in-out 250ms;
     resize: vertical;
     min-height: 50px;
-    width: 50px;
+    margin-top: 10px;
+    animation: expandWidth-b-x3lxt1hyuu 2s ease-in-out;
 }
 
 #inputPassword[b-x3lxt1hyuu]{
     padding: 12px 20px;
-    transition: width 1s ease-in-out 250ms;
     resize: vertical;
     min-height: 50px;
-    width: 50px;
+    margin-top: 10px;
+    animation: expandWidth-b-x3lxt1hyuu 2s ease-in-out;
 }
 
 #inputCprNumber[b-x3lxt1hyuu]{
     padding: 12px 20px;
-    transition: width 1s ease-in-out 250ms;
     resize: vertical;
     min-height: 50px;
-    width: 50px;
+    margin-top: 10px;
+    animation: expandWidth-b-x3lxt1hyuu 2s ease-in-out;
 }
 
 #inputPhoneNumber[b-x3lxt1hyuu]{
     padding: 12px 20px;
-    transition: width 1s ease-in-out 250ms;
     resize: vertical;
     min-height: 50px;
-    width: 50px;
+    margin-top: 10px;
+    animation: expandWidth-b-x3lxt1hyuu 2s ease-in-out;
 }
 
 #header[b-x3lxt1hyuu]{
     text-align: center;
+    color: rgb(67, 0, 127);
+    font-size: 40px;
+    font-weight: 750;
 }
 
-
+@keyframes expandWidth-b-x3lxt1hyuu {
+    0% {
+        width: 50px;
+    }
+    100% {
+        width: 160px;
+    }
+}
