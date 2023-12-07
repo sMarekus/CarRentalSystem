@@ -1,0 +1,142 @@
+﻿@page "/EditCar/{carId:int}"
+@using HttpClients.ClientInterfaces
+@using Domain.DTOs
+@inject ICarService carService;
+@inject NavigationManager navMgr;
+
+<div class="row d-flex justify-content-center">
+    <div class="col-md-6">
+        <h3 id="header">Edit car</h3>
+    </div>
+</div>
+
+<div class="container">
+<div class="card">
+    <div class="row d-flex justify-content-center">
+        <div class="col-md-6">
+            <div class="form-group field">
+                <label>Brand:</label>
+                <input id="inputBrand" type="text" class="form-control" @bind="brand" @bind:event="oninput"/>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row d-flex justify-content-center">
+        <div class="col-md-6">
+            <div class="form-group field">
+                <label>Model:</label>
+                <input id="inputModel" type="text" class="form-control" @bind="model" @bind:event="oninput"/>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row d-flex justify-content-center">
+        <div class="col-md-6">
+            <div class="form-group field">
+                <label>Body Type:</label>
+                <input id="inputBodyType" type="text" class="form-control" @bind="bodyType" @bind:event="oninput"/>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row d-flex justify-content-center">
+        <div class="col-md-6">
+            <div class="form-group field">
+                <label>Horsepower:</label>
+                <input id="inputHP" type="text" class="form-control" @bind="horsePower" @bind:event="oninput"/>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row d-flex justify-content-center">
+        <div class="col-md-6">
+            <div class="form-group field">
+                <label>Fuel Type:</label>
+                <input id="inputFuelType" type="text" class="form-control" @bind="fuelType" @bind:event="oninput"/>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row d-flex justify-content-center">
+        <div class="col-md-6">
+            <div class="form-group field">
+                <label>Gearbox:</label>
+                <input id="inputGearbox" type="text" class="form-control" @bind="gearbox" @bind:event="oninput"/>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row d-flex justify-content-center">
+        <div class="col-md-6">
+            <div class="form-group field">
+                <label>Color</label>
+                <input id="inputColor" type="text" class="form-control" @bind="color" @bind:event="oninput"/>
+            </div>
+        </div>
+    </div>
+    <div class="row d-flex justify-content-center">
+        <div class="col-md-6">
+            <div class="form-group field">
+                <label>Description</label>
+                <input id="inputDescription" type="text" class="form-control" @bind="description" @bind:event="oninput"/>
+            </div>
+        </div>
+    </div>
+    <div class="row d-flex justify-content-center">
+        <div class="col-md-6">
+            <div class="form-group field">
+                <label>Price per day:</label>
+                <input id="inputPrice" type="text" class="form-control" @bind="pricePerDay" @bind:event="oninput"/>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row d-flex justify-content-center">
+            <div class="col-md-6">
+                @if (!string.IsNullOrEmpty(msg))
+                    {
+                        <label style="color: @msgcolor">@msg</label>
+                    }
+                <div class="button-row">
+                    <button @onclick="Edit" class="acceptbtn">Add</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public int carId { get; set; }
+    
+    private string brand = "";
+    private string model = "";
+    private string bodyType = "";
+    private int horsePower;
+    private string fuelType = "";
+    private string gearbox = "";
+    private string color = "";
+    private string description = "";
+    private int pricePerDay;
+    private string msg = "";
+    private string msgcolor = "green";
+    
+    private async Task Edit()
+    {
+        try
+        {
+            CarUpdateDto dto = new CarUpdateDto(brand, model, bodyType, horsePower, fuelType, gearbox, color, description, pricePerDay);
+            await carService.UpdateAsync(dto);
+            msg = "Car added successfully.";
+            navMgr.NavigateTo("/");
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            msg = e.Message;
+            msgcolor = "red";
+            throw new Exception(e.Message);
+        }
+    }
+    
+}

@@ -46,6 +46,7 @@ public class SecurityConfiguration {
                          .requestMatchers(HttpMethod.GET, "/reservations/{id}").permitAll()
                          .requestMatchers(HttpMethod.GET, "/reservations/by-user/{userName}").permitAll()
                          .requestMatchers(HttpMethod.GET, "/reservations/by-car/{carId}").permitAll()
+                         .requestMatchers(HttpMethod.PATCH, "/cars/{id}").permitAll()
                          .anyRequest().authenticated())
                  .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                  .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class)
