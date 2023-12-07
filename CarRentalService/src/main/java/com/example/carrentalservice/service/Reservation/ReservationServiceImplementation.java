@@ -4,6 +4,8 @@ import com.example.carrentalservice.GrpcClient.Reservation.IReservationClient;
 import com.example.carrentalservice.model.Reservation;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ReservationServiceImplementation implements IReservationService
 
@@ -18,6 +20,15 @@ public class ReservationServiceImplementation implements IReservationService
     public Reservation createReservation(Reservation reservation) {
         try {
             return client.createReservation(reservation);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public List<Reservation> getReservations() {
+        try {
+            return client.getReservations();
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
