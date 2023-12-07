@@ -51,4 +51,27 @@ public class ReservationsController
         }
     }
 
+    @GetMapping(value = "/reservations/{carId}")
+    public ResponseEntity<List<Reservation>> getReservationsByCarId(@PathVariable("carId") int carId)
+    {
+        System.out.println("Received car id: " + carId);
+        try {
+            List<Reservation> reservationsFromDatabase = reservationService.getReservationsByCarId(carId);
+            return new ResponseEntity<>(reservationsFromDatabase, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @GetMapping(value = "/reservations/{userName}")
+    public ResponseEntity<List<Reservation>> getReservationsByUserName(@PathVariable("userName") String userName)
+    {
+        System.out.println("Received user name: " + userName);
+        try {
+            List<Reservation> reservationsFromDatabase = reservationService.getReservationsByUserName(userName);
+            return new ResponseEntity<>(reservationsFromDatabase, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+    }
 }

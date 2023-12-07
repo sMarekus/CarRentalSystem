@@ -4,19 +4,16 @@ import com.example.carrentalservice.GrpcClient.ManagedChannelProvider;
 import com.example.carrentalservice.model.Reservation;
 import com.google.protobuf.Empty;
 import com.google.protobuf.Int32Value;
+import com.google.protobuf.StringValue;
 import com.google.protobuf.Timestamp;
-import com.google.type.DateTime;
 import io.grpc.ManagedChannel;
 import org.springframework.stereotype.Service;
 import proto.ReservationProtoServiceGrpc;
-
-import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.example.carrentalservice.GrpcClient.User.UserClientImpl.fromProtoObjToEntity;
 @Service
 public class ReservationClientImpl implements IReservationClient
 {
@@ -62,6 +59,36 @@ public class ReservationClientImpl implements IReservationClient
         try {
             proto.Reservation.ReservationProtoObj reservationProtoObj = getStub().getReservationById(Int32Value.of(id));
             return fromProtoObjToEntity(reservationProtoObj);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public List<Reservation> getReservationsByCarId(int carId) {
+        try {
+            proto.Reservation.ReservationProtoList reservationProtoObjs = getStub().getReservationsByCarId(Int32Value.of(carId));
+            List<Reservation> reservations=new ArrayList<>();
+            for (proto.Reservation.ReservationProtoObj reservationProtoObj : reservationProtoObjs.getReservationList()) {
+                Reservation reservation=(fromProtoObjToEntity(reservationProtoObj));
+                reservations.add(reservation);
+            }
+            return reservations;
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public List<Reservation> getReservationsByUserName(String userName) {
+        try {
+            proto.Reservation.ReservationProtoList reservationProtoObjs = getStub().getReservationsByUserName(StringValue.of(userName));
+            List<Reservation> reservations=new ArrayList<>();
+            for (proto.Reservation.ReservationProtoObj reservationProtoObj : reservationProtoObjs.getReservationList()) {
+                Reservation reservation=(fromProtoObjToEntity(reservationProtoObj));
+                reservations.add(reservation);
+            }
+            return reservations;
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
