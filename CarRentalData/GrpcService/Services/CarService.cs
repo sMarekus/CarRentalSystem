@@ -68,7 +68,34 @@ public class CarService : CarProtoService.CarProtoServiceBase
             throw new RpcException(new Status(StatusCode.NotFound, e.Message));
         }
     }
+    
+    public override async Task<CarProtoObj> UpdateCar(Int32Value request, ServerCallContext context)
+    {
+        try
+        {
+            // Fetch car by ID or construct a new Car object based on the request value
+            Car car = await carDao.GetCarByIdAsync(request.Value); // Example: Fetch car from database by ID
 
+            // Update the car properties or construct a new Car object based on your requirements
+
+            // Perform the update operation
+            Car updatedCar = await carDao.UpdateCarAsync(car);
+
+            // Convert the updated car to DTO and then to ProtoObj
+            CarDto dto = new CarDto(updatedCar.Id, updatedCar.Brand, updatedCar.Model, updatedCar.BodyType, updatedCar.HorsePower, updatedCar.FuelType,
+                updatedCar.Gearbox, updatedCar.Color, updatedCar.Description, updatedCar.PricePerDay, updatedCar.Status);
+            CarProtoObj carProtoObj = convertDtoToProto(dto);
+
+            return carProtoObj;
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw new RpcException(new Status(StatusCode.NotFound, e.Message));
+        }
+    }
+
+    
     private CarProtoObj convertDtoToProto(CarDto carDto)
     {
         CarProtoObj carProtoObj = new CarProtoObj()
@@ -126,6 +153,9 @@ public class CarService : CarProtoService.CarProtoServiceBase
         
         return carEntity;
     }
+    
+    
+    
 
     public static CarFilterDto FromProtoToCarFilterDto(CarFilterProtoObj carFilterProtoObj)
     {
@@ -166,6 +196,8 @@ public class CarService : CarProtoService.CarProtoServiceBase
 
         return carProtoObj;
     }
+    
+    
 
     public static CarProtoObj FromDtoToProto(CarDto carEntity)
     {
@@ -215,4 +247,5 @@ public class CarService : CarProtoService.CarProtoServiceBase
                 throw new ArgumentOutOfRangeException(nameof(protoStatus), protoStatus, null);
         }
     }
+    
 }

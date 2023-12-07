@@ -120,6 +120,13 @@ public class CarDao : ICarDao
         return car; // Return the deleted car
     }
 
+    public async Task<Car> UpdateCarAsync(Car carToUpdate)
+    {   
+        context.Cars.Update(carToUpdate);
+        await context.SaveChangesAsync();
+        return carToUpdate;
+    }
+
     public CarDto convertToCarDto(Car car)
     {
         CarDto carDto = new CarDto()

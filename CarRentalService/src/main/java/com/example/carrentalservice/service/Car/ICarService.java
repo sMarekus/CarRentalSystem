@@ -12,4 +12,5 @@ public interface ICarService
 
     Car getCarById(int id);
     Car deleteCar(int id);
+    Car updateCar(Car car);
 }
