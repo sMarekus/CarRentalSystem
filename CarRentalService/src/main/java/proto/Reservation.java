@@ -1165,9 +1165,11 @@ public final class Reservation {
       "CarId\030\002 \001(\005\022\020\n\010UserName\030\003 \001(\t\022-\n\tStartDa" +
       "te\030\004 \001(\0132\032.google.protobuf.Timestamp\022+\n\007" +
       "EndDate\030\005 \001(\0132\032.google.protobuf.Timestam" +
-      "p\022\022\n\nTotalPrice\030\006 \001(\0012f\n\027ReservationProt" +
-      "oService\022K\n\021CreateReservation\022\032.proto.Re" +
-      "servationProtoObj\032\032.proto.ReservationPro" +
+      "p\022\022\n\nTotalPrice\030\006 \001(\0012\265\001\n\027ReservationPro" +
+      "toService\022K\n\021CreateReservation\022\032.proto.R" +
+      "eservationProtoObj\032\032.proto.ReservationPr" +
+      "otoObj\022M\n\022GetReservationById\022\033.google.pr" +
+      "otobuf.Int32Value\032\032.proto.ReservationPro" +
       "toObjb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
