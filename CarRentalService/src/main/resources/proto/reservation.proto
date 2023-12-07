@@ -17,4 +17,5 @@ message ReservationProtoObj
 service ReservationProtoService
 {
   rpc CreateReservation(ReservationProtoObj) returns (ReservationProtoObj);
+  rpc GetReservationById(google.protobuf.Int32Value) returns (ReservationProtoObj);
 }
