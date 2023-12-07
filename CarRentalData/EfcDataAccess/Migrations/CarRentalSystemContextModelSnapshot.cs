@@ -84,7 +84,6 @@ namespace EfcDataAccess.Migrations
                         .HasColumnType("REAL");
 
                     b.Property<string>("UserName")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
