@@ -1,6 +1,87 @@
 /* _content/BlazorApp/Pages/CarDetails.razor.rz.scp.css */
 #header[b-lql16p6pfj]{
     text-align: center;
+    color: rgb(67, 0, 127);
+    font-weight: 750;
+}
+
+.popup[b-lql16p6pfj] {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.popup-content[b-lql16p6pfj] {
+    position: absolute;
+    top: 50%;
+    left: 58%;
+    transform: translate(-50%, -50%);
+    color: rgb(67, 0, 127);
+    background-color: rgb(67, 0, 127);
+    padding: 20px;
+    width: 340px;
+    height: 390px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.close-btn[b-lql16p6pfj] {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    color: black;
+    padding: 10px;
+}
+
+.close-btn:hover[b-lql16p6pfj]{
+    background-color: black;
+    color: white;
+}
+
+.card[b-lql16p6pfj]{
+    height: 90%;
+    width: 90%;
+    padding: 25px;
+    text-align: center;
+    border-radius: 15px;
+    margin-top: 10px;
+}
+
+.container[b-lql16p6pfj]{
+    display: flex;
+}
+
+#reserveBtn[b-lql16p6pfj]{
+    width: 40%;
+    background-color: rgb(67, 0, 127);
+    color: white;
+    font-weight: 650;
+    margin-top: 15px;
+    margin-left: 50%;
+    transform: translateX(-50%);
+}
+
+.field[b-lql16p6pfj]{
+    margin-top: 20px;
+    text-align: center;
+    justify-content: center;
+}
+
+.field label[b-lql16p6pfj]{
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.card p[b-lql16p6pfj]{
+    font-size: 10px;
+    margin-top: 10px;
+    color: rgb(67, 0, 127);
 }
 /* _content/BlazorApp/Pages/CreateCar.razor.rz.scp.css */
 .card[b-s7gnac86a7]{
@@ -12,8 +93,9 @@
     text-align: center;
     margin: auto;
     margin-top: 50px;
-    margin-bottom: 50px;
     border-radius: 15px;
+    background-color: rgb(67, 0, 127);
+    color: white;
 }
 
 .field[b-s7gnac86a7]{
@@ -23,7 +105,9 @@
 }
 
 .acceptbtn[b-s7gnac86a7]{
-    background-color:lightgreen;
+    color:white;
+    background-color: rgb(132,0,218);
+    outline: solid 3px black;
     border-radius: 5px;
     padding: 5px;
     padding-left: 10px;
@@ -31,138 +115,96 @@
     margin-top: 20px;
 }
 
-#inputBrand:focus[b-s7gnac86a7]{
-    border: 3px solid dimgrey;
-    width: 160px;
-    outline: none;
-}
-
 #inputBrand[b-s7gnac86a7]{
     padding: 12px 20px;
-    transition: width 1s ease-in-out 250ms;
     resize: vertical;
     min-height: 50px;
-    width: 50px;
-}
-
-#inputModel:focus[b-s7gnac86a7]{
-    border: 3px solid dimgrey;
-    width: 160px;
-    outline: none;
+    margin-top: 10px;
+    animation: expandWidth-b-s7gnac86a7 2s ease-in-out;
 }
 
 #inputModel[b-s7gnac86a7]{
     padding: 12px 20px;
-    transition: width 1s ease-in-out 250ms;
     resize: vertical;
     min-height: 50px;
-    width: 50px;
-}
-
-#inputBodyType:focus[b-s7gnac86a7]{
-    border: 3px solid dimgrey;
-    width: 160px;
-    outline: none;
+    margin-top: 10px;
+    animation: expandWidth-b-s7gnac86a7 2s ease-in-out;
 }
 
 #inputBodyType[b-s7gnac86a7]{
     padding: 12px 20px;
-    transition: width 1s ease-in-out 250ms;
     resize: vertical;
     min-height: 50px;
-    width: 50px;
-}
-
-#inputGearbox:focus[b-s7gnac86a7]{
-    border: 3px solid dimgrey;
-    width: 160px;
-    outline: none;
+    margin-top: 10px;
+    animation: expandWidth-b-s7gnac86a7 2s ease-in-out;
 }
 
 #inputGearbox[b-s7gnac86a7]{
     padding: 12px 20px;
-    transition: width 1s ease-in-out 250ms;
     resize: vertical;
     min-height: 50px;
-    width: 50px;
-}
-
-#inputColor:focus[b-s7gnac86a7]{
-    border: 3px solid dimgrey;
-    width: 160px;
-    outline: none;
+    margin-top: 10px;
+    animation: expandWidth-b-s7gnac86a7 2s ease-in-out;
 }
 
 #inputColor[b-s7gnac86a7]{
     padding: 12px 20px;
-    transition: width 1s ease-in-out 250ms;
     resize: vertical;
     min-height: 50px;
-    width: 50px;
-}
-
-#inputHP:focus[b-s7gnac86a7]{
-    border: 3px solid dimgrey;
-    width: 160px;
-    outline: none;
+    margin-top: 10px;
+    animation: expandWidth-b-s7gnac86a7 2s ease-in-out;
 }
 
 #inputHP[b-s7gnac86a7]{
     padding: 12px 20px;
-    transition: width 1s ease-in-out 250ms;
     resize: vertical;
     min-height: 50px;
-    width: 50px;
-}
-
-#inputPrice:focus[b-s7gnac86a7]{
-    border: 3px solid dimgrey;
-    width: 160px;
-    outline: none;
+    margin-top: 10px;
+    animation: expandWidth-b-s7gnac86a7 2s ease-in-out;
 }
 
 #inputPrice[b-s7gnac86a7]{
     padding: 12px 20px;
-    transition: width 1s ease-in-out 250ms;
     resize: vertical;
     min-height: 50px;
-    width: 50px;
-}
-
-#inputDescription:focus[b-s7gnac86a7]{
-    border: 3px solid dimgrey;
-    width: 160px;
-    outline: none;
+    margin-top: 10px;
+    animation: expandWidth-b-s7gnac86a7 2s ease-in-out;
 }
 
 #inputDescription[b-s7gnac86a7]{
     padding: 12px 20px;
-    transition: width 1s ease-in-out 250ms;
     resize: vertical;
     min-height: 50px;
-    width: 50px;
-}
-
-#inputFuelType:focus[b-s7gnac86a7]{
-    border: 3px solid dimgrey;
-    width: 160px;
-    outline: none;
+    margin-top: 10px;
+    animation: expandWidth-b-s7gnac86a7 2s ease-in-out;
 }
 
 #inputFuelType[b-s7gnac86a7]{
     padding: 12px 20px;
-    transition: width 1s ease-in-out 250ms;
     resize: vertical;
     min-height: 50px;
-    width: 50px;
+    margin-top: 10px;
+    animation: expandWidth-b-s7gnac86a7 2s ease-in-out;
 }
 
 #header[b-s7gnac86a7]{
     text-align: center;
+    color: rgb(67, 0, 127);
+    font-size: 40px;
+    font-weight: 750;
+}
+
+@keyframes expandWidth-b-s7gnac86a7 {
+    0% {
+        width: 50px;
+    }
+    100% {
+        width: 160px;
+    }
 }
 /* _content/BlazorApp/Pages/GetUser.razor.rz.scp.css */
 .user-card[b-n1sgfil5f0] {
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     display: inline-block;
     margin: 25px;
     padding: 15px;
@@ -212,7 +254,6 @@ h1[b-w6l7chfipm] {
     font-size: 40px;
 }
 
-
 h1:hover[b-w6l7chfipm] {
     color: #070407;
     font-size: 48px;
@@ -256,12 +297,8 @@ footer[b-w6l7chfipm]{
     margin: auto;
     margin-top: 50px;
     border-radius: 15px;
-}
-
-#inputPassword:focus[b-c956fem5qt]{
-    border: 3px solid dimgrey;
-    width: 160px;
-    outline: none;
+    background-color: rgb(67, 0, 127);
+    color: white;
 }
 
 .field[b-c956fem5qt]{
@@ -270,42 +307,59 @@ footer[b-w6l7chfipm]{
     justify-content: center;
 }
 
-#inputCpr:focus[b-c956fem5qt]{
-    border: 3px solid dimgrey;
-    width: 160px;
-    outline: none;
-}
-
-#inputPassword[b-c956fem5qt]{
-    padding: 12px 20px;
-    transition: width 1s ease-in-out 250ms;
-    resize: vertical;
-    min-height: 50px;
-    width: 50px;
-}
 
 #inputCpr[b-c956fem5qt]{
     padding: 12px 20px;
     transition: width 1s ease-in-out 250ms;
     resize: vertical;
     min-height: 50px;
-    width: 50px;
+    animation: expandWidth-b-c956fem5qt 2s ease-in-out;
+    margin-top: 10px;
 }
 
 #header[b-c956fem5qt]{
     text-align: center;
+    color: rgb(67, 0, 127);
+    font-size: 40px;
+    font-weight: 750;
 }
 
 .acceptbtn[b-c956fem5qt]{
-    background-color:lightgreen;
+    color:white;
+    background-color: rgb(132,0,218);
+    outline: solid 3px black;
     border-radius: 5px;
     padding: 5px;
     padding-left: 10px;
     padding-right: 10px;
+    margin-top: 20px;
 }
 
-.button-row[b-c956fem5qt]{
-    margin-top: 15px;
+#NewUser[b-c956fem5qt]{
+    text-decoration: none;
+    color: lightpink;
+}
+
+#NewUser:hover[b-c956fem5qt]{
+    text-decoration: none;
+    color: white;
+}
+
+#inputPassword[b-c956fem5qt] {
+    padding: 12px 20px;
+    resize: vertical;
+    min-height: 50px;
+    margin-top: 10px;
+    animation: expandWidth-b-c956fem5qt 2s ease-in-out; 
+}
+
+@keyframes expandWidth-b-c956fem5qt {
+    0% {
+        width: 50px;
+    }
+    100% {
+        width: 160px;
+    }
 }
 /* _content/BlazorApp/Pages/Register.razor.rz.scp.css */
 .card[b-x3lxt1hyuu]{
@@ -318,12 +372,8 @@ footer[b-w6l7chfipm]{
     margin: auto;
     margin-top: 50px;
     border-radius: 15px;
-}
-
-#inputPassword:focus[b-x3lxt1hyuu]{
-    border: 3px solid dimgrey;
-    width: 160px;
-    outline: none;
+    background-color: rgb(67, 0, 127);
+    color: white;
 }
 
 .field[b-x3lxt1hyuu]{
@@ -332,23 +382,14 @@ footer[b-w6l7chfipm]{
     justify-content: center;
 }
 
-#inputCprNumber:focus[b-x3lxt1hyuu]{
-    border: 3px solid dimgrey;
-    width: 160px;
-    outline: none;
-}
-
 .acceptbtn[b-x3lxt1hyuu]{
-    background-color:lightgreen;
+    color:white;
+    background-color: rgb(132,0,218);
+    outline: solid 3px black;
     border-radius: 5px;
     padding: 5px;
     padding-left: 10px;
     padding-right: 10px;
-}
-#inputEmail:focus[b-x3lxt1hyuu]{
-    border: 3px solid dimgrey;
-    width: 160px;
-    outline: none;
 }
 
 .button-row[b-x3lxt1hyuu]{
@@ -357,83 +398,69 @@ footer[b-w6l7chfipm]{
     text-align: center;
 }
 
-#inputPhoneNumber:focus[b-x3lxt1hyuu]{
-    border: 3px solid dimgrey;
-    width: 160px;
-    outline: none;
-}
-
-#inputFirstName:focus[b-x3lxt1hyuu]{
-    border: 3px solid dimgrey;
-    width: 160px;
-    outline: none;
-}
-
-#inputLastName:focus[b-x3lxt1hyuu]{
-    border: 3px solid dimgrey;
-    width: 160px;
-    outline: none;
-}
-
-#inputPassword:focus[b-x3lxt1hyuu]{
-    border: 3px solid dimgrey;
-    width: 160px;
-    outline: none;
-}
-
 #inputFirstName[b-x3lxt1hyuu]{
     padding: 12px 20px;
-    transition: width 1s ease-in-out 250ms;
     resize: vertical;
     min-height: 50px;
-    width: 50px;
+    margin-top: 10px;
+    animation: expandWidth-b-x3lxt1hyuu 2s ease-in-out;
 }
 
 #inputLastName[b-x3lxt1hyuu]{
     padding: 12px 20px;
-    transition: width 1s ease-in-out 250ms;
     resize: vertical;
     min-height: 50px;
-    width: 50px;
+    margin-top: 10px;
+    animation: expandWidth-b-x3lxt1hyuu 2s ease-in-out;
 }
 
 #inputEmail[b-x3lxt1hyuu]{
     padding: 12px 20px;
-    transition: width 1s ease-in-out 250ms;
     resize: vertical;
     min-height: 50px;
-    width: 50px;
+    margin-top: 10px;
+    animation: expandWidth-b-x3lxt1hyuu 2s ease-in-out;
 }
 
 #inputPassword[b-x3lxt1hyuu]{
     padding: 12px 20px;
-    transition: width 1s ease-in-out 250ms;
     resize: vertical;
     min-height: 50px;
-    width: 50px;
+    margin-top: 10px;
+    animation: expandWidth-b-x3lxt1hyuu 2s ease-in-out;
 }
 
 #inputCprNumber[b-x3lxt1hyuu]{
     padding: 12px 20px;
-    transition: width 1s ease-in-out 250ms;
     resize: vertical;
     min-height: 50px;
-    width: 50px;
+    margin-top: 10px;
+    animation: expandWidth-b-x3lxt1hyuu 2s ease-in-out;
 }
 
 #inputPhoneNumber[b-x3lxt1hyuu]{
     padding: 12px 20px;
-    transition: width 1s ease-in-out 250ms;
     resize: vertical;
     min-height: 50px;
-    width: 50px;
+    margin-top: 10px;
+    animation: expandWidth-b-x3lxt1hyuu 2s ease-in-out;
 }
 
 #header[b-x3lxt1hyuu]{
     text-align: center;
+    color: rgb(67, 0, 127);
+    font-size: 40px;
+    font-weight: 750;
 }
 
-
+@keyframes expandWidth-b-x3lxt1hyuu {
+    0% {
+        width: 50px;
+    }
+    100% {
+        width: 160px;
+    }
+}
 /* _content/BlazorApp/Pages/ViewCars.razor.rz.scp.css */
 #header[b-4ws64lblw9]{
     text-align: center;
@@ -442,9 +469,22 @@ footer[b-w6l7chfipm]{
 .card[b-4ws64lblw9]{
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     display: inline-block;
+    width: 30%;
+    height: 30%;
     margin: 25px;
     padding: 15px;
     border-radius: 10px;
+}
+
+.card label[b-4ws64lblw9]{
+    text-decoration: none;
+    color:black;
+    font-weight: 650;
+    font-size: 20px;
+}
+
+.card[b-4ws64lblw9]{
+    text-decoration: none;
 }
 /* _content/BlazorApp/Shared/MainLayout.razor.rz.scp.css */
 .page[b-3dsd3z3yec] {

@@ -19,6 +19,7 @@ public class ReservationService : ReservationProtoService.ReservationProtoServic
     {
         try
         {
+            Console.WriteLine("Service class received request");
             Reservation? toAddReservation = FromProtoToEntity(request);
             
             Reservation? addedReservation = await reservationDao.CreateReservationAsync(toAddReservation);
@@ -38,7 +39,7 @@ public class ReservationService : ReservationProtoService.ReservationProtoServic
         {   
             Id = reservationProtoObj.Id,
             CarId = reservationProtoObj.CarId,
-            UserId = reservationProtoObj.UserId,
+            UserName = reservationProtoObj.UserName,
             StartDate = reservationProtoObj.StartDate.ToDateTime(),
             EndDate = reservationProtoObj.EndDate.ToDateTime(),
             TotalPrice = reservationProtoObj.TotalPrice,
@@ -53,7 +54,7 @@ public class ReservationService : ReservationProtoService.ReservationProtoServic
         {   
             Id = reservationEntity.Id,
             CarId = reservationEntity.CarId,
-            UserId = reservationEntity.UserId,
+            UserName = reservationEntity.UserName,
             StartDate = Timestamp.FromDateTime(reservationEntity.StartDate.ToUniversalTime()),
             EndDate = Timestamp.FromDateTime(reservationEntity.EndDate.ToUniversalTime()),
             TotalPrice = reservationEntity.TotalPrice,

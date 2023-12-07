@@ -7,8 +7,9 @@
     text-align: center;
     margin: auto;
     margin-top: 50px;
-    margin-bottom: 50px;
     border-radius: 15px;
+    background-color: rgb(67, 0, 127);
+    color: white;
 }
 
 .field[b-s7gnac86a7]{
@@ -18,7 +19,9 @@
 }
 
 .acceptbtn[b-s7gnac86a7]{
-    background-color:lightgreen;
+    color:white;
+    background-color: rgb(132,0,218);
+    outline: solid 3px black;
     border-radius: 5px;
     padding: 5px;
     padding-left: 10px;
@@ -26,132 +29,90 @@
     margin-top: 20px;
 }
 
-#inputBrand:focus[b-s7gnac86a7]{
-    border: 3px solid dimgrey;
-    width: 160px;
-    outline: none;
-}
-
 #inputBrand[b-s7gnac86a7]{
     padding: 12px 20px;
-    transition: width 1s ease-in-out 250ms;
     resize: vertical;
     min-height: 50px;
-    width: 50px;
-}
-
-#inputModel:focus[b-s7gnac86a7]{
-    border: 3px solid dimgrey;
-    width: 160px;
-    outline: none;
+    margin-top: 10px;
+    animation: expandWidth-b-s7gnac86a7 2s ease-in-out;
 }
 
 #inputModel[b-s7gnac86a7]{
     padding: 12px 20px;
-    transition: width 1s ease-in-out 250ms;
     resize: vertical;
     min-height: 50px;
-    width: 50px;
-}
-
-#inputBodyType:focus[b-s7gnac86a7]{
-    border: 3px solid dimgrey;
-    width: 160px;
-    outline: none;
+    margin-top: 10px;
+    animation: expandWidth-b-s7gnac86a7 2s ease-in-out;
 }
 
 #inputBodyType[b-s7gnac86a7]{
     padding: 12px 20px;
-    transition: width 1s ease-in-out 250ms;
     resize: vertical;
     min-height: 50px;
-    width: 50px;
-}
-
-#inputGearbox:focus[b-s7gnac86a7]{
-    border: 3px solid dimgrey;
-    width: 160px;
-    outline: none;
+    margin-top: 10px;
+    animation: expandWidth-b-s7gnac86a7 2s ease-in-out;
 }
 
 #inputGearbox[b-s7gnac86a7]{
     padding: 12px 20px;
-    transition: width 1s ease-in-out 250ms;
     resize: vertical;
     min-height: 50px;
-    width: 50px;
-}
-
-#inputColor:focus[b-s7gnac86a7]{
-    border: 3px solid dimgrey;
-    width: 160px;
-    outline: none;
+    margin-top: 10px;
+    animation: expandWidth-b-s7gnac86a7 2s ease-in-out;
 }
 
 #inputColor[b-s7gnac86a7]{
     padding: 12px 20px;
-    transition: width 1s ease-in-out 250ms;
     resize: vertical;
     min-height: 50px;
-    width: 50px;
-}
-
-#inputHP:focus[b-s7gnac86a7]{
-    border: 3px solid dimgrey;
-    width: 160px;
-    outline: none;
+    margin-top: 10px;
+    animation: expandWidth-b-s7gnac86a7 2s ease-in-out;
 }
 
 #inputHP[b-s7gnac86a7]{
     padding: 12px 20px;
-    transition: width 1s ease-in-out 250ms;
     resize: vertical;
     min-height: 50px;
-    width: 50px;
-}
-
-#inputPrice:focus[b-s7gnac86a7]{
-    border: 3px solid dimgrey;
-    width: 160px;
-    outline: none;
+    margin-top: 10px;
+    animation: expandWidth-b-s7gnac86a7 2s ease-in-out;
 }
 
 #inputPrice[b-s7gnac86a7]{
     padding: 12px 20px;
-    transition: width 1s ease-in-out 250ms;
     resize: vertical;
     min-height: 50px;
-    width: 50px;
-}
-
-#inputDescription:focus[b-s7gnac86a7]{
-    border: 3px solid dimgrey;
-    width: 160px;
-    outline: none;
+    margin-top: 10px;
+    animation: expandWidth-b-s7gnac86a7 2s ease-in-out;
 }
 
 #inputDescription[b-s7gnac86a7]{
     padding: 12px 20px;
-    transition: width 1s ease-in-out 250ms;
     resize: vertical;
     min-height: 50px;
-    width: 50px;
-}
-
-#inputFuelType:focus[b-s7gnac86a7]{
-    border: 3px solid dimgrey;
-    width: 160px;
-    outline: none;
+    margin-top: 10px;
+    animation: expandWidth-b-s7gnac86a7 2s ease-in-out;
 }
 
 #inputFuelType[b-s7gnac86a7]{
     padding: 12px 20px;
-    transition: width 1s ease-in-out 250ms;
     resize: vertical;
     min-height: 50px;
-    width: 50px;
+    margin-top: 10px;
+    animation: expandWidth-b-s7gnac86a7 2s ease-in-out;
 }
 
 #header[b-s7gnac86a7]{
     text-align: center;
+    color: rgb(67, 0, 127);
+    font-size: 40px;
+    font-weight: 750;
+}
+
+@keyframes expandWidth-b-s7gnac86a7 {
+    0% {
+        width: 50px;
+    }
+    100% {
+        width: 160px;
+    }
 }
