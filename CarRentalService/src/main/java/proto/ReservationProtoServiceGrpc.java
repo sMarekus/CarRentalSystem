@@ -123,6 +123,70 @@ public final class ReservationProtoServiceGrpc {
      return getGetReservationByIdMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<com.google.protobuf.Int32Value,
+      proto.Reservation.ReservationProtoList> getGetReservationsByCarIdMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "GetReservationsByCarId",
+      requestType = com.google.protobuf.Int32Value.class,
+      responseType = proto.Reservation.ReservationProtoList.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<com.google.protobuf.Int32Value,
+      proto.Reservation.ReservationProtoList> getGetReservationsByCarIdMethod() {
+    io.grpc.MethodDescriptor<com.google.protobuf.Int32Value, proto.Reservation.ReservationProtoList> getGetReservationsByCarIdMethod;
+    if ((getGetReservationsByCarIdMethod = ReservationProtoServiceGrpc.getGetReservationsByCarIdMethod) == null) {
+      synchronized (ReservationProtoServiceGrpc.class) {
+        if ((getGetReservationsByCarIdMethod = ReservationProtoServiceGrpc.getGetReservationsByCarIdMethod) == null) {
+          ReservationProtoServiceGrpc.getGetReservationsByCarIdMethod = getGetReservationsByCarIdMethod = 
+              io.grpc.MethodDescriptor.<com.google.protobuf.Int32Value, proto.Reservation.ReservationProtoList>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(
+                  "proto.ReservationProtoService", "GetReservationsByCarId"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.google.protobuf.Int32Value.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  proto.Reservation.ReservationProtoList.getDefaultInstance()))
+                  .setSchemaDescriptor(new ReservationProtoServiceMethodDescriptorSupplier("GetReservationsByCarId"))
+                  .build();
+          }
+        }
+     }
+     return getGetReservationsByCarIdMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<com.google.protobuf.StringValue,
+      proto.Reservation.ReservationProtoList> getGetReservationsByUserNameMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "GetReservationsByUserName",
+      requestType = com.google.protobuf.StringValue.class,
+      responseType = proto.Reservation.ReservationProtoList.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<com.google.protobuf.StringValue,
+      proto.Reservation.ReservationProtoList> getGetReservationsByUserNameMethod() {
+    io.grpc.MethodDescriptor<com.google.protobuf.StringValue, proto.Reservation.ReservationProtoList> getGetReservationsByUserNameMethod;
+    if ((getGetReservationsByUserNameMethod = ReservationProtoServiceGrpc.getGetReservationsByUserNameMethod) == null) {
+      synchronized (ReservationProtoServiceGrpc.class) {
+        if ((getGetReservationsByUserNameMethod = ReservationProtoServiceGrpc.getGetReservationsByUserNameMethod) == null) {
+          ReservationProtoServiceGrpc.getGetReservationsByUserNameMethod = getGetReservationsByUserNameMethod = 
+              io.grpc.MethodDescriptor.<com.google.protobuf.StringValue, proto.Reservation.ReservationProtoList>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(
+                  "proto.ReservationProtoService", "GetReservationsByUserName"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.google.protobuf.StringValue.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  proto.Reservation.ReservationProtoList.getDefaultInstance()))
+                  .setSchemaDescriptor(new ReservationProtoServiceMethodDescriptorSupplier("GetReservationsByUserName"))
+                  .build();
+          }
+        }
+     }
+     return getGetReservationsByUserNameMethod;
+  }
+
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -171,6 +235,20 @@ public final class ReservationProtoServiceGrpc {
       asyncUnimplementedUnaryCall(getGetReservationByIdMethod(), responseObserver);
     }
 
+    /**
+     */
+    public void getReservationsByCarId(com.google.protobuf.Int32Value request,
+        io.grpc.stub.StreamObserver<proto.Reservation.ReservationProtoList> responseObserver) {
+      asyncUnimplementedUnaryCall(getGetReservationsByCarIdMethod(), responseObserver);
+    }
+
+    /**
+     */
+    public void getReservationsByUserName(com.google.protobuf.StringValue request,
+        io.grpc.stub.StreamObserver<proto.Reservation.ReservationProtoList> responseObserver) {
+      asyncUnimplementedUnaryCall(getGetReservationsByUserNameMethod(), responseObserver);
+    }
+
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
@@ -194,6 +272,20 @@ public final class ReservationProtoServiceGrpc {
                 com.google.protobuf.Int32Value,
                 proto.Reservation.ReservationProtoObj>(
                   this, METHODID_GET_RESERVATION_BY_ID)))
+          .addMethod(
+            getGetReservationsByCarIdMethod(),
+            asyncUnaryCall(
+              new MethodHandlers<
+                com.google.protobuf.Int32Value,
+                proto.Reservation.ReservationProtoList>(
+                  this, METHODID_GET_RESERVATIONS_BY_CAR_ID)))
+          .addMethod(
+            getGetReservationsByUserNameMethod(),
+            asyncUnaryCall(
+              new MethodHandlers<
+                com.google.protobuf.StringValue,
+                proto.Reservation.ReservationProtoList>(
+                  this, METHODID_GET_RESERVATIONS_BY_USER_NAME)))
           .build();
     }
   }
@@ -239,6 +331,22 @@ public final class ReservationProtoServiceGrpc {
       asyncUnaryCall(
           getChannel().newCall(getGetReservationByIdMethod(), getCallOptions()), request, responseObserver);
     }
+
+    /**
+     */
+    public void getReservationsByCarId(com.google.protobuf.Int32Value request,
+        io.grpc.stub.StreamObserver<proto.Reservation.ReservationProtoList> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getGetReservationsByCarIdMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void getReservationsByUserName(com.google.protobuf.StringValue request,
+        io.grpc.stub.StreamObserver<proto.Reservation.ReservationProtoList> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getGetReservationsByUserNameMethod(), getCallOptions()), request, responseObserver);
+    }
   }
 
   /**
@@ -278,6 +386,20 @@ public final class ReservationProtoServiceGrpc {
     public proto.Reservation.ReservationProtoObj getReservationById(com.google.protobuf.Int32Value request) {
       return blockingUnaryCall(
           getChannel(), getGetReservationByIdMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public proto.Reservation.ReservationProtoList getReservationsByCarId(com.google.protobuf.Int32Value request) {
+      return blockingUnaryCall(
+          getChannel(), getGetReservationsByCarIdMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public proto.Reservation.ReservationProtoList getReservationsByUserName(com.google.protobuf.StringValue request) {
+      return blockingUnaryCall(
+          getChannel(), getGetReservationsByUserNameMethod(), getCallOptions(), request);
     }
   }
 
@@ -322,11 +444,29 @@ public final class ReservationProtoServiceGrpc {
       return futureUnaryCall(
           getChannel().newCall(getGetReservationByIdMethod(), getCallOptions()), request);
     }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<proto.Reservation.ReservationProtoList> getReservationsByCarId(
+        com.google.protobuf.Int32Value request) {
+      return futureUnaryCall(
+          getChannel().newCall(getGetReservationsByCarIdMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<proto.Reservation.ReservationProtoList> getReservationsByUserName(
+        com.google.protobuf.StringValue request) {
+      return futureUnaryCall(
+          getChannel().newCall(getGetReservationsByUserNameMethod(), getCallOptions()), request);
+    }
   }
 
   private static final int METHODID_CREATE_RESERVATION = 0;
   private static final int METHODID_GET_ALL_RESERVATIONS = 1;
   private static final int METHODID_GET_RESERVATION_BY_ID = 2;
+  private static final int METHODID_GET_RESERVATIONS_BY_CAR_ID = 3;
+  private static final int METHODID_GET_RESERVATIONS_BY_USER_NAME = 4;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -356,6 +496,14 @@ public final class ReservationProtoServiceGrpc {
         case METHODID_GET_RESERVATION_BY_ID:
           serviceImpl.getReservationById((com.google.protobuf.Int32Value) request,
               (io.grpc.stub.StreamObserver<proto.Reservation.ReservationProtoObj>) responseObserver);
+          break;
+        case METHODID_GET_RESERVATIONS_BY_CAR_ID:
+          serviceImpl.getReservationsByCarId((com.google.protobuf.Int32Value) request,
+              (io.grpc.stub.StreamObserver<proto.Reservation.ReservationProtoList>) responseObserver);
+          break;
+        case METHODID_GET_RESERVATIONS_BY_USER_NAME:
+          serviceImpl.getReservationsByUserName((com.google.protobuf.StringValue) request,
+              (io.grpc.stub.StreamObserver<proto.Reservation.ReservationProtoList>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -421,6 +569,8 @@ public final class ReservationProtoServiceGrpc {
               .addMethod(getCreateReservationMethod())
               .addMethod(getGetAllReservationsMethod())
               .addMethod(getGetReservationByIdMethod())
+              .addMethod(getGetReservationsByCarIdMethod())
+              .addMethod(getGetReservationsByUserNameMethod())
               .build();
         }
       }

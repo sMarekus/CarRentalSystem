@@ -19,6 +19,8 @@ service ReservationProtoService
   rpc CreateReservation(ReservationProtoObj) returns (ReservationProtoObj);
   rpc GetAllReservations(google.protobuf.Empty) returns (ReservationProtoList);
   rpc GetReservationById(google.protobuf.Int32Value) returns (ReservationProtoObj);
+  rpc GetReservationsByCarId(google.protobuf.Int32Value) returns (ReservationProtoList);
+  rpc GetReservationsByUserName(google.protobuf.StringValue) returns (ReservationProtoList);
 }
 
 message ReservationProtoList
