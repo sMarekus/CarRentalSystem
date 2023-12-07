@@ -9,4 +9,5 @@ public interface IReservationService
     Task<IEnumerable<Reservation>> GetReservationsAsync();
     Task<Reservation> GetReservationById(int reservationId);
     Task<IEnumerable<Reservation>> GetReservationsByCarId(int carId);
+    Task<IEnumerable<Reservation>> GetReservationsByUsername(string username);
 }

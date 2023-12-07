@@ -8,4 +8,5 @@ public interface ICarDao
     Task<IEnumerable<CarDto>> GetCarsAsync(CarFilterDto fromProtoToCarFilterDto);
     Task<Car> GetCarByIdAsync(int carId);
     Task<Car> DeleteCarAsync(int carId);
+    Task<Car> UpdateCarAsync(Car carToUpdate);
 }
