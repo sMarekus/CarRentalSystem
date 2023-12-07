@@ -76,4 +76,15 @@ public class CarsController
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
     }
+
+    @PatchMapping(value = "/cars/{id}")
+    public ResponseEntity<Car> updateCar(@PathVariable("id") int id, @RequestBody Car car) {
+        try {
+            car.setId(id);
+            Car updatedCar = carService.updateCar(car);
+            return new ResponseEntity<>(updatedCar, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+    }
 }
