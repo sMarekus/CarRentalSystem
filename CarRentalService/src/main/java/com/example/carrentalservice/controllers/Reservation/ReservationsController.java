@@ -6,10 +6,12 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 public class ReservationsController
 {
-    private IReservationService reservationService;
+    private final IReservationService reservationService;
     public ReservationsController(IReservationService reservationService) {
         this.reservationService = reservationService;
     }
@@ -26,6 +28,17 @@ public class ReservationsController
         }
     }
 
+    @GetMapping(value = "/reservations")
+    public ResponseEntity<List<Reservation>> getReservations()
+    {
+        try {
+            List<Reservation> reservations = reservationService.getReservations();
+            return new ResponseEntity<>(reservations, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+    }
+
     @GetMapping(value = "/reservations/{id}")
     public ResponseEntity<Reservation> getReservationById(@PathVariable("id") int id)
     {
@@ -37,4 +50,5 @@ public class ReservationsController
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
     }
+
 }
