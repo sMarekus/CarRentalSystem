@@ -11,7 +11,7 @@ message ReservationProtoObj
 {
   int32 Id = 1;
   int32 CarId = 2;
-  int32 UserId = 3;
+  string UserName = 3;
   google.protobuf.Timestamp StartDate = 4;
   google.protobuf.Timestamp EndDate = 5;
   double TotalPrice = 6;

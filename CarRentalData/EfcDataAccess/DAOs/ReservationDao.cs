@@ -17,6 +17,7 @@ public class ReservationDao : IReservationDao
     {
         try
         {
+            Console.WriteLine("DAO class received request");
             EntityEntry<Reservation>? reservationEntityEntry = await context.Reservations.AddAsync(reservationEntity);
             await context.SaveChangesAsync();
             return reservationEntityEntry.Entity;
