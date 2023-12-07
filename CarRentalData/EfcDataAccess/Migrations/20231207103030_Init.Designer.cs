@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EfcDataAccess.Migrations
 {
     [DbContext(typeof(CarRentalSystemContext))]
-    [Migration("20231205093622_Init")]
+    [Migration("20231207103030_Init")]
     partial class Init
     {
         /// <inheritdoc />
@@ -86,8 +86,8 @@ namespace EfcDataAccess.Migrations
                     b.Property<double>("TotalPrice")
                         .HasColumnType("REAL");
 
-                    b.Property<int>("UserId")
-                        .HasColumnType("INTEGER");
+                    b.Property<string>("UserName")
+                        .HasColumnType("TEXT");
 
                     b.HasKey("Id");
 
