@@ -22,4 +22,18 @@ public class CarUpdateDto
     }
     
     public CarUpdateDto(){}
+
+    public CarUpdateDto(string brand, string model, string bodyType, int horsePower, string fuelType, string gearbox,
+        string color, string description, int pricePerDay)
+    {
+        Brand = brand;
+        Model = model;
+        BodyType = bodyType;
+        HorsePower = horsePower;
+        FuelType = fuelType;
+        Gearbox = gearbox;
+        Color = color;
+        Description = description;
+        PricePerDay = pricePerDay;
+    }
 }

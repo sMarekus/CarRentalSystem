@@ -78,7 +78,7 @@ public class ReservationService: IReservationService
 
     public async Task<IEnumerable<Reservation>> GetReservationsByCarId(int carId)
     {
-        HttpResponseMessage response = await client.GetAsync($"/reservations/{carId}");
+        HttpResponseMessage response = await client.GetAsync($"/reservations/by-car/{carId}");
         string content = await response.Content.ReadAsStringAsync();
         
         if (!response.IsSuccessStatusCode)
@@ -98,7 +98,7 @@ public class ReservationService: IReservationService
 
     public async Task<IEnumerable<Reservation>> GetReservationsByUsername(string username)
     {
-        string query = $"/reservations/?username={username}";
+        string query = $"/reservations/by-user/{username}";
 
         HttpResponseMessage response = await client.GetAsync(query);
         string content = await response.Content.ReadAsStringAsync();
