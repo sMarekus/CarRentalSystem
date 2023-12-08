@@ -29,6 +29,13 @@ public class UserDao : IUserDao
         }
     }
 
+    public async Task<User?> UpdateUserAsync(User userEntity)
+    {
+        context.Users.Update(userEntity);
+        await context.SaveChangesAsync();
+        return userEntity;
+    }
+
     public async Task<ICollection<User?>> FetchUsersAsync()
     {
         if (!context.Users.Any()) throw new Exception("No users found");

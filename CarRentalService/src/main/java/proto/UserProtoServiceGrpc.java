@@ -59,6 +59,38 @@ public final class UserProtoServiceGrpc {
      return getCreateUserMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<proto.User.UserProtoObj,
+      proto.User.UserProtoObj> getUpdateUserMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "UpdateUser",
+      requestType = proto.User.UserProtoObj.class,
+      responseType = proto.User.UserProtoObj.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<proto.User.UserProtoObj,
+      proto.User.UserProtoObj> getUpdateUserMethod() {
+    io.grpc.MethodDescriptor<proto.User.UserProtoObj, proto.User.UserProtoObj> getUpdateUserMethod;
+    if ((getUpdateUserMethod = UserProtoServiceGrpc.getUpdateUserMethod) == null) {
+      synchronized (UserProtoServiceGrpc.class) {
+        if ((getUpdateUserMethod = UserProtoServiceGrpc.getUpdateUserMethod) == null) {
+          UserProtoServiceGrpc.getUpdateUserMethod = getUpdateUserMethod = 
+              io.grpc.MethodDescriptor.<proto.User.UserProtoObj, proto.User.UserProtoObj>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(
+                  "proto.UserProtoService", "UpdateUser"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  proto.User.UserProtoObj.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  proto.User.UserProtoObj.getDefaultInstance()))
+                  .setSchemaDescriptor(new UserProtoServiceMethodDescriptorSupplier("UpdateUser"))
+                  .build();
+          }
+        }
+     }
+     return getUpdateUserMethod;
+  }
+
   private static volatile io.grpc.MethodDescriptor<com.google.protobuf.Empty,
       proto.User.UserListResponse> getGetAllUsersMethod;
 
@@ -159,6 +191,13 @@ public final class UserProtoServiceGrpc {
 
     /**
      */
+    public void updateUser(proto.User.UserProtoObj request,
+        io.grpc.stub.StreamObserver<proto.User.UserProtoObj> responseObserver) {
+      asyncUnimplementedUnaryCall(getUpdateUserMethod(), responseObserver);
+    }
+
+    /**
+     */
     public void getAllUsers(com.google.protobuf.Empty request,
         io.grpc.stub.StreamObserver<proto.User.UserListResponse> responseObserver) {
       asyncUnimplementedUnaryCall(getGetAllUsersMethod(), responseObserver);
@@ -180,6 +219,13 @@ public final class UserProtoServiceGrpc {
                 proto.User.UserProtoObj,
                 proto.User.UserProtoObj>(
                   this, METHODID_CREATE_USER)))
+          .addMethod(
+            getUpdateUserMethod(),
+            asyncUnaryCall(
+              new MethodHandlers<
+                proto.User.UserProtoObj,
+                proto.User.UserProtoObj>(
+                  this, METHODID_UPDATE_USER)))
           .addMethod(
             getGetAllUsersMethod(),
             asyncUnaryCall(
@@ -226,6 +272,14 @@ public final class UserProtoServiceGrpc {
 
     /**
      */
+    public void updateUser(proto.User.UserProtoObj request,
+        io.grpc.stub.StreamObserver<proto.User.UserProtoObj> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getUpdateUserMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
     public void getAllUsers(com.google.protobuf.Empty request,
         io.grpc.stub.StreamObserver<proto.User.UserListResponse> responseObserver) {
       asyncUnaryCall(
@@ -264,6 +318,13 @@ public final class UserProtoServiceGrpc {
     public proto.User.UserProtoObj createUser(proto.User.UserProtoObj request) {
       return blockingUnaryCall(
           getChannel(), getCreateUserMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public proto.User.UserProtoObj updateUser(proto.User.UserProtoObj request) {
+      return blockingUnaryCall(
+          getChannel(), getUpdateUserMethod(), getCallOptions(), request);
     }
 
     /**
@@ -309,6 +370,14 @@ public final class UserProtoServiceGrpc {
 
     /**
      */
+    public com.google.common.util.concurrent.ListenableFuture<proto.User.UserProtoObj> updateUser(
+        proto.User.UserProtoObj request) {
+      return futureUnaryCall(
+          getChannel().newCall(getUpdateUserMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
     public com.google.common.util.concurrent.ListenableFuture<proto.User.UserListResponse> getAllUsers(
         com.google.protobuf.Empty request) {
       return futureUnaryCall(
@@ -325,8 +394,9 @@ public final class UserProtoServiceGrpc {
   }
 
   private static final int METHODID_CREATE_USER = 0;
-  private static final int METHODID_GET_ALL_USERS = 1;
-  private static final int METHODID_FETCH_USER_BY_USERNAME = 2;
+  private static final int METHODID_UPDATE_USER = 1;
+  private static final int METHODID_GET_ALL_USERS = 2;
+  private static final int METHODID_FETCH_USER_BY_USERNAME = 3;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -347,6 +417,10 @@ public final class UserProtoServiceGrpc {
       switch (methodId) {
         case METHODID_CREATE_USER:
           serviceImpl.createUser((proto.User.UserProtoObj) request,
+              (io.grpc.stub.StreamObserver<proto.User.UserProtoObj>) responseObserver);
+          break;
+        case METHODID_UPDATE_USER:
+          serviceImpl.updateUser((proto.User.UserProtoObj) request,
               (io.grpc.stub.StreamObserver<proto.User.UserProtoObj>) responseObserver);
           break;
         case METHODID_GET_ALL_USERS:
@@ -419,6 +493,7 @@ public final class UserProtoServiceGrpc {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
               .setSchemaDescriptor(new UserProtoServiceFileDescriptorSupplier())
               .addMethod(getCreateUserMethod())
+              .addMethod(getUpdateUserMethod())
               .addMethod(getGetAllUsersMethod())
               .addMethod(getFetchUserByUsernameMethod())
               .build();
