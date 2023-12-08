@@ -45,6 +45,15 @@ public class UserServiceImplementation implements IUserService {
     }
 
     @Override
+    public User updateUser(User user) {
+        try {
+            return client.updateUser(user);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
     public List<User> getUsers() {
         try {
             List<User> users = client.getUsers();

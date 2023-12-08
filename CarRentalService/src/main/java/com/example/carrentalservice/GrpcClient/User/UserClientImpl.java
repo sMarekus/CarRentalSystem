@@ -37,6 +37,17 @@ public class UserClientImpl implements IUserClient
     }
 
     @Override
+    public User updateUser(User user) {
+        try {
+            proto.User.UserProtoObj userProtoObj = fromEntityToProtoObj(user);
+            proto.User.UserProtoObj protoObjFromServer = getUserStub().updateUser(userProtoObj);
+            return fromProtoObjToEntity(protoObjFromServer);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
     public List<User> getUsers() {
         try {
             proto.User.UserListResponse allUsers = getUserStub().getAllUsers(Empty.newBuilder().build());

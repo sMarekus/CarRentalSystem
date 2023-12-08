@@ -117,4 +117,18 @@ public class ReservationService: IReservationService
 
         return reservations.ToList();
     }
+    
+    public async Task<bool> IsCarAvailable(int carId, DateTime startDate, DateTime endDate)
+    {
+        HttpResponseMessage response = await client.GetAsync($"/reservations/car/{carId}");
+        string content = await response.Content.ReadAsStringAsync();
+        if (!response.IsSuccessStatusCode)
+        {
+            Console.WriteLine($"Error fetching reservations: {response.StatusCode}");
+            return false;
+        }
+    
+        IEnumerable<Reservation> reservations = JsonSerializer.Deserialize<IEnumerable<Reservation>>(content, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+        return !reservations.Any(r => r.StartDate < endDate && r.EndDate > startDate);
+    }
 }
