@@ -1,12 +1,18 @@
 ﻿@page "/EditCar/{carId:int}"
 @using HttpClients.ClientInterfaces
 @using Domain.DTOs
+@using Domain.Models
+@using Microsoft.AspNetCore.Mvc
 @inject ICarService carService;
 @inject NavigationManager navMgr;
 
 <div class="row d-flex justify-content-center">
     <div class="col-md-6">
         <h3 id="header">Edit car</h3>
+        @if (car != null)
+        {
+            <h4>@car.Model (@car.Brand)</h4>
+        }
     </div>
 </div>
 
@@ -15,7 +21,7 @@
     <div class="row d-flex justify-content-center">
         <div class="col-md-6">
             <div class="form-group field">
-                <label>Brand:</label>
+                <label>Edit Brand:</label>
                 <input id="inputBrand" type="text" class="form-control" @bind="brand" @bind:event="oninput"/>
             </div>
         </div>
@@ -24,7 +30,7 @@
     <div class="row d-flex justify-content-center">
         <div class="col-md-6">
             <div class="form-group field">
-                <label>Model:</label>
+                <label>Edit Model:</label>
                 <input id="inputModel" type="text" class="form-control" @bind="model" @bind:event="oninput"/>
             </div>
         </div>
@@ -33,7 +39,7 @@
     <div class="row d-flex justify-content-center">
         <div class="col-md-6">
             <div class="form-group field">
-                <label>Body Type:</label>
+                <label>Edit Body Type:</label>
                 <input id="inputBodyType" type="text" class="form-control" @bind="bodyType" @bind:event="oninput"/>
             </div>
         </div>
@@ -42,7 +48,7 @@
     <div class="row d-flex justify-content-center">
         <div class="col-md-6">
             <div class="form-group field">
-                <label>Horsepower:</label>
+                <label>Edit Horsepower:</label>
                 <input id="inputHP" type="text" class="form-control" @bind="horsePower" @bind:event="oninput"/>
             </div>
         </div>
@@ -51,7 +57,7 @@
     <div class="row d-flex justify-content-center">
         <div class="col-md-6">
             <div class="form-group field">
-                <label>Fuel Type:</label>
+                <label>Edit Fuel Type:</label>
                 <input id="inputFuelType" type="text" class="form-control" @bind="fuelType" @bind:event="oninput"/>
             </div>
         </div>
@@ -60,7 +66,7 @@
     <div class="row d-flex justify-content-center">
         <div class="col-md-6">
             <div class="form-group field">
-                <label>Gearbox:</label>
+                <label>Edit Gearbox:</label>
                 <input id="inputGearbox" type="text" class="form-control" @bind="gearbox" @bind:event="oninput"/>
             </div>
         </div>
@@ -69,7 +75,7 @@
     <div class="row d-flex justify-content-center">
         <div class="col-md-6">
             <div class="form-group field">
-                <label>Color</label>
+                <label>Edit Color</label>
                 <input id="inputColor" type="text" class="form-control" @bind="color" @bind:event="oninput"/>
             </div>
         </div>
@@ -77,7 +83,7 @@
     <div class="row d-flex justify-content-center">
         <div class="col-md-6">
             <div class="form-group field">
-                <label>Description</label>
+                <label>Edit Description</label>
                 <input id="inputDescription" type="text" class="form-control" @bind="description" @bind:event="oninput"/>
             </div>
         </div>
@@ -85,7 +91,7 @@
     <div class="row d-flex justify-content-center">
         <div class="col-md-6">
             <div class="form-group field">
-                <label>Price per day:</label>
+                <label>Edit Price per day:</label>
                 <input id="inputPrice" type="text" class="form-control" @bind="pricePerDay" @bind:event="oninput"/>
             </div>
         </div>
@@ -98,7 +104,7 @@
                         <label style="color: @msgcolor">@msg</label>
                     }
                 <div class="button-row">
-                    <button @onclick="Edit" class="acceptbtn">Add</button>
+                    <button @onclick="Edit" class="acceptbtn">Confirm</button>
                 </div>
             </div>
         </div>
@@ -108,24 +114,29 @@
 @code {
     [Parameter]
     public int carId { get; set; }
-    
-    private string brand = "";
-    private string model = "";
-    private string bodyType = "";
+    private string brand;
+    private string model;
+    private string bodyType;
     private int horsePower;
-    private string fuelType = "";
-    private string gearbox = "";
-    private string color = "";
-    private string description = "";
+    private string fuelType;
+    private string gearbox;
+    private string color;
+    private string description;
     private int pricePerDay;
     private string msg = "";
     private string msgcolor = "green";
+    private Car? car;
+
+    protected override async Task OnInitializedAsync()
+    {
+        car = await carService.GetCarById(carId);
+    }
     
     private async Task Edit()
     {
         try
         {
-            CarUpdateDto dto = new CarUpdateDto(brand, model, bodyType, horsePower, fuelType, gearbox, color, description, pricePerDay);
+            CarUpdateDto dto = new CarUpdateDto(carId, UpdateBrand(), UpdateModel(), UpdateBodyType(), UpdateHorsePower(), UpdateFuelType(), UpdateGearbox(), UpdateColor(), UpdateDescription(), UpdatePrice());
             await carService.UpdateAsync(dto);
             msg = "Car added successfully.";
             navMgr.NavigateTo("/");
@@ -137,6 +148,132 @@
             msgcolor = "red";
             throw new Exception(e.Message);
         }
+    }
+
+    private string UpdateBrand()
+    {
+        string result = "";
+        if (brand == null)
+        {
+            result = car.Brand;
+        }
+        else
+        {
+            result = brand;
+        }
+        return result;
+    }
+
+    private string UpdateModel()
+    {
+        string result = "";
+        if (model == null)
+        {
+            result = car.Model;
+        }
+        else
+        {
+            result = model;
+        }
+        return result;
+    }
+
+    private string UpdateBodyType()
+    {
+        string result = "";
+        if (bodyType == null)
+        {
+            result = car.BodyType;
+        }
+        else
+        {
+            result = bodyType;
+        }
+        return result;
+    }
+
+    private int UpdateHorsePower()
+    {
+        int result;
+        if (horsePower == null || horsePower==0)
+        {
+            result = car.HorsePower;
+        }
+        else
+        {
+            result = horsePower;
+        }
+        return result;
+    }
+
+    private string UpdateFuelType()
+    {
+        string result = "";
+        if (fuelType == null)
+        {
+            result = car.FuelType;
+        }
+        else
+        {
+            result = fuelType;
+        }
+        return result;
+    }
+
+    private string UpdateGearbox()
+    {
+        string result = "";
+        if (gearbox == null)
+        {
+            result = car.Gearbox;
+        }
+        else
+        {
+            result = gearbox;
+        }
+        return result;
+    }
+
+    private string UpdateColor()
+    {
+        string result = "";
+        if (color == null)
+        {
+            result = car.Color;
+        }
+        else
+        {
+            result = color;
+        }
+        return result;
+    }
+
+    private string UpdateDescription()
+    {
+        string result = "";
+        if (description == null)
+        {
+            result = car.Description;
+        }
+        else
+        {
+            result = description;
+        }
+        return result;
+    }
+
+    private int UpdatePrice()
+    {
+        int result;
+        if (pricePerDay == null || pricePerDay==0)
+        {
+            result = car.PricePerDay;
+        }
+        else
+        {
+            result = pricePerDay;
+        }
+        return result;
     }
     
 }

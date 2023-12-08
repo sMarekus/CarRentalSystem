@@ -166,7 +166,7 @@ public class CarService : ICarService
         string dtoAsJson = JsonSerializer.Serialize(dto);
         StringContent body = new StringContent(dtoAsJson, Encoding.UTF8, "application/json");
 
-        HttpResponseMessage response = await client.PatchAsync("/cars", body);
+        HttpResponseMessage response = await client.PatchAsync($"/cars/{dto.Id}", body);
         if (!response.IsSuccessStatusCode)
         {
             var statusCode = response.StatusCode;
@@ -176,21 +176,7 @@ public class CarService : ICarService
         }
     }
 
-   /* public async Task UpdateAsync(CarCreationDto dto)
-    {
-        string dtoAsJson = JsonSerializer.Serialize(dto);
-        StringContent body = new StringContent(dtoAsJson, Encoding.UTF8, "application/json");
-
-        HttpResponseMessage response = await client.PatchAsync("/cars", body);
-        if (!response.IsSuccessStatusCode)
-        {
-            var statusCode = response.StatusCode;
-            Console.WriteLine($"Status Code: {statusCode}");
-            string content = await response.Content.ReadAsStringAsync();
-            throw new Exception(content);
-        }
-    }
-*/
+   
     public async Task DeleteAsync(int carId)
     {
         HttpResponseMessage response = await client.DeleteAsync($"/cars/{carId}");
