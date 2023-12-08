@@ -7,6 +7,7 @@ import java.util.List;
 public interface IUserClient
 {
     User createUser(User user);
+    User updateUser( User user);
     List<User> getUsers();
     User getUserByUserName(String userName);
 

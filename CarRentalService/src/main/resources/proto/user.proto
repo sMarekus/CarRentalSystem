@@ -17,6 +17,7 @@ message UserProtoObj
 service UserProtoService
 {
   rpc CreateUser(UserProtoObj) returns (UserProtoObj){}
+  rpc UpdateUser(UserProtoObj) returns (UserProtoObj){}
   rpc GetAllUsers(google.protobuf.Empty) returns (UserListResponse){}
   rpc FetchUserByUsername(google.protobuf.StringValue) returns (UserProtoObj){}
 }

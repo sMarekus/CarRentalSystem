@@ -8,6 +8,7 @@ import java.util.List;
 public interface IReservationClient
 {
     Reservation createReservation(Reservation reservation);
+    Reservation returnReservation(int id);
 
     List<Reservation> getReservations();
     Reservation getReservationById(int id);
