@@ -163,7 +163,14 @@ public class CarService : ICarService
 
     public async Task UpdateAsync(CarUpdateDto dto)
     {
-        string dtoAsJson = JsonSerializer.Serialize(dto);
+        JsonSerializerOptions jsonOptions = new JsonSerializerOptions
+        {
+            PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+            PropertyNameCaseInsensitive = true,
+            Converters = { new CustomEnumConverter<CarStatus>() }
+        };
+        
+        string dtoAsJson = JsonSerializer.Serialize(dto, jsonOptions);
         StringContent body = new StringContent(dtoAsJson, Encoding.UTF8, "application/json");
 
         HttpResponseMessage response = await client.PatchAsync($"/cars/{dto.Id}", body);

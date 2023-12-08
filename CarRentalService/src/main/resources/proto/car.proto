@@ -50,5 +50,5 @@ service CarProtoService
   rpc GetCarById(google.protobuf.Int32Value) returns (CarProtoObj){}
   rpc GetCars(CarFilterProtoObj) returns (ListCarObj){}
   rpc DeleteCar(google.protobuf.Int32Value) returns (CarProtoObj){}
-  rpc UpdateCar(google.protobuf.Int32Value) returns (CarProtoObj){}
+  rpc UpdateCar(CarProtoObj) returns (CarProtoObj){}
 }
