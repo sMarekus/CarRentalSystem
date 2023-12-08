@@ -23,9 +23,10 @@ public class CarUpdateDto
     
     public CarUpdateDto(){}
 
-    public CarUpdateDto(string brand, string model, string bodyType, int horsePower, string fuelType, string gearbox,
+    public CarUpdateDto(int id, string brand, string model, string bodyType, int horsePower, string fuelType, string gearbox,
         string color, string description, int pricePerDay)
     {
+        Id = id;
         Brand = brand;
         Model = model;
         BodyType = bodyType;
