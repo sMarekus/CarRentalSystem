@@ -40,6 +40,17 @@ public class ReservationClientImpl implements IReservationClient
     }
 
     @Override
+    public Reservation returnReservation(int id) {
+        try {
+            proto.Reservation.ReservationProtoObj reservationProtoObj = getStub().returnReservation(Int32Value.of(id));
+            proto.Reservation.ReservationProtoObj protoObjFromServer = getStub().returnReservation(Int32Value.of(id));
+            return fromProtoObjToEntity(protoObjFromServer);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
     public List<Reservation> getReservations() {
         try {
             proto.Reservation.ReservationProtoList reservationProtoObjs = getStub().getAllReservations(Empty.newBuilder().build());
