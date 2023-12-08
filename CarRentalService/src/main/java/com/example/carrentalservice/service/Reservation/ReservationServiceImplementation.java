@@ -42,4 +42,22 @@ public class ReservationServiceImplementation implements IReservationService
             throw new RuntimeException(e);
         }
     }
+
+    @Override
+    public List<Reservation> getReservationsByCarId(int carId) {
+        try {
+            return client.getReservationsByCarId(carId);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public List<Reservation> getReservationsByUserName(String userName) {
+        try {
+            return client.getReservationsByUserName(userName);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

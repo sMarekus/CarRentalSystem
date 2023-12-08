@@ -8,21 +8,33 @@
 
 <h3>ReservationHistory</h3>
 
+@if (reservations != null)
+{
+    @foreach (var r in reservations)
+    {
+        <div class="row-col-6 d-flex">
+            <p>@r.Id, @r.CarId, @r.UserName, @r.StartDate, @r.EndDate, @r.TotalPrice</p>
+        </div>
+    }
+}
+
 @code {
-    private string? currentUser="";
-    Reservation? reservation;
+    [Parameter]
+    public string? username { get; set; }
+    IEnumerable<Reservation>? reservations;
 
 
     protected override async Task OnInitializedAsync()
     {
         // NEED A NEW METHOD FOR THIS FINISH LATER
-        reservation = await reservationService.GetReservationById(1);
+        await GetLoggedInUserId();
+        reservations = await reservationService.GetReservationsByUsername(username);
     }
     
     private async Task<string> GetLoggedInUserId()
     {
         AuthenticationState state = await StateProvider.GetAuthenticationStateAsync();
-        currentUser = state.User.Claims.FirstOrDefault(claim => claim.Type.Equals("username"))!.Value.ToString();
-        return currentUser;
+        username = state.User.Claims.FirstOrDefault(claim => claim.Type.Equals("username"))!.Value.ToString();
+        return username;
     }
 }

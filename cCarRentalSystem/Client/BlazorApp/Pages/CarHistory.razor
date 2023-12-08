@@ -8,7 +8,10 @@
 <h3>Car History</h3>
 
 <div class="container">
-    <label>Reservations of @car.Model (@car.Brand):</label>
+    @if (car != null)
+    {
+        <label>Reservations of @car.Model (@car.Brand):</label>
+    }
     @if (reservations != null)
     {
         @foreach (var r in reservations)
@@ -24,7 +27,7 @@
             </div>
         }
     }
-    
+
 </div>
 
 
@@ -39,7 +42,10 @@
     protected override async Task OnInitializedAsync()
     {
         car = await carService.GetCarById(carId);
-        // NEED METHOD
-        reservations = await reservationService.GetReservationsByCarId(carId);
+
+        if (car != null)
+        {
+            reservations = await reservationService.GetReservationsByCarId(carId);
+        }
     }
 }
