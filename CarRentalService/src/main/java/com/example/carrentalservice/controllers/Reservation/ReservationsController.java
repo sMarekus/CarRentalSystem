@@ -28,6 +28,17 @@ public class ReservationsController
         }
     }
 
+    @PatchMapping(value = "/reservations/{id}")
+    public ResponseEntity<Reservation> returnReservation(@PathVariable("id") int id)
+    {
+        try {
+            Reservation reservationFromDatabase = reservationService.returnReservation(id);
+            return new ResponseEntity<>(reservationFromDatabase, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+    }
+
     @GetMapping(value = "/reservations")
     public ResponseEntity<List<Reservation>> getReservations()
     {
