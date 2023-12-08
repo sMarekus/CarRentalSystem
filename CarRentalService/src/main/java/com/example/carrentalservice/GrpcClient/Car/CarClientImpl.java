@@ -74,7 +74,7 @@ public CarProtoServiceGrpc.CarProtoServiceBlockingStub getCarStub() {
     public Car updateCar(Car car) {
         try {
             proto.Car.CarProtoObj carProtoObj = fromEntityToProtoObj(car);
-            proto.Car.CarProtoObj protoObjFromServer = getCarStub().updateCar(Int32Value.of(car.getId()));
+            proto.Car.CarProtoObj protoObjFromServer = getCarStub().updateCar(carProtoObj);
             return fromProtoObjToEntity(protoObjFromServer);
         } catch (Exception e) {
             throw new RuntimeException(e);

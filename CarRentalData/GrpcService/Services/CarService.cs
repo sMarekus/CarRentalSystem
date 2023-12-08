@@ -69,30 +69,25 @@ public class CarService : CarProtoService.CarProtoServiceBase
         }
     }
     
-    public override async Task<CarProtoObj> UpdateCar(Int32Value request, ServerCallContext context)
+    public override async Task<CarProtoObj> UpdateCar(CarProtoObj request, ServerCallContext context)
     {
         try
-        {
-            // Fetch car by ID or construct a new Car object based on the request value
-            Car car = await carDao.GetCarByIdAsync(request.Value); // Example: Fetch car from database by ID
-
-            // Update the car properties or construct a new Car object based on your requirements
-
-            // Perform the update operation
-            Car updatedCar = await carDao.UpdateCarAsync(car);
-
-            // Convert the updated car to DTO and then to ProtoObj
-            CarDto dto = new CarDto(updatedCar.Id, updatedCar.Brand, updatedCar.Model, updatedCar.BodyType, updatedCar.HorsePower, updatedCar.FuelType,
-                updatedCar.Gearbox, updatedCar.Color, updatedCar.Description, updatedCar.PricePerDay, updatedCar.Status);
-            CarProtoObj carProtoObj = convertDtoToProto(dto);
-
-            return carProtoObj;
-        }
-        catch (Exception e)
-        {
-            Console.WriteLine(e);
-            throw new RpcException(new Status(StatusCode.NotFound, e.Message));
-        }
+            {
+                Car carToUpdate = FromProtoToEntity(request);
+        
+                // Perform the update operation
+                Car updatedCar = await carDao.UpdateCarAsync(carToUpdate);
+        
+                // Convert the updated car to CarProtoObj
+                CarProtoObj carProtoObj = FromEntityToProto(updatedCar);
+        
+                return carProtoObj;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw new RpcException(new Status(StatusCode.NotFound, e.Message));
+            }
     }
 
     
