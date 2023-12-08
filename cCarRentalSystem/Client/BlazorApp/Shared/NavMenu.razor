@@ -1,4 +1,5 @@
-﻿<div id="topCorner" class="top-row ps-3 navbar navbar-dark">
+﻿@using Domain.Models
+<div id="topCorner" class="top-row ps-3 navbar navbar-dark">
     <div class="container-fluid">
         <a class="navbar-brand" href="">Car Rental Service App</a>
         <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
@@ -54,6 +55,8 @@
                 <span class="oi oi-list" aria-hidden="true"></span> View Reservations
             </NavLink>
         </div>
+        
+        
     </nav>
 </div>
 
@@ -66,5 +69,7 @@
     {
         collapseNavMenu = !collapseNavMenu;
     }
+    
+    
 
 }

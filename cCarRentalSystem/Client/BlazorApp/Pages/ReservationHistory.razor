@@ -26,7 +26,6 @@
 
     protected override async Task OnInitializedAsync()
     {
-        // NEED A NEW METHOD FOR THIS FINISH LATER
         await GetLoggedInUserId();
         reservations = await reservationService.GetReservationsByUsername(username);
     }

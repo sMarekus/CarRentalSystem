@@ -32,6 +32,8 @@
             <p>Fuel type: @car.FuelType</p>
             <p>Horsepower: @car.HorsePower</p>
             <p>Price per day: @car.PricePerDay</p>
+            <a href="EditCar/@car.Id"><button>Edit car</button></a>
+            <a href="CarHistory/@car.Id"><button>Car History</button></a>
         </div>
     </div>
 }
@@ -39,7 +41,6 @@ else
 {
     <p>Car not found.</p>
 }
-
 <button id="openBtn">Open Popup</button>
 
 <div id="popup" class="popup">
@@ -77,6 +78,7 @@ else
         </div>
     </div>
 </div>
+
 <script src="reserveScript.js"></script>
 
 
