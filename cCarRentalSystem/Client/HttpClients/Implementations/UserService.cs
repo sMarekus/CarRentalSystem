@@ -1,6 +1,7 @@
 ﻿using System.Net.Http.Headers;
 using System.Net.Http.Json;
 using System.Security.Claims;
+using System.Text;
 using System.Text.Json;
 using Domain.DTOs;
 using Domain.Models;
@@ -90,6 +91,26 @@ public class UserService : IUserService
             PropertyNameCaseInsensitive = true
         })!;
         return userEntity;
+    }
+
+    public async Task UpdateAsync(UserUpdateDto userToUpdate)
+    {
+        JsonSerializerOptions jsonOptions = new JsonSerializerOptions
+        {
+            PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+            PropertyNameCaseInsensitive = true
+        };
+        string json = JsonSerializer.Serialize(userToUpdate, jsonOptions);
+        StringContent body = new StringContent(json, Encoding.UTF8, "application/json");
+
+        HttpResponseMessage response = await client.PatchAsync($"/users/{userToUpdate.UserName}", body);
+        if (!response.IsSuccessStatusCode)
+        {
+            var statusCode = response.StatusCode;
+            Console.WriteLine($"Status Code: {statusCode}");
+            string content = await response.Content.ReadAsStringAsync();
+            throw new Exception(content);
+        }
     }
 
     public async Task<AuthenticationResponse> ValidateUser(string username, string password)

@@ -2048,12 +2048,14 @@ public final class User {
       "d\030\004 \001(\t\022\020\n\010Username\030\005 \001(\t\022\023\n\013PhoneNumber" +
       "\030\006 \001(\003\022\017\n\007IsAdmin\030\007 \001(\010\"9\n\020UserListRespo" +
       "nse\022%\n\010allUsers\030\001 \003(\0132\023.proto.UserProtoO" +
-      "bj2\332\001\n\020UserProtoService\0228\n\nCreateUser\022\023." +
+      "bj2\224\002\n\020UserProtoService\0228\n\nCreateUser\022\023." +
       "proto.UserProtoObj\032\023.proto.UserProtoObj\"" +
-      "\000\022@\n\013GetAllUsers\022\026.google.protobuf.Empty" +
-      "\032\027.proto.UserListResponse\"\000\022J\n\023FetchUser" +
-      "ByUsername\022\034.google.protobuf.StringValue" +
-      "\032\023.proto.UserProtoObj\"\000b\006proto3"
+      "\000\0228\n\nUpdateUser\022\023.proto.UserProtoObj\032\023.p" +
+      "roto.UserProtoObj\"\000\022@\n\013GetAllUsers\022\026.goo" +
+      "gle.protobuf.Empty\032\027.proto.UserListRespo" +
+      "nse\"\000\022J\n\023FetchUserByUsername\022\034.google.pr" +
+      "otobuf.StringValue\032\023.proto.UserProtoObj\"" +
+      "\000b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {

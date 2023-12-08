@@ -49,6 +49,22 @@ public class UserService : UserProtoService.UserProtoServiceBase
         }
     }
 
+    public override async Task<UserProtoObj> UpdateUser(UserProtoObj request, ServerCallContext context)
+    {
+        try
+        {
+            User userToUpdate = FromProtoToEntity(request);
+            User updatedUser = await userDao.UpdateUserAsync(userToUpdate);
+            UserProtoObj protoObj = FromEntityToProto(updatedUser);
+            return protoObj;
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw new RpcException(new Status(StatusCode.NotFound, e.Message));
+        }
+    }
+
     public override async Task<UserListResponse> GetAllUsers(Empty request, ServerCallContext context)
     {
         try
@@ -73,6 +89,7 @@ public class UserService : UserProtoService.UserProtoServiceBase
             throw new RpcException(new Status(StatusCode.NotFound, e.Message));
         }
     }
+
 
     public static User? FromProtoToEntity(UserProtoObj userProtoObj)
     {

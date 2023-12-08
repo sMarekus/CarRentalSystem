@@ -53,6 +53,17 @@ public class UsersController {
         }
     }
 
+    @PatchMapping("/users/{username}")
+    public ResponseEntity<User> updateUser(@PathVariable("username") String username, @RequestBody User user) {
+        try {
+            user.setUserName(username);
+            User userFromDatabase = userService.updateUser(user);
+            return new ResponseEntity<>(userFromDatabase, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+    }
+
     @PostMapping("/users/authenticate")
     public ResponseEntity<AuthenticationResponse> authenticate(
             @RequestBody LoginDto request) {
