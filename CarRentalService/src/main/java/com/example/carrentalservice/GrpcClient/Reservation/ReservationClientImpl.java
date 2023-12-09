@@ -42,7 +42,6 @@ public class ReservationClientImpl implements IReservationClient
     @Override
     public Reservation returnReservation(int id) {
         try {
-            proto.Reservation.ReservationProtoObj reservationProtoObj = getStub().returnReservation(Int32Value.of(id));
             proto.Reservation.ReservationProtoObj protoObjFromServer = getStub().returnReservation(Int32Value.of(id));
             return fromProtoObjToEntity(protoObjFromServer);
         } catch (Exception e) {
