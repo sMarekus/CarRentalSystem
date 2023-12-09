@@ -1,10 +1,9 @@
-﻿@page "/ViewCars"
+﻿@page "/cars"
 @using Domain.Models
 @using HttpClients.ClientInterfaces
 @using Domain.DTOs
+@inject NavigationManager navMgr
 @inject ICarService carService;
-
-<h3 style="text-align: center">View Cars</h3>
 
 @if (!string.IsNullOrEmpty(msg))
 {
@@ -13,57 +12,73 @@
     </div>
 }
 
- @if (cars == null)
- {
-    <span>Null...</span>
- }
- else if (!cars.Any())
- {
-    <span>No cars to be found...</span>
- }
- else
- {
-     <div class="cars-container">
-         @foreach (var item in cars)
-              {
-                  <a href="/CarDetails/@item.Id" class="card">
-                      <div class="row-col-6 d-flex justify-content-center">
-                          <img src="logo-no-background.png" width="80%"/>
-                      </div>
-                      <div class="row-col-6 d-flex justify-content-center">
-                          <label>@item.Brand</label>
-                      </div>
-                      <div class="row-col-6 d-flex justify-content-center">
-                          <label>@item.Model</label>
-                      </div>
-                      
-                      <label @onclick="@(() => RemoveCar(item.Id))" style="cursor:pointer; color: red; font-weight: bold">
-                                              &#x2717;
-                          </label>
-                                      
-                  </a>
-              }
-     </div>
- }
-
-@code
+@if (cars == null)
 {
- private IEnumerable<Car>? cars;
- private string msg = "";
- 
- protected override async Task OnInitializedAsync()
-     {
+    <span>Null...</span>
+}
+else if (!cars.Any())
+{
+    <span>No cars to be found...</span>
+}
+else
+{
+    <div class="cars-container">
+        @foreach (var item in cars)
+        {
+            <a class="card">
+                <div onclick="@(() => ViewCar(item.Id))">
+                    <div class="row-col-6 d-flex justify-content-center">
+                        <img src="logo-no-background.png" width="80%"/>
+                    </div>
+                    <div class="row-col-6 d-flex justify-content-center">
+                        <label>@item.Brand</label>
+                    </div>
+                    <div class="row-col-6 d-flex justify-content-center">
+                        <label>@item.Model</label>
+                    </div>
+                </div>
+
+                <div style="display:flex; justify-content:space-between; align-items:center;">
+                    <label @onclick="@(() => EditCar(item.Id))" style="cursor:pointer; color: blue; font-weight: bold">
+                        &#x270E; Edit
+                    </label>
+
+                    <label @onclick="@(() => RemoveCar(item.Id))" style="cursor:pointer; color: red; font-weight: bold">
+                        &#x2717; Remove
+                    </label>
+                </div>
+            </a>
+        }
+    </div>
+}
+
+@code {
+    private IEnumerable<Car>? cars;
+    private string msg = "";
+    
+    protected override async Task OnInitializedAsync()
+    {
         try
         {
             SearchCarParametersDto dto = new SearchCarParametersDto(null, null, null, null, null, null, null, null, null, null);
-             cars = await carService.GetCarsAsync(dto);
-         }
-         catch (Exception e)
-         {
+            cars = await carService.GetCarsAsync(dto);
+        }
+        catch (Exception e)
+        {
             msg = e.Message;
-         }
-     }
+        }
+    }
+
+    private void EditCar(int carId)
+    {
+        navMgr.NavigateTo($"/cars/{carId}/edit");
+    }
     
+    private void ViewCar(int carId)
+    {
+        navMgr.NavigateTo($"/cars/{carId}");
+    }
+
     private async Task RemoveCar(int carId)
     {
         msg="";
@@ -73,7 +88,7 @@
 
             var list = new List<Car>(cars!);
             list.RemoveAll(car => car.Id == carId);
-            cars= list.AsEnumerable();
+            cars = list.AsEnumerable();
         }
         catch (Exception e)
         {
