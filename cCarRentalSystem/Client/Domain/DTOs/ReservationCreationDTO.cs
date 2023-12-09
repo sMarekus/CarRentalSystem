@@ -9,13 +9,15 @@ public class ReservationCreationDTO
     public DateTime StartDate{get;set;}
     public DateTime EndDate{get;set;}
     public int TotalPrice{get;set;}
+    public bool IsCompleted { get; set; }
 
-    public ReservationCreationDTO(int carId, string username, DateTime startDate, DateTime endDate, int totalPrice)
+    public ReservationCreationDTO(int carId, string username, DateTime startDate, DateTime endDate, int totalPrice, bool isCompleted)
     {
         CarId = carId;
         UserName = username;
         StartDate = startDate;
         EndDate = endDate;
         TotalPrice = totalPrice;
+        IsCompleted = isCompleted;
     }
 }
