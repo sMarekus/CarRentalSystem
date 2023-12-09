@@ -34,6 +34,20 @@ public class ReservationService : ReservationProtoService.ReservationProtoServic
         }
     }
 
+    public override async Task<ReservationProtoObj> CancelReservation(Int32Value request, ServerCallContext context)
+    {
+        try
+        {
+            Reservation canceledReservation = await reservationDao.CancelReservationAsync(request.Value);
+            ReservationProtoObj reservationProtoObj = FromEntityToProto(canceledReservation);
+            return reservationProtoObj;
+        }
+        catch (Exception e)
+        {
+            throw new RpcException(new Status(StatusCode.NotFound, e.Message));
+        }
+    }
+
     public override async Task<ReservationProtoList> GetAllReservations(Empty request, ServerCallContext context)
     {
         try

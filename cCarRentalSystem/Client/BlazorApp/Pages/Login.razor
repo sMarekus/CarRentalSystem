@@ -1,4 +1,4 @@
-﻿@page "/Login"
+﻿@page "/login"
 @using HttpClients.ClientInterfaces
 @using System.Security.Claims
 @using Domain.DTOs
@@ -47,7 +47,7 @@
                         }
                         <div class="col-md-12">
                             <button @onclick="LoginAsync" disabled="@IsLoginButtonDisabled" class="acceptbtn">Login</button>
-                            <a id="NewUser" href="/Register">New user?</a>
+                            <a id="NewUser" href="/register">New user?</a>
                         </div>
                     </div>
                 </div>

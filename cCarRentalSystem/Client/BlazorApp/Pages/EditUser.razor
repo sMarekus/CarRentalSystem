@@ -1,0 +1,124 @@
+﻿@page "/users/edit/{username}"
+@using HttpClients.ClientInterfaces
+@using Domain.DTOs
+@using Domain.Models
+@using Microsoft.AspNetCore.Mvc
+@inject IUserService userService;
+@inject NavigationManager navMgr;
+
+<div class="row d-flex justify-content-center">
+    <div class="col-md-6">
+        <h3 id="header">Edit user</h3>
+        @if (user != null)
+        {
+            <h4>@user.UserName</h4>
+        }
+    </div>
+</div>
+
+<div class="container">
+    <div class="card">
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-6">
+                <div class="form-group field">
+                    <label>Edit Username:</label>
+                    <input id="inputBrand" type="text" class="form-control" @bind="username" @bind:event="oninput"/>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-6">
+                <div class="form-group field">
+                    <label>Edit First Name:</label>
+                    <input id="inputModel" type="text" class="form-control" @bind="firstName" @bind:event="oninput"/>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-6">
+                <div class="form-group field">
+                    <label>Edit Last Name:</label>
+                    <input id="inputBodyType" type="text" class="form-control" @bind="lastName" @bind:event="oninput"/>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-6">
+                <div class="form-group field">
+                    <label>Email:</label>
+                    <input id="inputHP" type="text" class="form-control" @bind="email" @bind:event="oninput"/>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-6">
+                <div class="form-group field">
+                    <label>Edit Phone Number:</label>
+                    <input id="inputFuelType" type="text" class="form-control" @bind="phoneNumber" @bind:event="oninput"/>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-6">
+                <div class="form-group field">
+                    <label>Edit Phone Number:</label>
+                    <input id="inputFuelType" type="text" class="form-control" @bind="phoneNumber" @bind:event="oninput"/>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-6">
+                @if (!string.IsNullOrEmpty(msg))
+                {
+                    <label style="color: @msgcolor">@msg</label>
+                }
+                <div class="button-row">
+                    <button @onclick="Edit" class="acceptbtn">Confirm</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public string username { get; set; }
+    private string firstName;
+    private string lastName;
+    private string email;
+    private string phoneNumber;
+    private bool isAdmin;
+    private User? user;
+    
+    private string msg = "";
+    private string msgcolor = "green";
+    
+    protected override async Task OnInitializedAsync()
+    {
+        user = await userService.GetUserByUserNameAsync(username);
+    }
+
+    private async Task Edit()
+    {
+        try
+        {
+            UserUpdateDto dto = new UserUpdateDto();
+            await userService.UpdateAsync(dto);
+            msg = "User updated successfully.";
+            navMgr.NavigateTo("/users");
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            msg = e.Message;
+            msgcolor = "red";
+            throw new Exception(e.Message);
+        }
+    }
+}

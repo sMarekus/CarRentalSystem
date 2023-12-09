@@ -8,6 +8,10 @@ public interface IReservationService
 {
     Reservation createReservation(Reservation reservation);
 
+    Reservation returnReservation(int id);
+
+    Reservation cancelReservation(int id);
+
     List<Reservation> getReservations();
     Reservation getReservationById(int id);
     List<Reservation> getReservationsByCarId(int carId);

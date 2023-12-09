@@ -1,4 +1,4 @@
-﻿@page "/CarDetails/{carId:int}"
+﻿@page "/cars/{carId:int}"
 @using Domain.Models
 @using HttpClients.ClientInterfaces
 @using System.Runtime.InteropServices.JavaScript
@@ -7,12 +7,6 @@
 @inject AuthenticationStateProvider StateProvider;
 @inject IReservationService reserveService;
 @inject IUserService userService;
-
-<div class="row d-flex justify-content-center">
-    <div class="col-6-md">
-        <h3 id="header">Car Details</h3>
-    </div>
-</div>
 
 @if (car != null)
 {
@@ -66,6 +60,10 @@ else
                 <p>*Minimum rental period: 3 days</p>
                 <AuthorizeView>
                     <Authorized>
+                        @if (!string.IsNullOrEmpty(errorMessage))
+                        {
+                            <p class="error-message">@errorMessage</p> <!-- Display the error message -->
+                        }
                         <button class="reserve-btn" id="reserveBtn" @onclick="Reserve">Reserve</button>
                     </Authorized>
                     <NotAuthorized>
@@ -89,6 +87,8 @@ else
     private Car car;
     private string msg = "";
     private string? currentUser = "";
+    
+    private string errorMessage = ""; // Error message in popup
 
     protected override async Task OnInitializedAsync()
     {
@@ -125,10 +125,16 @@ else
         ValidateDateInput(pickup, returnDate);
         ConvertToSimpleDate();
         await GetLoggedInUserId();
+
+        bool isAvailable = await reserveService.IsCarAvailable(carId, pickup, returnDate);
+        if (!isAvailable)
+        {
+            errorMessage = "Car is not available for the selected dates.";
+            return null;
+        }
+
         ReservationCreationDTO dto = new ReservationCreationDTO(carId, currentUser, pickup, returnDate, CalculateTotalPrice(pickup, returnDate, car.PricePerDay));
-        await reserveService.CreateAsync(dto);
-        Reservation reservation = new Reservation(dto.CarId, dto.UserName, dto.StartDate, dto.EndDate, dto.TotalPrice);
-        return reservation;
+        return await reserveService.CreateAsync(dto);
     }
 
     private void ValidateDateInput(DateTime start, DateTime end)

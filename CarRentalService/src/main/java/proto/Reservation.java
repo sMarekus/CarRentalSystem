@@ -1954,18 +1954,22 @@ public final class Reservation {
       "EndDate\030\005 \001(\0132\032.google.protobuf.Timestam" +
       "p\022\022\n\nTotalPrice\030\006 \001(\001\"G\n\024ReservationProt" +
       "oList\022/\n\013Reservation\030\001 \003(\0132\032.proto.Reser" +
-      "vationProtoObj2\254\003\n\027ReservationProtoServi" +
+      "vationProtoObj2\310\004\n\027ReservationProtoServi" +
       "ce\022K\n\021CreateReservation\022\032.proto.Reservat" +
       "ionProtoObj\032\032.proto.ReservationProtoObj\022" +
-      "I\n\022GetAllReservations\022\026.google.protobuf." +
-      "Empty\032\033.proto.ReservationProtoList\022M\n\022Ge" +
-      "tReservationById\022\033.google.protobuf.Int32" +
-      "Value\032\032.proto.ReservationProtoObj\022R\n\026Get" +
-      "ReservationsByCarId\022\033.google.protobuf.In" +
-      "t32Value\032\033.proto.ReservationProtoList\022V\n" +
-      "\031GetReservationsByUserName\022\034.google.prot" +
-      "obuf.StringValue\032\033.proto.ReservationProt" +
-      "oListb\006proto3"
+      "L\n\021ReturnReservation\022\033.google.protobuf.I" +
+      "nt32Value\032\032.proto.ReservationProtoObj\022L\n" +
+      "\021CancelReservation\022\033.google.protobuf.Int" +
+      "32Value\032\032.proto.ReservationProtoObj\022I\n\022G" +
+      "etAllReservations\022\026.google.protobuf.Empt" +
+      "y\032\033.proto.ReservationProtoList\022M\n\022GetRes" +
+      "ervationById\022\033.google.protobuf.Int32Valu" +
+      "e\032\032.proto.ReservationProtoObj\022R\n\026GetRese" +
+      "rvationsByCarId\022\033.google.protobuf.Int32V" +
+      "alue\032\033.proto.ReservationProtoList\022V\n\031Get" +
+      "ReservationsByUserName\022\034.google.protobuf" +
+      ".StringValue\032\033.proto.ReservationProtoLis" +
+      "tb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
