@@ -127,6 +127,7 @@ public class ReservationService : ReservationProtoService.ReservationProtoServic
             StartDate = reservationProtoObj.StartDate.ToDateTime(),
             EndDate = reservationProtoObj.EndDate.ToDateTime(),
             TotalPrice = reservationProtoObj.TotalPrice,
+            IsCompleted = reservationProtoObj.IsCompleted
         };
         
         return reservationEntity;
@@ -142,6 +143,7 @@ public class ReservationService : ReservationProtoService.ReservationProtoServic
             StartDate = Timestamp.FromDateTime(reservationEntity.StartDate.ToUniversalTime()),
             EndDate = Timestamp.FromDateTime(reservationEntity.EndDate.ToUniversalTime()),
             TotalPrice = reservationEntity.TotalPrice,
+            IsCompleted = reservationEntity.IsCompleted
         };
 
         return reservationProtoObj;

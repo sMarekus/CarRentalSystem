@@ -23,18 +23,6 @@ public class ReservationDao : IReservationDao
             Console.WriteLine("DAO class received request");
             EntityEntry<Reservation>? reservationEntityEntry = await context.Reservations.AddAsync(reservationEntity);
             await context.SaveChangesAsync();
-
-            // Update the status of the associated car to Reserved
-            if (reservationEntity != null)
-            {
-                Car associatedCar = await context.Cars.FirstOrDefaultAsync(car => car.Id == reservationEntity.CarId);
-                if (associatedCar != null)
-                {
-                    associatedCar.Status = CarStatus.RESERVED;
-                    await context.SaveChangesAsync();
-                }
-            }
-    
             return reservationEntityEntry.Entity;
         }
         catch (Exception e)

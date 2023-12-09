@@ -12,6 +12,7 @@ message ReservationProtoObj
   google.protobuf.Timestamp StartDate = 4;
   google.protobuf.Timestamp EndDate = 5;
   double TotalPrice = 6;
+  bool IsCompleted = 7;
 }
 
 service ReservationProtoService
