@@ -135,7 +135,8 @@ public class ReservationClientImpl implements IReservationClient
                 reservationProtoObj.getUserName(),
                 convertToLocalDateTime(reservationProtoObj.getStartDate()),
                 convertToLocalDateTime(reservationProtoObj.getEndDate()),
-                reservationProtoObj.getTotalPrice()
+                reservationProtoObj.getTotalPrice(),
+                reservationProtoObj.getIsCompleted()
         );
     }
 

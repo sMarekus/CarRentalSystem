@@ -19,4 +19,5 @@ public class Reservation
     private LocalDateTime StartDate;
     private LocalDateTime EndDate;
     private double TotalPrice;
+    private boolean IsCompleted;
 }
