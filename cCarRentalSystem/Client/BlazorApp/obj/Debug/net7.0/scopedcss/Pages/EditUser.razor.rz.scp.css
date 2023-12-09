@@ -1,0 +1,118 @@
+.card[b-oufi5vxkno]{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    max-width: 400px;
+    width: 80%;
+    padding: 25px;
+    text-align: center;
+    margin: auto;
+    margin-top: 50px;
+    border-radius: 15px;
+    background-color: rgb(67, 0, 127);
+    color: white;
+}
+
+.field[b-oufi5vxkno]{
+    margin-top: 20px;
+    text-align: center;
+    justify-content: center;
+}
+
+.acceptbtn[b-oufi5vxkno]{
+    color:white;
+    background-color: rgb(132,0,218);
+    outline: solid 3px black;
+    border-radius: 5px;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: 20px;
+}
+
+#inputBrand[b-oufi5vxkno]{
+    padding: 12px 20px;
+    resize: vertical;
+    min-height: 50px;
+    margin-top: 10px;
+    animation: expandWidth-b-oufi5vxkno 2s ease-in-out;
+}
+
+#inputModel[b-oufi5vxkno]{
+    padding: 12px 20px;
+    resize: vertical;
+    min-height: 50px;
+    margin-top: 10px;
+    animation: expandWidth-b-oufi5vxkno 2s ease-in-out;
+}
+
+#inputBodyType[b-oufi5vxkno]{
+    padding: 12px 20px;
+    resize: vertical;
+    min-height: 50px;
+    margin-top: 10px;
+    animation: expandWidth-b-oufi5vxkno 2s ease-in-out;
+}
+
+#inputGearbox[b-oufi5vxkno]{
+    padding: 12px 20px;
+    resize: vertical;
+    min-height: 50px;
+    margin-top: 10px;
+    animation: expandWidth-b-oufi5vxkno 2s ease-in-out;
+}
+
+#inputColor[b-oufi5vxkno]{
+    padding: 12px 20px;
+    resize: vertical;
+    min-height: 50px;
+    margin-top: 10px;
+    animation: expandWidth-b-oufi5vxkno 2s ease-in-out;
+}
+
+#inputHP[b-oufi5vxkno]{
+    padding: 12px 20px;
+    resize: vertical;
+    min-height: 50px;
+    margin-top: 10px;
+    animation: expandWidth-b-oufi5vxkno 2s ease-in-out;
+}
+
+#inputPrice[b-oufi5vxkno]{
+    padding: 12px 20px;
+    resize: vertical;
+    min-height: 50px;
+    margin-top: 10px;
+    animation: expandWidth-b-oufi5vxkno 2s ease-in-out;
+}
+
+#inputDescription[b-oufi5vxkno]{
+    padding: 12px 20px;
+    resize: vertical;
+    min-height: 50px;
+    margin-top: 10px;
+    animation: expandWidth-b-oufi5vxkno 2s ease-in-out;
+}
+
+#inputFuelType[b-oufi5vxkno]{
+    padding: 12px 20px;
+    resize: vertical;
+    min-height: 50px;
+    margin-top: 10px;
+    animation: expandWidth-b-oufi5vxkno 2s ease-in-out;
+}
+
+#header[b-oufi5vxkno]{
+    text-align: center;
+    color: rgb(67, 0, 127);
+    font-size: 40px;
+    font-weight: 750;
+}
+
+@keyframes expandWidth-b-oufi5vxkno {
+    0% {
+        width: 50px;
+    }
+    100% {
+        width: 160px;
+    }
+}
