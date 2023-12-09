@@ -43,6 +43,18 @@ public class ReservationDao : IReservationDao
         }
     }
 
+    public async Task<Reservation> CancelReservationAsync(int reservationId)
+    {
+        Reservation reservation = await context.Reservations.FirstOrDefaultAsync(reservation => reservation.Id == reservationId);
+        if(reservation == null)
+        {
+            throw new Exception("Reservation not found");
+        }
+        context.Reservations.Remove(reservation);
+        await context.SaveChangesAsync();
+        return reservation;
+    }
+
     public async Task<IEnumerable<Reservation>> GetAllReservationsAsync()
     {
         try

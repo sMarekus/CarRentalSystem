@@ -35,6 +35,15 @@ public class ReservationServiceImplementation implements IReservationService
     }
 
     @Override
+    public Reservation cancelReservation(int id) {
+        try {
+            return client.cancelReservation(id);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
     public List<Reservation> getReservations() {
         try {
             return client.getReservations();
