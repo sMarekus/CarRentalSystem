@@ -5,6 +5,7 @@ namespace EfcDataAccess.DaoInterfaces;
 public interface IReservationDao
 {
     Task<Reservation?> CreateReservationAsync(Reservation? reservationEntity);
+    Task<Reservation> CancelReservationAsync(int reservationId);
     Task<IEnumerable<Reservation>> GetAllReservationsAsync();
     Task<Reservation?> GetReservationByIdAsync(int reservationId);
     Task<IEnumerable<Reservation?>> GetReservationByUserNameAsync(string userName);

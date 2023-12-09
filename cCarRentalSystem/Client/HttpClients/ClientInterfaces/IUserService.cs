@@ -7,6 +7,7 @@ namespace HttpClients.ClientInterfaces;
 public interface IUserService
 {
     public Task<User> CreateAsync(UserCreationDto userToCreate);
+    public Task UpdateAsync(UserUpdateDto userToUpdate);
     public Task DeleteUserAsync(int userId);
     public Task Logout();
     public Task<IEnumerable<User>> GetUsersAsync(string? usernameContains = null);

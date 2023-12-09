@@ -34,6 +34,18 @@ public class ReservationService: IReservationService
         return reservation;
     }
 
+    public async Task CancelReservationAsync(int reservationId)
+    {
+        HttpResponseMessage response = await client.DeleteAsync($"/reservations/{reservationId}");
+        if (!response.IsSuccessStatusCode)
+        {
+            var statusCode = response.StatusCode;
+            Console.WriteLine($"Status Code: {statusCode}");
+            string content = await response.Content.ReadAsStringAsync();
+            throw new Exception(content);
+        }
+    }
+
     public async Task<IEnumerable<Reservation>> GetReservationsAsync()
     {
         HttpResponseMessage response = await client.GetAsync("/reservations");
