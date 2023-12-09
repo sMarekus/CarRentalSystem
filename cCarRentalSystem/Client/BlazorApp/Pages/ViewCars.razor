@@ -4,6 +4,7 @@
 @using Domain.DTOs
 @inject NavigationManager navMgr
 @inject ICarService carService;
+@inject AuthenticationStateProvider AuthenticationStateProvider
 
 @if (!string.IsNullOrEmpty(msg))
 {
