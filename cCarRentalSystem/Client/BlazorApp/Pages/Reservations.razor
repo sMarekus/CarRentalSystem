@@ -1,43 +1,48 @@
-﻿@page "/Reservations"
+﻿@page "/reservations"
 @using Domain.Models
 @using HttpClients.ClientInterfaces
 @inject IReservationService reservationService;
 @attribute [Authorize]
 
-
-<h3>Reservations</h3>
-
-<div class="container">
-    @if (reservations != null)
+<div>
+    @if (reservations != null && reservations.Any())
     {
-        @foreach (var r in reservations)
-        {
-            <div class="row-col-6 d-flex">
-                <div class="col-6">
-                    <a href="/ReservationDetails/@r.Id"><label>@r.Id</label></a>
-                    <ul>
-                        <li>User: @r.UserName</li>
-                        <li>Car ID: @r.CarId</li>
-                        <li>Start date: @r.StartDate</li>
-                        <li>End date: @r.EndDate</li>
-                        <li>Total price: @r.TotalPrice</li>
-                    </ul>
-                </div>
-            </div>
-        }
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>User</th>
+                    <th>Car ID</th>
+                    <th>Start Date</th>
+                    <th>End Date</th>
+                    <th>Total Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var reservation in reservations)
+                {
+                    <tr>
+                        <td><a href="/ReservationDetails/@reservation.Id">@reservation.Id</a></td>
+                        <td>@reservation.UserName</td>
+                        <td>@reservation.CarId</td>
+                        <td>@reservation.StartDate.ToString("yyyy-MM-dd")</td>
+                        <td>@reservation.EndDate.ToString("yyyy-MM-dd")</td>
+                        <td>@reservation.TotalPrice.ToString("C")</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
     }
     else
     {
-        <h3>No reservations to display.</h3>
+        <div class="text-center">
+            <h3>No reservations to display.</h3>
+        </div>
     }
-    
 </div>
-
-
 
 @code {
     private IEnumerable<Reservation>? reservations;
-    private string msg = "";
 
     protected override async Task OnInitializedAsync()
     {
@@ -47,7 +52,7 @@
         }
         catch(Exception e)
         {
-            throw new Exception(e.Message);
+            // Consider adding error handling logic here
         }
     }
 }
