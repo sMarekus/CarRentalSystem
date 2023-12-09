@@ -12,8 +12,6 @@ public interface IUserService
     public Task Logout();
     public Task<IEnumerable<User>> GetUsersAsync(string? usernameContains = null);
     public Task<User> GetUserByUserNameAsync(string username);
-    public Task UpdateAsync(UserUpdateDto dto);
-
     Task<AuthenticationResponse> ValidateUser(string username, string password);
     Action<ClaimsPrincipal> OnAuthStateChanged { get; set; }
     Task<ClaimsPrincipal> GetAuthAsync();
