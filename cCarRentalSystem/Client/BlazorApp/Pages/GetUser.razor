@@ -35,6 +35,7 @@ else
                 <th>Username</th>
                 <th>Phone Number</th>
                 <th>Is Admin</th>
+                <th>Actions</th>
             </tr>
             </thead>
             <tbody>
@@ -47,6 +48,9 @@ else
                     <td>@user.UserName</td>
                     <td>@user.PhoneNumber</td>
                     <td>@(user.IsAdmin ? "Yes" : "No")</td>
+                    <td>
+                        <a class="btn btn-primary" href="users/@user.UserName/edit">Edit</a>
+                    </td>
                 </tr>
             }
             </tbody>
