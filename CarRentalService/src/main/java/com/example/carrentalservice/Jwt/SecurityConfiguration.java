@@ -38,6 +38,8 @@ public class SecurityConfiguration {
                  .authorizeHttpRequests(authorize -> authorize
                          .requestMatchers("/", "/users/authenticate").permitAll()
                          .requestMatchers(HttpMethod.POST, "/users").permitAll()
+                         .requestMatchers(HttpMethod.GET, "/users").permitAll()
+                         .requestMatchers(HttpMethod.GET, "/users/{username}").permitAll()
                          .requestMatchers(HttpMethod.POST, "/cars").permitAll()
                          .requestMatchers(HttpMethod.POST, "/reservations").permitAll()
                          .requestMatchers(HttpMethod.GET, "/reservations").permitAll()
@@ -47,6 +49,7 @@ public class SecurityConfiguration {
                          .requestMatchers(HttpMethod.GET, "/reservations/by-user/{userName}").permitAll()
                          .requestMatchers(HttpMethod.GET, "/reservations/by-car/{carId}").permitAll()
                          .requestMatchers(HttpMethod.PATCH, "/cars/{id}").permitAll()
+                         .requestMatchers(HttpMethod.PATCH, "/users/{username}").permitAll()
                          .anyRequest().authenticated())
                  .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                  .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class)

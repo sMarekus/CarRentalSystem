@@ -133,7 +133,7 @@ else
             return null;
         }
 
-        ReservationCreationDTO dto = new ReservationCreationDTO(carId, currentUser, pickup, returnDate, CalculateTotalPrice(pickup, returnDate, car.PricePerDay));
+        ReservationCreationDTO dto = new ReservationCreationDTO(carId, currentUser, pickup, returnDate, CalculateTotalPrice(pickup, returnDate, car.PricePerDay), false);
         return await reserveService.CreateAsync(dto);
     }
 
