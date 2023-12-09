@@ -83,7 +83,7 @@ public class ReservationService: IReservationService
             PropertyNameCaseInsensitive = true
         })!;
 
-        Reservation reservation = new Reservation(dto.Id, dto.Username, dto.CarId, dto.StartDate, dto.EndDate, dto.TotalPrice);
+        Reservation reservation = new Reservation(dto.Id, dto.Username, dto.CarId, dto.StartDate, dto.EndDate, dto.TotalPrice,dto.IsCompleted);
 
         return reservation;
     }
