@@ -132,7 +132,7 @@ public class ReservationService: IReservationService
     
     public async Task<bool> IsCarAvailable(int carId, DateTime startDate, DateTime endDate)
     {
-        HttpResponseMessage response = await client.GetAsync($"/reservations/car/{carId}");
+        HttpResponseMessage response = await client.GetAsync($"/reservations/by-car/{carId}");
         string content = await response.Content.ReadAsStringAsync();
         if (!response.IsSuccessStatusCode)
         {
