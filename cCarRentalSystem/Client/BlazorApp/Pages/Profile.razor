@@ -1,0 +1,85 @@
+﻿@page "/Profile/{username}"
+@using HttpClients.ClientInterfaces
+@using Domain.Models
+@inject AuthenticationStateProvider StateProvider;
+@inject IUserService userService;
+@inject IJSRuntime JSRuntime
+@attribute [Authorize]
+
+
+
+<h3>Personal Profile</h3>
+<div class="container">
+    @if (user != null)
+    {
+        <div class="row-col-6 d-flex">
+            <h4>@user.FirstName @user.LastName</h4>
+        </div>
+        <div class="row-col-6 d-flex">
+            <p>Username: @user.UserName</p>
+        </div>
+        <div class="row-col-6 d-flex">
+            <p>Email: @user.Email</p>
+        </div>
+        <div class="row-col-6 d-flex">
+            <p>Phone number: @user.PhoneNumber</p>
+        </div>
+        <button id="openBtn" class="open-btn">Change password</button>
+        <a href="/ReservationHistory/@user.UserName"><button>View reservation history</button></a>
+    }
+    else
+    {
+        <h3>No user found.</h3>
+    }
+    
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <div class="container justify-content-center">
+                <div class="card">
+                    <div class="row d-flex justify-content-center">
+                        <div class="col-md-12">
+                            <div class="form-group field">
+                                <label>New password:</label>
+                                <input id="inputStart" type="text" class="form-control" @bind="newPassword" @bind:event="oninput"/>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="reserve-btn" id="reserveBtn" @onclick="ChangePassword">Confirm</button>
+                    <span class="close-btn" id="closeBtn">&times;</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+<script src="profileScript.js"></script>
+
+@code {
+
+    [Parameter]
+    public string username { get; set; }
+
+    private string newPassword;
+
+    User user;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await GetLoggedInUserId();
+        user = await userService.GetUserByUserNameAsync(username);
+    }
+
+    private async Task ChangePassword()
+    {
+
+    }
+
+    private async Task<string> GetLoggedInUserId()
+    {
+        AuthenticationState state = await StateProvider.GetAuthenticationStateAsync();
+        username = state.User.Claims.FirstOrDefault(claim => claim.Type.Equals("username"))!.Value.ToString();
+        return username;
+    }
+
+}
