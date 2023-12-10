@@ -153,6 +153,6 @@ public class ReservationService: IReservationService
         }
     
         IEnumerable<Reservation> reservations = JsonSerializer.Deserialize<IEnumerable<Reservation>>(content, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
-        return !reservations.Any(r => r.StartDate < endDate && r.EndDate > startDate);
+        return !reservations.Any(r => r.StartDate < endDate && r.EndDate > startDate && !r.IsCompleted);
     }
 }
