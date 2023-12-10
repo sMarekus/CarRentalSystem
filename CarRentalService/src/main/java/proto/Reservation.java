@@ -68,6 +68,11 @@ public final class Reservation {
      * <code>double TotalPrice = 6;</code>
      */
     double getTotalPrice();
+
+    /**
+     * <code>bool IsCompleted = 7;</code>
+     */
+    boolean getIsCompleted();
   }
   /**
    * Protobuf type {@code proto.ReservationProtoObj}
@@ -86,6 +91,7 @@ public final class Reservation {
       carId_ = 0;
       userName_ = "";
       totalPrice_ = 0D;
+      isCompleted_ = false;
     }
 
     @java.lang.Override
@@ -157,6 +163,11 @@ public final class Reservation {
             case 49: {
 
               totalPrice_ = input.readDouble();
+              break;
+            }
+            case 56: {
+
+              isCompleted_ = input.readBool();
               break;
             }
             default: {
@@ -294,6 +305,15 @@ public final class Reservation {
       return totalPrice_;
     }
 
+    public static final int ISCOMPLETED_FIELD_NUMBER = 7;
+    private boolean isCompleted_;
+    /**
+     * <code>bool IsCompleted = 7;</code>
+     */
+    public boolean getIsCompleted() {
+      return isCompleted_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -326,6 +346,9 @@ public final class Reservation {
       if (totalPrice_ != 0D) {
         output.writeDouble(6, totalPrice_);
       }
+      if (isCompleted_ != false) {
+        output.writeBool(7, isCompleted_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -357,6 +380,10 @@ public final class Reservation {
       if (totalPrice_ != 0D) {
         size += com.google.protobuf.CodedOutputStream
           .computeDoubleSize(6, totalPrice_);
+      }
+      if (isCompleted_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(7, isCompleted_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -394,6 +421,8 @@ public final class Reservation {
           java.lang.Double.doubleToLongBits(getTotalPrice())
           == java.lang.Double.doubleToLongBits(
               other.getTotalPrice()));
+      result = result && (getIsCompleted()
+          == other.getIsCompleted());
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -422,6 +451,9 @@ public final class Reservation {
       hash = (37 * hash) + TOTALPRICE_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           java.lang.Double.doubleToLongBits(getTotalPrice()));
+      hash = (37 * hash) + ISCOMPLETED_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getIsCompleted());
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -575,6 +607,8 @@ public final class Reservation {
         }
         totalPrice_ = 0D;
 
+        isCompleted_ = false;
+
         return this;
       }
 
@@ -615,6 +649,7 @@ public final class Reservation {
           result.endDate_ = endDateBuilder_.build();
         }
         result.totalPrice_ = totalPrice_;
+        result.isCompleted_ = isCompleted_;
         onBuilt();
         return result;
       }
@@ -681,6 +716,9 @@ public final class Reservation {
         }
         if (other.getTotalPrice() != 0D) {
           setTotalPrice(other.getTotalPrice());
+        }
+        if (other.getIsCompleted() != false) {
+          setIsCompleted(other.getIsCompleted());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -1088,6 +1126,32 @@ public final class Reservation {
       public Builder clearTotalPrice() {
         
         totalPrice_ = 0D;
+        onChanged();
+        return this;
+      }
+
+      private boolean isCompleted_ ;
+      /**
+       * <code>bool IsCompleted = 7;</code>
+       */
+      public boolean getIsCompleted() {
+        return isCompleted_;
+      }
+      /**
+       * <code>bool IsCompleted = 7;</code>
+       */
+      public Builder setIsCompleted(boolean value) {
+        
+        isCompleted_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bool IsCompleted = 7;</code>
+       */
+      public Builder clearIsCompleted() {
+        
+        isCompleted_ = false;
         onChanged();
         return this;
       }
@@ -1948,26 +2012,28 @@ public final class Reservation {
       "\n\021reservation.proto\022\005proto\032\036google/proto" +
       "buf/wrappers.proto\032\033google/protobuf/empt" +
       "y.proto\032\037google/protobuf/timestamp.proto" +
-      "\"\262\001\n\023ReservationProtoObj\022\n\n\002Id\030\001 \001(\005\022\r\n\005" +
+      "\"\307\001\n\023ReservationProtoObj\022\n\n\002Id\030\001 \001(\005\022\r\n\005" +
       "CarId\030\002 \001(\005\022\020\n\010UserName\030\003 \001(\t\022-\n\tStartDa" +
       "te\030\004 \001(\0132\032.google.protobuf.Timestamp\022+\n\007" +
       "EndDate\030\005 \001(\0132\032.google.protobuf.Timestam" +
-      "p\022\022\n\nTotalPrice\030\006 \001(\001\"G\n\024ReservationProt" +
-      "oList\022/\n\013Reservation\030\001 \003(\0132\032.proto.Reser" +
-      "vationProtoObj2\372\003\n\027ReservationProtoServi" +
-      "ce\022K\n\021CreateReservation\022\032.proto.Reservat" +
-      "ionProtoObj\032\032.proto.ReservationProtoObj\022" +
-      "L\n\021ReturnReservation\022\033.google.protobuf.I" +
-      "nt32Value\032\032.proto.ReservationProtoObj\022I\n" +
-      "\022GetAllReservations\022\026.google.protobuf.Em" +
-      "pty\032\033.proto.ReservationProtoList\022M\n\022GetR" +
-      "eservationById\022\033.google.protobuf.Int32Va" +
-      "lue\032\032.proto.ReservationProtoObj\022R\n\026GetRe" +
-      "servationsByCarId\022\033.google.protobuf.Int3" +
-      "2Value\032\033.proto.ReservationProtoList\022V\n\031G" +
-      "etReservationsByUserName\022\034.google.protob" +
-      "uf.StringValue\032\033.proto.ReservationProtoL" +
-      "istb\006proto3"
+      "p\022\022\n\nTotalPrice\030\006 \001(\001\022\023\n\013IsCompleted\030\007 \001" +
+      "(\010\"G\n\024ReservationProtoList\022/\n\013Reservatio" +
+      "n\030\001 \003(\0132\032.proto.ReservationProtoObj2\310\004\n\027" +
+      "ReservationProtoService\022K\n\021CreateReserva" +
+      "tion\022\032.proto.ReservationProtoObj\032\032.proto" +
+      ".ReservationProtoObj\022L\n\021ReturnReservatio" +
+      "n\022\033.google.protobuf.Int32Value\032\032.proto.R" +
+      "eservationProtoObj\022L\n\021CancelReservation\022" +
+      "\033.google.protobuf.Int32Value\032\032.proto.Res" +
+      "ervationProtoObj\022I\n\022GetAllReservations\022\026" +
+      ".google.protobuf.Empty\032\033.proto.Reservati" +
+      "onProtoList\022M\n\022GetReservationById\022\033.goog" +
+      "le.protobuf.Int32Value\032\032.proto.Reservati" +
+      "onProtoObj\022R\n\026GetReservationsByCarId\022\033.g" +
+      "oogle.protobuf.Int32Value\032\033.proto.Reserv" +
+      "ationProtoList\022V\n\031GetReservationsByUserN" +
+      "ame\022\034.google.protobuf.StringValue\032\033.prot" +
+      "o.ReservationProtoListb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -1989,7 +2055,7 @@ public final class Reservation {
     internal_static_proto_ReservationProtoObj_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_proto_ReservationProtoObj_descriptor,
-        new java.lang.String[] { "Id", "CarId", "UserName", "StartDate", "EndDate", "TotalPrice", });
+        new java.lang.String[] { "Id", "CarId", "UserName", "StartDate", "EndDate", "TotalPrice", "IsCompleted", });
     internal_static_proto_ReservationProtoList_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_proto_ReservationProtoList_fieldAccessorTable = new

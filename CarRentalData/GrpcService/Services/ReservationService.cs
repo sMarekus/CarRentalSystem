@@ -33,6 +33,34 @@ public class ReservationService : ReservationProtoService.ReservationProtoServic
             throw new RpcException(new Status(StatusCode.AlreadyExists, e.Message));
         }
     }
+    
+    public override async Task<ReservationProtoObj> ReturnReservation(Int32Value request, ServerCallContext context)
+    {
+        try
+        {
+            Reservation returnedReservation = await reservationDao.ReturnReservationAsync(request.Value);
+            ReservationProtoObj reservationProtoObj = FromEntityToProto(returnedReservation);
+            return reservationProtoObj;
+        }
+        catch (Exception e)
+        {
+            throw new RpcException(new Status(StatusCode.NotFound, e.Message));
+        }
+    }
+
+    public override async Task<ReservationProtoObj> CancelReservation(Int32Value request, ServerCallContext context)
+    {
+        try
+        {
+            Reservation canceledReservation = await reservationDao.CancelReservationAsync(request.Value);
+            ReservationProtoObj reservationProtoObj = FromEntityToProto(canceledReservation);
+            return reservationProtoObj;
+        }
+        catch (Exception e)
+        {
+            throw new RpcException(new Status(StatusCode.NotFound, e.Message));
+        }
+    }
 
     public override async Task<ReservationProtoList> GetAllReservations(Empty request, ServerCallContext context)
     {
@@ -113,6 +141,7 @@ public class ReservationService : ReservationProtoService.ReservationProtoServic
             StartDate = reservationProtoObj.StartDate.ToDateTime(),
             EndDate = reservationProtoObj.EndDate.ToDateTime(),
             TotalPrice = reservationProtoObj.TotalPrice,
+            IsCompleted = reservationProtoObj.IsCompleted
         };
         
         return reservationEntity;
@@ -128,6 +157,7 @@ public class ReservationService : ReservationProtoService.ReservationProtoServic
             StartDate = Timestamp.FromDateTime(reservationEntity.StartDate.ToUniversalTime()),
             EndDate = Timestamp.FromDateTime(reservationEntity.EndDate.ToUniversalTime()),
             TotalPrice = reservationEntity.TotalPrice,
+            IsCompleted = reservationEntity.IsCompleted
         };
 
         return reservationProtoObj;

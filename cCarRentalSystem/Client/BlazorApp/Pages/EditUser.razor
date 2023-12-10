@@ -1,0 +1,191 @@
+﻿@page "/users/{username}/edit"
+@using HttpClients.ClientInterfaces
+@using Domain.DTOs
+@using Domain.Models
+@using Microsoft.AspNetCore.Mvc
+@inject IUserService userService;
+@inject NavigationManager navMgr;
+
+<div class="row d-flex justify-content-center">
+    <div class="col-md-6">
+        <h3 id="header">Edit user</h3>
+    </div>
+</div>
+
+<div class="container">
+    <div class="card">
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-6">
+                <div class="form-group field">
+                    <label>Edit First Name:</label>
+                    <input id="inputModel" type="text" class="form-control" @bind="firstName" @bind:event="oninput" />
+                </div>
+            </div>
+        </div>
+        
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-6">
+                <div class="form-group field">
+                    <label>Edit Last Name:</label>
+                    <input id="inputBodyType" type="text" class="form-control" @bind="lastName" @bind:event="oninput" />
+                </div>
+            </div>
+        </div>
+        
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-6">
+                <div class="form-group field">
+                    <label>Email:</label>
+                    <input id="inputHP" type="text" class="form-control" @bind="email" @bind:event="oninput" />
+                </div>
+            </div>
+        </div>
+        
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-6">
+                <div class="form-group field">
+                    <label>Edit Phone Number:</label>
+                    <input id="inputFuelType" type="text" class="form-control" @bind="phoneNumber" @bind:event="oninput" />
+                </div>
+            </div>
+        </div>
+        
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-6">
+                <div class="form-group field">
+                    <label>Edit if is admin:</label>
+                    <input type="checkbox" @bind="isAdmin" @bind:event="oninput" />
+                </div>
+            </div>
+        </div>
+        
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-6">
+                @if (!string.IsNullOrEmpty(msg))
+                {
+                    <label style="color: @msgcolor">@msg</label>
+                }
+                <div class="button-row">
+                    <button @onclick="Edit" class="acceptbtn">Confirm</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public string username { get; set; }
+    
+    private User? user;
+    
+    private string firstName;
+    private string lastName;
+    private string email;
+    private long phoneNumber;
+    private bool isAdmin;
+    
+    private string msg = "";
+    private string msgcolor = "green";
+    
+    protected override async Task OnInitializedAsync()
+    {
+        user = await userService.GetUserByUserNameAsync(username);
+        if (user != null)
+        {
+            firstName = user.FirstName;
+            lastName = user.LastName;
+            email = user.Email;
+            phoneNumber = user.PhoneNumber;
+            isAdmin = user.IsAdmin;
+        }
+    }
+
+    private async Task Edit()
+    {
+        try
+        {
+            UserUpdateDto dto = new UserUpdateDto(username, UpdateFirstName(), UpdateLastName(), UpdateEmail(), UpdatePhoneNumber(), UpdateIsAdmin());
+            await userService.UpdateAsync(dto);
+            msg = "User updated successfully.";
+            navMgr.NavigateTo("/users");
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            msg = e.Message;
+            msgcolor = "red";
+            throw new Exception(e.Message);
+        }
+    }
+    
+    private string UpdateFirstName()
+    {
+        string result = "";
+        if (firstName == null)
+        {
+            result = user.FirstName;
+        }
+        else
+        {
+            result = firstName;
+        }
+        return result;
+    }
+    
+    private string UpdateLastName()
+    {
+        string result = "";
+        if (lastName == null)
+        {
+            result = user.LastName;
+        }
+        else
+        {
+            result = lastName;
+        }
+        return result;
+    }
+    
+    private string UpdateEmail()
+    {
+        string result = "";
+        if (email == null)
+        {
+            result = user.Email;
+        }
+        else
+        {
+            result = email;
+        }
+        return result;
+    }
+    
+    private long UpdatePhoneNumber()
+    {
+        long result = 0;
+        if (phoneNumber == null)
+        {
+            result = user.PhoneNumber;
+        }
+        else
+        {
+            result = phoneNumber;
+        }
+        return result;
+    }
+    
+    private bool UpdateIsAdmin()
+    {
+        bool result = false;
+        if (isAdmin == null)
+        {
+            result = user.IsAdmin;
+        }
+        else
+        {
+            result = isAdmin;
+        }
+        return result;
+    }
+}

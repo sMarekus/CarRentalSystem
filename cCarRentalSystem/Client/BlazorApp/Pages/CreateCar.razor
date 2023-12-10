@@ -1,4 +1,4 @@
-﻿@page "/CreateCar"
+﻿@page "/create-car"
 @using HttpClients.ClientInterfaces
 @using Domain.DTOs
 @using Domain.Enums
@@ -128,7 +128,7 @@
             CarCreationDto dto = new CarCreationDto(brand, model, bodyType, horsePower, fuelType, gearbox, color, description, pricePerDay, CarStatus.AVAILABLE);
             await carService.CreateAsync(dto);
             msg = "Car added successfully.";
-            navMgr.NavigateTo("/");
+            navMgr.NavigateTo("/cars");
         }
         catch (Exception e)
         {

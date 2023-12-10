@@ -42,9 +42,18 @@ public class ReservationClientImpl implements IReservationClient
     @Override
     public Reservation returnReservation(int id) {
         try {
-            proto.Reservation.ReservationProtoObj reservationProtoObj = getStub().returnReservation(Int32Value.of(id));
             proto.Reservation.ReservationProtoObj protoObjFromServer = getStub().returnReservation(Int32Value.of(id));
             return fromProtoObjToEntity(protoObjFromServer);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public Reservation cancelReservation(int id) {
+        try {
+            proto.Reservation.ReservationProtoObj reservationProtoObj = getStub().cancelReservation(Int32Value.of(id));
+            return fromProtoObjToEntity(reservationProtoObj);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -125,7 +134,8 @@ public class ReservationClientImpl implements IReservationClient
                 reservationProtoObj.getUserName(),
                 convertToLocalDateTime(reservationProtoObj.getStartDate()),
                 convertToLocalDateTime(reservationProtoObj.getEndDate()),
-                reservationProtoObj.getTotalPrice()
+                reservationProtoObj.getTotalPrice(),
+                reservationProtoObj.getIsCompleted()
         );
     }
 

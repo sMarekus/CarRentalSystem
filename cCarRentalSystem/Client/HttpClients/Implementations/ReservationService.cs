@@ -34,6 +34,30 @@ public class ReservationService: IReservationService
         return reservation;
     }
 
+    public async Task ReturnReservationAsync(int id)
+    {
+        HttpResponseMessage response = await client.PatchAsJsonAsync($"/reservations/{id}", new {IsCompleted = true});
+        string content = await response.Content.ReadAsStringAsync();
+        if (!response.IsSuccessStatusCode)
+        {
+            var statusCode = response.StatusCode;
+            Console.WriteLine($"Status Code: {statusCode}");
+            throw new Exception(content);
+        }
+    }
+    
+    public async Task CancelReservationAsync(int reservationId)
+    {
+        HttpResponseMessage response = await client.DeleteAsync($"/reservations/{reservationId}");
+        if (!response.IsSuccessStatusCode)
+        {
+            var statusCode = response.StatusCode;
+            Console.WriteLine($"Status Code: {statusCode}");
+            string content = await response.Content.ReadAsStringAsync();
+            throw new Exception(content);
+        }
+    }
+
     public async Task<IEnumerable<Reservation>> GetReservationsAsync()
     {
         HttpResponseMessage response = await client.GetAsync("/reservations");
@@ -71,7 +95,7 @@ public class ReservationService: IReservationService
             PropertyNameCaseInsensitive = true
         })!;
 
-        Reservation reservation = new Reservation(dto.Id, dto.Username, dto.CarId, dto.StartDate, dto.EndDate, dto.TotalPrice);
+        Reservation reservation = new Reservation(dto.Id, dto.Username, dto.CarId, dto.StartDate, dto.EndDate, dto.TotalPrice,dto.IsCompleted);
 
         return reservation;
     }
@@ -120,7 +144,7 @@ public class ReservationService: IReservationService
     
     public async Task<bool> IsCarAvailable(int carId, DateTime startDate, DateTime endDate)
     {
-        HttpResponseMessage response = await client.GetAsync($"/reservations/car/{carId}");
+        HttpResponseMessage response = await client.GetAsync($"/reservations/by-car/{carId}");
         string content = await response.Content.ReadAsStringAsync();
         if (!response.IsSuccessStatusCode)
         {

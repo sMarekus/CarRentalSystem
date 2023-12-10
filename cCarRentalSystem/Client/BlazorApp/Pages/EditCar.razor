@@ -1,4 +1,4 @@
-﻿@page "/EditCar/{carId:int}"
+﻿@page "/cars/{carId:int}/edit"
 @using HttpClients.ClientInterfaces
 @using Domain.DTOs
 @using Domain.Models
@@ -138,7 +138,7 @@
         {
             CarUpdateDto dto = new CarUpdateDto(carId, UpdateBrand(), UpdateModel(), UpdateBodyType(), UpdateHorsePower(), UpdateFuelType(), UpdateGearbox(), UpdateColor(), UpdateDescription(), UpdatePrice());
             await carService.UpdateAsync(dto);
-            msg = "Car added successfully.";
+            msg = "Car updated successfully.";
             navMgr.NavigateTo("/");
         }
         catch (Exception e)
