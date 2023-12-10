@@ -26,6 +26,8 @@
             <p>Fuel type: @car.FuelType</p>
             <p>Horsepower: @car.HorsePower</p>
             <p>Price per day: @car.PricePerDay</p>
+            <a href="/cars/@car.Id/edit"><button>Edit car</button></a>
+            <a href="CarHistory/@car.Id"><button>Car History</button></a>
         </div>
     </div>
 }
@@ -33,7 +35,6 @@ else
 {
     <p>Car not found.</p>
 }
-
 <button id="openBtn">Open Popup</button>
 
 <div id="popup" class="popup">
@@ -62,7 +63,7 @@ else
                     <Authorized>
                         @if (!string.IsNullOrEmpty(errorMessage))
                         {
-                            <p class="error-message">@errorMessage</p> <!-- Display the error message -->
+                            <p class="error-message">@errorMessage</p>
                         }
                         <button class="reserve-btn" id="reserveBtn" @onclick="Reserve">Reserve</button>
                     </Authorized>
@@ -75,6 +76,7 @@ else
         </div>
     </div>
 </div>
+
 <script src="reserveScript.js"></script>
 
 
