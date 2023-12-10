@@ -105,7 +105,7 @@
     {
         try
         {
-            UserUpdateDto dto = new UserUpdateDto(username, UpdateFirstName(), UpdateLastName(), UpdateEmail(), UpdatePhoneNumber(), UpdateIsAdmin());
+            UserUpdateDto dto = new UserUpdateDto(UpdateFirstName(), UpdateLastName(), UpdateEmail(), user.Password, username, UpdatePhoneNumber(), UpdateIsAdmin());
             await userService.UpdateAsync(dto);
             msg = "User updated successfully.";
             navMgr.NavigateTo("/users");
@@ -164,7 +164,7 @@
     private long UpdatePhoneNumber()
     {
         long result = 0;
-        if (phoneNumber == null)
+        if (phoneNumber == null || phoneNumber == 0)
         {
             result = user.PhoneNumber;
         }
@@ -177,15 +177,6 @@
     
     private bool UpdateIsAdmin()
     {
-        bool result = false;
-        if (isAdmin == null)
-        {
-            result = user.IsAdmin;
-        }
-        else
-        {
-            result = isAdmin;
-        }
-        return result;
+        return isAdmin || user.IsAdmin;
     }
 }

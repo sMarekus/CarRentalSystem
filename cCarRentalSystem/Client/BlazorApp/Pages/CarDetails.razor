@@ -26,6 +26,8 @@
             <p>Fuel type: @car.FuelType</p>
             <p>Horsepower: @car.HorsePower</p>
             <p>Price per day: @car.PricePerDay</p>
+            <a href="/cars/@car.Id/edit"><button>Edit car</button></a>
+            <a href="CarHistory/@car.Id"><button>Car History</button></a>
         </div>
     </div>
 }
@@ -33,8 +35,7 @@ else
 {
     <p>Car not found.</p>
 }
-
-<button id="openBtn">Open Popup</button>
+<button id="openBtn">Reserve</button>
 
 <div id="popup" class="popup">
     <div class="popup-content">
@@ -57,12 +58,15 @@ else
                         </div>
                     </div>
                 </div>
+                <div>
+                    <p>Estimated Price: @estimatedPrice €</p>
+                </div>
                 <p>*Minimum rental period: 3 days</p>
                 <AuthorizeView>
                     <Authorized>
                         @if (!string.IsNullOrEmpty(errorMessage))
                         {
-                            <p class="error-message">@errorMessage</p> <!-- Display the error message -->
+                            <p class="error-message">@errorMessage</p>
                         }
                         <button class="reserve-btn" id="reserveBtn" @onclick="Reserve">Reserve</button>
                     </Authorized>
@@ -75,18 +79,60 @@ else
         </div>
     </div>
 </div>
-<script src="reserveScript.js"></script>
 
+<script src="reserveScript.js"></script>
 
 @code {
     [Parameter]
     public int carId { get; set; }
-
-    private DateTime pickup;
-    private DateTime returnDate;
+    
     private Car car;
     private string msg = "";
     private string? currentUser = "";
+    
+    private int estimatedPrice = 0;
+    
+    private DateTime _pickup;
+    private DateTime _returnDate;
+    
+    private DateTime pickup
+    {
+        get => _pickup;
+        set
+        {
+            if (_pickup != value)
+            {
+                _pickup = value;
+                UpdateEstimatedPrice();
+            }
+        }
+    }
+
+    private DateTime returnDate
+    {
+        get => _returnDate;
+        set
+        {
+            if (_returnDate != value)
+            {
+                _returnDate = value;
+                UpdateEstimatedPrice();
+            }
+        }
+    }
+
+    private void UpdateEstimatedPrice()
+    {
+        if (pickup != default && returnDate != default && returnDate > pickup)
+        {
+            int numOfDays = (returnDate - pickup).Days;
+            estimatedPrice = numOfDays * car.PricePerDay;
+        }
+        else
+        {
+            estimatedPrice = 0;
+        }
+    }
     
     private string errorMessage = ""; // Error message in popup
 
@@ -126,7 +172,7 @@ else
         ConvertToSimpleDate();
         await GetLoggedInUserId();
 
-        bool isAvailable = await reserveService.IsCarAvailable(carId, pickup, returnDate);
+        bool isAvailable = await reserveService.IsCarAvailable(carId, _pickup, _returnDate);
         if (!isAvailable)
         {
             errorMessage = "Car is not available for the selected dates.";
