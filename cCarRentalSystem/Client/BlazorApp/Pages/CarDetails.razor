@@ -35,7 +35,7 @@ else
 {
     <p>Car not found.</p>
 }
-<button id="openBtn">Open Popup</button>
+<button id="openBtn">Reserve</button>
 
 <div id="popup" class="popup">
     <div class="popup-content">
@@ -58,6 +58,9 @@ else
                         </div>
                     </div>
                 </div>
+                <div>
+                    <p>Estimated Price: @estimatedPrice €</p>
+                </div>
                 <p>*Minimum rental period: 3 days</p>
                 <AuthorizeView>
                     <Authorized>
@@ -79,16 +82,57 @@ else
 
 <script src="reserveScript.js"></script>
 
-
 @code {
     [Parameter]
     public int carId { get; set; }
-
-    private DateTime pickup;
-    private DateTime returnDate;
+    
     private Car car;
     private string msg = "";
     private string? currentUser = "";
+    
+    private int estimatedPrice = 0;
+    
+    private DateTime _pickup;
+    private DateTime _returnDate;
+    
+    private DateTime pickup
+    {
+        get => _pickup;
+        set
+        {
+            if (_pickup != value)
+            {
+                _pickup = value;
+                UpdateEstimatedPrice();
+            }
+        }
+    }
+
+    private DateTime returnDate
+    {
+        get => _returnDate;
+        set
+        {
+            if (_returnDate != value)
+            {
+                _returnDate = value;
+                UpdateEstimatedPrice();
+            }
+        }
+    }
+
+    private void UpdateEstimatedPrice()
+    {
+        if (pickup != default && returnDate != default && returnDate > pickup)
+        {
+            int numOfDays = (returnDate - pickup).Days;
+            estimatedPrice = numOfDays * car.PricePerDay;
+        }
+        else
+        {
+            estimatedPrice = 0;
+        }
+    }
     
     private string errorMessage = ""; // Error message in popup
 
@@ -128,7 +172,7 @@ else
         ConvertToSimpleDate();
         await GetLoggedInUserId();
 
-        bool isAvailable = await reserveService.IsCarAvailable(carId, pickup, returnDate);
+        bool isAvailable = await reserveService.IsCarAvailable(carId, _pickup, _returnDate);
         if (!isAvailable)
         {
             errorMessage = "Car is not available for the selected dates.";
