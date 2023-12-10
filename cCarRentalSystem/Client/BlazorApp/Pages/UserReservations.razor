@@ -1,0 +1,99 @@
+@page "/{username}/reservations"
+@using Domain.Models
+@using HttpClients.ClientInterfaces
+@inject NavigationManager navMgr
+@inject IReservationService reservationService;
+@inject AuthenticationStateProvider StateProvider;
+@inject ICarService carService;
+@using UIComponents
+@attribute [Authorize]
+
+<div>
+    @if (reservations != null && reservations.Any())
+    {
+        <table class="table table-hover">
+            <thead>
+                <!-- Table headers -->
+            </thead>
+            <tbody>
+                @foreach (var reservation in reservations)
+                {
+                    <tr>
+                        <!-- Table rows and reservation details -->
+                        <td><a href="/ReservationDetails/@reservation.Id">@reservation.Id</a></td>
+                        <td>@reservation.UserName</td>
+                        <td>@reservation.CarId</td>
+                        <td>@reservation.StartDate.ToString("yyyy-MM-dd")</td>
+                        <td>@reservation.EndDate.ToString("yyyy-MM-dd")</td>
+                        <td>@reservation.TotalPrice.ToString("C")</td>
+                        <td>@(reservation.IsCompleted ? "Completed" : "Uncompleted")</td>
+                        <td>
+                            <button class="btn btn-success" @onclick="() => ReturnReservation(reservation.Id)">Return</button>
+                        </td>
+                        <Modal ShowModal="showModal">
+                            <p>You have successfully returned your car. Thank you</p>
+                            <button @onclick="@Proceed">Okay</button>
+                        </Modal>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <div class="text-center">
+            <h3>No reservations to display.</h3>
+        </div>
+    }
+</div>
+
+@code {
+    [Parameter] public string username { get; set; }
+    private IEnumerable<Reservation>? reservations;
+    private Car? car;
+    private bool showModal;
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            await GetLoggedInUserId();
+            {
+                reservations = await reservationService.GetReservationsByUsername(username);
+            }
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+        }
+    }
+
+    private async Task<string> GetLoggedInUserId()
+    {
+        AuthenticationState state = await StateProvider.GetAuthenticationStateAsync();
+        username = state.User.Claims.FirstOrDefault(claim => claim.Type.Equals("username"))!.Value.ToString();
+        return username;
+    }
+
+    private async Task ReturnReservation(int reservationId)
+    {
+        try
+        {
+            await reservationService.ReturnReservationAsync(reservationId);
+            showModal = true;
+
+            // Reload the page after returning the reservation
+            StateHasChanged();
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+        }
+    }
+
+    private void Proceed()
+    {
+        showModal = false;
+        navMgr.NavigateTo("/{username}/reservations", forceLoad: true);
+    }
+}
