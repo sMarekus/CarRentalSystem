@@ -17,6 +17,7 @@
                     <th>End Date</th>
                     <th>Total Price</th>
                     <th>Status</th>
+                    <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -30,6 +31,9 @@
                         <td>@reservation.EndDate.ToString("yyyy-MM-dd")</td>
                         <td>@reservation.TotalPrice.ToString("C")</td>
                         <td>@(reservation.IsCompleted ? "Completed" : "Uncompleted")</td>
+                        <td>
+                            <a class="btn btn-danger">Cancel</a>
+                        </td>
                     </tr>
                 }
             </tbody>
