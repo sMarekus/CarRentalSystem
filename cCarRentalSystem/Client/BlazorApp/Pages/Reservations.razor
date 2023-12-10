@@ -16,6 +16,7 @@
                     <th>Start Date</th>
                     <th>End Date</th>
                     <th>Total Price</th>
+                    <th>Status</th>
                 </tr>
             </thead>
             <tbody>
@@ -28,6 +29,7 @@
                         <td>@reservation.StartDate.ToString("yyyy-MM-dd")</td>
                         <td>@reservation.EndDate.ToString("yyyy-MM-dd")</td>
                         <td>@reservation.TotalPrice.ToString("C")</td>
+                        <td>@(reservation.IsCompleted ? "Completed" : "Uncompleted")</td>
                     </tr>
                 }
             </tbody>
