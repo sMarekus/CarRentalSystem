@@ -32,7 +32,7 @@
                         <td>@reservation.TotalPrice.ToString("C")</td>
                         <td>@(reservation.IsCompleted ? "Completed" : "Uncompleted")</td>
                         <td>
-                            <a class="btn btn-danger">Cancel</a>
+                            <a class="btn btn-danger" @onclick="() => CancelReservation(reservation.Id)">Cancel</a>
                         </td>
                     </tr>
                 }
@@ -61,4 +61,21 @@
             // Consider adding error handling logic here
         }
     }
+
+    private async Task CancelReservation(int reservationId)
+    {
+        try
+        {
+            // Call the cancel method in the service
+            await reservationService.CancelReservationAsync(reservationId);
+
+            // Update the reservations list after cancellation
+            reservations = await reservationService.GetReservationsAsync();
+        }
+        catch (Exception e)
+        {
+            // Handle cancellation error
+        }
+    }
+
 }
