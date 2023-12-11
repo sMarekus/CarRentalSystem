@@ -52,7 +52,7 @@
             if (authState?.User?.Identity != null)
             {
                 isAuthenticated = authState.User.Identity.IsAuthenticated;
-                isAdmin = isAuthenticated == true && authState.User.HasClaim(c => c.Type == "IsAdmin" && c.Value == "true");
+                isAdmin = isAuthenticated == true && authState.User.HasClaim(c => c.Type == "isAdmin" && c.Value == "True");
             }
             else
             {
