@@ -98,7 +98,7 @@
             password = "";
             resultMsg = "Logged in successfully.";
             color = "green";
-            navManager.NavigateTo("/");
+            navManager.NavigateTo("/", forceLoad: true);
         }
         catch (Exception e)
         {
@@ -112,6 +112,6 @@
     private async Task Logout()
     {
         await userService.Logout();
-        navManager.NavigateTo("/");
+        navManager.NavigateTo("/", forceLoad: true);
     }
 }

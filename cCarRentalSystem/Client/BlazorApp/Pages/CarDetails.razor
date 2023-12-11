@@ -137,7 +137,7 @@ else
         var user = authState.User;
         if (user?.Identity != null && user.Identity.IsAuthenticated)
         {
-            return user.HasClaim(c => c.Type == "IsAdmin" && c.Value == "true");
+            return user.HasClaim(c => c.Type == "isAdmin" && c.Value == "True");
         }
         return false;
     }
