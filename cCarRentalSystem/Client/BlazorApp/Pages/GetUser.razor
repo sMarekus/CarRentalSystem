@@ -2,7 +2,7 @@
 @using Domain.Models
 @using HttpClients.ClientInterfaces
 @inject IUserService userService;
-@attribute [Authorize]
+@attribute [Authorize(Policy = "MustBeAdmin")]
 
 @if (!string.IsNullOrEmpty(msg))
 {

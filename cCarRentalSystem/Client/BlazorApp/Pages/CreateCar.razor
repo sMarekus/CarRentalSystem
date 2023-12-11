@@ -4,6 +4,7 @@
 @using Domain.Enums
 @inject ICarService carService;
 @inject NavigationManager navMgr;
+@using UIComponents
 @attribute [Authorize]
 
 <div class="row d-flex justify-content-center">
@@ -94,16 +95,20 @@
     </div>
     
     <div class="row d-flex justify-content-center">
-            <div class="col-md-6">
-                @if (!string.IsNullOrEmpty(msg))
-                    {
-                        <label style="color: @msgcolor">@msg</label>
-                    }
-                <div class="button-row">
-                    <button @onclick="Create" disabled="@IsCreateButtonDisabled" class="acceptbtn">Add</button>
-                </div>
+        <div class="col-md-6">
+            @if (!string.IsNullOrEmpty(msg))
+            {
+                <label style="color: @msgcolor">@msg</label>
+            }
+            <div class="button-row">
+                <button @onclick="Create" disabled="@IsCreateButtonDisabled" class="acceptbtn">Add</button>
             </div>
+            <Modal ShowModal="showModal">
+                      <p style="color: black">You have successfully added car!</p>
+                      <button @onclick="@Proceed">Okay</button>
+                      </Modal>
         </div>
+    </div>
     </div>
 </div>
 
@@ -120,15 +125,15 @@
     private int pricePerDay;
     private string msg = "";
     private string msgcolor = "green";
-
+    private bool showModal ;
+ 
     private async Task Create()
     {
         try
         {
             CarCreationDto dto = new CarCreationDto(brand, model, bodyType, horsePower, fuelType, gearbox, color, description, pricePerDay, CarStatus.AVAILABLE);
             await carService.CreateAsync(dto);
-            msg = "Car added successfully.";
-            navMgr.NavigateTo("/cars");
+            showModal = true;
         }
         catch (Exception e)
         {
@@ -138,6 +143,12 @@
             throw new Exception(e.Message);
         }
     }
-
+    
     private bool IsCreateButtonDisabled => string.IsNullOrWhiteSpace(brand) || string.IsNullOrWhiteSpace(model) || string.IsNullOrWhiteSpace(bodyType) || string.IsNullOrWhiteSpace(fuelType) || horsePower == null || string.IsNullOrWhiteSpace(gearbox) || string.IsNullOrWhiteSpace(description) || string.IsNullOrWhiteSpace(color) || pricePerDay == null;
+    
+    private void Proceed()
+    {
+        showModal = false;
+        navMgr.NavigateTo("/cars", forceLoad: true);
+    }
 }
