@@ -3,6 +3,7 @@
 @inject ICarService carService;
 @using Domain.Models
 @using HttpClients.ClientInterfaces
+@attribute [Authorize(Policy = "MustBeAdmin")]
 
 
 <h3>Car History</h3>
