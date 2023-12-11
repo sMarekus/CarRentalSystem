@@ -5,6 +5,7 @@
 @using Microsoft.AspNetCore.Mvc
 @inject ICarService carService;
 @inject NavigationManager navMgr;
+@attribute [Authorize(Policy = "MustBeAdmin")]
 
 <div class="row d-flex justify-content-center">
     <div class="col-md-6">

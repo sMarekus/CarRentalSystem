@@ -39,15 +39,18 @@ else
                     </div>
                 </div>
 
-                <div style="display:flex; justify-content:space-between; align-items:center;">
-                    <label @onclick="@(() => EditCar(item.Id))" style="cursor:pointer; color: blue; font-weight: bold">
-                        &#x270E; Edit
-                    </label>
+                @if (isAdmin)
+                {
+                    <div style="display:flex; justify-content:space-between; align-items:center;">
+                        <label @onclick="@(() => EditCar(item.Id))" style="cursor:pointer; color: blue; font-weight: bold">
+                            &#x270E; Edit
+                        </label>
 
-                    <label @onclick="@(() => RemoveCar(item.Id))" style="cursor:pointer; color: red; font-weight: bold">
-                        &#x2717; Remove
-                    </label>
-                </div>
+                        <label @onclick="@(() => RemoveCar(item.Id))" style="cursor:pointer; color: red; font-weight: bold">
+                            &#x2717; Remove
+                        </label>
+                    </div>
+                }
             </a>
         }
     </div>
@@ -56,9 +59,12 @@ else
 @code {
     private IEnumerable<Car>? cars;
     private string msg = "";
+
+    private bool isAdmin;
     
     protected override async Task OnInitializedAsync()
     {
+        isAdmin = await CheckAdminStatus();
         try
         {
             SearchCarParametersDto dto = new SearchCarParametersDto(null, null, null, null, null, null, null, null, null, null);
@@ -68,6 +74,17 @@ else
         {
             msg = e.Message;
         }
+    }
+    
+    private async Task<bool> CheckAdminStatus()
+    {
+        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        var user = authState.User;
+        if (user?.Identity != null && user.Identity.IsAuthenticated)
+        {
+            return user.HasClaim(c => c.Type == "IsAdmin" && c.Value == "true");
+        }
+        return false;
     }
 
     private void EditCar(int carId)

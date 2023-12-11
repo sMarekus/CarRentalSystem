@@ -27,8 +27,15 @@
             <p>Fuel type: @car.FuelType</p>
             <p>Horsepower: @car.HorsePower</p>
             <p>Price per day: @car.PricePerDay</p>
-            <a href="/cars/@car.Id/edit"><button>Edit car</button></a>
-            <a href="CarHistory/@car.Id"><button>Car History</button></a>
+            @if (isAdmin)
+            {
+                <a href="/cars/@car.Id/edit">
+                    <button>Edit car</button>
+                </a>
+                <a href="CarHistory/@car.Id">
+                    <button>Car History</button>
+                </a>
+            }
         </div>
     </div>
 }
@@ -87,6 +94,8 @@ else
     [Parameter]
     public int carId { get; set; }
     
+    private bool isAdmin;
+    
     private Car car;
     private string msg = "";
     private string? currentUser = "";
@@ -121,6 +130,17 @@ else
             }
         }
     }
+    
+    private async Task<bool> CheckAdminStatus()
+    {
+        var authState = await StateProvider.GetAuthenticationStateAsync();
+        var user = authState.User;
+        if (user?.Identity != null && user.Identity.IsAuthenticated)
+        {
+            return user.HasClaim(c => c.Type == "IsAdmin" && c.Value == "true");
+        }
+        return false;
+    }
 
     private void UpdateEstimatedPrice()
     {
@@ -139,6 +159,7 @@ else
 
     protected override async Task OnInitializedAsync()
     {
+        isAdmin = await CheckAdminStatus();
         try
         {
             car = await carService.GetCarById(carId);
