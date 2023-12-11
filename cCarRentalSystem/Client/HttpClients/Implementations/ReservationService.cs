@@ -90,12 +90,12 @@ public class ReservationService: IReservationService
             throw new Exception(content);
         }
 
-        GetReservationDto dto = JsonSerializer.Deserialize<GetReservationDto>(content, new JsonSerializerOptions
+        Reservation reservation = JsonSerializer.Deserialize<Reservation>(content, new JsonSerializerOptions
         {
             PropertyNameCaseInsensitive = true
         })!;
 
-        Reservation reservation = new Reservation(dto.Id, dto.Username, dto.CarId, dto.StartDate, dto.EndDate, dto.TotalPrice,dto.IsCompleted);
+        //Reservation reservation = new Reservation(dto.Id, dto.Username, dto.CarId, dto.StartDate, dto.EndDate, dto.TotalPrice,dto.IsCompleted);
 
         return reservation;
     }
