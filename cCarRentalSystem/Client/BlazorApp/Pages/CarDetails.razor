@@ -7,6 +7,7 @@
 @inject AuthenticationStateProvider StateProvider;
 @inject IReservationService reserveService;
 @inject IUserService userService;
+@inject NavigationManager navMgr;
 
 @if (car != null)
 {
@@ -154,7 +155,7 @@ else
         }
     }
     
-    private string errorMessage = ""; // Error message in popup
+    private string errorMessage = ""; 
 
     protected override async Task OnInitializedAsync()
     {
@@ -181,16 +182,16 @@ else
         return currentDate;
     }
 
-    private void ConvertToSimpleDate()
+    private void SetReservationDates(DateTime pickup, DateTime returnDate)
     {
-        pickup = new DateTime(pickup.Year, pickup.Month, pickup.Day);
-        returnDate = new DateTime(returnDate.Year, returnDate.Month, returnDate.Day);
+        this.pickup = (pickup.Date).AddDays(1);
+        this.returnDate = (returnDate.Date).AddDays(1);
     }
 
     private async Task<Reservation> Reserve()
     {
         ValidateDateInput(pickup, returnDate);
-        ConvertToSimpleDate();
+        SetReservationDates(pickup, returnDate);
         await GetLoggedInUserId();
 
         bool isAvailable = await reserveService.IsCarAvailable(carId, _pickup, _returnDate);
@@ -201,6 +202,7 @@ else
         }
 
         ReservationCreationDTO dto = new ReservationCreationDTO(carId, currentUser, pickup, returnDate, CalculateTotalPrice(pickup, returnDate, car.PricePerDay), false);
+        navMgr.NavigateTo("/cars");
         return await reserveService.CreateAsync(dto);
     }
 
@@ -226,7 +228,7 @@ else
 
     private int CalculateTotalPrice(DateTime startDate, DateTime endDate, int pricePerDay)
     {
-        int numOfDays = (-1*(startDate - endDate)).Days;
+        int numOfDays = (endDate - startDate).Days;
         return numOfDays * pricePerDay;
     }
 
