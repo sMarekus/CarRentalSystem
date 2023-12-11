@@ -7,27 +7,32 @@
 @inject AuthenticationStateProvider StateProvider;
 @inject IReservationService reserveService;
 @inject IUserService userService;
+@inject NavigationManager navMgr;
 
 @if (car != null)
 {
     <div class="carDetails">
         <div class="carModel">
-            <h3>@car.Model</h3>
-        </div>
-        <div class="brandName">
-            <h4><i>@car.Brand</i></h4>
+            <h3 class="fs-1">@car.Brand @car.Model</h3>
         </div>
         <div class="restOfDetails">
             <p>@car.Description</p>
             <p>Color: @car.Color</p>
             <p>Gearbox: @car.Gearbox</p>
-            <p>Status: @car.Status</p>
             <p>Body type: @car.BodyType</p>
             <p>Fuel type: @car.FuelType</p>
             <p>Horsepower: @car.HorsePower</p>
-            <p>Price per day: @car.PricePerDay</p>
-            <a href="/cars/@car.Id/edit"><button>Edit car</button></a>
-            <a href="CarHistory/@car.Id"><button>Car History</button></a>
+            <p><span class="fs-2">@car.PricePerDay</span> € / Day</p>
+            @if (isAdmin)
+            {
+                <a href="/cars/@car.Id/edit">
+                    <button class="btn btn-secondary">Edit car</button>
+                </a>
+                <a href="CarHistory/@car.Id">
+                    <button class="btn btn-secondary">Car History</button>
+                </a>
+                <button class="btn btn-success" id="openBtn">Reserve</button>
+            }
         </div>
     </div>
 }
@@ -35,7 +40,6 @@ else
 {
     <p>Car not found.</p>
 }
-<button id="openBtn">Reserve</button>
 
 <div id="popup" class="popup">
     <div class="popup-content">
@@ -86,6 +90,8 @@ else
     [Parameter]
     public int carId { get; set; }
     
+    private bool isAdmin;
+    
     private Car car;
     private string msg = "";
     private string? currentUser = "";
@@ -120,6 +126,17 @@ else
             }
         }
     }
+    
+    private async Task<bool> CheckAdminStatus()
+    {
+        var authState = await StateProvider.GetAuthenticationStateAsync();
+        var user = authState.User;
+        if (user?.Identity != null && user.Identity.IsAuthenticated)
+        {
+            return user.HasClaim(c => c.Type == "isAdmin" && c.Value == "True");
+        }
+        return false;
+    }
 
     private void UpdateEstimatedPrice()
     {
@@ -134,10 +151,11 @@ else
         }
     }
     
-    private string errorMessage = ""; // Error message in popup
+    private string errorMessage = ""; 
 
     protected override async Task OnInitializedAsync()
     {
+        isAdmin = await CheckAdminStatus();
         try
         {
             car = await carService.GetCarById(carId);
@@ -160,16 +178,16 @@ else
         return currentDate;
     }
 
-    private void ConvertToSimpleDate()
+    private void SetReservationDates(DateTime pickup, DateTime returnDate)
     {
-        pickup = new DateTime(pickup.Year, pickup.Month, pickup.Day);
-        returnDate = new DateTime(returnDate.Year, returnDate.Month, returnDate.Day);
+        this.pickup = (pickup.Date).AddDays(1);
+        this.returnDate = (returnDate.Date).AddDays(1);
     }
 
     private async Task<Reservation> Reserve()
     {
         ValidateDateInput(pickup, returnDate);
-        ConvertToSimpleDate();
+        SetReservationDates(pickup, returnDate);
         await GetLoggedInUserId();
 
         bool isAvailable = await reserveService.IsCarAvailable(carId, _pickup, _returnDate);
@@ -180,6 +198,7 @@ else
         }
 
         ReservationCreationDTO dto = new ReservationCreationDTO(carId, currentUser, pickup, returnDate, CalculateTotalPrice(pickup, returnDate, car.PricePerDay), false);
+        navMgr.NavigateTo("/cars");
         return await reserveService.CreateAsync(dto);
     }
 
@@ -205,7 +224,7 @@ else
 
     private int CalculateTotalPrice(DateTime startDate, DateTime endDate, int pricePerDay)
     {
-        int numOfDays = (-1*(startDate - endDate)).Days;
+        int numOfDays = (endDate - startDate).Days;
         return numOfDays * pricePerDay;
     }
 

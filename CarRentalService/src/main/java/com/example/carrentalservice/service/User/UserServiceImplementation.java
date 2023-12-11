@@ -27,11 +27,6 @@ public class UserServiceImplementation implements IUserService {
         this.authenticationManager = authenticationManager;
         this.jwtService = jwtService;
         this.passwordEncoder = passwordEncoder;
-
-        //User user = new User("motey","lal","motalal1@gmail.com","khai","iammotey1",122456,false);
-        //user.setPassword(this.passwordEncoder.encode(user.getPassword()));
-        //client.createUser(user);
-
     }
 
     @Override

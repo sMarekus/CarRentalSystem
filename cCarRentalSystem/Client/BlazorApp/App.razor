@@ -1,18 +1,64 @@
 ﻿<CascadingAuthenticationState>
-    <Router AppAssembly="@typeof(App).Assembly">
+    <Router AppAssembly="@typeof(Program).Assembly">
         <Found Context="routeData">
             <AuthorizeRouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)">
                 <NotAuthorized>
-                    <h1>You'll have to log in!</h1>
+                    @if (isAuthenticated.HasValue)
+                    {
+                        if (isAuthenticated.Value)
+                        {
+                            if (isAdmin)
+                            {
+                                <h1>You do not have permission to view this page.</h1>
+                            }
+                            else
+                            {
+                                <h1>You are logged in but not as an admin.</h1>
+                            }
+                        }
+                        else
+                        {
+                            <h1>You'll have to log in!</h1>
+                        }
+                    }
+                    else
+                    {
+                        <p>Loading...</p>
+                    }
                 </NotAuthorized>
             </AuthorizeRouteView>
             <FocusOnNavigate RouteData="@routeData" Selector="h1"/>
         </Found>
         <NotFound>
-            <PageTitle>Not found</PageTitle>
             <LayoutView Layout="@typeof(MainLayout)">
-                <p role="alert">Sorry, there's nothing at this address.</p>
+                <p>Sorry, there's nothing at this address.</p>
             </LayoutView>
         </NotFound>
     </Router>
 </CascadingAuthenticationState>
+
+@code {
+    [Inject]
+    private AuthenticationStateProvider AuthenticationStateProvider { get; set; }
+
+    private bool? isAuthenticated;
+    private bool isAdmin;
+
+    protected override async Task OnInitializedAsync()
+    {
+        if (AuthenticationStateProvider != null)
+        {
+            var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+            if (authState?.User?.Identity != null)
+            {
+                isAuthenticated = authState.User.Identity.IsAuthenticated;
+                isAdmin = isAuthenticated == true && authState.User.HasClaim(c => c.Type == "isAdmin" && c.Value == "True");
+            }
+            else
+            {
+                isAuthenticated = false;
+                isAdmin = false;
+            }
+        }
+    }
+}
