@@ -1,17 +1,25 @@
 package com.example.carrentalservice.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
 
 public class User implements UserDetails {
+    @JsonProperty("firstName")
     private String FirstName;
+    @JsonProperty("lastName")
     private String LastName;
+    @JsonProperty("email")
     private String Email;
+    @JsonProperty("password")
     private String Password;
+    @JsonProperty("userName")
     private String UserName;
+    @JsonProperty("phoneNumber")
     private long PhoneNumber;
+    @JsonProperty("isAdmin")
     private boolean IsAdmin;
 
 
