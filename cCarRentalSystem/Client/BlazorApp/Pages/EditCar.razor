@@ -10,10 +10,6 @@
 <div class="row d-flex justify-content-center">
     <div class="col-md-6">
         <h3 id="header">Edit car</h3>
-        @if (car != null)
-        {
-            <h4>@car.Model (@car.Brand)</h4>
-        }
     </div>
 </div>
 
@@ -131,6 +127,18 @@
     protected override async Task OnInitializedAsync()
     {
         car = await carService.GetCarById(carId);
+        if (car != null)
+        {
+            brand = car.Brand;
+            model = car.Model;
+            bodyType = car.BodyType;
+            horsePower = car.HorsePower;
+            fuelType = car.FuelType;
+            gearbox = car.Gearbox;
+            color = car.Color;
+            description = car.Description;
+            pricePerDay = car.PricePerDay;
+        }
     }
     
     private async Task Edit()

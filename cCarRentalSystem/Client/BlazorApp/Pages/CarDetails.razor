@@ -13,28 +13,25 @@
 {
     <div class="carDetails">
         <div class="carModel">
-            <h3>@car.Model</h3>
-        </div>
-        <div class="brandName">
-            <h4><i>@car.Brand</i></h4>
+            <h3 class="fs-1">@car.Brand @car.Model</h3>
         </div>
         <div class="restOfDetails">
             <p>@car.Description</p>
             <p>Color: @car.Color</p>
             <p>Gearbox: @car.Gearbox</p>
-            <p>Status: @car.Status</p>
             <p>Body type: @car.BodyType</p>
             <p>Fuel type: @car.FuelType</p>
             <p>Horsepower: @car.HorsePower</p>
-            <p>Price per day: @car.PricePerDay</p>
+            <p><span class="fs-2">@car.PricePerDay</span> € / Day</p>
             @if (isAdmin)
             {
                 <a href="/cars/@car.Id/edit">
-                    <button>Edit car</button>
+                    <button class="btn btn-secondary">Edit car</button>
                 </a>
                 <a href="CarHistory/@car.Id">
-                    <button>Car History</button>
+                    <button class="btn btn-secondary">Car History</button>
                 </a>
+                <button class="btn btn-success" id="openBtn">Reserve</button>
             }
         </div>
     </div>
@@ -43,7 +40,6 @@ else
 {
     <p>Car not found.</p>
 }
-<button id="openBtn">Reserve</button>
 
 <div id="popup" class="popup">
     <div class="popup-content">
