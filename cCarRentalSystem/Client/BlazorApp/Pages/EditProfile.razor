@@ -1,0 +1,160 @@
+﻿@page "/users/edit/{userId}"
+@using Domain.Models
+@using HttpClients.ClientInterfaces
+@using Domain.DTOs
+@inject IUserService userService;
+@inject NavigationManager navMgr;
+@attribute [Authorize]
+
+
+<div class="row d-flex justify-content-center">
+    <div class="col-md-6">
+        <h3 id="header">Edit profile</h3>
+    </div>
+</div>
+
+<div class="container">
+    <div class="card">
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-6">
+                <div class="form-group field">
+                    <label>Edit First Name:</label>
+                    <input id="inputModel" type="text" class="form-control" @bind="updatedFirstName" @bind:event="oninput" />
+                </div>
+            </div>
+        </div>
+        
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-6">
+                <div class="form-group field">
+                    <label>Edit Last Name:</label>
+                    <input id="inputBodyType" type="text" class="form-control" @bind="updatedLastName" @bind:event="oninput" />
+                </div>
+            </div>
+        </div>
+        
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-6">
+                <div class="form-group field">
+                    <label>Email:</label>
+                    <input id="inputHP" type="text" class="form-control" @bind="updatedEmail" @bind:event="oninput" />
+                </div>
+            </div>
+        </div>
+        
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-6">
+                <div class="form-group field">
+                    <label>Edit Phone Number:</label>
+                    <input id="inputFuelType" type="text" class="form-control" @bind="updatedPhoneNumber" @bind:event="oninput" />
+                </div>
+            </div>
+        </div>
+        
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-6">
+                @if (!string.IsNullOrEmpty(msg))
+                {
+                    <label style="color: @msgcolor">@msg</label>
+                }
+                <div class="button-row">
+                    <button @onclick="Edit" class="acceptbtn">Confirm</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public string userId { get; set; }
+
+    private string updatedFirstName;
+    private string updatedLastName;
+    private string updatedEmail;
+    private string updatedPassword;
+    private long updatedPhoneNumber;
+    private string msg = "";
+    private string msgcolor = "red";
+    private User? user;
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        user = await userService.GetUserByUserNameAsync(userId);
+    }
+    
+    private async Task Edit()
+    {
+        try
+        {
+            UserUpdateDto dto = new UserUpdateDto(UpdateFirstName(), UpdateLastName(), UpdateEmail(), user.Password, userId, UpdatePhoneNumber(), false);
+            await userService.UpdateAsync(dto);
+            msg = "User updated successfully.";
+            navMgr.NavigateTo("/users");
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            msg = e.Message;
+            msgcolor = "red";
+            throw new Exception(e.Message);
+        }
+    }
+    
+    private string UpdateFirstName()
+    {
+        string result = "";
+        if (updatedFirstName == null)
+        {
+            result = user.FirstName;
+        }
+        else
+        {
+            result = updatedFirstName;
+        }
+        return result;
+    }
+    
+    private string UpdateLastName()
+    {
+        string result = "";
+        if (updatedLastName == null)
+        {
+            result = user.LastName;
+        }
+        else
+        {
+            result = updatedLastName;
+        }
+        return result;
+    }
+    
+    private string UpdateEmail()
+    {
+        string result = "";
+        if (updatedEmail == null)
+        {
+            result = user.Email;
+        }
+        else
+        {
+            result = updatedEmail;
+        }
+        return result;
+    }
+    
+    private long UpdatePhoneNumber()
+    {
+        long result = 0;
+        if (updatedPhoneNumber == null || updatedPhoneNumber == 0)
+        {
+            result = user.PhoneNumber;
+        }
+        else
+        {
+            result = updatedPhoneNumber;
+        }
+        return result;
+    }
+}
