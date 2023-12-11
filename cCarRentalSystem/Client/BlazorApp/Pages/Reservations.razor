@@ -2,7 +2,7 @@
 @using Domain.Models
 @using HttpClients.ClientInterfaces
 @inject IReservationService reservationService;
-@attribute [Authorize]
+@attribute [Authorize(Policy = "MustBeAdmin")]
 
 <div>
     @if (reservations != null && reservations.Any())
