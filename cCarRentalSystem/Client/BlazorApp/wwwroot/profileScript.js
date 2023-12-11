@@ -9,7 +9,7 @@ if (scriptExecuted === false) {
 function initializeChangePassword() {
 
     var openBtn = document.getElementById('openBtn');
-    console.log(openBtn); // Log the element
+    console.log(openBtn);
     if (openBtn) {
         openBtn.addEventListener('click', function() {
             document.getElementById('popup').style.display = 'block';
