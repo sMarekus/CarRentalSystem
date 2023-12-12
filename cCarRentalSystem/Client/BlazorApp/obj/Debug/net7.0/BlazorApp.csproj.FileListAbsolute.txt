@@ -200,3 +200,21 @@ C:\Users\mkuku\Sep3Project\CarRentalSystem\cCarRentalSystem\Client\BlazorApp\bin
 C:\Users\mkuku\Sep3Project\CarRentalSystem\cCarRentalSystem\Client\BlazorApp\obj\Debug\net7.0\scopedcss\Pages\CreateCar.razor.rz.scp.css
 C:\Users\mkuku\Sep3Project\CarRentalSystem\cCarRentalSystem\Client\BlazorApp\obj\Debug\net7.0\scopedcss\Pages\Index.razor.rz.scp.css
 C:\Users\apurv\OneDrive\Desktop\CarRentalSEP\cCarRentalSystem\Client\BlazorApp\obj\Debug\net7.0\scopedcss\Pages\Index.razor.rz.scp.css
+C:\Users\marek\School\Semester 3\SEP\CarRentalSystem\cCarRentalSystem\Client\BlazorApp\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\marek\School\Semester 3\SEP\CarRentalSystem\cCarRentalSystem\Client\BlazorApp\bin\Debug\net7.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\marek\School\Semester 3\SEP\CarRentalSystem\cCarRentalSystem\Client\BlazorApp\bin\Debug\net7.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\marek\School\Semester 3\SEP\CarRentalSystem\cCarRentalSystem\Client\BlazorApp\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\marek\School\Semester 3\SEP\CarRentalSystem\cCarRentalSystem\Client\BlazorApp\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\marek\School\Semester 3\SEP\CarRentalSystem\cCarRentalSystem\Client\BlazorApp\bin\Debug\net7.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\marek\School\Semester 3\SEP\CarRentalSystem\cCarRentalSystem\Client\BlazorApp\bin\Debug\net7.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\marek\School\Semester 3\SEP\CarRentalSystem\cCarRentalSystem\Client\BlazorApp\obj\Debug\net7.0\scopedcss\Pages\CarDetails.razor.rz.scp.css
+C:\Users\marek\School\Semester 3\SEP\CarRentalSystem\cCarRentalSystem\Client\BlazorApp\obj\Debug\net7.0\scopedcss\Pages\CreateCar.razor.rz.scp.css
+C:\Users\marek\School\Semester 3\SEP\CarRentalSystem\cCarRentalSystem\Client\BlazorApp\obj\Debug\net7.0\scopedcss\Pages\EditCar.razor.rz.scp.css
+C:\Users\marek\School\Semester 3\SEP\CarRentalSystem\cCarRentalSystem\Client\BlazorApp\obj\Debug\net7.0\scopedcss\Pages\EditProfile.razor.rz.scp.css
+C:\Users\marek\School\Semester 3\SEP\CarRentalSystem\cCarRentalSystem\Client\BlazorApp\obj\Debug\net7.0\scopedcss\Pages\EditUser.razor.rz.scp.css
+C:\Users\marek\School\Semester 3\SEP\CarRentalSystem\cCarRentalSystem\Client\BlazorApp\obj\Debug\net7.0\scopedcss\Pages\GetUser.razor.rz.scp.css
+C:\Users\marek\School\Semester 3\SEP\CarRentalSystem\cCarRentalSystem\Client\BlazorApp\obj\Debug\net7.0\scopedcss\Pages\Index.razor.rz.scp.css
+C:\Users\marek\School\Semester 3\SEP\CarRentalSystem\cCarRentalSystem\Client\BlazorApp\obj\Debug\net7.0\scopedcss\Pages\Login.razor.rz.scp.css
+C:\Users\marek\School\Semester 3\SEP\CarRentalSystem\cCarRentalSystem\Client\BlazorApp\obj\Debug\net7.0\scopedcss\Pages\Profile.razor.rz.scp.css
+C:\Users\marek\School\Semester 3\SEP\CarRentalSystem\cCarRentalSystem\Client\BlazorApp\obj\Debug\net7.0\scopedcss\Pages\ViewCars.razor.rz.scp.css
+C:\Users\marek\School\Semester 3\SEP\CarRentalSystem\cCarRentalSystem\Client\BlazorApp\obj\Debug\net7.0\scopedcss\UIComponets\Modal.razor.rz.scp.css
