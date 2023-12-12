@@ -13,7 +13,15 @@
     {
         <table class="table table-hover">
             <thead>
-                <!-- Table headers -->
+               <tr>
+                   <th>ID</th>
+                   <th>Car ID</th>
+                   <th>Start Date</th>
+                   <th>End Date</th>
+                   <th>Total Price</th>
+                   <th>Status</th>
+                   <th>Actions</th>
+               </tr>
             </thead>
             <tbody>
                 @foreach (var reservation in reservations)
@@ -21,10 +29,9 @@
                     <tr>
                         <!-- Table rows and reservation details -->
                         <td><a href="/ReservationDetails/@reservation.Id">@reservation.Id</a></td>
-                        <td>@reservation.UserName</td>
                         <td>@reservation.CarId</td>
-                        <td>@reservation.StartDate.ToString("yyyy-MM-dd")</td>
-                        <td>@reservation.EndDate.ToString("yyyy-MM-dd")</td>
+                        <td>@reservation.StartDate.ToString("dd-MM-yyyy")</td>
+                        <td>@reservation.EndDate.ToString("dd-MM-yyyy")</td>
                         <td>@reservation.TotalPrice.ToString("C")</td>
                         <td>@(reservation.IsCompleted ? "Completed" : "Uncompleted")</td>
                         <td>
