@@ -13,7 +13,6 @@
 }
 
 .field{
-    margin-top: 20px;
     text-align: center;
     justify-content: center;
 }
@@ -29,76 +28,11 @@
     margin-top: 20px;
 }
 
-#inputBrand{
+.form-control{
     padding: 12px 20px;
     resize: vertical;
     min-height: 50px;
     margin-top: 10px;
-    animation: expandWidth 2s ease-in-out;
-}
-
-#inputModel{
-    padding: 12px 20px;
-    resize: vertical;
-    min-height: 50px;
-    margin-top: 10px;
-    animation: expandWidth 2s ease-in-out;
-}
-
-#inputBodyType{
-    padding: 12px 20px;
-    resize: vertical;
-    min-height: 50px;
-    margin-top: 10px;
-    animation: expandWidth 2s ease-in-out;
-}
-
-#inputGearbox{
-    padding: 12px 20px;
-    resize: vertical;
-    min-height: 50px;
-    margin-top: 10px;
-    animation: expandWidth 2s ease-in-out;
-}
-
-#inputColor{
-    padding: 12px 20px;
-    resize: vertical;
-    min-height: 50px;
-    margin-top: 10px;
-    animation: expandWidth 2s ease-in-out;
-}
-
-#inputHP{
-    padding: 12px 20px;
-    resize: vertical;
-    min-height: 50px;
-    margin-top: 10px;
-    animation: expandWidth 2s ease-in-out;
-}
-
-#inputPrice{
-    padding: 12px 20px;
-    resize: vertical;
-    min-height: 50px;
-    margin-top: 10px;
-    animation: expandWidth 2s ease-in-out;
-}
-
-#inputDescription{
-    padding: 12px 20px;
-    resize: vertical;
-    min-height: 50px;
-    margin-top: 10px;
-    animation: expandWidth 2s ease-in-out;
-}
-
-#inputFuelType{
-    padding: 12px 20px;
-    resize: vertical;
-    min-height: 50px;
-    margin-top: 10px;
-    animation: expandWidth 2s ease-in-out;
 }
 
 #header{
@@ -106,13 +40,4 @@
     color: rgb(67, 0, 127);
     font-size: 40px;
     font-weight: 750;
-}
-
-@keyframes expandWidth {
-    0% {
-        width: 50px;
-    }
-    100% {
-        width: 160px;
-    }
 }

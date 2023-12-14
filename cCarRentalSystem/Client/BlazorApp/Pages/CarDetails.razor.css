@@ -23,7 +23,6 @@
     background-color: rgb(67, 0, 127);
     padding: 20px;
     width: 340px;
-    height: 390px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -49,7 +48,6 @@
     padding: 25px;
     text-align: center;
     border-radius: 15px;
-    margin-top: 10px;
 }
 
 .container{
@@ -63,6 +61,7 @@
     font-weight: 650;
     margin-top: 15px;
     margin-left: 50%;
+    border-radius: 8px;
     transform: translateX(-50%);
 }
 
@@ -81,4 +80,66 @@
     font-size: 10px;
     margin-top: 10px;
     color: rgb(67, 0, 127);
+}
+
+.carDetails {
+    width: 90%; 
+    margin-top: 10%;
+}
+
+.containerCar {
+    display: flex;
+    flex-wrap: nowrap;
+    width: 100%;
+}
+
+.left .row {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.left, .restOfDetails {
+    width: 50%; 
+    border-radius: 10px;
+    padding: 15px;
+    margin-top: 20px;
+}
+
+
+
+.row {
+    display: flex;
+    flex-wrap: nowrap;
+    width: 100%;
+}
+#leftLabel{
+    font-weight: 800;
+    color: white;
+    font-size: 60px;
+}
+
+.left {
+    background: rgb(2,0,36);
+    background: linear-gradient(45deg, rgba(2,0,36,1) 0%, rgba(150,9,200,1) 73%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+    border-radius: 10px;
+    padding: 15px;
+    margin-top: 20px;
+}
+.restOfDetails{
+    background-color: #ecb5ff;
+    font-weight: bold;
+    color: #700595;
+}
+
+.btn{
+    background-color: rgb(67, 0, 127);
+}
+
+#desc{
+    color:white;
+    margin-top: 3%;
 }

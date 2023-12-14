@@ -1,14 +1,20 @@
 ﻿@using Domain.Models
+@using HttpClients.ClientInterfaces
 @inject AuthenticationStateProvider StateProvider;
+@using System.Net
+
+@inject IUserService userService;
+@inject NavigationManager navManager;
 
 <div id="topCorner" class="top-row ps-3 navbar navbar-dark">
     <div class="container-fluid">
-        <a class="navbar-brand" href="">Car Rental Service App</a>
+        <a class="navbar-brand fs-2 fw-bolder" href="/">Tripify</a>
         <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
             <span class="navbar-toggler-icon"></span>
         </button>
     </div>
 </div>
+
 
 <div id="sideNavBar" class="@NavMenuCssClass nav-scrollable" @onclick="ToggleNavMenu">
     <nav class="flex-column">
@@ -17,34 +23,17 @@
                 <span class="oi oi-home" aria-hidden="true"></span> Home
             </NavLink>
         </div>
-        @* <div class="nav-item px-3"> *@
-        @*     <NavLink class="nav-link" href="counter"> *@
-        @*         <span class="oi oi-plus" aria-hidden="true"></span> Counter *@
-        @*     </NavLink> *@
-        @* </div> *@
-        @* <div class="nav-item px-3"> *@
-        @*     <NavLink class="nav-link" href="fetchdata"> *@
-        @*         <span class="oi oi-list-rich" aria-hidden="true"></span> Fetch data *@
-        @*     </NavLink> *@
-        @* </div> *@
-        @* <div class="nav-item px-3"> *@
-        @*     <NavLink class="nav-link" href="Register"> *@
-        @*         <span class="oi oi-people" aria-hidden="true"></span> Register User *@
-        @*     </NavLink> *@
-        @* </div> *@
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="login">
-                <span class="oi oi-people" aria-hidden="true"></span> Log in
-            </NavLink>
-        </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="create-car">
-                <span class="oi oi-plus" aria-hidden="true"></span> Add car
-            </NavLink>
-        </div>
+        @if (!isAuthenticated)
+        {
+            <div class="nav-item px-3">
+                <NavLink class="nav-link" href="login">
+                    <span class="oi oi-people" aria-hidden="true"></span> Log in
+                </NavLink>
+            </div>
+        }
         <div class="nav-item px-3">
             <NavLink class="nav-link" href="cars">
-                <span class="oi oi-list" aria-hidden="true"></span> Browse cars
+                <span class="oi oi-magnifying-glass" aria-hidden="true"></span> Browse cars
             </NavLink>
         </div>
         @if (isAdmin)
@@ -59,20 +48,34 @@
                     <span class="oi oi-people" aria-hidden="true"></span> Users
                 </NavLink>
             </div>
+            <div class="nav-item px-3">
+                <NavLink class="nav-link" href="create-car">
+                    <span class="oi oi-plus" aria-hidden="true"></span> Add car
+                </NavLink>
+            </div>
         }
         <div class="nav-item px-3">
             <NavLink class="nav-link" href="{username}/reservations">
                 <span class="oi oi-list" aria-hidden="true"></span> My Reservations
             </NavLink>
         </div>
+        
+        @if (@isAuthenticated) {
+            <div class="nav-item px-3">
+                <NavLink class="nav-link" @onclick="Logout">
+                    <span class="oi oi-account-logout" aria-hidden="true"></span> Logout
+                </NavLink>
+            </div>
+        }
     </nav>
 </div>
 
 @code {
     private bool collapseNavMenu = true;
     private bool isAdmin;
+    private bool isAuthenticated;
     private string? NavMenuCssClass => collapseNavMenu ? "collapse" : null;
-
+    
     private void ToggleNavMenu()
     {
         collapseNavMenu = !collapseNavMenu;
@@ -92,5 +95,18 @@
     protected override async Task OnInitializedAsync()
     {
         isAdmin = await CheckAdminStatus();
+        await CheckUserAuthentication(); 
+    }
+    
+    private async Task CheckUserAuthentication()
+    {
+        var authState = await StateProvider.GetAuthenticationStateAsync();
+        isAuthenticated = authState.User?.Identity?.IsAuthenticated ?? false;
+    }
+
+    public async Task Logout()
+    {
+        await userService.Logout();
+        navManager.NavigateTo("/", forceLoad: true);
     }
 }
