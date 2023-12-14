@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "BICYxdQWZl1tfKZkAj0dGfMz0ezZNrP6Ppfmn+m4y+5aJsGEkaYnRMkA8VkwsD7Jj4bezqgLeTRoSHJmzv+d8g==",
+  "dgSpecHash": "TGkQuRX3QGbBnpnvbx9pRxzqhSYQtwVXlPcSCCcL0IUu+OiySGvKK9EG/LLh7zFL+rslx4w05xVKLRxsnD5qHQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\marek\\School\\Semester 3\\SEP\\CarRentalSystem\\CarRentalData\\Entity\\Entity.csproj",
+  "projectFilePath": "C:\\Users\\tomim\\Documents\\GitHub\\CarRentalSystem\\CarRentalData\\Entity\\Entity.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\marek\\.nuget\\packages\\google.protobuf\\3.25.1\\google.protobuf.3.25.1.nupkg.sha512"
+    "C:\\Users\\tomim\\.nuget\\packages\\google.protobuf\\3.25.1\\google.protobuf.3.25.1.nupkg.sha512"
   ],
   "logs": []
 }

@@ -7774,40 +7774,38 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\marek\\.nuget\\packages\\": {}
+    "C:\\Users\\tomim\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\marek\\School\\Semester 3\\SEP\\CarRentalSystem\\cCarRentalSystem\\Client\\Test\\Test.csproj",
+      "projectUniqueName": "C:\\Users\\tomim\\Documents\\GitHub\\CarRentalSystem\\cCarRentalSystem\\Client\\Test\\Test.csproj",
       "projectName": "Test",
-      "projectPath": "C:\\Users\\marek\\School\\Semester 3\\SEP\\CarRentalSystem\\cCarRentalSystem\\Client\\Test\\Test.csproj",
-      "packagesPath": "C:\\Users\\marek\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\marek\\School\\Semester 3\\SEP\\CarRentalSystem\\cCarRentalSystem\\Client\\Test\\obj\\",
+      "projectPath": "C:\\Users\\tomim\\Documents\\GitHub\\CarRentalSystem\\cCarRentalSystem\\Client\\Test\\Test.csproj",
+      "packagesPath": "C:\\Users\\tomim\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\tomim\\Documents\\GitHub\\CarRentalSystem\\cCarRentalSystem\\Client\\Test\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\marek\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\tomim\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net7.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "C:\\Users\\marek\\School\\Semester 3\\SEP\\CarRentalSystem\\cCarRentalSystem\\Client\\BlazorApp\\BlazorApp.csproj": {
-              "projectPath": "C:\\Users\\marek\\School\\Semester 3\\SEP\\CarRentalSystem\\cCarRentalSystem\\Client\\BlazorApp\\BlazorApp.csproj"
+            "C:\\Users\\tomim\\Documents\\GitHub\\CarRentalSystem\\cCarRentalSystem\\Client\\BlazorApp\\BlazorApp.csproj": {
+              "projectPath": "C:\\Users\\tomim\\Documents\\GitHub\\CarRentalSystem\\cCarRentalSystem\\Client\\BlazorApp\\BlazorApp.csproj"
             },
-            "C:\\Users\\marek\\School\\Semester 3\\SEP\\CarRentalSystem\\cCarRentalSystem\\Client\\Domain\\Domain.csproj": {
-              "projectPath": "C:\\Users\\marek\\School\\Semester 3\\SEP\\CarRentalSystem\\cCarRentalSystem\\Client\\Domain\\Domain.csproj"
+            "C:\\Users\\tomim\\Documents\\GitHub\\CarRentalSystem\\cCarRentalSystem\\Client\\Domain\\Domain.csproj": {
+              "projectPath": "C:\\Users\\tomim\\Documents\\GitHub\\CarRentalSystem\\cCarRentalSystem\\Client\\Domain\\Domain.csproj"
             },
-            "C:\\Users\\marek\\School\\Semester 3\\SEP\\CarRentalSystem\\cCarRentalSystem\\Client\\HttpClients\\HttpClients.csproj": {
-              "projectPath": "C:\\Users\\marek\\School\\Semester 3\\SEP\\CarRentalSystem\\cCarRentalSystem\\Client\\HttpClients\\HttpClients.csproj"
+            "C:\\Users\\tomim\\Documents\\GitHub\\CarRentalSystem\\cCarRentalSystem\\Client\\HttpClients\\HttpClients.csproj": {
+              "projectPath": "C:\\Users\\tomim\\Documents\\GitHub\\CarRentalSystem\\cCarRentalSystem\\Client\\HttpClients\\HttpClients.csproj"
             }
           }
         }
@@ -7871,7 +7869,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
       }
     }
   }
