@@ -60,7 +60,7 @@
         <div class="row d-flex justify-content-center pt-3">
             <div class="col-md-12">
                 <div class="button-row">
-                    <button @onclick="Edit" class="acceptbtn w-100">Confirm</button>
+                    <button @onclick="Edit" class="acceptbtn w-100" disabled="@IsConfirmButtonDisabled">Confirm</button>
                 </div>
                 @if (!string.IsNullOrEmpty(msg))
                 {
