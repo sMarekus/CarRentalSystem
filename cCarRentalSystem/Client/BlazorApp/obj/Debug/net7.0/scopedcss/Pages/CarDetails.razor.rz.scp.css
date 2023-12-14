@@ -81,3 +81,65 @@
     margin-top: 10px;
     color: rgb(67, 0, 127);
 }
+
+.carDetails[b-lql16p6pfj] {
+    width: 90%; 
+    margin-top: 10%;
+}
+
+.containerCar[b-lql16p6pfj] {
+    display: flex;
+    flex-wrap: nowrap;
+    width: 100%;
+}
+
+.left .row[b-lql16p6pfj] {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.left[b-lql16p6pfj], .restOfDetails[b-lql16p6pfj] {
+    width: 50%; 
+    border-radius: 10px;
+    padding: 15px;
+    margin-top: 20px;
+}
+
+
+
+.row[b-lql16p6pfj] {
+    display: flex;
+    flex-wrap: nowrap;
+    width: 100%;
+}
+#leftLabel[b-lql16p6pfj]{
+    font-weight: 800;
+    color: white;
+    font-size: 60px;
+}
+
+.left[b-lql16p6pfj] {
+    background: rgb(2,0,36);
+    background: linear-gradient(45deg, rgba(2,0,36,1) 0%, rgba(150,9,200,1) 73%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+    border-radius: 10px;
+    padding: 15px;
+    margin-top: 20px;
+}
+.restOfDetails[b-lql16p6pfj]{
+    background-color: #ecb5ff;
+    font-weight: bold;
+    color: #700595;
+}
+
+.btn[b-lql16p6pfj]{
+    background-color: rgb(67, 0, 127);
+}
+
+#desc[b-lql16p6pfj]{
+    color:white;
+    margin-top: 3%;
+}

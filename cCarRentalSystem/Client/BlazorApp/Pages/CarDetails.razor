@@ -11,29 +11,40 @@
 
 @if (car != null)
 {
-    <div class="carDetails">
+    <div class="carDetails justify-content-center">
         <div class="carModel">
-            <h3 class="fs-1">@car.Brand @car.Model</h3>
+            
         </div>
-        <div class="restOfDetails">
-            <p>@car.Description</p>
-            <p>Color: @car.Color</p>
-            <p>Gearbox: @car.Gearbox</p>
-            <p>Body type: @car.BodyType</p>
-            <p>Fuel type: @car.FuelType</p>
-            <p>Horsepower: @car.HorsePower</p>
-            <p><span class="fs-2">@car.PricePerDay</span> € / Day</p>
-            <div class="d-flex gap-1">
-                @if (isAdmin)
-                {
-                    <a href="/cars/@car.Id/edit">
-                        <button class="btn btn-secondary">Edit car</button>
-                    </a>
-                    <a href="cars/@car.Id/reservations-history">
-                        <button class="btn btn-secondary">Car History</button>
-                    </a>
-                }
-                <button class="btn btn-success" id="openBtn">Reserve</button>
+        <div class="containerCar">
+            <div class="row">
+                <div class="left">
+                    <div class="row">
+                        <h3 class="fs-1" id="leftLabel">@car.Brand @car.Model</h3>
+                    </div>
+                    <div class="row">
+                        <p id="desc">@car.Description</p>
+                    </div>
+                </div>
+                <div class="restOfDetails">
+                    <p>Color: @car.Color</p>
+                    <p>Gearbox: @car.Gearbox</p>
+                    <p>Body type: @car.BodyType</p>
+                    <p>Fuel type: @car.FuelType</p>
+                    <p>Horsepower: @car.HorsePower</p>
+                    <p><span class="fs-2">@car.PricePerDay</span> € / Day</p>
+                    <div class="d-flex gap-1">
+                        @if (isAdmin)
+                        {
+                            <a href="/cars/@car.Id/edit">
+                                <button class="btn btn-secondary">Edit car</button>
+                            </a>
+                            <a href="/cars/@car.Id/reservations-history">
+                                <button class="btn btn-secondary">Car History</button>
+                            </a>
+                        }
+                        <button class="btn btn-success" id="openBtn">Reserve</button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
