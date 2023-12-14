@@ -14,6 +14,7 @@
           "Microsoft.NET.Test.Sdk": "17.7.1",
           "Moq": "4.20.70",
           "bunit": "1.24.10",
+          "bunit.web": "1.25.3",
           "coverlet.collector": "3.2.0",
           "xunit": "2.4.2",
           "xunit.runner.visualstudio": "2.4.5"
@@ -59,11 +60,11 @@
       },
       "bunit/1.24.10": {
         "dependencies": {
-          "bunit.core": "1.24.10",
-          "bunit.web": "1.24.10"
+          "bunit.core": "1.25.3",
+          "bunit.web": "1.25.3"
         }
       },
-      "bunit.core/1.24.10": {
+      "bunit.core/1.25.3": {
         "dependencies": {
           "Microsoft.AspNetCore.Components": "7.0.13",
           "Microsoft.Extensions.Logging": "7.0.0",
@@ -71,12 +72,12 @@
         },
         "runtime": {
           "lib/net7.0/Bunit.Core.dll": {
-            "assemblyVersion": "1.24.10.33775",
-            "fileVersion": "1.24.10.33775"
+            "assemblyVersion": "1.25.3.47579",
+            "fileVersion": "1.25.3.47579"
           }
         }
       },
-      "bunit.web/1.24.10": {
+      "bunit.web/1.25.3": {
         "dependencies": {
           "AngleSharp": "0.17.1",
           "AngleSharp.Diffing": "0.18.2",
@@ -86,7 +87,7 @@
           "Microsoft.AspNetCore.Components.WebAssembly.Authentication": "7.0.0",
           "Microsoft.Extensions.Caching.Memory": "7.0.0",
           "Microsoft.Extensions.Localization.Abstractions": "7.0.0",
-          "bunit.core": "1.24.10"
+          "bunit.core": "1.25.3"
         },
         "runtime": {
           "lib/net7.0/AngleSharpWrappers.dll": {
@@ -94,8 +95,8 @@
             "fileVersion": "1.0.0.0"
           },
           "lib/net7.0/Bunit.Web.dll": {
-            "assemblyVersion": "1.24.10.33775",
-            "fileVersion": "1.24.10.33775"
+            "assemblyVersion": "1.25.3.47579",
+            "fileVersion": "1.25.3.47579"
           }
         }
       },
@@ -1454,19 +1455,19 @@
       "path": "bunit/1.24.10",
       "hashPath": "bunit.1.24.10.nupkg.sha512"
     },
-    "bunit.core/1.24.10": {
+    "bunit.core/1.25.3": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-PFX6WrBMTLumrmLJsABsD15UH/hSlXAwCSM4Qf2Fh9wPFfQ5UAVO6j7b+6FwHvtN+Uc/QCLKxsfwd5US4dkyWw==",
-      "path": "bunit.core/1.24.10",
-      "hashPath": "bunit.core.1.24.10.nupkg.sha512"
+      "sha512": "sha512-U81A2CmBEAd58ivIyW9Xm3IRc1wTtcdUkScSzEBrCiV8SRS36EdVTOYK4kaQmQNeG3+Cog/qlczGE9nVc6VxbQ==",
+      "path": "bunit.core/1.25.3",
+      "hashPath": "bunit.core.1.25.3.nupkg.sha512"
     },
-    "bunit.web/1.24.10": {
+    "bunit.web/1.25.3": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-9UiCFygm3tdBNoNXkK+UBBqZH5VwdN4vXpA2l8K3QRS3+9mzhsvGwcfRtIuxSZfYrij1OYtCnxGF06e36niHlA==",
-      "path": "bunit.web/1.24.10",
-      "hashPath": "bunit.web.1.24.10.nupkg.sha512"
+      "sha512": "sha512-u5cTdOjJOMdreqdkTHfA6At/Hk9tA+s21Ro0F9K+ZE++HdrL8CS3/ivrCbKiCdEZXPdfP4tGPkeL4NPRFh10vg==",
+      "path": "bunit.web/1.25.3",
+      "hashPath": "bunit.web.1.25.3.nupkg.sha512"
     },
     "Castle.Core/5.1.1": {
       "type": "package",

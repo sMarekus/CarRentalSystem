@@ -20,7 +20,6 @@ public class UserService : UserProtoService.UserProtoServiceBase
     {
         try
         {   
-            Console.WriteLine("Service class received request");
             User? toAddUser = FromProtoToEntity(request);
             User? addedUser = await userDao.CreateUserAsync(toAddUser);
 

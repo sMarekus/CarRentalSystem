@@ -36,7 +36,7 @@ public class SecurityConfiguration {
          return http.cors(withDefaults())
                  .csrf(AbstractHttpConfigurer::disable)
                  .authorizeHttpRequests(authorize -> authorize
-                         .requestMatchers("/", "/users/authenticate").permitAll()
+                         .requestMatchers("/", "/users/authenticate", "/register").permitAll()
                          .requestMatchers(HttpMethod.POST, "/users").permitAll()
                          .requestMatchers(HttpMethod.GET, "/cars/{id}").permitAll()
                          .requestMatchers(HttpMethod.GET, "/cars").permitAll()

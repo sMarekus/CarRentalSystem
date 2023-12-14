@@ -24,7 +24,7 @@
                 @foreach (var reservation in reservations)
                 {
                     <tr>
-                        <td><a href="/ReservationDetails/@reservation.Id">@reservation.Id</a></td>
+                        <td>@reservation.Id</td>
                         <td>@reservation.UserName</td>
                         <td>@reservation.CarId</td>
                         <td>@reservation.StartDate.ToString("yyyy-MM-dd")</td>
@@ -48,7 +48,7 @@
 </div>
 
 @code {
-    private IEnumerable<Reservation>? reservations;
+    public IEnumerable<Reservation>? reservations;
 
     protected override async Task OnInitializedAsync()
     {
@@ -62,7 +62,7 @@
         }
     }
 
-    private async Task CancelReservation(int reservationId)
+    public async Task CancelReservation(int reservationId)
     {
         try
         {
