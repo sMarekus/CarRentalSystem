@@ -218,3 +218,5 @@ C:\Users\marek\School\Semester 3\SEP\CarRentalSystem\cCarRentalSystem\Client\Bla
 C:\Users\marek\School\Semester 3\SEP\CarRentalSystem\cCarRentalSystem\Client\BlazorApp\obj\Debug\net7.0\scopedcss\Pages\Profile.razor.rz.scp.css
 C:\Users\marek\School\Semester 3\SEP\CarRentalSystem\cCarRentalSystem\Client\BlazorApp\obj\Debug\net7.0\scopedcss\Pages\ViewCars.razor.rz.scp.css
 C:\Users\marek\School\Semester 3\SEP\CarRentalSystem\cCarRentalSystem\Client\BlazorApp\obj\Debug\net7.0\scopedcss\UIComponets\Modal.razor.rz.scp.css
+C:\Users\marek\School\Semester 3\SEP\CarRentalSystem\cCarRentalSystem\Client\BlazorApp\obj\Debug\net7.0\scopedcss\Pages\UserReservations.razor.rz.scp.css
+C:\Users\marek\School\Semester 3\SEP\CarRentalSystem\cCarRentalSystem\Client\BlazorApp\obj\Debug\net7.0\scopedcss\Pages\Reservations.razor.rz.scp.css

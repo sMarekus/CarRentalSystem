@@ -4,21 +4,41 @@
 
 .card[b-4ws64lblw9]{
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: box-shadow 0.3s ease-in-out;
     display: inline-block;
-    width: 30%;
     height: 30%;
-    margin: 25px;
     padding: 15px;
     border-radius: 10px;
+    cursor: pointer;
+}
+
+.card:hover[b-4ws64lblw9] {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 
 .card label[b-4ws64lblw9]{
     text-decoration: none;
     color:black;
-    font-weight: 650;
-    font-size: 20px;
+    font-weight: 400;
 }
 
 .card[b-4ws64lblw9]{
     text-decoration: none;
+    margin-right: 16px;
+    width: 30%;
+}
+
+.price[b-4ws64lblw9] {
+    background: rgb(2,0,36);
+    background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(132,0,218,1) 100%);
+    color: white;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    padding-left: 8px;
+    padding-right: 8px;
+    border-radius: 8px;
+}
+
+.cars-container[b-4ws64lblw9] {
+    row-gap: 16px;
 }

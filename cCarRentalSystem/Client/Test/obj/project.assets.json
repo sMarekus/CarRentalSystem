@@ -59,7 +59,7 @@
           "bunit.web": "1.24.10"
         }
       },
-      "bunit.core/1.24.10": {
+      "bunit.core/1.25.3": {
         "type": "package",
         "dependencies": {
           "Microsoft.AspNetCore.Components": "7.0.0",
@@ -77,7 +77,7 @@
           }
         }
       },
-      "bunit.web/1.24.10": {
+      "bunit.web/1.25.3": {
         "type": "package",
         "dependencies": {
           "AngleSharp": "0.17.1",
@@ -88,7 +88,7 @@
           "Microsoft.AspNetCore.Components.WebAssembly.Authentication": "7.0.0",
           "Microsoft.Extensions.Caching.Memory": "7.0.0",
           "Microsoft.Extensions.Localization.Abstractions": "7.0.0",
-          "bunit.core": "1.24.10"
+          "bunit.core": "1.25.3"
         },
         "compile": {
           "lib/net7.0/AngleSharpWrappers.dll": {
@@ -2698,15 +2698,15 @@
         "bunit.nuspec"
       ]
     },
-    "bunit.core/1.24.10": {
-      "sha512": "PFX6WrBMTLumrmLJsABsD15UH/hSlXAwCSM4Qf2Fh9wPFfQ5UAVO6j7b+6FwHvtN+Uc/QCLKxsfwd5US4dkyWw==",
+    "bunit.core/1.25.3": {
+      "sha512": "U81A2CmBEAd58ivIyW9Xm3IRc1wTtcdUkScSzEBrCiV8SRS36EdVTOYK4kaQmQNeG3+Cog/qlczGE9nVc6VxbQ==",
       "type": "package",
-      "path": "bunit.core/1.24.10",
+      "path": "bunit.core/1.25.3",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "bunit-logo.png",
-        "bunit.core.1.24.10.nupkg.sha512",
+        "bunit.core.1.25.3.nupkg.sha512",
         "bunit.core.nuspec",
         "lib/net5.0/Bunit.Core.dll",
         "lib/net5.0/Bunit.Core.xml",
@@ -2720,15 +2720,15 @@
         "lib/netstandard2.1/Bunit.Core.xml"
       ]
     },
-    "bunit.web/1.24.10": {
-      "sha512": "9UiCFygm3tdBNoNXkK+UBBqZH5VwdN4vXpA2l8K3QRS3+9mzhsvGwcfRtIuxSZfYrij1OYtCnxGF06e36niHlA==",
+    "bunit.web/1.25.3": {
+      "sha512": "u5cTdOjJOMdreqdkTHfA6At/Hk9tA+s21Ro0F9K+ZE++HdrL8CS3/ivrCbKiCdEZXPdfP4tGPkeL4NPRFh10vg==",
       "type": "package",
-      "path": "bunit.web/1.24.10",
+      "path": "bunit.web/1.25.3",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "bunit-logo.png",
-        "bunit.web.1.24.10.nupkg.sha512",
+        "bunit.web.1.25.3.nupkg.sha512",
         "bunit.web.nuspec",
         "lib/net5.0/AngleSharpWrappers.dll",
         "lib/net5.0/AngleSharpWrappers.xml",
@@ -7767,6 +7767,7 @@
       "Microsoft.NET.Test.Sdk >= 17.7.1",
       "Moq >= 4.20.70",
       "bunit >= 1.24.10",
+      "bunit.web >= 1.25.3",
       "coverlet.collector >= 3.2.0",
       "xunit >= 2.4.2",
       "xunit.runner.visualstudio >= 2.4.5"
@@ -7832,6 +7833,10 @@
           "bunit": {
             "target": "Package",
             "version": "[1.24.10, )"
+          },
+          "bunit.web": {
+            "target": "Package",
+            "version": "[1.25.3, )"
           },
           "coverlet.collector": {
             "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",

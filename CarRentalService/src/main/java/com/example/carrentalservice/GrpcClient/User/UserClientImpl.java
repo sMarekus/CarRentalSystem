@@ -27,7 +27,6 @@ public class UserClientImpl implements IUserClient
     @Override
     public User createUser(User user) {
         try {
-            System.out.println("Creating user");
             proto.User.UserProtoObj userProtoObj = fromEntityToProtoObj(user);
             proto.User.UserProtoObj protoObjFromServer = getUserStub().createUser(userProtoObj);
             return fromProtoObjToEntity(protoObjFromServer);

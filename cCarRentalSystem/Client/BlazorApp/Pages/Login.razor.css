@@ -12,22 +12,6 @@
     color: white;
 }
 
-.field{
-    margin-top: 20px;
-    text-align: center;
-    justify-content: center;
-}
-
-
-#inputCpr{
-    padding: 12px 20px;
-    transition: width 1s ease-in-out 250ms;
-    resize: vertical;
-    min-height: 50px;
-    animation: expandWidth 2s ease-in-out;
-    margin-top: 10px;
-}
-
 #header{
     text-align: center;
     color: rgb(67, 0, 127);
@@ -56,19 +40,9 @@
     color: white;
 }
 
-#inputPassword {
+.form-control {
     padding: 12px 20px;
     resize: vertical;
     min-height: 50px;
     margin-top: 10px;
-    animation: expandWidth 2s ease-in-out; 
-}
-
-@keyframes expandWidth {
-    0% {
-        width: 50px;
-    }
-    100% {
-        width: 160px;
-    }
 }
