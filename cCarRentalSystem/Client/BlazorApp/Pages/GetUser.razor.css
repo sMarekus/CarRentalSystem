@@ -5,3 +5,7 @@
     padding: 15px;
     border-radius: 10px;
 }
+
+td {
+    vertical-align: middle;
+}

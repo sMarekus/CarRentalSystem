@@ -13,7 +13,6 @@
 }
 
 .field[b-oufi5vxkno]{
-    margin-top: 20px;
     text-align: center;
     justify-content: center;
 }
@@ -29,76 +28,11 @@
     margin-top: 20px;
 }
 
-#inputBrand[b-oufi5vxkno]{
+.form-control[b-oufi5vxkno]{
     padding: 12px 20px;
     resize: vertical;
     min-height: 50px;
     margin-top: 10px;
-    animation: expandWidth-b-oufi5vxkno 2s ease-in-out;
-}
-
-#inputModel[b-oufi5vxkno]{
-    padding: 12px 20px;
-    resize: vertical;
-    min-height: 50px;
-    margin-top: 10px;
-    animation: expandWidth-b-oufi5vxkno 2s ease-in-out;
-}
-
-#inputBodyType[b-oufi5vxkno]{
-    padding: 12px 20px;
-    resize: vertical;
-    min-height: 50px;
-    margin-top: 10px;
-    animation: expandWidth-b-oufi5vxkno 2s ease-in-out;
-}
-
-#inputGearbox[b-oufi5vxkno]{
-    padding: 12px 20px;
-    resize: vertical;
-    min-height: 50px;
-    margin-top: 10px;
-    animation: expandWidth-b-oufi5vxkno 2s ease-in-out;
-}
-
-#inputColor[b-oufi5vxkno]{
-    padding: 12px 20px;
-    resize: vertical;
-    min-height: 50px;
-    margin-top: 10px;
-    animation: expandWidth-b-oufi5vxkno 2s ease-in-out;
-}
-
-#inputHP[b-oufi5vxkno]{
-    padding: 12px 20px;
-    resize: vertical;
-    min-height: 50px;
-    margin-top: 10px;
-    animation: expandWidth-b-oufi5vxkno 2s ease-in-out;
-}
-
-#inputPrice[b-oufi5vxkno]{
-    padding: 12px 20px;
-    resize: vertical;
-    min-height: 50px;
-    margin-top: 10px;
-    animation: expandWidth-b-oufi5vxkno 2s ease-in-out;
-}
-
-#inputDescription[b-oufi5vxkno]{
-    padding: 12px 20px;
-    resize: vertical;
-    min-height: 50px;
-    margin-top: 10px;
-    animation: expandWidth-b-oufi5vxkno 2s ease-in-out;
-}
-
-#inputFuelType[b-oufi5vxkno]{
-    padding: 12px 20px;
-    resize: vertical;
-    min-height: 50px;
-    margin-top: 10px;
-    animation: expandWidth-b-oufi5vxkno 2s ease-in-out;
 }
 
 #header[b-oufi5vxkno]{
@@ -106,13 +40,4 @@
     color: rgb(67, 0, 127);
     font-size: 40px;
     font-weight: 750;
-}
-
-@keyframes expandWidth-b-oufi5vxkno {
-    0% {
-        width: 50px;
-    }
-    100% {
-        width: 160px;
-    }
 }

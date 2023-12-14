@@ -47,9 +47,12 @@ public class UsersController {
     public ResponseEntity<User> getUserByUsername(@PathVariable("username") String username) {
         try {
             User user = userService.getUserByUserName(username);
+            if (user == null) {
+                return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            }
             return new ResponseEntity<>(user, HttpStatus.OK);
         } catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 

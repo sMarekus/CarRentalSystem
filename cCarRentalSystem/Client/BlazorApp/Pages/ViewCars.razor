@@ -23,19 +23,27 @@ else if (!cars.Any())
 }
 else
 {
-    <div class="cars-container">
+    <div class="cars-container d-flex justify-content-between flex-wrap">
         @foreach (var item in cars)
         {
-            <a class="card">
+            <a class="card col-md-4">
                 <div onclick="@(() => ViewCar(item.Id))">
                     <div class="row-col-6 d-flex justify-content-center">
                         <img src="logo-no-background.png" width="80%"/>
                     </div>
-                    <div class="row-col-6 d-flex justify-content-center">
-                        <label>@item.Brand</label>
+                    <div class="d-flex justify-content-center">
+                        <label class="fs-3">@item.Brand</label>
                     </div>
-                    <div class="row-col-6 d-flex justify-content-center">
-                        <label>@item.Model</label>
+                    <div class="d-flex justify-content-center">
+                        <label class="fs-6">@item.Model</label>
+                    </div>
+                    <div class="d-flex justify-content-center align-content-center flex-column">
+                        <label class="fs-5 text-center pt-2 fw-bolder">
+                            <span class="price">
+                                @item.PricePerDay €
+                            </span>
+                        </label>
+                        <label class="text-center">per day</label>
                     </div>
                 </div>
 

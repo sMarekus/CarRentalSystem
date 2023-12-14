@@ -23,16 +23,18 @@
             <p>Fuel type: @car.FuelType</p>
             <p>Horsepower: @car.HorsePower</p>
             <p><span class="fs-2">@car.PricePerDay</span> € / Day</p>
-            @if (isAdmin)
-            {
-                <a href="/cars/@car.Id/edit">
-                    <button class="btn btn-secondary">Edit car</button>
-                </a>
-                <a href="CarHistory/@car.Id">
-                    <button class="btn btn-secondary">Car History</button>
-                </a>
+            <div class="d-flex gap-1">
+                @if (isAdmin)
+                {
+                    <a href="/cars/@car.Id/edit">
+                        <button class="btn btn-secondary">Edit car</button>
+                    </a>
+                    <a href="cars/@car.Id/reservations-history">
+                        <button class="btn btn-secondary">Car History</button>
+                    </a>
+                }
                 <button class="btn btn-success" id="openBtn">Reserve</button>
-            }
+            </div>
         </div>
     </div>
 }
@@ -87,21 +89,22 @@ else
 <script src="reserveScript.js"></script>
 
 @code {
+
     [Parameter]
     public int carId { get; set; }
-    
-    private bool isAdmin;
-    
-    private Car car;
-    private string msg = "";
-    private string? currentUser = "";
-    
-    private int estimatedPrice = 0;
-    
-    private DateTime _pickup;
-    private DateTime _returnDate;
-    
-    private DateTime pickup
+
+    public bool isAdmin;
+
+    public Car car;
+    public string msg = "";
+    public string? currentUser = "";
+
+    public int estimatedPrice = 0;
+
+    public DateTime _pickup;
+    public DateTime _returnDate;
+
+    public DateTime pickup
     {
         get => _pickup;
         set
@@ -114,7 +117,7 @@ else
         }
     }
 
-    private DateTime returnDate
+    public DateTime returnDate
     {
         get => _returnDate;
         set
@@ -126,8 +129,8 @@ else
             }
         }
     }
-    
-    private async Task<bool> CheckAdminStatus()
+
+    public async Task<bool> CheckAdminStatus()
     {
         var authState = await StateProvider.GetAuthenticationStateAsync();
         var user = authState.User;
@@ -138,7 +141,7 @@ else
         return false;
     }
 
-    private void UpdateEstimatedPrice()
+    public void UpdateEstimatedPrice()
     {
         if (pickup != default && returnDate != default && returnDate > pickup)
         {
@@ -150,8 +153,8 @@ else
             estimatedPrice = 0;
         }
     }
-    
-    private string errorMessage = ""; 
+
+    public string errorMessage = "";
 
     protected override async Task OnInitializedAsync()
     {
@@ -171,21 +174,33 @@ else
             Console.WriteLine(e);
         }
     }
-    
-    private static DateTime GetCurrentDate()
+
+    public static DateTime GetCurrentDate()
     {
         DateTime currentDate = DateTime.Now;
         return currentDate;
     }
 
-    private void SetReservationDates(DateTime pickup, DateTime returnDate)
+    public void SetReservationDates(DateTime pickup, DateTime returnDate)
     {
         this.pickup = (pickup.Date).AddDays(1);
         this.returnDate = (returnDate.Date).AddDays(1);
     }
 
-    private async Task<Reservation> Reserve()
+    public async Task<Reservation> Reserve()
     {
+        if ((returnDate - pickup).TotalDays < 3)
+        {
+            errorMessage = "The reservation period must be at least 3 days.";
+            return null;
+        }
+
+        if (pickup.Date < DateTime.Today)
+        {
+            errorMessage = "The start date cannot be in the past.";
+            return null;
+        }
+
         ValidateDateInput(pickup, returnDate);
         SetReservationDates(pickup, returnDate);
         await GetLoggedInUserId();
@@ -202,7 +217,7 @@ else
         return await reserveService.CreateAsync(dto);
     }
 
-    private void ValidateDateInput(DateTime start, DateTime end)
+    public void ValidateDateInput(DateTime start, DateTime end)
     {
         TimeSpan timeDifference = end - start;
         TimeSpan minimumPeriod = TimeSpan.FromDays(3);
@@ -222,13 +237,13 @@ else
         }
     }
 
-    private int CalculateTotalPrice(DateTime startDate, DateTime endDate, int pricePerDay)
+    public int CalculateTotalPrice(DateTime startDate, DateTime endDate, int pricePerDay)
     {
         int numOfDays = (endDate - startDate).Days;
         return numOfDays * pricePerDay;
     }
 
-    private async Task<string> GetLoggedInUserId()
+    public async Task<string> GetLoggedInUserId()
     {
         AuthenticationState state = await StateProvider.GetAuthenticationStateAsync();
         currentUser = state.User.Claims.FirstOrDefault(claim => claim.Type.Equals("username"))!.Value.ToString();

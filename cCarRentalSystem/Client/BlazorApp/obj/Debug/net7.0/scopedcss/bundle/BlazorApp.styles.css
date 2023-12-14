@@ -24,7 +24,6 @@
     background-color: rgb(67, 0, 127);
     padding: 20px;
     width: 340px;
-    height: 390px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -50,7 +49,6 @@
     padding: 25px;
     text-align: center;
     border-radius: 15px;
-    margin-top: 10px;
 }
 
 .container[b-lql16p6pfj]{
@@ -64,6 +62,7 @@
     font-weight: 650;
     margin-top: 15px;
     margin-left: 50%;
+    border-radius: 8px;
     transform: translateX(-50%);
 }
 
@@ -99,7 +98,6 @@
 }
 
 .field[b-s7gnac86a7]{
-    margin-top: 20px;
     text-align: center;
     justify-content: center;
 }
@@ -115,76 +113,11 @@
     margin-top: 20px;
 }
 
-#inputBrand[b-s7gnac86a7]{
+.form-control[b-s7gnac86a7] {
     padding: 12px 20px;
     resize: vertical;
     min-height: 50px;
     margin-top: 10px;
-    animation: expandWidth-b-s7gnac86a7 2s ease-in-out;
-}
-
-#inputModel[b-s7gnac86a7]{
-    padding: 12px 20px;
-    resize: vertical;
-    min-height: 50px;
-    margin-top: 10px;
-    animation: expandWidth-b-s7gnac86a7 2s ease-in-out;
-}
-
-#inputBodyType[b-s7gnac86a7]{
-    padding: 12px 20px;
-    resize: vertical;
-    min-height: 50px;
-    margin-top: 10px;
-    animation: expandWidth-b-s7gnac86a7 2s ease-in-out;
-}
-
-#inputGearbox[b-s7gnac86a7]{
-    padding: 12px 20px;
-    resize: vertical;
-    min-height: 50px;
-    margin-top: 10px;
-    animation: expandWidth-b-s7gnac86a7 2s ease-in-out;
-}
-
-#inputColor[b-s7gnac86a7]{
-    padding: 12px 20px;
-    resize: vertical;
-    min-height: 50px;
-    margin-top: 10px;
-    animation: expandWidth-b-s7gnac86a7 2s ease-in-out;
-}
-
-#inputHP[b-s7gnac86a7]{
-    padding: 12px 20px;
-    resize: vertical;
-    min-height: 50px;
-    margin-top: 10px;
-    animation: expandWidth-b-s7gnac86a7 2s ease-in-out;
-}
-
-#inputPrice[b-s7gnac86a7]{
-    padding: 12px 20px;
-    resize: vertical;
-    min-height: 50px;
-    margin-top: 10px;
-    animation: expandWidth-b-s7gnac86a7 2s ease-in-out;
-}
-
-#inputDescription[b-s7gnac86a7]{
-    padding: 12px 20px;
-    resize: vertical;
-    min-height: 50px;
-    margin-top: 10px;
-    animation: expandWidth-b-s7gnac86a7 2s ease-in-out;
-}
-
-#inputFuelType[b-s7gnac86a7]{
-    padding: 12px 20px;
-    resize: vertical;
-    min-height: 50px;
-    margin-top: 10px;
-    animation: expandWidth-b-s7gnac86a7 2s ease-in-out;
 }
 
 #header[b-s7gnac86a7]{
@@ -192,15 +125,6 @@
     color: rgb(67, 0, 127);
     font-size: 40px;
     font-weight: 750;
-}
-
-@keyframes expandWidth-b-s7gnac86a7 {
-    0% {
-        width: 50px;
-    }
-    100% {
-        width: 160px;
-    }
 }
 /* _content/BlazorApp/Pages/EditCar.razor.rz.scp.css */
 .card[b-0hhozdoj72]{
@@ -218,7 +142,6 @@
 }
 
 .field[b-0hhozdoj72]{
-    margin-top: 20px;
     text-align: center;
     justify-content: center;
 }
@@ -234,76 +157,11 @@
     margin-top: 20px;
 }
 
-#inputBrand[b-0hhozdoj72]{
+.form-control[b-0hhozdoj72] {
     padding: 12px 20px;
     resize: vertical;
     min-height: 50px;
     margin-top: 10px;
-    animation: expandWidth-b-0hhozdoj72 2s ease-in-out;
-}
-
-#inputModel[b-0hhozdoj72]{
-    padding: 12px 20px;
-    resize: vertical;
-    min-height: 50px;
-    margin-top: 10px;
-    animation: expandWidth-b-0hhozdoj72 2s ease-in-out;
-}
-
-#inputBodyType[b-0hhozdoj72]{
-    padding: 12px 20px;
-    resize: vertical;
-    min-height: 50px;
-    margin-top: 10px;
-    animation: expandWidth-b-0hhozdoj72 2s ease-in-out;
-}
-
-#inputGearbox[b-0hhozdoj72]{
-    padding: 12px 20px;
-    resize: vertical;
-    min-height: 50px;
-    margin-top: 10px;
-    animation: expandWidth-b-0hhozdoj72 2s ease-in-out;
-}
-
-#inputColor[b-0hhozdoj72]{
-    padding: 12px 20px;
-    resize: vertical;
-    min-height: 50px;
-    margin-top: 10px;
-    animation: expandWidth-b-0hhozdoj72 2s ease-in-out;
-}
-
-#inputHP[b-0hhozdoj72]{
-    padding: 12px 20px;
-    resize: vertical;
-    min-height: 50px;
-    margin-top: 10px;
-    animation: expandWidth-b-0hhozdoj72 2s ease-in-out;
-}
-
-#inputPrice[b-0hhozdoj72]{
-    padding: 12px 20px;
-    resize: vertical;
-    min-height: 50px;
-    margin-top: 10px;
-    animation: expandWidth-b-0hhozdoj72 2s ease-in-out;
-}
-
-#inputDescription[b-0hhozdoj72]{
-    padding: 12px 20px;
-    resize: vertical;
-    min-height: 50px;
-    margin-top: 10px;
-    animation: expandWidth-b-0hhozdoj72 2s ease-in-out;
-}
-
-#inputFuelType[b-0hhozdoj72]{
-    padding: 12px 20px;
-    resize: vertical;
-    min-height: 50px;
-    margin-top: 10px;
-    animation: expandWidth-b-0hhozdoj72 2s ease-in-out;
 }
 
 #header[b-0hhozdoj72]{
@@ -311,15 +169,6 @@
     color: rgb(67, 0, 127);
     font-size: 40px;
     font-weight: 750;
-}
-
-@keyframes expandWidth-b-0hhozdoj72 {
-    0% {
-        width: 50px;
-    }
-    100% {
-        width: 160px;
-    }
 }
 /* _content/BlazorApp/Pages/EditProfile.razor.rz.scp.css */
 .card[b-0ybkwg3qu9]{
@@ -456,7 +305,6 @@
 }
 
 .field[b-oufi5vxkno]{
-    margin-top: 20px;
     text-align: center;
     justify-content: center;
 }
@@ -472,76 +320,11 @@
     margin-top: 20px;
 }
 
-#inputBrand[b-oufi5vxkno]{
+.form-control[b-oufi5vxkno]{
     padding: 12px 20px;
     resize: vertical;
     min-height: 50px;
     margin-top: 10px;
-    animation: expandWidth-b-oufi5vxkno 2s ease-in-out;
-}
-
-#inputModel[b-oufi5vxkno]{
-    padding: 12px 20px;
-    resize: vertical;
-    min-height: 50px;
-    margin-top: 10px;
-    animation: expandWidth-b-oufi5vxkno 2s ease-in-out;
-}
-
-#inputBodyType[b-oufi5vxkno]{
-    padding: 12px 20px;
-    resize: vertical;
-    min-height: 50px;
-    margin-top: 10px;
-    animation: expandWidth-b-oufi5vxkno 2s ease-in-out;
-}
-
-#inputGearbox[b-oufi5vxkno]{
-    padding: 12px 20px;
-    resize: vertical;
-    min-height: 50px;
-    margin-top: 10px;
-    animation: expandWidth-b-oufi5vxkno 2s ease-in-out;
-}
-
-#inputColor[b-oufi5vxkno]{
-    padding: 12px 20px;
-    resize: vertical;
-    min-height: 50px;
-    margin-top: 10px;
-    animation: expandWidth-b-oufi5vxkno 2s ease-in-out;
-}
-
-#inputHP[b-oufi5vxkno]{
-    padding: 12px 20px;
-    resize: vertical;
-    min-height: 50px;
-    margin-top: 10px;
-    animation: expandWidth-b-oufi5vxkno 2s ease-in-out;
-}
-
-#inputPrice[b-oufi5vxkno]{
-    padding: 12px 20px;
-    resize: vertical;
-    min-height: 50px;
-    margin-top: 10px;
-    animation: expandWidth-b-oufi5vxkno 2s ease-in-out;
-}
-
-#inputDescription[b-oufi5vxkno]{
-    padding: 12px 20px;
-    resize: vertical;
-    min-height: 50px;
-    margin-top: 10px;
-    animation: expandWidth-b-oufi5vxkno 2s ease-in-out;
-}
-
-#inputFuelType[b-oufi5vxkno]{
-    padding: 12px 20px;
-    resize: vertical;
-    min-height: 50px;
-    margin-top: 10px;
-    animation: expandWidth-b-oufi5vxkno 2s ease-in-out;
 }
 
 #header[b-oufi5vxkno]{
@@ -550,15 +333,6 @@
     font-size: 40px;
     font-weight: 750;
 }
-
-@keyframes expandWidth-b-oufi5vxkno {
-    0% {
-        width: 50px;
-    }
-    100% {
-        width: 160px;
-    }
-}
 /* _content/BlazorApp/Pages/GetUser.razor.rz.scp.css */
 .user-card[b-n1sgfil5f0] {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
@@ -566,6 +340,10 @@
     margin: 25px;
     padding: 15px;
     border-radius: 10px;
+}
+
+td[b-n1sgfil5f0] {
+    vertical-align: middle;
 }
 /* _content/BlazorApp/Pages/Index.razor.rz.scp.css */
 .desc[b-w6l7chfipm] {
@@ -658,22 +436,6 @@ footer[b-w6l7chfipm]{
     color: white;
 }
 
-.field[b-c956fem5qt]{
-    margin-top: 20px;
-    text-align: center;
-    justify-content: center;
-}
-
-
-#inputCpr[b-c956fem5qt]{
-    padding: 12px 20px;
-    transition: width 1s ease-in-out 250ms;
-    resize: vertical;
-    min-height: 50px;
-    animation: expandWidth-b-c956fem5qt 2s ease-in-out;
-    margin-top: 10px;
-}
-
 #header[b-c956fem5qt]{
     text-align: center;
     color: rgb(67, 0, 127);
@@ -702,21 +464,11 @@ footer[b-w6l7chfipm]{
     color: white;
 }
 
-#inputPassword[b-c956fem5qt] {
+.form-control[b-c956fem5qt] {
     padding: 12px 20px;
     resize: vertical;
     min-height: 50px;
     margin-top: 10px;
-    animation: expandWidth-b-c956fem5qt 2s ease-in-out; 
-}
-
-@keyframes expandWidth-b-c956fem5qt {
-    0% {
-        width: 50px;
-    }
-    100% {
-        width: 160px;
-    }
 }
 /* _content/BlazorApp/Pages/Profile.razor.rz.scp.css */
 .popup[b-i9n0qbq691] {
@@ -773,13 +525,12 @@ footer[b-w6l7chfipm]{
 }
 
 .field[b-x3lxt1hyuu]{
-    margin-top: 20px;
     text-align: center;
     justify-content: center;
 }
 
 .acceptbtn[b-x3lxt1hyuu]{
-    color:white;
+    color: white;
     background-color: rgb(132,0,218);
     outline: solid 3px black;
     border-radius: 5px;
@@ -794,52 +545,11 @@ footer[b-w6l7chfipm]{
     text-align: center;
 }
 
-#inputFirstName[b-x3lxt1hyuu]{
+.form-control[b-x3lxt1hyuu] {
     padding: 12px 20px;
     resize: vertical;
     min-height: 50px;
     margin-top: 10px;
-    animation: expandWidth-b-x3lxt1hyuu 2s ease-in-out;
-}
-
-#inputLastName[b-x3lxt1hyuu]{
-    padding: 12px 20px;
-    resize: vertical;
-    min-height: 50px;
-    margin-top: 10px;
-    animation: expandWidth-b-x3lxt1hyuu 2s ease-in-out;
-}
-
-#inputEmail[b-x3lxt1hyuu]{
-    padding: 12px 20px;
-    resize: vertical;
-    min-height: 50px;
-    margin-top: 10px;
-    animation: expandWidth-b-x3lxt1hyuu 2s ease-in-out;
-}
-
-#inputPassword[b-x3lxt1hyuu]{
-    padding: 12px 20px;
-    resize: vertical;
-    min-height: 50px;
-    margin-top: 10px;
-    animation: expandWidth-b-x3lxt1hyuu 2s ease-in-out;
-}
-
-#inputCprNumber[b-x3lxt1hyuu]{
-    padding: 12px 20px;
-    resize: vertical;
-    min-height: 50px;
-    margin-top: 10px;
-    animation: expandWidth-b-x3lxt1hyuu 2s ease-in-out;
-}
-
-#inputPhoneNumber[b-x3lxt1hyuu]{
-    padding: 12px 20px;
-    resize: vertical;
-    min-height: 50px;
-    margin-top: 10px;
-    animation: expandWidth-b-x3lxt1hyuu 2s ease-in-out;
 }
 
 #header[b-x3lxt1hyuu]{
@@ -848,14 +558,13 @@ footer[b-w6l7chfipm]{
     font-size: 40px;
     font-weight: 750;
 }
-
-@keyframes expandWidth-b-x3lxt1hyuu {
-    0% {
-        width: 50px;
-    }
-    100% {
-        width: 160px;
-    }
+/* _content/BlazorApp/Pages/Reservations.razor.rz.scp.css */
+td[b-aharamea8z] {
+    vertical-align: middle;
+}
+/* _content/BlazorApp/Pages/UserReservations.razor.rz.scp.css */
+td[b-yubfuiigg6] {
+    vertical-align: middle;
 }
 /* _content/BlazorApp/Pages/ViewCars.razor.rz.scp.css */
 #header[b-4ws64lblw9]{
@@ -864,23 +573,43 @@ footer[b-w6l7chfipm]{
 
 .card[b-4ws64lblw9]{
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: box-shadow 0.3s ease-in-out;
     display: inline-block;
-    width: 30%;
     height: 30%;
-    margin: 25px;
     padding: 15px;
     border-radius: 10px;
+    cursor: pointer;
+}
+
+.card:hover[b-4ws64lblw9] {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 
 .card label[b-4ws64lblw9]{
     text-decoration: none;
     color:black;
-    font-weight: 650;
-    font-size: 20px;
+    font-weight: 400;
 }
 
 .card[b-4ws64lblw9]{
     text-decoration: none;
+    margin-right: 16px;
+    width: 30%;
+}
+
+.price[b-4ws64lblw9] {
+    background: rgb(2,0,36);
+    background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(132,0,218,1) 100%);
+    color: white;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    padding-left: 8px;
+    padding-right: 8px;
+    border-radius: 8px;
+}
+
+.cars-container[b-4ws64lblw9] {
+    row-gap: 16px;
 }
 /* _content/BlazorApp/Shared/MainLayout.razor.rz.scp.css */
 .page[b-3dsd3z3yec] {
@@ -995,6 +724,7 @@ main[b-3dsd3z3yec] {
 .nav-item[b-7cxxmz0cwl] {
     font-size: 0.9rem;
     padding-bottom: 0.5rem;
+    cursor: pointer;
 }
 
     .nav-item:first-of-type[b-7cxxmz0cwl] {

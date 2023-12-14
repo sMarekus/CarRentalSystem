@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "W2I+nfgbxdldk0YoUalF+wMjU2zzwq2MBhwuLHBF123B0Aq+8uQTU5wulWQKfDkRw5PTW6/OBYl8x9ts6psJKA==",
+  "dgSpecHash": "xIAYJnOImVBDqigR5ZVYZmCC/THGwBc61k49foiTGPjs+VqB4iydlW/tMdeh2sfsmnWpFEKi4/v5nfllyuQVlg==",
   "success": true,
   "projectFilePath": "C:\\Users\\marek\\School\\Semester 3\\SEP\\CarRentalSystem\\cCarRentalSystem\\Client\\Test\\Test.csproj",
   "expectedPackageFiles": [
@@ -8,8 +8,8 @@
     "C:\\Users\\marek\\.nuget\\packages\\anglesharp.css\\0.17.0\\anglesharp.css.0.17.0.nupkg.sha512",
     "C:\\Users\\marek\\.nuget\\packages\\anglesharp.diffing\\0.18.2\\anglesharp.diffing.0.18.2.nupkg.sha512",
     "C:\\Users\\marek\\.nuget\\packages\\bunit\\1.24.10\\bunit.1.24.10.nupkg.sha512",
-    "C:\\Users\\marek\\.nuget\\packages\\bunit.core\\1.24.10\\bunit.core.1.24.10.nupkg.sha512",
-    "C:\\Users\\marek\\.nuget\\packages\\bunit.web\\1.24.10\\bunit.web.1.24.10.nupkg.sha512",
+    "C:\\Users\\marek\\.nuget\\packages\\bunit.core\\1.25.3\\bunit.core.1.25.3.nupkg.sha512",
+    "C:\\Users\\marek\\.nuget\\packages\\bunit.web\\1.25.3\\bunit.web.1.25.3.nupkg.sha512",
     "C:\\Users\\marek\\.nuget\\packages\\castle.core\\5.1.1\\castle.core.5.1.1.nupkg.sha512",
     "C:\\Users\\marek\\.nuget\\packages\\coverlet.collector\\3.2.0\\coverlet.collector.3.2.0.nupkg.sha512",
     "C:\\Users\\marek\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\7.0.14\\microsoft.aspnetcore.authentication.jwtbearer.7.0.14.nupkg.sha512",

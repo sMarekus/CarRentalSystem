@@ -7,106 +7,104 @@
 @using UIComponents
 @attribute [Authorize]
 
-<div class="row d-flex justify-content-center">
-    <div class="col-md-6">
-        <h3 id="header">Add car</h3>
-    </div>
-</div>
-
-<div class="container">
+<div class="container mb-5">
 <div class="card">
     <div class="row d-flex justify-content-center">
-        <div class="col-md-6">
-            <div class="form-group field">
-                <label>Brand:</label>
+        <div class="col-md-12 pb-3">
+            <h1 class="text-center fs-1 fw-bold">Add car</h1>
+        </div>
+    </div>
+
+    <div class="row d-flex justify-content-center">
+        <div class="col-md-12">
+            <div class="form-group field text-start">
+                <label>Brand</label>
                 <input id="inputBrand" type="text" class="form-control" @bind="brand" @bind:event="oninput"/>
             </div>
         </div>
     </div>
     
-    <div class="row d-flex justify-content-center">
-        <div class="col-md-6">
-            <div class="form-group field">
-                <label>Model:</label>
+    <div class="row d-flex justify-content-center pt-3">
+        <div class="col-md-12">
+            <div class="form-group field text-start">
+                <label>Model</label>
                 <input id="inputModel" type="text" class="form-control" @bind="model" @bind:event="oninput"/>
             </div>
         </div>
     </div>
     
-    <div class="row d-flex justify-content-center">
+    <div class="row d-flex justify-content-center pt-3">
         <div class="col-md-6">
-            <div class="form-group field">
-                <label>Body Type:</label>
+            <div class="form-group field text-start">
+                <label>Body Type</label>
                 <input id="inputBodyType" type="text" class="form-control" @bind="bodyType" @bind:event="oninput"/>
             </div>
         </div>
-    </div>
-    
-    <div class="row d-flex justify-content-center">
+        
         <div class="col-md-6">
-            <div class="form-group field">
-                <label>Horsepower:</label>
+            <div class="form-group field text-start">
+                <label>Horsepower</label>
                 <input id="inputHP" type="text" class="form-control" @bind="horsePower" @bind:event="oninput"/>
             </div>
         </div>
     </div>
     
-    <div class="row d-flex justify-content-center">
+    <div class="row d-flex justify-content-center pt-3">
         <div class="col-md-6">
-            <div class="form-group field">
-                <label>Fuel Type:</label>
+            <div class="form-group field text-start">
+                <label>Fuel Type</label>
                 <input id="inputFuelType" type="text" class="form-control" @bind="fuelType" @bind:event="oninput"/>
             </div>
         </div>
-    </div>
-    
-    <div class="row d-flex justify-content-center">
+        
         <div class="col-md-6">
-            <div class="form-group field">
-                <label>Gearbox:</label>
+            <div class="form-group field text-start">
+                <label>Gearbox</label>
                 <input id="inputGearbox" type="text" class="form-control" @bind="gearbox" @bind:event="oninput"/>
             </div>
         </div>
     </div>
     
-    <div class="row d-flex justify-content-center">
-        <div class="col-md-6">
-            <div class="form-group field">
+    <div class="row d-flex justify-content-center pt-3">
+        <div class="col-md-12">
+            <div class="form-group field text-start">
                 <label>Color</label>
                 <input id="inputColor" type="text" class="form-control" @bind="color" @bind:event="oninput"/>
             </div>
         </div>
     </div>
-    <div class="row d-flex justify-content-center">
-        <div class="col-md-6">
-            <div class="form-group field">
+    
+    <div class="row d-flex justify-content-center pt-3">
+        <div class="col-md-12">
+            <div class="form-group field text-start">
                 <label>Description</label>
                 <input id="inputDescription" type="text" class="form-control" @bind="description" @bind:event="oninput"/>
             </div>
         </div>
     </div>
-    <div class="row d-flex justify-content-center">
-        <div class="col-md-6">
-            <div class="form-group field">
-                <label>Price per day:</label>
+    
+    <div class="row d-flex justify-content-center pt-3">
+        <div class="col-md-12">
+            <div class="form-group field text-start">
+                <label>Price per day</label>
                 <input id="inputPrice" type="text" class="form-control" @bind="pricePerDay" @bind:event="oninput"/>
             </div>
         </div>
     </div>
     
-    <div class="row d-flex justify-content-center">
-        <div class="col-md-6">
+    <div class="row d-flex justify-content-center pt-3">
+        <div class="col-md-12">
+            <div class="button-row">
+                <button @onclick="Create" disabled="@IsCreateButtonDisabled" class="acceptbtn w-100">Add</button>
+            </div>
             @if (!string.IsNullOrEmpty(msg))
             {
                 <label style="color: @msgcolor">@msg</label>
             }
-            <div class="button-row">
-                <button @onclick="Create" disabled="@IsCreateButtonDisabled" class="acceptbtn">Add</button>
-            </div>
             <Modal ShowModal="showModal">
-                      <p style="color: black">You have successfully added car!</p>
-                      <button @onclick="@Proceed">Okay</button>
-                      </Modal>
+                <p style="color: black">You have successfully added car!</p>
+                <button @onclick="@Proceed">Okay</button>
+            </Modal>
         </div>
     </div>
     </div>
@@ -114,18 +112,18 @@
 
 
 @code {
-    private string brand = "";
-    private string model = "";
-    private string bodyType = "";
-    private int horsePower;
-    private string fuelType = "";
-    private string gearbox = "";
-    private string color = "";
-    private string description = "";
-    private int pricePerDay;
-    private string msg = "";
-    private string msgcolor = "green";
-    private bool showModal ;
+    public string brand = "";
+    public string model = "";
+    public string bodyType = "";
+    public int horsePower;
+    public string fuelType = "";
+    public string gearbox = "";
+    public string color = "";
+    public string description = "";
+    public int pricePerDay;
+    public string msg = "";
+    public string msgcolor = "green";
+    public bool showModal ;
  
     private async Task Create()
     {
@@ -144,7 +142,7 @@
         }
     }
     
-    private bool IsCreateButtonDisabled => string.IsNullOrWhiteSpace(brand) || string.IsNullOrWhiteSpace(model) || string.IsNullOrWhiteSpace(bodyType) || string.IsNullOrWhiteSpace(fuelType) || horsePower == null || string.IsNullOrWhiteSpace(gearbox) || string.IsNullOrWhiteSpace(description) || string.IsNullOrWhiteSpace(color) || pricePerDay == null;
+    private bool IsCreateButtonDisabled => string.IsNullOrWhiteSpace(brand) || string.IsNullOrWhiteSpace(model) || string.IsNullOrWhiteSpace(bodyType) || string.IsNullOrWhiteSpace(fuelType) || horsePower <= 0 || string.IsNullOrWhiteSpace(gearbox) || string.IsNullOrWhiteSpace(description) || string.IsNullOrWhiteSpace(color) || pricePerDay <= 0;
     
     private void Proceed()
     {

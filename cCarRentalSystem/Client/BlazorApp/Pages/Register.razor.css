@@ -13,13 +13,12 @@
 }
 
 .field{
-    margin-top: 20px;
     text-align: center;
     justify-content: center;
 }
 
 .acceptbtn{
-    color:white;
+    color: white;
     background-color: rgb(132,0,218);
     outline: solid 3px black;
     border-radius: 5px;
@@ -34,52 +33,11 @@
     text-align: center;
 }
 
-#inputFirstName{
+.form-control {
     padding: 12px 20px;
     resize: vertical;
     min-height: 50px;
     margin-top: 10px;
-    animation: expandWidth 2s ease-in-out;
-}
-
-#inputLastName{
-    padding: 12px 20px;
-    resize: vertical;
-    min-height: 50px;
-    margin-top: 10px;
-    animation: expandWidth 2s ease-in-out;
-}
-
-#inputEmail{
-    padding: 12px 20px;
-    resize: vertical;
-    min-height: 50px;
-    margin-top: 10px;
-    animation: expandWidth 2s ease-in-out;
-}
-
-#inputPassword{
-    padding: 12px 20px;
-    resize: vertical;
-    min-height: 50px;
-    margin-top: 10px;
-    animation: expandWidth 2s ease-in-out;
-}
-
-#inputCprNumber{
-    padding: 12px 20px;
-    resize: vertical;
-    min-height: 50px;
-    margin-top: 10px;
-    animation: expandWidth 2s ease-in-out;
-}
-
-#inputPhoneNumber{
-    padding: 12px 20px;
-    resize: vertical;
-    min-height: 50px;
-    margin-top: 10px;
-    animation: expandWidth 2s ease-in-out;
 }
 
 #header{
@@ -87,13 +45,4 @@
     color: rgb(67, 0, 127);
     font-size: 40px;
     font-weight: 750;
-}
-
-@keyframes expandWidth {
-    0% {
-        width: 50px;
-    }
-    100% {
-        width: 160px;
-    }
 }
