@@ -12,22 +12,6 @@
     color: white;
 }
 
-.field[b-c956fem5qt]{
-    margin-top: 20px;
-    text-align: center;
-    justify-content: center;
-}
-
-
-#inputCpr[b-c956fem5qt]{
-    padding: 12px 20px;
-    transition: width 1s ease-in-out 250ms;
-    resize: vertical;
-    min-height: 50px;
-    animation: expandWidth-b-c956fem5qt 2s ease-in-out;
-    margin-top: 10px;
-}
-
 #header[b-c956fem5qt]{
     text-align: center;
     color: rgb(67, 0, 127);
@@ -56,19 +40,9 @@
     color: white;
 }
 
-#inputPassword[b-c956fem5qt] {
+.form-control[b-c956fem5qt] {
     padding: 12px 20px;
     resize: vertical;
     min-height: 50px;
     margin-top: 10px;
-    animation: expandWidth-b-c956fem5qt 2s ease-in-out; 
-}
-
-@keyframes expandWidth-b-c956fem5qt {
-    0% {
-        width: 50px;
-    }
-    100% {
-        width: 160px;
-    }
 }

@@ -28,14 +28,17 @@
                 {
                     <tr>
                         <!-- Table rows and reservation details -->
-                        <td><a href="/ReservationDetails/@reservation.Id">@reservation.Id</a></td>
+                        <td>@reservation.Id</td>
                         <td>@reservation.CarId</td>
                         <td>@reservation.StartDate.ToString("dd-MM-yyyy")</td>
                         <td>@reservation.EndDate.ToString("dd-MM-yyyy")</td>
                         <td>@reservation.TotalPrice.ToString("C")</td>
                         <td>@(reservation.IsCompleted ? "Completed" : "Uncompleted")</td>
                         <td>
-                            <button class="btn btn-success" @onclick="() => ReturnReservation(reservation.Id)">Return</button>
+                            @if (!reservation.IsCompleted)
+                            {
+                                <button class="btn btn-success" @onclick="() => ReturnReservation(reservation.Id)">Return</button>
+                            }
                         </td>
                         <Modal ShowModal="showModal">
                             <p>You have successfully returned your car. Thank you</p>
@@ -56,9 +59,9 @@
 
 @code {
     [Parameter] public string username { get; set; }
-    private IEnumerable<Reservation>? reservations;
-    private Car? car;
-    private bool showModal;
+    public IEnumerable<Reservation>? reservations;
+    public Car? car;
+    public bool showModal;
 
     protected override async Task OnInitializedAsync()
     {
@@ -75,14 +78,14 @@
         }
     }
 
-    private async Task<string> GetLoggedInUserId()
+    public async Task<string> GetLoggedInUserId()
     {
         AuthenticationState state = await StateProvider.GetAuthenticationStateAsync();
         username = state.User.Claims.FirstOrDefault(claim => claim.Type.Equals("username"))!.Value.ToString();
         return username;
     }
 
-    private async Task ReturnReservation(int reservationId)
+    public async Task ReturnReservation(int reservationId)
     {
         try
         {
@@ -98,7 +101,7 @@
         }
     }
 
-    private void Proceed()
+    public void Proceed()
     {
         showModal = false;
         navMgr.NavigateTo("/{username}/reservations", forceLoad: true);

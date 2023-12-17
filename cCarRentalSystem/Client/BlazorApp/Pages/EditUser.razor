@@ -6,68 +6,66 @@
 @inject IUserService userService;
 @inject NavigationManager navMgr;
 
-<div class="row d-flex justify-content-center">
-    <div class="col-md-6">
-        <h3 id="header">Edit user</h3>
-    </div>
-</div>
-
 <div class="container">
     <div class="card">
         <div class="row d-flex justify-content-center">
+            <div class="col-md-12 pb-3">
+                <h1 class="text-center fs-1 fw-bold">Edit user</h1>
+            </div>
+        </div>
+        
+        <div class="row d-flex justify-content-center pt-3">
             <div class="col-md-6">
-                <div class="form-group field">
+                <div class="form-group field text-start">
                     <label>Edit First Name:</label>
-                    <input id="inputModel" type="text" class="form-control" @bind="firstName" @bind:event="oninput" />
+                    <input id="inputModel" type="text" class="form-control" @bind="firstName" @bind:event="oninput"/>
                 </div>
             </div>
-        </div>
-        
-        <div class="row d-flex justify-content-center">
+            
             <div class="col-md-6">
-                <div class="form-group field">
+                <div class="form-group field text-start">
                     <label>Edit Last Name:</label>
-                    <input id="inputBodyType" type="text" class="form-control" @bind="lastName" @bind:event="oninput" />
+                    <input id="inputBodyType" type="text" class="form-control" @bind="lastName" @bind:event="oninput"/>
                 </div>
             </div>
         </div>
-        
-        <div class="row d-flex justify-content-center">
-            <div class="col-md-6">
-                <div class="form-group field">
+
+        <div class="row d-flex justify-content-center pt-3">
+            <div class="col-md-12">
+                <div class="form-group field text-start">
                     <label>Email:</label>
-                    <input id="inputHP" type="text" class="form-control" @bind="email" @bind:event="oninput" />
+                    <input id="inputHP" type="text" class="form-control" @bind="email" @bind:event="oninput"/>
                 </div>
             </div>
         </div>
-        
-        <div class="row d-flex justify-content-center">
-            <div class="col-md-6">
-                <div class="form-group field">
+
+        <div class="row d-flex justify-content-center pt-3">
+            <div class="col-md-12">
+                <div class="form-group field text-start">
                     <label>Edit Phone Number:</label>
-                    <input id="inputFuelType" type="text" class="form-control" @bind="phoneNumber" @bind:event="oninput" />
+                    <input id="inputFuelType" type="text" class="form-control" @bind="phoneNumber" @bind:event="oninput"/>
                 </div>
             </div>
         </div>
-        
-        <div class="row d-flex justify-content-center">
-            <div class="col-md-6">
-                <div class="form-group field">
+
+        <div class="row d-flex justify-content-center pt-3">
+            <div class="col-md-12">
+                <div class="form-group field text-start">
                     <label>Edit if is admin:</label>
-                    <input type="checkbox" @bind="isAdmin" @bind:event="oninput" />
+                    <input type="checkbox" @bind="isAdmin" @bind:event="oninput"/>
                 </div>
             </div>
         </div>
-        
-        <div class="row d-flex justify-content-center">
-            <div class="col-md-6">
+
+        <div class="row d-flex justify-content-center pt-3">
+            <div class="col-md-12">
+                <div class="button-row">
+                    <button @onclick="Edit" class="acceptbtn w-100" disabled="@IsConfirmButtonDisabled">Confirm</button>
+                </div>
                 @if (!string.IsNullOrEmpty(msg))
                 {
                     <label style="color: @msgcolor">@msg</label>
                 }
-                <div class="button-row">
-                    <button @onclick="Edit" class="acceptbtn">Confirm</button>
-                </div>
             </div>
         </div>
     </div>
@@ -88,6 +86,9 @@
     private string msg = "";
     private string msgcolor = "green";
     
+    public bool IsConfirmButtonDisabled => string.IsNullOrWhiteSpace(firstName) || string.IsNullOrWhiteSpace(lastName) || string.IsNullOrWhiteSpace(email);
+
+    
     protected override async Task OnInitializedAsync()
     {
         user = await userService.GetUserByUserNameAsync(username);
@@ -103,6 +104,14 @@
 
     private async Task Edit()
     {
+        msg = "";
+        
+        if (phoneNumber <= 0) {
+            msg = "Phone number cannot be 0 or negative";
+            msgcolor = "red";
+            return;
+        }
+        
         try
         {
             UserUpdateDto dto = new UserUpdateDto(UpdateFirstName(), UpdateLastName(), UpdateEmail(), user.Password, username, UpdatePhoneNumber(), UpdateIsAdmin());

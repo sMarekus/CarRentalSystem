@@ -1,15 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "EcQEKTka7UfHAOotMbyqttcRIo0iin/regn+W+Fpt3MVwIA/kn5ccCstpeRVG1BQNXLDZhmtcJ/PMTFzw34CGQ==",
+  "dgSpecHash": "BItp9TnktBJ+i3YEOygaITcQ0W3IDe1RCXLIjQvsYCRN7Qf7pR5lwgDvGUQ3UXO7K8YesPhqbfq3ABCHKm2viw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\apurv\\OneDrive\\Desktop\\CarRentalSEP\\cCarRentalSystem\\Client\\HttpClients\\HttpClients.csproj",
+  "projectFilePath": "C:\\Users\\tomim\\Documents\\GitHub\\CarRentalSystem\\cCarRentalSystem\\Client\\HttpClients\\HttpClients.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\apurv\\.nuget\\packages\\microsoft.aspnetcore.authorization\\7.0.13\\microsoft.aspnetcore.authorization.7.0.13.nupkg.sha512",
-    "C:\\Users\\apurv\\.nuget\\packages\\microsoft.aspnetcore.metadata\\7.0.13\\microsoft.aspnetcore.metadata.7.0.13.nupkg.sha512",
-    "C:\\Users\\apurv\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\7.0.0\\microsoft.extensions.dependencyinjection.abstractions.7.0.0.nupkg.sha512",
-    "C:\\Users\\apurv\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\7.0.1\\microsoft.extensions.logging.abstractions.7.0.1.nupkg.sha512",
-    "C:\\Users\\apurv\\.nuget\\packages\\microsoft.extensions.options\\7.0.1\\microsoft.extensions.options.7.0.1.nupkg.sha512",
-    "C:\\Users\\apurv\\.nuget\\packages\\microsoft.extensions.primitives\\7.0.0\\microsoft.extensions.primitives.7.0.0.nupkg.sha512"
+    "C:\\Users\\tomim\\.nuget\\packages\\microsoft.aspnetcore.authorization\\7.0.13\\microsoft.aspnetcore.authorization.7.0.13.nupkg.sha512",
+    "C:\\Users\\tomim\\.nuget\\packages\\microsoft.aspnetcore.metadata\\7.0.13\\microsoft.aspnetcore.metadata.7.0.13.nupkg.sha512",
+    "C:\\Users\\tomim\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\7.0.0\\microsoft.extensions.dependencyinjection.abstractions.7.0.0.nupkg.sha512",
+    "C:\\Users\\tomim\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\7.0.1\\microsoft.extensions.logging.abstractions.7.0.1.nupkg.sha512",
+    "C:\\Users\\tomim\\.nuget\\packages\\microsoft.extensions.options\\7.0.1\\microsoft.extensions.options.7.0.1.nupkg.sha512",
+    "C:\\Users\\tomim\\.nuget\\packages\\microsoft.extensions.primitives\\7.0.0\\microsoft.extensions.primitives.7.0.0.nupkg.sha512"
   ],
   "logs": []
 }

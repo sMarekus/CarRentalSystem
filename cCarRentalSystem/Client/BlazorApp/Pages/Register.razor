@@ -5,79 +5,77 @@
 @inject IUserService userService;
 @inject NavigationManager navManager;
 
-<div class="row d-flex justify-content-center">
-    <div class="col-md-6">
-        <b><h3 id="header">Register</h3></b>
-    </div>
-</div>
-
 <AuthorizeView>
     <NotAuthorized>
-        <div class="container">
+        <div class="container mb-5">
             <div class="card">
                 <div class="row d-flex justify-content-center">
+                    <div class="col-md-12 pb-3">
+                        <h1 class="text-center fs-1 fw-bold">Register</h1>
+                    </div>
+                </div>
+                
+                <div class="row d-flex justify-content-center">
                     <div class="col-md-6">
-                        <div class="form-group field">
-                            <label>First Name:</label>
+                        <div class="form-group field text-start">
+                            <label>First Name</label>
                             <input id="inputFirstName" type="text" class="form-control" @bind="firstName" @bind:event="oninput"/>
                         </div>
                     </div>
-                </div>
-
-                <div class="row d-flex justify-content-center">
+                    
                     <div class="col-md-6">
-                        <div class="form-group field">
-                            <label>Last Name:</label>
+                        <div class="form-group field text-start">
+                            <label>Last Name</label>
                             <input id="inputLastName" type="text" class="form-control" @bind="lastName" @bind:event="oninput"/>
                         </div>
                     </div>
                 </div>
 
-                <div class="row d-flex justify-content-center">
-                    <div class="col-md-6">
-                        <div class="form-group field">
-                            <label>Email:</label>
+                <div class="row d-flex justify-content-center pt-3">
+                    <div class="col-md-12">
+                        <div class="form-group field text-start">
+                            <label>Email</label>
                             <input id="inputEmail" type="text" class="form-control" @bind="email" @bind:event="oninput"/>
                         </div>
                     </div>
                 </div>
 
-                <div class="row d-flex justify-content-center">
-                    <div class="col-md-6">
-                        <div class="form-group field">
-                            <label>Password:</label>
+                <div class="row d-flex justify-content-center pt-3">
+                    <div class="col-md-12">
+                        <div class="form-group field text-start">
+                            <label>Password</label>
                             <input id="inputPassword" type="password" class="form-control" @bind="password" @bind:event="oninput"/>
                         </div>
                     </div>
                 </div>
 
-                <div class="row d-flex justify-content-center">
-                    <div class="col-md-6">
-                        <div class="form-group field">
-                            <label>Username:</label>
-                            <input id="inputCprNumber" type="text" class="form-control" @bind="userName" @bind:event="oninput"/>
+                <div class="row d-flex justify-content-center pt-3">
+                    <div class="col-md-12">
+                        <div class="form-group field text-start">
+                            <label>Username</label>
+                            <input id="inputUsernameNumber" type="text" class="form-control" @bind="userName" @bind:event="oninput"/>
                         </div>
                     </div>
                 </div>
 
-                <div class="row d-flex justify-content-center">
-                    <div class="col-md-6">
-                        <div class="form-group field">
-                            <label>Phone Number:</label>
+                <div class="row d-flex justify-content-center pt-3">
+                    <div class="col-md-12">
+                        <div class="form-group field text-start">
+                            <label>Phone Number</label>
                             <input id="inputPhoneNumber" type="text" class="form-control" @bind="phoneNumber" @bind:event="oninput"/>
                         </div>
                     </div>
                 </div>
 
-                <div class="row d-flex justify-content-center">
-                    <div class="col-md-6">
+                <div class="row d-flex justify-content-center pt-3">
+                    <div class="col-md-12">
+                        <div class="button-row">
+                            <button data-testid="createUser" id="createUser" @onclick="Create" disabled="@IsRegisterButtonDisabled" class="acceptbtn w-100">Register</button>
+                        </div>
                         @if (!string.IsNullOrEmpty(resultMsg))
                         {
-                            <label style="color: @color">@resultMsg</label>
+                            <label class="pt-3" style="color: @color">@resultMsg</label>
                         }
-                        <div class="button-row">
-                            <button @onclick="Create" disabled="@IsRegisterButtonDisabled" class="acceptbtn">Register</button>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -95,24 +93,28 @@
 
 
 @code {
-    private string firstName = "";
-    private string lastName = "";
-    private string email = "";
-    private string password = "";
-    private string userName;
-    private long phoneNumber;
-    private bool isAdmin;
-    private string resultMsg = "";
-    private string color = "";
+    public string firstName = "";
+    public string lastName = "";
+    public string email = "";
+    public string password = "";
+    public string userName;
+    public long phoneNumber;
+    public bool isAdmin;
+    public string resultMsg = "";
+    public string color = "";
     
-    
-    private bool IsRegisterButtonDisabled => string.IsNullOrWhiteSpace(userName) || string.IsNullOrWhiteSpace(password) || string.IsNullOrWhiteSpace(firstName) || string.IsNullOrWhiteSpace(lastName);
+    public bool IsRegisterButtonDisabled => string.IsNullOrWhiteSpace(userName) || string.IsNullOrWhiteSpace(password) || string.IsNullOrWhiteSpace(firstName) || string.IsNullOrWhiteSpace(lastName);
 
     
     private async Task Create()
     {
         resultMsg = "";
-        color="";
+        
+        if (phoneNumber <= 0) {
+            resultMsg = "Phone number cannot be 0 or negative";
+            color = "red";
+            return;
+        }
 
         try
         {
@@ -122,8 +124,8 @@
             lastName = "";
             email = "";
             password = "";
-            userName = "";  
-            phoneNumber= 0;
+            userName = "";
+            phoneNumber = 0;
             isAdmin = false;
             resultMsg = "User successfully created";
             color = "green";

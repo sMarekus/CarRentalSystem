@@ -1,35 +1,61 @@
-﻿@page "/CarHistory/{carId:int}"
+﻿@page "/cars/{carId:int}/reservations-history"
 @inject IReservationService reservationService;
 @inject ICarService carService;
 @using Domain.Models
 @using HttpClients.ClientInterfaces
 @attribute [Authorize(Policy = "MustBeAdmin")]
 
-
-<h3>Car History</h3>
-
 <div class="container">
+    <div>
     @if (car != null)
     {
-        <label>Reservations of @car.Model (@car.Brand):</label>
-    }
-    @if (reservations != null)
-    {
-        @foreach (var r in reservations)
+        <div class="text-center">
+            <h2>@car.Brand @car.Model</h2>
+            <p>Reservations History</p>
+        </div>
+        
+        @if (reservations != null && reservations.Any())
         {
-            <div class="row-col-6 d-flex">
-                <div class="content">
-                    <h3>Reservation ID: @r.Id</h3>
-                    <p>User: @r.UserName</p>
-                    <p>Start Date: @r.StartDate</p>
-                    <p>End Date: @r.EndDate</p>
-                    <p>Total Price: @r.TotalPrice</p>
-                    <p>Is completed: @r.IsCompleted</p>
-                </div>
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>User</th>
+                    <th>Start Date</th>
+                    <th>End Date</th>
+                    <th>Total Price</th>
+                    <th>Status</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach (var reservation in reservations)
+                {
+                    <tr>
+                        <td>@reservation.Id</td>
+                        <td>@reservation.UserName</td>
+                        <td>@reservation.StartDate.ToString("yyyy-MM-dd")</td>
+                        <td>@reservation.EndDate.ToString("yyyy-MM-dd")</td>
+                        <td>@reservation.TotalPrice.ToString("C")</td>
+                        <td>@(reservation.IsCompleted ? "Completed" : "Uncompleted")</td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <div class="text-center">
+                <h3>No reservations to display.</h3>
             </div>
         }
     }
-
+    else
+    {
+        <div class="text-center">
+            <h3>Car information is not available.</h3>
+        </div>
+    }
+    </div>
 </div>
 
 

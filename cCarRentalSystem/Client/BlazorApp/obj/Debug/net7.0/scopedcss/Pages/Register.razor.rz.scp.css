@@ -13,13 +13,12 @@
 }
 
 .field[b-x3lxt1hyuu]{
-    margin-top: 20px;
     text-align: center;
     justify-content: center;
 }
 
 .acceptbtn[b-x3lxt1hyuu]{
-    color:white;
+    color: white;
     background-color: rgb(132,0,218);
     outline: solid 3px black;
     border-radius: 5px;
@@ -34,52 +33,11 @@
     text-align: center;
 }
 
-#inputFirstName[b-x3lxt1hyuu]{
+.form-control[b-x3lxt1hyuu] {
     padding: 12px 20px;
     resize: vertical;
     min-height: 50px;
     margin-top: 10px;
-    animation: expandWidth-b-x3lxt1hyuu 2s ease-in-out;
-}
-
-#inputLastName[b-x3lxt1hyuu]{
-    padding: 12px 20px;
-    resize: vertical;
-    min-height: 50px;
-    margin-top: 10px;
-    animation: expandWidth-b-x3lxt1hyuu 2s ease-in-out;
-}
-
-#inputEmail[b-x3lxt1hyuu]{
-    padding: 12px 20px;
-    resize: vertical;
-    min-height: 50px;
-    margin-top: 10px;
-    animation: expandWidth-b-x3lxt1hyuu 2s ease-in-out;
-}
-
-#inputPassword[b-x3lxt1hyuu]{
-    padding: 12px 20px;
-    resize: vertical;
-    min-height: 50px;
-    margin-top: 10px;
-    animation: expandWidth-b-x3lxt1hyuu 2s ease-in-out;
-}
-
-#inputCprNumber[b-x3lxt1hyuu]{
-    padding: 12px 20px;
-    resize: vertical;
-    min-height: 50px;
-    margin-top: 10px;
-    animation: expandWidth-b-x3lxt1hyuu 2s ease-in-out;
-}
-
-#inputPhoneNumber[b-x3lxt1hyuu]{
-    padding: 12px 20px;
-    resize: vertical;
-    min-height: 50px;
-    margin-top: 10px;
-    animation: expandWidth-b-x3lxt1hyuu 2s ease-in-out;
 }
 
 #header[b-x3lxt1hyuu]{
@@ -87,13 +45,4 @@
     color: rgb(67, 0, 127);
     font-size: 40px;
     font-weight: 750;
-}
-
-@keyframes expandWidth-b-x3lxt1hyuu {
-    0% {
-        width: 50px;
-    }
-    100% {
-        width: 160px;
-    }
 }

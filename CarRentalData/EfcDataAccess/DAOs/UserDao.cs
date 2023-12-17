@@ -18,7 +18,6 @@ public class UserDao : IUserDao
     {
         try
         {
-            Console.WriteLine("DAO class received request");
             EntityEntry<User>? userEntityEntry = await context.Users.AddAsync(userEntity);
             await context.SaveChangesAsync();
             return userEntityEntry.Entity;

@@ -1322,19 +1322,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\apurv\\.nuget\\packages\\": {}
+    "C:\\Users\\tomim\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\apurv\\OneDrive\\Desktop\\CarRentalSEP\\CarRentalData\\EfcDataAccess\\EfcDataAccess.csproj",
+      "projectUniqueName": "C:\\Users\\tomim\\Documents\\GitHub\\CarRentalSystem\\CarRentalData\\EfcDataAccess\\EfcDataAccess.csproj",
       "projectName": "EfcDataAccess",
-      "projectPath": "C:\\Users\\apurv\\OneDrive\\Desktop\\CarRentalSEP\\CarRentalData\\EfcDataAccess\\EfcDataAccess.csproj",
-      "packagesPath": "C:\\Users\\apurv\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\apurv\\OneDrive\\Desktop\\CarRentalSEP\\CarRentalData\\EfcDataAccess\\obj\\",
+      "projectPath": "C:\\Users\\tomim\\Documents\\GitHub\\CarRentalSystem\\CarRentalData\\EfcDataAccess\\EfcDataAccess.csproj",
+      "packagesPath": "C:\\Users\\tomim\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\tomim\\Documents\\GitHub\\CarRentalSystem\\CarRentalData\\EfcDataAccess\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\apurv\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\tomim\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net7.0"
@@ -1346,8 +1346,8 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "C:\\Users\\apurv\\OneDrive\\Desktop\\CarRentalSEP\\CarRentalData\\Entity\\Entity.csproj": {
-              "projectPath": "C:\\Users\\apurv\\OneDrive\\Desktop\\CarRentalSEP\\CarRentalData\\Entity\\Entity.csproj"
+            "C:\\Users\\tomim\\Documents\\GitHub\\CarRentalSystem\\CarRentalData\\Entity\\Entity.csproj": {
+              "projectPath": "C:\\Users\\tomim\\Documents\\GitHub\\CarRentalSystem\\CarRentalData\\Entity\\Entity.csproj"
             }
           }
         }
